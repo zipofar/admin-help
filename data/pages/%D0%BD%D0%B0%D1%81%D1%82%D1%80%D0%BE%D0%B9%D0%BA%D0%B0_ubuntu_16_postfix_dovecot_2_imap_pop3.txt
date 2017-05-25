@@ -1,0 +1,122 @@
+====== Настройка Ubuntu 16 + Postfix + Dovecot 2 IMAP POP3 ======
+
+===== Работаем с системными пользователями =====
+
+Включаем LDA для системных пользователей
+
+<code>
+#postconf
+mailbox_command = /usr/lib/dovecot/dovecot-lda -f "$SENDER" -a "$RECIPIENT"
+</code>
+
+Включаем логгирование Dovecot-lda
+
+<code>
+#conf.d/10-logging.conf
+log_path = /var/log/dovecot-lda_err.log
+info_log_path = /var/log/dovecot-lda.log
+
+#conf.d/15-lda.conf
+postmaster_address = admin@example.com
+lda_mailbox_autocreate = yes
+lda_mailbox_autosubscribe = yes
+
+#Файлы должны быть доступны на запись для пользователя dovecot
+protocol lda {
+log_path = /var/log/dovecot-lda_err.log
+info_log_path = /var/log/dovecot-lda.log
+}
+</code>
+
+Изменяем местоположение почтовых ящиков
+<code>
+# conf.d/10-mail.conf
+mail_location = maildir:/var/mail/%u/Maildir
+</code>
+
+Попробуем получить почту через POP3 и IMAP с помощью самой простой аутентификации plaintext_auth
+<code>
+# /etc/pam.d/dovecot
+auth required pam_unix.so
+account required pam_unix.so
+
+# conf.d/10-auth.conf
+disable_plaintext_auth = no
+</code>
+
+> //Кстати, посмотреть в Ubuntu, какие порты слушаем//
+<code>
+netstat -vatn
+</code>
+
+==== Попробуем защищенное соединение ====
+
+> //Небольшая ремарка. Что можно использовать в плане безопасности.//
+
+  * Можно шифровать сам пароль на стороне клиента для передачи его серверу
+  * Можно шифровать само соединение с сервером и не шифровать сам пароль или еще и пароль зашифровать
+
+> //В плане шифрования самого соединения, можно пользовать два метода//
+
+  * STARTTLS
+  * SSL/TLS
+
+STARTTLS в принципе тоже самое, что и SSL/TLS, но используется при подключении на стандартный порт 110, 143. Т.е. при начале установления соединения сервер и клиент могут договориться о передаче данных друг другу по защищенному каналу (если и клиент и сервер поддерживают шифрование) или начать работать без шифрования (т.е. просто как текст, что является очень не безопасным).
+
+SSL/TLS использует свои порты 995 - POP3S, 993 - IMAPS. При этом никаких "или" нету. Т.е. устанавливается только защищенное подключение.
+
+Ну, начнем пожалуй. Включим ssl в Dovecot-e.
+
+<code>
+# conf.d/10-ssl.conf
+
+ssl = yes
+# Preferred permissions: root:root 0444
+ssl_cert = </etc/ssl/certs/dovecot.pem
+# Preferred permissions: root:root 0400
+ssl_key = </etc/ssl/private/dovecot.pem
+
+</code>
+
+Создадим сертификат
+
+<code>
+# Запустим специальный скрипт 
+# Перейдем в папку /usr/share/dovecot
+# Запустим ./mkcert.sh
+# Поправим файл dovecot-openssl.cnf -> commonName = FQDN сервера
+</code>
+
+Включим порты: IMAPS = 993, POP3S = 995
+<code>
+# conf.d/10-master.conf
+
+service imap-login {
+  inet_listener imap {
+    port = 143
+  }
+  inet_listener imaps {
+    port = 993
+    ssl = yes
+  }
+  
+service pop3-login {
+  inet_listener pop3 {
+    port = 110
+  }
+  inet_listener pop3s {
+    port = 995
+    ssl = yes
+  }
+
+
+</code>
+
+Ну и все. Должно все работать.
+
+Можно еще выключить использование простого текста при авторизации
+<code>
+# conf.d/10-auth.conf
+
+disable_plaintext_auth = yes
+</code>

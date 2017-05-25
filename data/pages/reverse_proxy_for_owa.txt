@@ -1,0 +1,74 @@
+====== Reverse proxy для доступа к Outlook Web App (OWA) из интернета ======
+
+Жил был почтовый сервер Exchange 2013 во внутренней сети, и все бы ничего, но захотелось получить доступ к почте из сети интернет. Т.к. тупо пробрасывать порт на серевер как-то не по фэншую, а выносить его в DMZ тем более не хотелось, было решено использовать обратный прокси.
+
+Для обеспечения защиты и бесперебойного доступа к OWA из интернета, можно организовать обратный прокси. Сделаем это с помощью nginx.
+
+Создадим файл /etc/nginx/conf.d/proxy.conf (ориг. [[http://blog.adamjoshuasmith.com/deploying-exchange-2016-behind-nginx-free/|Link]])
+
+<code>
+    server
+    {
+        listen 80;
+        server_name owa.example.com;
+        return 301 https://$host$request_uri;
+    }
+
+    server
+    {
+        tcp_nodelay on;
+        listen 443;
+        
+        # Обязательно включить SSL
+        ssl on;
+        
+        ssl_certificate /etc/ssl/certs/nginx-selfsigned.crt;
+        ssl_certificate_key /etc/ssl/private/nginx-selfsigned.key;
+        ssl_session_timeout 5m;
+        server_name owa.example.com;
+        location / {
+                return 301 https://Local_Address;
+        }
+
+        proxy_http_version      1.1;
+        proxy_read_timeout      360;
+        proxy_pass_header       Date;
+        proxy_pass_header       Server;
+        proxy_pass_header       Authorization;
+        proxy_set_header        Host $host;
+        proxy_set_header        X-Real-IP $remote_addr;
+        proxy_set_header        X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_pass_request_headers on;
+#       more_set_input_headers 'Authorization: $http_authorization';
+        proxy_set_header Accept-Encoding "";
+#       more_set_headers -s 401 'WWW-Authenticate: Basic realm="Local_Address"';
+        proxy_buffering off;
+        proxy_set_header Connection "Keep-Alive";
+
+        location ~* ^/owa { proxy_pass https://Local_Address; }
+        location ~* ^/Microsoft-Server-ActiveSync { proxy_pass https://Local_Address; }
+        location ~* ^/ecp { proxy_pass https://Local_Address; }
+        location ~* ^/rpc { proxy_pass https://Local_Address; }
+    }
+    
+    # Local_Address - вписать IP или доменное имя сервера на котором находится Exchange
+    
+</code>
+
+Для создания самоподписанного сертификата можно воспользоваться командой (ориг. [[https://www.digitalocean.com/community/tutorials/how-to-create-a-self-signed-ssl-certificate-for-nginx-in-ubuntu-16-04|Link]])
+
+<code>
+sudo openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout /etc/ssl/private/nginx-selfsigned.key -out /etc/ssl/certs/nginx-selfsigned.crt
+</code>
+
+Самый важный пункт при создании сертификата - Common Name. В это поле надо внести доменное имя, ассоциированное с вашим доменом или более предпочтительно IP адрес сервера (этого сервера) на котором собственно и будет установлен сертификат.
+
+<code>
+Country Name (2 letter code) [AU]:RU
+State or Province Name (full name) [Some-State]:Moscow
+Locality Name (eg, city) []:Moscow
+Organization Name (eg, company) [Internet Widgits Pty Ltd]:MyOrganization
+Organizational Unit Name (eg, section) []:MyOrganization
+Common Name (e.g. server FQDN or YOUR name) []:server_IP_address or domain_name
+Email Address []:admin@your_domain.com
+</code>
