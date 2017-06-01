@@ -10,26 +10,30 @@
 <p>
 Включаем LDA для системных пользователей
 </p>
-<pre class="code">#postconf
+<pre class="code"># /etc/postfix/main.cf
 mailbox_command = /usr/lib/dovecot/dovecot-lda -f &quot;$SENDER&quot; -a &quot;$RECIPIENT&quot;</pre>
 
 <p>
 Включаем логгирование Dovecot-lda
 </p>
-<pre class="code">#conf.d/10-logging.conf
+<pre class="code"># conf.d/10-logging.conf
 log_path = /var/log/dovecot-lda_err.log
 info_log_path = /var/log/dovecot-lda.log
 
-#conf.d/15-lda.conf
-postmaster_address = admin@example.com
-lda_mailbox_autocreate = yes
-lda_mailbox_autosubscribe = yes
-
-#Файлы должны быть доступны на запись для пользователя dovecot
+# Файлы должны быть доступны на запись для пользователя dovecot
+# conf.d/15-lda.conf
 protocol lda {
 log_path = /var/log/dovecot-lda_err.log
 info_log_path = /var/log/dovecot-lda.log
 }</pre>
+
+<p>
+Настройка автосоздания папок почтовых ящиков
+</p>
+<pre class="code"># conf.d/15-lda.conf
+postmaster_address = admin@example.com
+lda_mailbox_autocreate = yes
+lda_mailbox_autosubscribe = yes</pre>
 
 <p>
 Изменяем местоположение почтовых ящиков
@@ -51,7 +55,7 @@ disable_plaintext_auth = no</pre>
 <pre class="code">netstat -vatn</pre>
 
 </div>
-<!-- EDIT2 SECTION "Работаем с системными пользователями" [77-1421] -->
+<!-- EDIT2 SECTION "Работаем с системными пользователями" [77-1559] -->
 <h3 class="sectionedit3" id="попробуем_защищенное_соединение">Попробуем защищенное соединение</h3>
 <div class="level3">
 <blockquote><div class="no">
@@ -129,11 +133,15 @@ service pop3-login {
 </p>
 
 <p>
-Можно еще выключить использование простого текста при авторизации
+И желательно выключить использование простого текста при авторизации
 </p>
 <pre class="code"># conf.d/10-auth.conf
 
 disable_plaintext_auth = yes</pre>
 
+<p>
+<a href="/doku.php?id=%D0%BD%D0%B0%D1%81%D1%82%D1%80%D0%BE%D0%B9%D0%BA%D0%B0_smtp_%D0%B0%D1%83%D1%82%D1%8D%D0%BD%D1%82%D0%B8%D1%84%D0%B8%D0%BA%D0%B0%D1%86%D0%B8%D0%B8_%D0%B2_postfix_%D1%81_%D0%BF%D0%BE%D0%BC%D0%BE%D1%89%D1%8C%D1%8E_dovecot" class="wikilink1" title="настройка_smtp_аутэнтификации_в_postfix_с_помощью_dovecot">Настройка SMTP аутэнтификации в Postfix с помощью Dovecot</a>
+</p>
+
 </div>
-<!-- EDIT3 SECTION "Попробуем защищенное соединение" [1422-] -->
+<!-- EDIT3 SECTION "Попробуем защищенное соединение" [1560-] -->

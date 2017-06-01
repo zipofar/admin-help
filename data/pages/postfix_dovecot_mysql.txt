@@ -1,0 +1,238 @@
+====== Настройка Postfix virtual mailbox + MySQL + Dovecot ======
+
+<color green> ===== Настроим Postfix ===== </color>
+
+**virtual_alias_domains** - домены для которых сервер является местом конечного назначения. Используется данный параметр именно, что в качестве алиаса для домена у которого существуют почтовые ящики. Т.е. письма приходят на адрес admin@book.com и перенаправляются на адрес admin@magazin.com у которого существуют ящики.
+
+**virtual_alias_maps** - псевдонимы для виртуальных почтовых ящиков.
+<code>
+wilma@example.com wilma.pebble@example.com
+pebble@example.com wilma.pebble@example.com
+</code>
+
+**virtual_mailbox_domains** - сообщает серверу Postfix о том, что он является местом конечного назначения для одного или нескольких доменов виртуальных почтовых ящиков.
+
+
+**virtual_mailbox_maps** - сообщает серверу Postfix, где искать ящики получателей в плане физического расположения на сервере.
+
+**relay_domains** -  домены, на которые разрешена пересылка корреспонденции от посторонних (не авторизованных) клиентов.
+
+Создадим конфигурационные файлы с помощью которых Postfix сможет обращаться к MySQL.
+  
+<color red>Таблицы основаны на PostfixAdmin.</color>
+
+<code>
+# /etc/postfix/sql/relay_domains.cf
+
+hosts = 127.0.0.1
+user = postfixadmin
+password = mypassword
+dbname = postfixadmin
+query = SELECT domain FROM domain WHERE domain='%s' and backupmx = '1'
+
+</code>
+
+
+<code>
+# /etc/postfix/sql/virtual_alias_domain_maps.cf
+
+hosts = 127.0.0.1
+user = postfixadmin
+password = mypassword
+dbname = postfixadmin
+query = SELECT goto FROM alias,alias_domain WHERE alias_domain.alias_domain = '%d' and alias.address = CONCAT('%u', '@', alias_domain.target_domain) AND alias.active = 1
+
+</code>
+
+
+<code>
+# /etc/postfix/sql/virtual_alias_maps.cf
+
+hosts = 127.0.0.1
+user = postfixadmin
+password = mypassword
+dbname = postfixadmin
+query = SELECT goto FROM alias WHERE address='%s' AND active = '1'
+
+</code>
+
+
+<code>
+# /etc/postfix/sql/virtual_mailbox_domains.cf
+
+hosts = 127.0.0.1
+user = postfixadmin
+password = mypassword
+dbname = postfixadmin
+query = SELECT domain FROM domain WHERE domain='%s' AND backupmx = '0' AND active = '1'
+
+</code>
+
+
+
+
+<code>
+# /etc/postfix/sql/virtual_mailbox_maps.cf
+
+hosts = 127.0.0.1
+user = postfixadmin
+password = mypassword
+dbname = postfixadmin
+query = SELECT maildir FROM mailbox WHERE username='%s' AND active = '1'
+
+</code>
+
+Файл main.cf
+
+<code>
+
+myhostname = mail.domain.com
+mydomain = domain.com
+myorigin = $myhostname
+
+# Чтобы никто не мог отправлять почту на внешние адреса без аутэнтификации
+mynetworks = 
+
+# Для избежания записи ошибок в лог, создайте файл /etc/postfix/aliases и сделайте пустую карту postmap hash:/etc/postfix/aliases
+
+alias_maps = hash:/etc/postfix/aliases
+
+relay_domains = mysql:/etc/postfix/sql/relay_domains.cf
+virtual_alias_maps = mysql:/etc/postfix/sql/virtual_alias_maps.cf, mysql:/etc/postfix/sql/virtual_alias_domain_maps.cf
+virtual_mailbox_domains = mysql:/etc/postfix/sql/virtual_mailbox_domains.cf
+virtual_mailbox_maps = mysql:/etc/postfix/sql/virtual_mailbox_maps.cf
+
+virtual_transport = dovecot
+
+</code>
+
+Подключим Dovecot в качестве LDA для виртуальных пользователей.
+
+<code>
+# /etc/postfix/master.cf
+# Не забудьте создать пользователя vmail, группу vmail и включить этого польователя в эту группу, gid = 2000, uid = 2000
+
+dovecot   unix  -       n       n       -       -       pipe
+  flags=DRhu user=vmail:vmail argv=/usr/local/libexec/dovecot/dovecot-lda -f ${sender} -d ${recipient}
+</code>
+
+<color green> ===== Настроим Dovecot ===== </color>
+
+<code>
+auth_mechanisms = plain login
+
+# Расскоментируем 
+!include auth-sql.conf.ext
+</code>
+
+<code>
+# 10-logging.conf
+
+# Путь до логов с ошибками
+log_path = /var/log/dovecot-lda-err.log
+
+# Путь до информационных логов
+info_log_path = /var/log/dovecot-lda-info.log
+</code>
+
+<code>
+# 10-mail.conf
+
+#Местоположение почтовых ящиков
+mail_location = maildir:/var/mail/d%/%u/Maildir
+
+# Пользователь и группа, которые будут иметь доступ к директориям в которых находятся почтовые ящики
+# Соответственно сделайте sudo chown vmail:vmail -R /var/mail && sudo chmod 700 -R /var/mail
+mail_uid = 2000
+mail_gid = 2000
+</code>
+
+<code>
+# 15-lda.conf
+
+postmaster_address = admin@example.com
+lda_mailbox_autocreate = yes
+lda_mailbox_autosubscribe = yes
+
+protocol lda {
+  log_path = /var/log/dovecot-lda-err.log
+  info_log_path = /var/log/dovecot-lda-info.log
+}
+</code>
+
+<code>
+# auth-sql.conf.ext
+
+passdb {
+  driver = sql
+  args = /etc/dovecot/dovecot-sql.conf.ext
+}
+
+userdb {
+  driver = sql
+  args = /etc/dovecot/dovecot-sql.conf.ext
+}
+
+</code>
+
+<code>
+# /etc/dovecot/dovecot-sql.conf.ext
+
+driver = mysql
+connect = host=127.0.0.1 dbname=postfixadmin user=postfixadmin password=pa$$word
+
+# В postfixadmin выбрана такая схема шифрования для хранения пароля $CONF['encrypt'] = 'dovecot:CRAM-MD5';
+# Суть в том, что когда клиент подключается по IMAP или POP к нашему серверу,
+# происходит передача пароля от клиента -> серверу. Когда сервер получает пароль, 
+# он его шифрует указанным методом (default_pass_scheme) и сравнивает с паролем (шифрованным методом $CONF['encrypt']) 
+#который находиться в базе MySQL.
+
+default_pass_scheme = CRAM-MD5
+
+user_query = SELECT '/var/mail/%d/%n' as home, 'maildir:/var/mail/%d/%n'as mail, 2000 AS uid, 2000 AS gid FROM mailbox WHERE username = '%u' AND active = '1'
+
+password_query = SELECT username as user, password, '/var/mail/%d/%n' as userdb_home, 'maildir:/var/mail/%d/%n' as userdb_mail, 2000 as userdb_uid, 2000 as userdb_gid FROM mailbox WHERE username = '%u' AND active = '1'
+
+</code>
+
+На данном этапе уже можно отправлять почту на наш сервер. Т.е. почта должна приходить и раскладываться по папкам.
+
+Так же можно проверить порты 110, 143 на предмет их работоспособности.
+
+<code>
+netstat -vatn
+</code>
+
+Если порты не прослушиваються, тогда правим конфиг
+
+<code>
+# 10-master.conf
+
+service imap-login {
+  inet_listener imap {
+    port = 143
+  }
+  inet_listener imaps {
+    port = 993
+    ssl = yes
+  }
+}
+
+service pop3-login {
+  inet_listener pop3 {
+    port = 110
+  }
+  inet_listener pop3s {
+    port = 995
+    ssl = yes
+  }
+}
+
+</code>
+
+Снова проверяем, если и сейчас не прослушиваються, то скорее всего не установлены дополнительные пакеты к Dovecot.
+
+<code>
+sudo apt-get install dovecot-pop3d
+sudo apt-get install dovecot-imapd
+</code>

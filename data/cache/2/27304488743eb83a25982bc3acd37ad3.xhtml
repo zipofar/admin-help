@@ -1,0 +1,94 @@
+
+<h1 class="sectionedit1" id="настройка_virtual_domain_mysql_в_postfix">Настройка Virtual Domain + MySQL в Postfix</h1>
+<div class="level1">
+
+<p>
+<strong>virtual_alias_domains</strong> - домены для которых сервер является местом конечного назначения. Используется данный параметр именно, что в качестве алиаса для домена у которого существуют почтовые ящики. Т.е. письма приходят на адрес admin@book.com и перенаправляются на адрес admin@magazin.com у которого существуют ящики.
+</p>
+
+<p>
+<strong>virtual_alias_maps</strong> - псевдонимы для виртуальных почтовых ящиков.
+</p>
+<pre class="code">wilma@example.com wilma.pebble@example.com
+pebble@example.com wilma.pebble@example.com</pre>
+
+<p>
+<strong>virtual_mailbox_domains</strong> - сообщает серверу Postfix о том, что он является местом конечного назначения для одного или нескольких доменов виртуальных почтовых ящиков.
+</p>
+
+<p>
+<strong>virtual_mailbox_maps</strong> - сообщает серверу Postfix, где искать ящики получателей в плане физического расположения на сервере.
+</p>
+
+<p>
+<strong>relay_domains</strong> -  домены, на которые разрешена пересылка корреспонденции от посторонних (не авторизованных) клиентов.
+</p>
+
+<p>
+Создадим конфигурационные файлы с помощью которых Postfix сможет обращаться к MySQL.
+</p>
+
+<p>
+Таблицы основаны на PostfixAdmin.
+</p>
+<pre class="code"># /etc/postfix/sql/relay_domains.cf
+
+hosts = 127.0.0.1
+user = postfixadmin
+password = mypassword
+dbname = postfixadmin
+query = SELECT domain FROM domain WHERE domain=&#039;%s&#039; and backupmx = &#039;1&#039;
+</pre>
+<pre class="code"># /etc/postfix/sql/virtual_alias_domain_maps.cf
+
+hosts = 127.0.0.1
+user = postfixadmin
+password = mypassword
+dbname = postfixadmin
+query = SELECT goto FROM alias,alias_domain WHERE alias_domain.alias_domain = &#039;%d&#039; and alias.address = CONCAT(&#039;%u&#039;, &#039;@&#039;, alias_domain.target_domain) AND alias.active = 1
+</pre>
+<pre class="code"># /etc/postfix/sql/virtual_alias_maps.cf
+
+hosts = 127.0.0.1
+user = postfixadmin
+password = mypassword
+dbname = postfixadmin
+query = SELECT goto FROM alias WHERE address=&#039;%s&#039; AND active = &#039;1&#039;
+</pre>
+<pre class="code"># /etc/postfix/sql/virtual_mailbox_domains.cf
+
+hosts = 127.0.0.1
+user = postfixadmin
+password = mypassword
+dbname = postfixadmin
+query = SELECT domain FROM domain WHERE domain=&#039;%s&#039; AND backupmx = &#039;0&#039; AND active = &#039;1&#039;
+</pre>
+<pre class="code"># /etc/postfix/sql/virtual_mailbox_maps.cf
+
+hosts = 127.0.0.1
+user = postfixadmin
+password = mypassword
+dbname = postfixadmin
+query = SELECT maildir FROM mailbox WHERE username=&#039;%s&#039; AND active = &#039;1&#039;
+</pre>
+
+<p>
+Файл main.cf
+</p>
+<pre class="code">
+myhostname = mail.domain.com
+mydomain = domain.com
+myorigin = $myhostname
+
+mynetworks = 127.0.0.0/8
+
+alias_maps = hash:/etc/postfix/aliases
+
+relay_domains = mysql:/etc/postfix/sql/relay_domains.cf
+virtual_alias_maps = mysql:/etc/postfix/sql/virtual_alias_maps.cf, mysql:/etc/postfix/sql/virtual_alias_domain_maps.cf
+virtual_mailbox_domains = mysql:/etc/postfix/sql/virtual_mailbox_domains.cf
+virtual_mailbox_maps = mysql:/etc/postfix/sql/virtual_mailbox_maps.cf
+
+</pre>
+
+</div>

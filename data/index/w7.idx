@@ -149,3 +149,13 @@ account
 disable
 netstat
 service
+clients
+options
+encrypt
+virtual
+domains
+patrick
+magazin
+aliases
+libexec
+postmap

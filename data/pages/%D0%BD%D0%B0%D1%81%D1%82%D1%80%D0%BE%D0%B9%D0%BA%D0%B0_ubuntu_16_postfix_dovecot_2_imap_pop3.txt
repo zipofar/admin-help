@@ -5,27 +5,32 @@
 Включаем LDA для системных пользователей
 
 <code>
-#postconf
+# /etc/postfix/main.cf
 mailbox_command = /usr/lib/dovecot/dovecot-lda -f "$SENDER" -a "$RECIPIENT"
 </code>
 
 Включаем логгирование Dovecot-lda
 
 <code>
-#conf.d/10-logging.conf
+# conf.d/10-logging.conf
 log_path = /var/log/dovecot-lda_err.log
 info_log_path = /var/log/dovecot-lda.log
 
-#conf.d/15-lda.conf
-postmaster_address = admin@example.com
-lda_mailbox_autocreate = yes
-lda_mailbox_autosubscribe = yes
-
-#Файлы должны быть доступны на запись для пользователя dovecot
+# Файлы должны быть доступны на запись для пользователя dovecot
+# conf.d/15-lda.conf
 protocol lda {
 log_path = /var/log/dovecot-lda_err.log
 info_log_path = /var/log/dovecot-lda.log
 }
+</code>
+
+Настройка автосоздания папок почтовых ящиков
+
+<code>
+# conf.d/15-lda.conf
+postmaster_address = admin@example.com
+lda_mailbox_autocreate = yes
+lda_mailbox_autosubscribe = yes
 </code>
 
 Изменяем местоположение почтовых ящиков
@@ -114,9 +119,11 @@ service pop3-login {
 
 Ну и все. Должно все работать.
 
-Можно еще выключить использование простого текста при авторизации
+И желательно выключить использование простого текста при авторизации
 <code>
 # conf.d/10-auth.conf
 
 disable_plaintext_auth = yes
 </code>
+
+[[Настройка SMTP аутэнтификации в Postfix с помощью Dovecot|Настройка SMTP аутэнтификации в Postfix с помощью Dovecot]] 

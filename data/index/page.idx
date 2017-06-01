@@ -6,3 +6,6 @@ sidebar
 start
 reverse_proxy_for_owa
 настройка_ubuntu_16_postfix_dovecot_2_imap_pop3
+настройка_smtp_аутэнтификации_в_postfix_с_помощью_dovecot
+настройка_virtual_domain_mysql_в_postfix
+postfix_dovecot_mysql
