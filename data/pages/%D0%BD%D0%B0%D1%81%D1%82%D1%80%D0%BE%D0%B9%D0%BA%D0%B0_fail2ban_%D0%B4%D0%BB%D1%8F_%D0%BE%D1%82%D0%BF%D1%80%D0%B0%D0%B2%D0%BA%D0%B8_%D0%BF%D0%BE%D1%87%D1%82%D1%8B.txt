@@ -1,0 +1,15 @@
+====== Настройка fail2ban для отправки почты ======
+
+Внутри каждого jail нужно добавить action = %(action_mwl)s
+
+<code>
+# Пример для ssh
+
+[sshd]
+
+bantime = 60
+port    = ssh
+logpath = %(sshd_log)s
+action = %(action_mwl)s
+
+</code>

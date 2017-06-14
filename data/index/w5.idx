@@ -170,3 +170,6 @@ chown
 chmod
 pop3d
 imapd
+сron
+28225
+quiet

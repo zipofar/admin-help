@@ -4,3 +4,8 @@
   * [[Настройка Ubuntu 16 + Postfix + Dovecot 2 IMAP POP3]]
   * [[Настройка SMTP аутэнтификации в Postfix с помощью Dovecot|Настройка SMTP аутэнтификации в Postfix с помощью Dovecot]]
   * [[Postfix + Dovecot + MySQL|Postfix + Dovecot + MySQL]]
+
+====== Linux ======
+
+  * [[ cron спамит auth.log | cron спамит auth.log (pam_unix(cron:session): session opened for user root by (uid=0))]]
+  * [[ настройка fail2ban для отправки почты | настройка fail2ban для отправки почты ]]

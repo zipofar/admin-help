@@ -9,3 +9,5 @@ Reverse proxy для доступа к Outlook Web App (OWA) из интерне
 Настройка SMTP аутэнтификации в Postfix с помощью Dovecot
 
 Настройка Postfix virtual mailbox + MySQL + Dovecot
+Сron спамит auth.log (pam_unix(cron:session): session opened for user root by (uid=0))
+Настройка fail2ban для отправки почты

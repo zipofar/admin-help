@@ -1,0 +1,17 @@
+====== Сron спамит auth.log (pam_unix(cron:session): session opened for user root by (uid=0)) ======
+
+Вот такие записи бывают в /etc/var/auth.log
+
+<code>
+Jun  2 10:39:01 mail-serv CRON[28225]: pam_unix(cron:session): session opened for user root by (uid=0)
+Jun  2 10:39:02 mail-serv CRON[28225]: pam_unix(cron:session): session closed for user root
+</code>
+
+Для устранения можно использовать следующее
+
+<code>
+# /etc/pam.d/common-session-noninteractive
+
+# Найти строку: session required        pam_unix.so
+# И над ней добавить: session     [success=1 default=ignore] pam_succeed_if.so service in cron quiet use_uid
+</code>

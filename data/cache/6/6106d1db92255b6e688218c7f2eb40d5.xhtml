@@ -10,26 +10,30 @@
 <p>
 Включаем LDA для системных пользователей
 </p>
-<pre class="code">#postconf
+<pre class="code"># /etc/postfix/main.cf
 mailbox_command = /usr/lib/dovecot/dovecot-lda -f &quot;$SENDER&quot; -a &quot;$RECIPIENT&quot;</pre>
 
 <p>
 Включаем логгирование Dovecot-lda
 </p>
-<pre class="code">#conf.d/10-logging.conf
+<pre class="code"># conf.d/10-logging.conf
 log_path = /var/log/dovecot-lda_err.log
 info_log_path = /var/log/dovecot-lda.log
 
-#conf.d/15-lda.conf
-postmaster_address = admin@example.com
-lda_mailbox_autocreate = yes
-lda_mailbox_autosubscribe = yes
-
-#Файлы должны быть доступны на запись для пользователя dovecot
+# Файлы должны быть доступны на запись для пользователя dovecot
+# conf.d/15-lda.conf
 protocol lda {
 log_path = /var/log/dovecot-lda_err.log
 info_log_path = /var/log/dovecot-lda.log
 }</pre>
+
+<p>
+Настройка автосоздания папок почтовых ящиков
+</p>
+<pre class="code"># conf.d/15-lda.conf
+postmaster_address = admin@example.com
+lda_mailbox_autocreate = yes
+lda_mailbox_autosubscribe = yes</pre>
 
 <p>
 Изменяем местоположение почтовых ящиков
@@ -51,7 +55,7 @@ disable_plaintext_auth = no</pre>
 <pre class="code">netstat -vatn</pre>
 
 </div>
-<!-- EDIT2 SECTION "Работаем с системными пользователями" [77-1421] -->
+<!-- EDIT2 SECTION "Работаем с системными пользователями" [77-1559] -->
 <h3 class="sectionedit3" id="попробуем_защищенное_соединение">Попробуем защищенное соединение</h3>
 <div class="level3">
 <blockquote><div class="no">
@@ -129,7 +133,7 @@ service pop3-login {
 </p>
 
 <p>
-Можно еще выключить использование простого текста при авторизации
+И желательно выключить использование простого текста при авторизации
 </p>
 <pre class="code"># conf.d/10-auth.conf
 
@@ -140,4 +144,4 @@ disable_plaintext_auth = yes</pre>
 </p>
 
 </div>
-<!-- EDIT3 SECTION "Попробуем защищенное соединение" [1422-] -->
+<!-- EDIT3 SECTION "Попробуем защищенное соединение" [1560-] -->

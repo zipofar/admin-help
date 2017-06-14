@@ -1,0 +1,18 @@
+
+<h1 class="sectionedit1" id="настройка_fail2ban_для_отправки_почты">Настройка fail2ban для отправки почты</h1>
+<div class="level1">
+
+<p>
+Внутри каждого jail нужно добавить action = %(action_mwl)s
+</p>
+<pre class="code"># Пример для ssh
+
+[sshd]
+
+bantime = 60
+port    = ssh
+logpath = %(sshd_log)s
+action = %(action_mwl)s
+</pre>
+
+</div>
