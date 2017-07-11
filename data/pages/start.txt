@@ -4,6 +4,7 @@
   * [[Настройка Ubuntu 16 + Postfix + Dovecot 2 IMAP POP3]]
   * [[Настройка SMTP аутэнтификации в Postfix с помощью Dovecot|Настройка SMTP аутэнтификации в Postfix с помощью Dovecot]]
   * [[Postfix + Dovecot + MySQL|Postfix + Dovecot + MySQL]]
+  * [[Postfix ограничить число исходящих соединений|Postfix ограничить число исходящих соединений]]
 
 ====== Linux ======
 

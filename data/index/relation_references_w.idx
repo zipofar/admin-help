@@ -16,3 +16,4 @@ postfix_dovecot_mysql
 cron_спамит_auth.log_pam_unix_cron:session:session_opened_for_user_root_by_uid_0
 cron_спамит_auth.log
 настройка_fail2ban_для_отправки_почты
+postfix_ограничить_число_исходящих_соединений
