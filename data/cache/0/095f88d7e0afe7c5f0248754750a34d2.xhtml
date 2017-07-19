@@ -11,10 +11,7 @@
 </p>
 <pre class="code"># /etc/postfix/master.cf
 
-# Если не используете relay, то можно просто ограничить количество исходящих подключений
-smtp      unix  -       -       n       -       -       smtp
-
-# При использовании relay достаточно изменить только эту строчку (вместо &quot;-&quot; ставим &quot;1&quot;). Цифра 1 = количество соединений
+smtp      unix  -       -       n       -       1       smtp
 relay     unix  -       -       n       -       1       smtp</pre>
 
 <p>
@@ -22,10 +19,7 @@ relay     unix  -       -       n       -       1       smtp</pre>
 </p>
 <pre class="code"># /etc/postfix/main.cf
 
-# При использовании relay достаточно добавить только этот параметр
 relay_destination_concurrency_limit = 1
-
-# Если не используете relay, то
 smtp_destination_concurrency_limit = 1</pre>
 
 </div>

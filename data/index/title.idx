@@ -12,3 +12,5 @@ Reverse proxy для доступа к Outlook Web App (OWA) из интерне
 Сron спамит auth.log (pam_unix(cron:session): session opened for user root by (uid=0))
 Настройка fail2ban для отправки почты
 Postfix ограничить число исходящих соединений
+
+Postfix с использованием виртуальных пользователей и Dovecot в качестве LDA и текстовой базой данных.

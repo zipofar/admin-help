@@ -17,3 +17,5 @@ cron_спамит_auth.log_pam_unix_cron:session:session_opened_for_user_root_by
 cron_спамит_auth.log
 настройка_fail2ban_для_отправки_почты
 postfix_ограничить_число_исходящих_соединений
+telnet_993_port
+postfix_dovecot_virtual_users_and_passwd

@@ -82,7 +82,7 @@ smtpd_relay_restrictions = permit_mynetworks, permit_sasl_authenticated, reject_
 И еще немного сахарку. Может захотеться, чтобы клиенты желающие отправлять почту через наш сервер подключались только и сразу с помощью шифрованного соединения. Для этого предусмотрен порт 465. Включить его можно следующим способом.
 
 <code>
-# /etc/postfix/main.cf
+# /etc/postfix/master.cf
 smtps inet n - n - - smtpd 
     -o smtpd_tls_wrappermode=yes 
     -o smtpd_sasl_auth_enable=yes
