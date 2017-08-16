@@ -1,0 +1,9 @@
+====== LVM ======
+
+[[https://wiki.archlinux.org/index.php/LVM_(%D0%A0%D1%83%D1%81%D1%81%D0%BA%D0%B8%D0%B9)#.D0.A0.D0.B0.D0.B7.D0.BC.D0.B5.D1.82.D0.BA.D0.B0_.D0.B4.D0.B8.D1.81.D0.BA.D0.BE.D0.B2|LVM (wiki.archlinux)]]
+
+[[https://habrahabr.ru/post/67283/|LVM (Habr)]]
+
+[[http://xgu.ru/wiki/LVM|LVM (xgu.ru)]]
+
+[[https://www.clevernetsystems.com/lvm-snapshots-explained/|LVM SnapShot Explained]]

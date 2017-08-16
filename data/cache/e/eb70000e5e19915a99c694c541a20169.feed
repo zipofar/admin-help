@@ -11,17 +11,19 @@
         <description></description>
         <link>http://zipofar.ru/</link>
         <image rdf:resource="http://zipofar.ru/lib/tpl/dokuwiki/images/favicon.ico" />
-       <dc:date>2017-07-17T21:50:23+03:00</dc:date>
+       <dc:date>2017-08-01T10:21:03+03:00</dc:date>
         <items>
             <rdf:Seq>
                 <rdf:li rdf:resource="http://zipofar.ru/doku.php?id=%D0%BD%D0%B0%D1%81%D1%82%D1%80%D0%BE%D0%B9%D0%BA%D0%B0_fail2ban_%D0%B4%D0%BB%D1%8F_%D0%BE%D1%82%D0%BF%D1%80%D0%B0%D0%B2%D0%BA%D0%B8_%D0%BF%D0%BE%D1%87%D1%82%D1%8B&amp;rev=1496411821&amp;do=diff"/>
-                <rdf:li rdf:resource="http://zipofar.ru/doku.php?id=%D0%BD%D0%B0%D1%81%D1%82%D1%80%D0%BE%D0%B9%D0%BA%D0%B0_smtp_%D0%B0%D1%83%D1%82%D1%8D%D0%BD%D1%82%D0%B8%D1%84%D0%B8%D0%BA%D0%B0%D1%86%D0%B8%D0%B8_%D0%B2_postfix_%D1%81_%D0%BF%D0%BE%D0%BC%D0%BE%D1%89%D1%8C%D1%8E_dovecot&amp;rev=1496045263&amp;do=diff"/>
+                <rdf:li rdf:resource="http://zipofar.ru/doku.php?id=%D0%BD%D0%B0%D1%81%D1%82%D1%80%D0%BE%D0%B9%D0%BA%D0%B0_smtp_%D0%B0%D1%83%D1%82%D1%8D%D0%BD%D1%82%D0%B8%D1%84%D0%B8%D0%BA%D0%B0%D1%86%D0%B8%D0%B8_%D0%B2_postfix_%D1%81_%D0%BF%D0%BE%D0%BC%D0%BE%D1%89%D1%8C%D1%8E_dovecot&amp;rev=1500453792&amp;do=diff"/>
                 <rdf:li rdf:resource="http://zipofar.ru/doku.php?id=%D0%BD%D0%B0%D1%81%D1%82%D1%80%D0%BE%D0%B9%D0%BA%D0%B0_ubuntu_16_postfix_dovecot_2_imap_pop3&amp;rev=1496314445&amp;do=diff"/>
                 <rdf:li rdf:resource="http://zipofar.ru/doku.php?id=cron_%D1%81%D0%BF%D0%B0%D0%BC%D0%B8%D1%82_auth.log&amp;rev=1496391445&amp;do=diff"/>
                 <rdf:li rdf:resource="http://zipofar.ru/doku.php?id=postfix_%D0%BE%D0%B3%D1%80%D0%B0%D0%BD%D0%B8%D1%87%D0%B8%D1%82%D1%8C_%D1%87%D0%B8%D1%81%D0%BB%D0%BE_%D0%B8%D1%81%D1%85%D0%BE%D0%B4%D1%8F%D1%89%D0%B8%D1%85_%D1%81%D0%BE%D0%B5%D0%B4%D0%B8%D0%BD%D0%B5%D0%BD%D0%B8%D0%B9&amp;rev=1500022281&amp;do=diff"/>
                 <rdf:li rdf:resource="http://zipofar.ru/doku.php?id=postfix_dovecot_mysql&amp;rev=1496245807&amp;do=diff"/>
+                <rdf:li rdf:resource="http://zipofar.ru/doku.php?id=postfix_dovecot_virtual_users_and_passwd&amp;rev=1500474370&amp;do=diff"/>
                 <rdf:li rdf:resource="http://zipofar.ru/doku.php?id=reverse_proxy_for_owa&amp;rev=1493380568&amp;do=diff"/>
-                <rdf:li rdf:resource="http://zipofar.ru/doku.php?id=start&amp;rev=1499676332&amp;do=diff"/>
+                <rdf:li rdf:resource="http://zipofar.ru/doku.php?id=start&amp;rev=1500471287&amp;do=diff"/>
+                <rdf:li rdf:resource="http://zipofar.ru/doku.php?id=telnet_993_port&amp;rev=1500471018&amp;do=diff"/>
             </rdf:Seq>
         </items>
     </channel>
@@ -49,11 +51,11 @@ port    = ssh
 logpath = %(sshd_log)s
 action = %(action_mwl)s</description>
     </item>
-    <item rdf:about="http://zipofar.ru/doku.php?id=%D0%BD%D0%B0%D1%81%D1%82%D1%80%D0%BE%D0%B9%D0%BA%D0%B0_smtp_%D0%B0%D1%83%D1%82%D1%8D%D0%BD%D1%82%D0%B8%D1%84%D0%B8%D0%BA%D0%B0%D1%86%D0%B8%D0%B8_%D0%B2_postfix_%D1%81_%D0%BF%D0%BE%D0%BC%D0%BE%D1%89%D1%8C%D1%8E_dovecot&amp;rev=1496045263&amp;do=diff">
+    <item rdf:about="http://zipofar.ru/doku.php?id=%D0%BD%D0%B0%D1%81%D1%82%D1%80%D0%BE%D0%B9%D0%BA%D0%B0_smtp_%D0%B0%D1%83%D1%82%D1%8D%D0%BD%D1%82%D0%B8%D1%84%D0%B8%D0%BA%D0%B0%D1%86%D0%B8%D0%B8_%D0%B2_postfix_%D1%81_%D0%BF%D0%BE%D0%BC%D0%BE%D1%89%D1%8C%D1%8E_dovecot&amp;rev=1500453792&amp;do=diff">
         <dc:format>text/html</dc:format>
-        <dc:date>2017-05-29T11:07:43+03:00</dc:date>
+        <dc:date>2017-07-19T11:43:12+03:00</dc:date>
         <title>настройка_smtp_аутэнтификации_в_postfix_с_помощью_dovecot</title>
-        <link>http://zipofar.ru/doku.php?id=%D0%BD%D0%B0%D1%81%D1%82%D1%80%D0%BE%D0%B9%D0%BA%D0%B0_smtp_%D0%B0%D1%83%D1%82%D1%8D%D0%BD%D1%82%D0%B8%D1%84%D0%B8%D0%BA%D0%B0%D1%86%D0%B8%D0%B8_%D0%B2_postfix_%D1%81_%D0%BF%D0%BE%D0%BC%D0%BE%D1%89%D1%8C%D1%8E_dovecot&amp;rev=1496045263&amp;do=diff</link>
+        <link>http://zipofar.ru/doku.php?id=%D0%BD%D0%B0%D1%81%D1%82%D1%80%D0%BE%D0%B9%D0%BA%D0%B0_smtp_%D0%B0%D1%83%D1%82%D1%8D%D0%BD%D1%82%D0%B8%D1%84%D0%B8%D0%BA%D0%B0%D1%86%D0%B8%D0%B8_%D0%B2_postfix_%D1%81_%D0%BF%D0%BE%D0%BC%D0%BE%D1%89%D1%8C%D1%8E_dovecot&amp;rev=1500453792&amp;do=diff</link>
         <description>Настройка SMTP аутэнтификации в Postfix с помощью Dovecot
 
 Основную часть настройки авторизации Dovecot-а смотреть здесь.
@@ -108,6 +110,17 @@ Jun  2 10:39:02 mail-serv CRON[28225]: pam_unix(cron:session): session closed fo
 
 virtual_alias_domains - домены для которых сервер является местом конечного назначения. Используется данный параметр именно, что в качестве алиаса для домена у которого существуют почтовые ящики. Т.е. письма приходят на адрес admin@book.com и перенаправляются на адрес admin@magazin.com у которого существуют ящики.…</description>
     </item>
+    <item rdf:about="http://zipofar.ru/doku.php?id=postfix_dovecot_virtual_users_and_passwd&amp;rev=1500474370&amp;do=diff">
+        <dc:format>text/html</dc:format>
+        <dc:date>2017-07-19T17:26:10+03:00</dc:date>
+        <title>postfix_dovecot_virtual_users_and_passwd</title>
+        <link>http://zipofar.ru/doku.php?id=postfix_dovecot_virtual_users_and_passwd&amp;rev=1500474370&amp;do=diff</link>
+        <description>Postfix с использованием виртуальных пользователей и Dovecot в качестве LDA и текстовой базой данных.
+
+Сначала настроим postfix.
+
+Здесь представлен только фрагмент  конфига.</description>
+    </item>
     <item rdf:about="http://zipofar.ru/doku.php?id=reverse_proxy_for_owa&amp;rev=1493380568&amp;do=diff">
         <dc:format>text/html</dc:format>
         <dc:date>2017-04-28T14:56:08+03:00</dc:date>
@@ -117,11 +130,11 @@ virtual_alias_domains - домены для которых сервер явля
 
 Жил был почтовый сервер Exchange 2013 во внутренней сети, и все бы ничего, но захотелось получить доступ к почте из сети интернет. Т.к. тупо пробрасывать порт на серевер как-то не по фэншую, а выносить его в DMZ тем более не хотелось, было решено использовать обратный прокси.…</description>
     </item>
-    <item rdf:about="http://zipofar.ru/doku.php?id=start&amp;rev=1499676332&amp;do=diff">
+    <item rdf:about="http://zipofar.ru/doku.php?id=start&amp;rev=1500471287&amp;do=diff">
         <dc:format>text/html</dc:format>
-        <dc:date>2017-07-10T11:45:32+03:00</dc:date>
+        <dc:date>2017-07-19T16:34:47+03:00</dc:date>
         <title>start</title>
-        <link>http://zipofar.ru/doku.php?id=start&amp;rev=1499676332&amp;do=diff</link>
+        <link>http://zipofar.ru/doku.php?id=start&amp;rev=1500471287&amp;do=diff</link>
         <description>Почта (Exchange, Postfix, Dovecot)
 
 	*  Reverse proxy (обратный прокси) для доступа к Outlook Web App (OWA) из интернета
@@ -129,10 +142,19 @@ virtual_alias_domains - домены для которых сервер явля
 	*  Настройка SMTP аутэнтификации в Postfix с помощью Dovecot
 	*  Postfix + Dovecot + MySQL
 	*  Postfix ограничить число исходящих соединений
+	*  Telnet 993 port
+	*  Postfix + Dovecot virtual users and passwd
 
 Linux
 
 	*   cron спамит auth.log (pam_unix(cron:session): session opened for user root by (uid=0))
-	*   настройка fail2ban для отправки почты…</description>
+	*   настройка…</description>
+    </item>
+    <item rdf:about="http://zipofar.ru/doku.php?id=telnet_993_port&amp;rev=1500471018&amp;do=diff">
+        <dc:format>text/html</dc:format>
+        <dc:date>2017-07-19T16:30:18+03:00</dc:date>
+        <title>telnet_993_port</title>
+        <link>http://zipofar.ru/doku.php?id=telnet_993_port&amp;rev=1500471018&amp;do=diff</link>
+        <description>openssl s_client -connect imap.gmail.com:993 -crlf</description>
     </item>
 </rdf:RDF>

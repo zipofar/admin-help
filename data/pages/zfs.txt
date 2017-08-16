@@ -1,0 +1,7 @@
+====== ZFS ======
+
+[[http://onreader.mdl.ru/AdvancedZFS/content/Ch05.html|ZFS на русском]]
+
+[[https://pthree.org/2012/12/21/zfs-administration-part-xiv-zvols/|ZFS on English]]
+
+[[http://docs.oracle.com/cd/E19253-01/819-5461/6n7ht6r60/index.html|Oracle Solaris ZFS Administration Guide]]

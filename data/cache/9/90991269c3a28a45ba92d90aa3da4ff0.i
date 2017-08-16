@@ -1,0 +1,5 @@
+a:12:{i:0;a:3:{i:0;s:14:"document_start";i:1;a:0:{}i:2;i:0;}i:1;a:3:{i:0;s:6:"header";i:1;a:3:{i:0;s:16:"Hyper-V + Ubuntu";i:1;i:1;i:2;i:1;}i:2;i:1;}i:2;a:3:{i:0;s:12:"section_open";i:1;a:1:{i:0;i:1;}i:2;i:1;}i:3;a:3:{i:0;s:6:"p_open";i:1;a:0:{}i:2;i:1;}i:4;a:3:{i:0;s:12:"externallink";i:1;a:2:{i:0;s:115:"https://docs.microsoft.com/en-us/windows-server/virtualization/hyper-v/supported-ubuntu-virtual-machines-on-hyper-v";i:1;s:25:"Official Doc by Microsoft";}i:2;i:33;}i:5;a:3:{i:0;s:7:"p_close";i:1;a:0:{}i:2;i:178;}i:6;a:3:{i:0;s:6:"p_open";i:1;a:0:{}i:2;i:178;}i:7;a:3:{i:0;s:5:"cdata";i:1;a:1:{i:0;s:78:"Для установки служб интеграции Hyper-v в Ubuntu 16";}i:2;i:180;}i:8;a:3:{i:0;s:7:"p_close";i:1;a:0:{}i:2;i:258;}i:9;a:3:{i:0;s:4:"code";i:1;a:3:{i:0;s:114:"
+apt-get update
+apt-get install linux-image-virtual
+apt-get install linux-tools-virtual linux-cloud-tools-virtual
+";i:1;N;i:2;N;}i:2;i:265;}i:10;a:3:{i:0;s:13:"section_close";i:1;a:0:{}i:2;i:387;}i:11;a:3:{i:0;s:12:"document_end";i:1;a:0:{}i:2;i:387;}}

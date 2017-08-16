@@ -1,31 +1,3 @@
-1496242637	91.122.219.149	E	postfix_dovecot_mysql	ingprog			1027
-1496243731	91.122.219.149	E	postfix_dovecot_mysql	ingprog			0
-1496243788	91.122.219.149	E	postfix_dovecot_mysql	ingprog			-2
-1496245106	91.122.219.149	E	postfix_dovecot_mysql	ingprog			666
-1496245128	91.122.219.149	E	postfix_dovecot_mysql	ingprog			2
-1496245191	91.122.219.149	E	postfix_dovecot_mysql	ingprog			5
-1496245753	91.122.219.149	E	postfix_dovecot_mysql	ingprog			-39
-1496245807	91.122.219.149	E	postfix_dovecot_mysql	ingprog			137
-1496314445	91.122.219.149	E	настройка_ubuntu_16_postfix_dovecot_2_imap_pop3	ingprog			6
-1496391107	91.122.219.149	E	start	ingprog			128
-1496391140	91.122.219.149	E	start	ingprog			26
-1496391420	91.122.219.149	C	cron_спамит_auth.log	ingprog	created		713
-1496391445	91.122.219.149	E	cron_спамит_auth.log	ingprog			2
-1496411722	91.122.219.149	E	start	ingprog			138
-1496411821	91.122.219.149	C	настройка_fail2ban_для_отправки_почты	ingprog	created		289
-1499676332	91.122.206.228	E	start	ingprog			168
-1499677770	91.122.206.228	C	postfix_ограничить_число_исходящих_соединений	ingprog	created		1385
-1499677930	91.122.206.228	E	postfix_ограничить_число_исходящих_соединений	ingprog			59
-1500022281	91.122.219.149	E	postfix_ограничить_число_исходящих_соединений	ingprog			-540
-1500453792	91.122.219.149	E	настройка_smtp_аутэнтификации_в_postfix_с_помощью_dovecot	ingprog			2
-1500471011	91.122.219.149	E	start	ingprog			40
-1500471018	91.122.219.149	C	telnet_993_port	ingprog	created		50
-1500471287	91.122.219.149	E	start	ingprog			94
-1500471989	91.122.219.149	C	postfix_dovecot_virtual_users_and_passwd	ingprog	created		1761
-1500472595	91.122.219.149	E	postfix_dovecot_virtual_users_and_passwd	ingprog			1152
-1500472802	91.122.219.149	E	postfix_dovecot_virtual_users_and_passwd	ingprog			543
-1500472844	91.122.219.149	E	postfix_dovecot_virtual_users_and_passwd	ingprog			164
-1500473044	91.122.219.149	E	postfix_dovecot_virtual_users_and_passwd	ingprog			426
 1500473128	91.122.219.149	E	postfix_dovecot_virtual_users_and_passwd	ingprog			128
 1500473206	91.122.219.149	E	postfix_dovecot_virtual_users_and_passwd	ingprog			140
 1500473223	91.122.219.149	E	postfix_dovecot_virtual_users_and_passwd	ingprog			1
@@ -34,3 +6,28 @@
 1500474026	91.122.219.149	E	postfix_dovecot_virtual_users_and_passwd	ingprog			1363
 1500474296	91.122.219.149	E	postfix_dovecot_virtual_users_and_passwd	ingprog	[Теперь настроим Dovecot.] 		521
 1500474370	91.122.219.149	E	postfix_dovecot_virtual_users_and_passwd	ingprog	[Теперь настроим Dovecot.] 		0
+1501837558	91.122.206.228	E	start	ingprog			190
+1501838399	91.122.206.228	C	1c_-_подключение_к_серверу_1с_установленному_на_ubuntu	ingprog	created		1066
+1501838576	91.122.206.228	E	1c_-_подключение_к_серверу_1с_установленному_на_ubuntu	ingprog			360
+1501838618	91.122.206.228	E	1c_-_подключение_к_серверу_1с_установленному_на_ubuntu	ingprog			2
+1501839015	91.122.206.228	E	1c_-_подключение_к_серверу_1с_установленному_на_ubuntu	ingprog			585
+1501839140	91.122.206.228	E	1c_-_подключение_к_серверу_1с_установленному_на_ubuntu	ingprog			316
+1501839733	91.122.206.228	E	1c_-_подключение_к_серверу_1с_установленному_на_ubuntu	ingprog			407
+1501839822	91.122.206.228	E	1c_-_подключение_к_серверу_1с_установленному_на_ubuntu	ingprog			251
+1502012186	62.192.246.21	E	start	ingprog			34
+1502012435	62.192.246.21	C	1с_ubuntu	ingprog	created		444
+1502012708	62.192.246.21	E	1с_ubuntu	ingprog			549
+1502013134	62.192.246.21	E	1с_ubuntu	ingprog			517
+1502866294	91.122.206.228	E	start	ingprog			16
+1502866525	91.122.206.228	C	lvm	ingprog	created		216
+1502866642	91.122.206.228	E	lvm	ingprog			89
+1502866675	91.122.206.228	E	lvm	ingprog			77
+1502866695	91.122.206.228	E	lvm	ingprog			9
+1502867052	91.122.206.228	E	start	ingprog			16
+1502867155	91.122.206.228	C	zfs	ingprog	created		295
+1502867247	91.122.206.228	E	start	ingprog			42
+1502867306	91.122.206.228	C	hyper-v_ubuntu	ingprog	created		177
+1502867594	91.122.206.228	E	hyper-v_ubuntu	ingprog			209
+1502867751	91.122.206.228	E	start	ingprog			92
+1502868207	91.122.206.228	C	не_срабатывают_gpo	ingprog	created		1646
+1502868375	91.122.206.228	E	start	ingprog			4

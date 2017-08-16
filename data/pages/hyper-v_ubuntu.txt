@@ -1,0 +1,11 @@
+====== Hyper-V + Ubuntu ======
+
+[[https://docs.microsoft.com/en-us/windows-server/virtualization/hyper-v/supported-ubuntu-virtual-machines-on-hyper-v|Official Doc by Microsoft]]
+
+Для установки служб интеграции Hyper-v в Ubuntu 16
+
+<code>
+apt-get update
+apt-get install linux-image-virtual
+apt-get install linux-tools-virtual linux-cloud-tools-virtual
+</code>

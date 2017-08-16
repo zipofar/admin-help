@@ -12,3 +12,13 @@
 
   * [[ cron спамит auth.log | cron спамит auth.log (pam_unix(cron:session): session opened for user root by (uid=0))]]
   * [[ настройка fail2ban для отправки почты | настройка fail2ban для отправки почты ]]
+  * [[1C - подключение к серверу 1С установленному на Ubuntu|1C - подключение к серверу 1С установленному на Ubuntu]]
+  * [[1С + Ubuntu|1С + Ubuntu]]
+  * [[LVM|LVM]]
+  * [[ZFS|ZFS]]
+  * [[Hyper-V + Ubuntu|Hyper-V + Ubuntu]]
+
+
+====== Windows ======
+
+  * [[Не срабатывают GPO|Не срабатывают GPO]]
