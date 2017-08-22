@@ -25,3 +25,10 @@ lvm
 zfs
 hyper-v_ubuntu
 не_срабатывают_gpo
+kvm
+ssh
+install_kvm_on_ubuntu_16
+mange_vm_in_kvm
+увеличение_размера_диска_вм_на_lvm
+ip_utility
+сеть_в_kvm

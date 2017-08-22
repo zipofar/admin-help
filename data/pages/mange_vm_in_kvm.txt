@@ -1,0 +1,33 @@
+====== Mange VM in KVM ======
+
+== Clone VM ==
+<code>
+virt-clone -o name-vm1 --name name-vm2-clone --file /dev/ubuntu-vg/vm3
+</code>
+
+== Delete VM ==
+<code>
+virsh destroy name-vm
+virsh undefine name-vm
+</code>
+
+== Add VM ==
+<code>
+virsh define /etc/libvirt/qemu/name-vm.xml
+</code>
+
+== Show All VM ==
+<code>
+virsh list --all
+</code>
+
+== Add disk to VM ==
+<code>
+virsh attach-disk Guest1 /dev/sr0 vdc
+# В ВМ появится диск vdc
+</code>
+
+== Create new MAC address ==
+<code>
+MACADDR="52:54:00:$(dd if=/dev/urandom bs=512 count=1 2>/dev/null | md5sum | sed 's/^\(..\)\(..\)\(..\).*$/\1:\2:\3/')"; echo $MACADDR
+</code>

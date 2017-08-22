@@ -1,0 +1,43 @@
+
+<h1 class="sectionedit1" id="mange_vm_in_kvm">Mange VM in KVM</h1>
+<div class="level1">
+
+</div>
+
+<h5 id="clone_vm">Clone VM</h5>
+<div class="level5">
+<pre class="code">virt-clone -o name-vm1 --name name-vm2-clone --file /dev/ubuntu-vg/vm3</pre>
+
+</div>
+
+<h5 id="delete_vm">Delete VM</h5>
+<div class="level5">
+<pre class="code">virsh destroy name-vm
+virsh undefine name-vm</pre>
+
+</div>
+
+<h5 id="add_vm">Add VM</h5>
+<div class="level5">
+<pre class="code">virsh define /etc/libvirt/qemu/name-vm.xml</pre>
+
+</div>
+
+<h5 id="show_all_vm">Show All VM</h5>
+<div class="level5">
+<pre class="code">virsh list --all</pre>
+
+</div>
+
+<h5 id="add_disk_to_vm">Add disk to VM</h5>
+<div class="level5">
+<pre class="code">virsh attach-disk Guest1 /dev/sr0 vdc
+# В ВМ появится диск vdc</pre>
+
+</div>
+
+<h5 id="create_new_mac_address">Create new MAC address</h5>
+<div class="level5">
+<pre class="code">MACADDR=&quot;52:54:00:$(dd if=/dev/urandom bs=512 count=1 2&gt;/dev/null | md5sum | sed &#039;s/^\(..\)\(..\)\(..\).*$/\1:\2:\3/&#039;)&quot;; echo $MACADDR</pre>
+
+</div>

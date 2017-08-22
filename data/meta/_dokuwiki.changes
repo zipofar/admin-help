@@ -1,23 +1,3 @@
-1500473128	91.122.219.149	E	postfix_dovecot_virtual_users_and_passwd	ingprog			128
-1500473206	91.122.219.149	E	postfix_dovecot_virtual_users_and_passwd	ingprog			140
-1500473223	91.122.219.149	E	postfix_dovecot_virtual_users_and_passwd	ingprog			1
-1500473231	91.122.219.149	E	postfix_dovecot_virtual_users_and_passwd	ingprog			1
-1500473256	91.122.219.149	E	postfix_dovecot_virtual_users_and_passwd	ingprog			12
-1500474026	91.122.219.149	E	postfix_dovecot_virtual_users_and_passwd	ingprog			1363
-1500474296	91.122.219.149	E	postfix_dovecot_virtual_users_and_passwd	ingprog	[Теперь настроим Dovecot.] 		521
-1500474370	91.122.219.149	E	postfix_dovecot_virtual_users_and_passwd	ingprog	[Теперь настроим Dovecot.] 		0
-1501837558	91.122.206.228	E	start	ingprog			190
-1501838399	91.122.206.228	C	1c_-_подключение_к_серверу_1с_установленному_на_ubuntu	ingprog	created		1066
-1501838576	91.122.206.228	E	1c_-_подключение_к_серверу_1с_установленному_на_ubuntu	ingprog			360
-1501838618	91.122.206.228	E	1c_-_подключение_к_серверу_1с_установленному_на_ubuntu	ingprog			2
-1501839015	91.122.206.228	E	1c_-_подключение_к_серверу_1с_установленному_на_ubuntu	ingprog			585
-1501839140	91.122.206.228	E	1c_-_подключение_к_серверу_1с_установленному_на_ubuntu	ingprog			316
-1501839733	91.122.206.228	E	1c_-_подключение_к_серверу_1с_установленному_на_ubuntu	ingprog			407
-1501839822	91.122.206.228	E	1c_-_подключение_к_серверу_1с_установленному_на_ubuntu	ingprog			251
-1502012186	62.192.246.21	E	start	ingprog			34
-1502012435	62.192.246.21	C	1с_ubuntu	ingprog	created		444
-1502012708	62.192.246.21	E	1с_ubuntu	ingprog			549
-1502013134	62.192.246.21	E	1с_ubuntu	ingprog			517
 1502866294	91.122.206.228	E	start	ingprog			16
 1502866525	91.122.206.228	C	lvm	ingprog	created		216
 1502866642	91.122.206.228	E	lvm	ingprog			89
@@ -31,3 +11,84 @@
 1502867751	91.122.206.228	E	start	ingprog			92
 1502868207	91.122.206.228	C	не_срабатывают_gpo	ingprog	created		1646
 1502868375	91.122.206.228	E	start	ingprog			4
+1502968937	91.122.206.228	E	start	ingprog	[Linux] 		16
+1502969026	91.122.206.228	E	start	ingprog	[Linux] 		16
+1502969086	91.122.206.228	C	kvm	ingprog	created		76
+1502969186	91.122.206.228	C	install_kvm_on_ubuntu_16	ingprog	created		125
+1502969375	91.122.206.228	E	install_kvm_on_ubuntu_16	ingprog			421
+1502969419	91.122.206.228	E	install_kvm_on_ubuntu_16	ingprog			67
+1502969577	91.122.206.228	E	install_kvm_on_ubuntu_16	ingprog			88
+1502969671	91.122.206.228	E	install_kvm_on_ubuntu_16	ingprog			323
+1502969698	91.122.206.228	E	install_kvm_on_ubuntu_16	ingprog			2
+1502969825	91.122.206.228	E	install_kvm_on_ubuntu_16	ingprog			266
+1502969973	91.122.206.228	E	install_kvm_on_ubuntu_16	ingprog			267
+1502969994	91.122.206.228	E	install_kvm_on_ubuntu_16	ingprog			-2
+1502970791	91.122.206.228	E	install_kvm_on_ubuntu_16	ingprog			252
+1502972055	91.122.206.228	E	install_kvm_on_ubuntu_16	ingprog			187
+1502972600	91.122.206.228	E	install_kvm_on_ubuntu_16	ingprog			1131
+1502972920	91.122.206.228	E	install_kvm_on_ubuntu_16	ingprog			599
+1502972939	91.122.206.228	E	install_kvm_on_ubuntu_16	ingprog			-6
+1502972957	91.122.206.228	E	install_kvm_on_ubuntu_16	ingprog			3
+1502973122	91.122.206.228	E	install_kvm_on_ubuntu_16	ingprog			101
+1502973379	91.122.206.228	E	install_kvm_on_ubuntu_16	ingprog			238
+1502973701	91.122.206.228	E	install_kvm_on_ubuntu_16	ingprog			59
+1502978759	91.122.206.228	E	kvm	ingprog			40
+1502978778	91.122.206.228	C	mange_vm_in_kvm	ingprog	created		52
+1502978790	91.122.206.228	E	mange_vm_in_kvm	ingprog			-5
+1502978867	91.122.206.228	E	mange_vm_in_kvm	ingprog			133
+1502978873	91.122.206.228	E	mange_vm_in_kvm	ingprog			1
+1502978904	91.122.206.228	E	mange_vm_in_kvm	ingprog			28
+1502978919	91.122.206.228	E	mange_vm_in_kvm	ingprog			0
+1502979074	91.122.206.228	E	mange_vm_in_kvm	ingprog			180
+1502979115	91.122.206.228	E	mange_vm_in_kvm	ingprog			51
+1502979521	91.122.206.228	E	mange_vm_in_kvm	ingprog			72
+1503047882	91.122.206.228	E	kvm	ingprog			130
+1503048305	91.122.206.228	C	увеличение_размера_диска_вм_на_lvm	ingprog	created		712
+1503048560	91.122.206.228	E	увеличение_размера_диска_вм_на_lvm	ingprog			157
+1503048708	91.122.206.228	E	увеличение_размера_диска_вм_на_lvm	ingprog			290
+1503049242	91.122.206.228	E	увеличение_размера_диска_вм_на_lvm	ingprog			318
+1503049624	91.122.206.228	E	увеличение_размера_диска_вм_на_lvm	ingprog			251
+1503049879	91.122.206.228	E	увеличение_размера_диска_вм_на_lvm	ingprog			199
+1503050013	91.122.206.228	E	увеличение_размера_диска_вм_на_lvm	ingprog			193
+1503057397	91.122.206.228	E	mange_vm_in_kvm	ingprog			115
+1503325290	91.122.206.228	E	start	ingprog	[Linux] 		30
+1503325380	91.122.206.228	C	ip_utility	ingprog	created		206
+1503401139	91.122.206.228	E	kvm	ingprog			40
+1503401359	91.122.206.228	C	сеть_в_kvm	ingprog	created		61
+1503401425	91.122.206.228	E	сеть_в_kvm	ingprog			63
+1503401817	91.122.206.228	E	сеть_в_kvm	ingprog			456
+1503401866	91.122.206.228	E	сеть_в_kvm	ingprog			227
+1503402758	91.122.206.228	E	сеть_в_kvm	ingprog			339
+1503403136	91.122.206.228	E	сеть_в_kvm	ingprog			419
+1503403216	91.122.206.228	E	сеть_в_kvm	ingprog			69
+1503403406	91.122.206.228	E	сеть_в_kvm	ingprog			288
+1503403444	91.122.206.228	E	сеть_в_kvm	ingprog			2
+1503403676	91.122.206.228	E	сеть_в_kvm	ingprog			77
+1503404168	91.122.206.228	E	сеть_в_kvm	ingprog			376
+1503404563	91.122.206.228	E	сеть_в_kvm	ingprog			354
+1503404589	91.122.206.228	E	сеть_в_kvm	ingprog			23
+1503404606	91.122.206.228	E	сеть_в_kvm	ingprog			2
+1503404616	91.122.206.228	E	сеть_в_kvm	ingprog			-24
+1503404648	91.122.206.228	E	сеть_в_kvm	ingprog			-49
+1503404665	91.122.206.228	E	сеть_в_kvm	ingprog			1
+1503404672	91.122.206.228	E	сеть_в_kvm	ingprog			1
+1503404710	91.122.206.228	E	сеть_в_kvm	ingprog			-7
+1503404792	91.122.206.228	E	сеть_в_kvm	ingprog			154
+1503404821	91.122.206.228	E	сеть_в_kvm	ingprog			-4
+1503404894	91.122.206.228	E	сеть_в_kvm	ingprog			41
+1503405085	91.122.206.228	E	сеть_в_kvm	ingprog			283
+1503405165	91.122.206.228	E	сеть_в_kvm	ingprog			65
+1503405201	91.122.206.228	E	сеть_в_kvm	ingprog			0
+1503413272	91.122.206.228	E	сеть_в_kvm	ingprog			1521
+1503413553	91.122.206.228	E	сеть_в_kvm	ingprog	[Routed Network] 		295
+1503413720	91.122.206.228	E	сеть_в_kvm	ingprog	[Routed Network] 		260
+1503414018	91.122.206.228	E	сеть_в_kvm	ingprog	[Routed Network] 		728
+1503414052	91.122.206.228	E	сеть_в_kvm	ingprog	[Routed Network] 		8
+1503414626	91.122.206.228	E	сеть_в_kvm	ingprog			514
+1503414949	91.122.206.228	E	сеть_в_kvm	ingprog	[NAT-based Network] 		700
+1503415060	91.122.206.228	E	сеть_в_kvm	ingprog	[NAT-based Network] 		-23
+1503415094	91.122.206.228	E	сеть_в_kvm	ingprog			-2
+1503415138	91.122.206.228	E	сеть_в_kvm	ingprog			82
+1503415226	91.122.206.228	E	сеть_в_kvm	ingprog	[NAT-based Network] 		-47
+1503415361	91.122.206.228	E	сеть_в_kvm	ingprog			298
+1503415463	91.122.206.228	E	сеть_в_kvm	ingprog	[Ссылки] 		101

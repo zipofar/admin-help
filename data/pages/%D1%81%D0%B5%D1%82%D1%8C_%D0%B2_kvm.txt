@@ -1,0 +1,164 @@
+====== Сеть в KVM ======
+
+===== Типы сетей =====
+
+  * Bridget Network
+  * Routed Network
+  * NAT-based Network
+
+===== Bridget Network ===== 
+**Bridge - это некий виртуальный свитч в Linux, к которому можно подключить хост и гостевые ВМ.**
+
+В этом случае хост делит реальный сетевой интерфейс с виртуалками. Работает на втором уровне OSI. Т.е. виртуалка имеет свою виртуальную сетевую карту и соответственно MAC адрес. И когда пакет отправляется в сеть из виртуалки через реальный физический интерфейс, пакет имеет src mac adrress виртуалки, а не физического сетевого интерфейса. Выглядит это как-будто хост имеет много сетевых карт, подключенных к сети.
+
+Кстати, работает bridge только в случае подключения хоста через Ethernet (через провод). Через Wireles (беспроводные) подключения работает только Routed Network или NAT-based Network.
+
+==== Практика ====
+Создаем bridge (виртуальный свитч)
+<code>
+brctl addbr br0
+</code>
+
+Уберем ip адрес с реального интерфейса и назначим его бриджу (bridge).
+<code>
+# /etc/network/interfaces
+
+auto lo br0
+iface lo inet loopback
+
+iface enp2s0 inet manual
+
+iface br0 inet static
+    address 192.168.1.1
+    mask 255.255.255.0
+    bridge_ports enp2s0
+    bridge_stp off
+</code>
+
+Сделаем, чтобы наш бридж использовал реальный сетевой интерфейс для подключения к LAN.
+<code>
+brctl addif br0 enp2s0 && reboot
+# Reboot нужен, если подключаемся по ssh, т.к. после (brctl addif br0 enp2s0) связь потеряется.
+</code>
+
+Настроим сетевую карту для ВМ
+<code>
+$ virsh edit vm-name
+
+<interface type='bridge'>
+   <mac address='52:54:00:c5:97:8b'/>
+   <source bridge='virbr0'/>
+   <model type='virtio'/>
+   <address type='pci' domain='0x0000' bus='0x00' slot='0x03' function='0x0'/>
+</interface>
+
+$ virsh define /etc/libvirt/qemu/vm-name.xml
+</code>
+
+
+
+
+
+===== Routed Network ===== 
+Такая сеть обычно используется в случае, если нет возможности использовать Bridge. Подобная ситуация может возникать из-за ограничений провайдера или если сервер подключен к сети через беспроводную сеть. Виртуальные машины обладают собственными IP адресами, но не привязаны к ним. Вместо этого, пакеты достигают виртуалок с помощью статической маршрутизации, т.е. просто перенаправляются на libvirt сервер и далее на виртуалки (без использования NAT). 
+
+На пример. На роутере к которому подключен kvm сервер, прописываются статические маршруты, что все пакеты для подсети 192.168.1.0/24 перенаправить на адрес kvm сервера (допустим 192.168.1.1). В свою очередь на KVM сервере создаются специальные виртуальные интерфейсы (к которым подключены виртуалки) с назначенными адресами, которые в свою очередь ловят эти перенаправленные пакеты.
+
+**Фича libvirt-а** в том, что когда вы создаете Routed сеть, автоматически создаются iptables правила и маршруты. В принципе можно делать это и вручную для большего контроля.
+
+Routed Network обычно создается с помощью XML файла и далее его применения в качестве аргумента при вызове команды virsh net-define.
+
+**Описываем сеть**
+<code>
+<network>
+  <name>mynet1</name>
+  <bridge name="br1" />
+  <forward mode="route"/>
+  <ip address="203.0.113.88" netmask="255.255.255.248">
+    <dhcp>
+      <range start="203.0.113.89" end="203.0.113.94"/>
+    </dhcp>
+  </ip>
+</network>
+</code>
+
+Создаем сеть
+<code>
+$ virsh net-define /tmp/mynet1.xml
+$ virsh net-autostart mynet1
+$ virsh net-start mynet1
+</code>
+
+Назначаем интерфейс для виртуалки
+<code>
+<interface type="network">
+   <source network="mynet1"/>
+   <mac address="52:54:00:4f:47:f2"/>
+</interface>
+</code>
+
+//Кстати генерить mac адреса можно с помощью команды//
+<code>
+hexdump -vn3 -e '/3 "52:54:00"' -e '/1 ":%02x"' -e '"\n"' /dev/urandom
+</code>
+
+
+
+
+
+
+===== NAT-based Network =====
+Эта сеть является дефолтной, т.е. при установке libvirt появляется автоматически. Использует iptables маскарадинг, а не SNAT или DNAT. Автоматически настраивает iptables для того, чтобы подключенные к данной сети виртуалки могли выходить в реальную сеть с помощью NAT, используя адрес реального интерфейса.
+
+Естественно для того, чтобы достучаться до виртуалок снаружи, придется пробрасывать порты.
+
+Вот так описывается сеть
+<code>
+<network>
+  <name>default</name>
+  <bridge name="virbr0"/>
+  <forward mode="nat"/>
+  <ip address="192.168.122.1" netmask="255.255.255.0">
+    <dhcp>
+      <range start="192.168.122.2" end="192.168.122.254"/>
+    </dhcp>
+  </ip>
+</network>
+</code>
+
+Так описывается интерфейс виртуалки
+<code>
+<interface type="network">
+   <source network="default"/>
+</interface>
+</code>
+
+
+
+
+===== Настройка сетевых карт в гостевых виртуальных машинах =====
+**В случае использования Routed Network или NAT-based Network**
+<code>
+<interface type='network'>
+   <mac address='52:54:00:63:50:fb'/>
+   <source network='virtnet0'/>
+   <model type='virtio'/>
+   <address type='pci' domain='0x0000' bus='0x00' slot='0x03' function='0x0'/>
+</interface>
+</code>
+
+**В случае использования Bridget Network**
+<code>
+<interface type='bridge'>
+   <mac address='52:54:00:c5:97:8b'/>
+   <source bridge='br0'/>
+   <model type='virtio'/>
+   <address type='pci' domain='0x0000' bus='0x00' slot='0x03' function='0x0'/>
+</interface>
+</code>
+
+===== Ссылки =====
+
+  * [[https://jamielinux.com/docs/libvirt-networking-handbook/index.html|libvirt Networking Handbook]]
+  * [[https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/6/html/Virtualization_Administration_Guide/chap-Virtualization_Administration_Guide-Virtual_Networking.html|RedHat Manual]]
+  * [[https://wiki.libvirt.org/page/VirtualNetworking#Virtual_Networking|LibVirt VirtualNetworking]]

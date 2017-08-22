@@ -1,0 +1,31 @@
+
+<h1 class="sectionedit1" id="не_срабатывают_gpo">Не срабатывают GPO</h1>
+<div class="level1">
+
+<p>
+Иногда бывает так-что при просмотре gpresult, политики применяются, но по факту не работают.
+При этом в Журнале событий → Система можно лицезреть подобные ошибки
+</p>
+<pre class="code">Для домена SES нет доступного контроллера домена. Ошибка: 
+Отсутствуют серверы, которые могли бы обработать запрос на вход в сеть...</pre>
+
+<p>
+Обычно подобные ошибки сопровождаются различными номерами 5719, 1054 и др.
+</p>
+
+<p>
+Для решения данной проблемы можно применять следующие шаги:
+</p>
+<ol>
+<li class="level1"><div class="li"> Установить драйвера от производителя для сетевой карты, а не те которые по умолчанию устанавливает Windows</div>
+</li>
+<li class="level1"><div class="li"> Изменить значение в реестре для отключения проверки состояния сетевого подключения для протокола TCP/IP (см. <a href="https://support.microsoft.com/ru-ru/help/239924/how-to-disable-the-media-sensing-feature-for-tcp-ip-in-windows" class="urlextern" title="https://support.microsoft.com/ru-ru/help/239924/how-to-disable-the-media-sensing-feature-for-tcp-ip-in-windows" rel="nofollow"> ссылку</a>)</div>
+</li>
+</ol>
+<pre class="code">HKEY_LOCAL_MACHINE\System\CurrentControlSet\Services\Tcpip\Parameters
+Добавьте следующую запись реестра в Parameters подраздел:
+Имя: DisableDHCPMediaSense
+Тип данных: REG_DWORD (логическое)
+Значение: 1</pre>
+
+</div>

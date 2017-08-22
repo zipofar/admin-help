@@ -1,0 +1,93 @@
+====== Install KVM on Ubuntu 16 ======
+
+<code>
+$ grep -E '(vmx|svm)' /proc/cpuinfo
+$ apt-get update
+$ apt-get install qemu-kvm libvirt-bin virtinst bridge-utils cpu-checker
+
+$ kvm-ok
+INFO: /dev/kvm exists
+KVM acceleration can be used
+</code>
+
+
+  * /var/lib/libvirt/boot/ — ISO-образы для установки гостевых систем;
+  * /var/lib/libvirt/images/ — образы жестких дисков гостевых систем;
+  * /var/log/libvirt/ — тут следует искать все логи;
+  * /etc/libvirt/ — каталог с файлами конфигурации;
+
+Список сетей
+
+<code>
+$ virsh net-list --all
+$ virsh net-info default
+</code>
+
+Устанавливаем виртуалку.
+<code>
+virt-install --virt-type=kvm \
+--name vm1-ubuntu \
+--ram 1024 \
+--vcpus=1 \
+--os-variant=ubuntu16.04 \
+--hvm \
+--cdrom=/var/lib/libvirt/boot/ubuntu-16.04.1-server-amd64.iso \
+--network bridge=virbr0,model=virtio \
+--graphics vnc \
+--disk path=/dev/ubuntu-vg/vm1
+</code>
+После того как выполните команду и не появится никаих ошибок, терминал перейдет в режим "ожидания". В это время нужно запустить VNC клиент на другой машине (или на этой же) и подключиться к устанавливаемой ВМ. Я для этого использовал программу SSVNC. Она сочетает в себе vnc клиент и ssh клиент. Т.е. VNC сервер, который на стороне сервера kvm по умолчанию слушает только localhost (127.0.0.1), а ssvnc умеет пробрасывать подключение через ssh.
+<code>
+apt install ssvnc
+</code> 
+
+Параметры для подключения можно посмотреть, запустив паралельно другой терминал
+<code>
+virsh dumpxml vm1-ubuntu | grep vnc
+</code>
+
+Хз почему, но исошник образа ОС нужно обязательно скопировать в определенный каталог, иначе выдает ошибку.
+<code>
+/var/lib/libvirt/boot/ubuntu-16.04.1-server-amd64.iso
+</code>
+
+Т.к. я в качестве диска для ВМ использую logical volume LVM.
+Соответсвенно сначала создаю его, а потом указываю в качестве диска.
+<code>
+--disk path=/dev/ubuntu-vg/vm1
+</code>
+
+По поводу --os-variant=ubuntu16.04. Придется установить пакет libosinfo-bin, чтобы посмотреть все поддерживаемые ОС.
+<code>
+$ apt install libosinfo-bin
+$ osinfo-query os | less
+</code>
+
+Хорошая страница по управлению ВМ [[https://www.centos.org/docs/5/html/5.2/Virtualization/chap-Virtualization-Managing_guests_with_virsh.html|Ссылка]]
+
+Сеть. Здесь я использовал Bridge.
+<code>
+--network bridge=virbr0,model=virtio
+</code>
+
+Линуксовый бридж, это не совсем то о чем можно подумать. Это скорее умный коммутатор на подобии Hyper-V, который имеет свой IP, MAC. И к которому можно подключать множество ВМ.
+Т.е. при создании бриджа, его привязывают к реальному интерфейсу. А реальный интерфейс в свою очередь переводят в режим Manual.
+
+Вот так это выглядит у меня.
+<code>
+# nano /etc/network/interfaces
+
+auto lo virbr0
+
+iface lo inet loopback
+
+# Настоящий физический интерфейс, смотрящий в локальную сеть
+iface enp2s0 inet manual
+
+# Это бридж, т.е. можно сказать виртуальный коммутатор.
+# Создается при помощи brctl
+iface virbr0 inet dhcp
+    bridge_ports enp2s0
+    bridge_stp off
+
+</code>

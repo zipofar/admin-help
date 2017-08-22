@@ -17,6 +17,9 @@
   * [[LVM|LVM]]
   * [[ZFS|ZFS]]
   * [[Hyper-V + Ubuntu|Hyper-V + Ubuntu]]
+  * [[KVM|KVM]]
+  * [[SSH|SSH]]
+  * [[IP Utility|IP Utility]]
 
 
 ====== Windows ======
