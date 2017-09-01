@@ -1,0 +1,80 @@
+====== Windows 2008 R2 OpenVPN server ======
+
+Нюансы при создании openvpn сервера на windows 2008
+
+1. Определение путей в конфигурационном файле
+<code>
+ca "C:\\Program Files\\OpenVPN\\config\\ca.crt"
+</code>
+
+2. Файлы в каталоге ccd должны быть без расширения
+
+3. Обязательно включить перенаправление IP пакетов на реальном и TAP интерфейсах
+
+<code>
+# Открыть powershell 
+netsh interface ipv4 show interfaces
+
+netsh interface ipv4 set interface <id> forwarding="enabled"
+</code>
+
+
+===== Рабочий конфиг =====
+==== server.ovpn ====
+
+<code>
+# server.ovpn
+port 1194
+proto tcp
+dev tun
+
+ca "C:\\Program Files\\OpenVPN\\config\\ca.crt"
+cert "C:\\Program Files\\OpenVPN\\config\\server.crt"
+key "C:\\Program Files\\OpenVPN\\config\\server.key "
+dh "C:\\Program Files\\OpenVPN\\config\\dh2048.pem"
+
+server 10.8.0.0 255.255.255.0
+
+ifconfig-pool-persist "C:\\Program Files\\OpenVPN\\config\\ipp.txt"
+
+# Для того, чтобы иметь возможность обращаться к серверу
+# по его локальному адресу, а не только адресу из сети openvpn.
+# Т.е. при запуске openvpn на клиенте, на клиенте же будет прописываться
+# статический маршрут.
+push "route 1.1.1.0 255.255.255.0"
+
+client-config-dir "C:\\Program Files\\OpenVPN\\config\\ccd"
+
+# Данная директива прописывает статический маршрут на сервере, для возможности
+# обращения с сервера к клиенту по его локальному адресу клиента.
+route 192.168.0.0 255.255.255.0
+
+keepalive 10 120
+
+tls-auth "C:\\Program Files\\OpenVPN\\config\\ta.key" 0 
+cipher AES-128-CBC
+auth SHA256
+comp-lzo
+
+max-clients 100
+
+persist-key
+persist-tun
+status "C:\\Program Files\\OpenVPN\\openvpn-status.log"
+log "C:\\Program Files\\OpenVPN\\openvpn.log"
+verb 3
+</code>
+
+==== ccd/client1 ====
+
+<code>
+# ccd/client1
+
+# Для того чтобы с сервера можно было пинговать 
+# клиента по его локальному адресу, 
+# а не только по адресу назначенному openvpn
+iroute 192.168.0.0 255.255.255.0
+
+# Для назначения постоянного адреса клиенту
+ifconfig-push 10.8.0.101 10.8.0.102
+</code>

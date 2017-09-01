@@ -20,6 +20,8 @@
   * [[KVM|KVM]]
   * [[SSH|SSH]]
   * [[IP Utility|IP Utility]]
+  * [[IPTables|IPTables]]
+  * [[OpenVPN|OpenVPN]]
 
 
 ====== Windows ======

@@ -189,3 +189,9 @@ resizepart
 externally
 jamielinux
 networking
+controller
+masquerade
+ключи
+prerouting
+путей
+forwarding

@@ -11,27 +11,29 @@
         <description></description>
         <link>http://zipofar.ru/</link>
         <image rdf:resource="http://zipofar.ru/lib/tpl/dokuwiki/images/favicon.ico" />
-       <dc:date>2017-08-20T08:43:34+03:00</dc:date>
+       <dc:date>2017-08-24T12:25:56+03:00</dc:date>
         <items>
             <rdf:Seq>
                 <rdf:li rdf:resource="http://zipofar.ru/doku.php?id=%D0%BD%D0%B0%D1%81%D1%82%D1%80%D0%BE%D0%B9%D0%BA%D0%B0_fail2ban_%D0%B4%D0%BB%D1%8F_%D0%BE%D1%82%D0%BF%D1%80%D0%B0%D0%B2%D0%BA%D0%B8_%D0%BF%D0%BE%D1%87%D1%82%D1%8B&amp;rev=1496411821&amp;do=diff"/>
                 <rdf:li rdf:resource="http://zipofar.ru/doku.php?id=%D0%BD%D0%B0%D1%81%D1%82%D1%80%D0%BE%D0%B9%D0%BA%D0%B0_smtp_%D0%B0%D1%83%D1%82%D1%8D%D0%BD%D1%82%D0%B8%D1%84%D0%B8%D0%BA%D0%B0%D1%86%D0%B8%D0%B8_%D0%B2_postfix_%D1%81_%D0%BF%D0%BE%D0%BC%D0%BE%D1%89%D1%8C%D1%8E_dovecot&amp;rev=1500453792&amp;do=diff"/>
                 <rdf:li rdf:resource="http://zipofar.ru/doku.php?id=%D0%BD%D0%B0%D1%81%D1%82%D1%80%D0%BE%D0%B9%D0%BA%D0%B0_ubuntu_16_postfix_dovecot_2_imap_pop3&amp;rev=1496314445&amp;do=diff"/>
                 <rdf:li rdf:resource="http://zipofar.ru/doku.php?id=%D0%BD%D0%B5_%D1%81%D1%80%D0%B0%D0%B1%D0%B0%D1%82%D1%8B%D0%B2%D0%B0%D1%8E%D1%82_gpo&amp;rev=1502868207&amp;do=diff"/>
+                <rdf:li rdf:resource="http://zipofar.ru/doku.php?id=%D1%81%D0%B5%D1%82%D1%8C_%D0%B2_kvm&amp;rev=1503415463&amp;do=diff"/>
                 <rdf:li rdf:resource="http://zipofar.ru/doku.php?id=%D1%83%D0%B2%D0%B5%D0%BB%D0%B8%D1%87%D0%B5%D0%BD%D0%B8%D0%B5_%D1%80%D0%B0%D0%B7%D0%BC%D0%B5%D1%80%D0%B0_%D0%B4%D0%B8%D1%81%D0%BA%D0%B0_%D0%B2%D0%BC_%D0%BD%D0%B0_lvm&amp;rev=1503050013&amp;do=diff"/>
                 <rdf:li rdf:resource="http://zipofar.ru/doku.php?id=1%D1%81_ubuntu&amp;rev=1502013134&amp;do=diff"/>
                 <rdf:li rdf:resource="http://zipofar.ru/doku.php?id=1c_-_%D0%BF%D0%BE%D0%B4%D0%BA%D0%BB%D1%8E%D1%87%D0%B5%D0%BD%D0%B8%D0%B5_%D0%BA_%D1%81%D0%B5%D1%80%D0%B2%D0%B5%D1%80%D1%83_1%D1%81_%D1%83%D1%81%D1%82%D0%B0%D0%BD%D0%BE%D0%B2%D0%BB%D0%B5%D0%BD%D0%BD%D0%BE%D0%BC%D1%83_%D0%BD%D0%B0_ubuntu&amp;rev=1501839822&amp;do=diff"/>
                 <rdf:li rdf:resource="http://zipofar.ru/doku.php?id=cron_%D1%81%D0%BF%D0%B0%D0%BC%D0%B8%D1%82_auth.log&amp;rev=1496391445&amp;do=diff"/>
                 <rdf:li rdf:resource="http://zipofar.ru/doku.php?id=hyper-v_ubuntu&amp;rev=1502867594&amp;do=diff"/>
                 <rdf:li rdf:resource="http://zipofar.ru/doku.php?id=install_kvm_on_ubuntu_16&amp;rev=1502973701&amp;do=diff"/>
-                <rdf:li rdf:resource="http://zipofar.ru/doku.php?id=kvm&amp;rev=1503047882&amp;do=diff"/>
+                <rdf:li rdf:resource="http://zipofar.ru/doku.php?id=ip_utility&amp;rev=1503325380&amp;do=diff"/>
+                <rdf:li rdf:resource="http://zipofar.ru/doku.php?id=kvm&amp;rev=1503401139&amp;do=diff"/>
                 <rdf:li rdf:resource="http://zipofar.ru/doku.php?id=lvm&amp;rev=1502866695&amp;do=diff"/>
-                <rdf:li rdf:resource="http://zipofar.ru/doku.php?id=mange_vm_in_kvm&amp;rev=1503057397&amp;do=diff"/>
+                <rdf:li rdf:resource="http://zipofar.ru/doku.php?id=mange_vm_in_kvm&amp;rev=1503498490&amp;do=diff"/>
                 <rdf:li rdf:resource="http://zipofar.ru/doku.php?id=postfix_%D0%BE%D0%B3%D1%80%D0%B0%D0%BD%D0%B8%D1%87%D0%B8%D1%82%D1%8C_%D1%87%D0%B8%D1%81%D0%BB%D0%BE_%D0%B8%D1%81%D1%85%D0%BE%D0%B4%D1%8F%D1%89%D0%B8%D1%85_%D1%81%D0%BE%D0%B5%D0%B4%D0%B8%D0%BD%D0%B5%D0%BD%D0%B8%D0%B9&amp;rev=1500022281&amp;do=diff"/>
                 <rdf:li rdf:resource="http://zipofar.ru/doku.php?id=postfix_dovecot_mysql&amp;rev=1496245807&amp;do=diff"/>
                 <rdf:li rdf:resource="http://zipofar.ru/doku.php?id=postfix_dovecot_virtual_users_and_passwd&amp;rev=1500474370&amp;do=diff"/>
                 <rdf:li rdf:resource="http://zipofar.ru/doku.php?id=reverse_proxy_for_owa&amp;rev=1493380568&amp;do=diff"/>
-                <rdf:li rdf:resource="http://zipofar.ru/doku.php?id=start&amp;rev=1502969026&amp;do=diff"/>
+                <rdf:li rdf:resource="http://zipofar.ru/doku.php?id=start&amp;rev=1503325290&amp;do=diff"/>
                 <rdf:li rdf:resource="http://zipofar.ru/doku.php?id=telnet_993_port&amp;rev=1500471018&amp;do=diff"/>
                 <rdf:li rdf:resource="http://zipofar.ru/doku.php?id=zfs&amp;rev=1502867155&amp;do=diff"/>
             </rdf:Seq>
@@ -96,6 +98,23 @@ mailbox_command = /usr/lib/dovecot/dovecot-lda -f &quot;$SENDER&quot; -a &quot;$
 
 Иногда бывает так-что при просмотре gpresult, политики применяются, но по факту не работают.
 При этом в Журнале событий -&gt; Система можно лицезреть подобные ошибки</description>
+    </item>
+    <item rdf:about="http://zipofar.ru/doku.php?id=%D1%81%D0%B5%D1%82%D1%8C_%D0%B2_kvm&amp;rev=1503415463&amp;do=diff">
+        <dc:format>text/html</dc:format>
+        <dc:date>2017-08-22T18:24:23+03:00</dc:date>
+        <title>сеть_в_kvm</title>
+        <link>http://zipofar.ru/doku.php?id=%D1%81%D0%B5%D1%82%D1%8C_%D0%B2_kvm&amp;rev=1503415463&amp;do=diff</link>
+        <description>Сеть в KVM
+
+Типы сетей
+
+	*  Bridget Network
+	*  Routed Network
+	*  NAT-based Network
+
+Bridget Network
+
+Bridge - это некий виртуальный свитч в Linux, к которому можно подключить хост и гостевые ВМ.</description>
     </item>
     <item rdf:about="http://zipofar.ru/doku.php?id=%D1%83%D0%B2%D0%B5%D0%BB%D0%B8%D1%87%D0%B5%D0%BD%D0%B8%D0%B5_%D1%80%D0%B0%D0%B7%D0%BC%D0%B5%D1%80%D0%B0_%D0%B4%D0%B8%D1%81%D0%BA%D0%B0_%D0%B2%D0%BC_%D0%BD%D0%B0_lvm&amp;rev=1503050013&amp;do=diff">
         <dc:format>text/html</dc:format>
@@ -182,16 +201,35 @@ KVM acceleration can be used
 
 	*  /var/lib/libvirt/boot/ — ISO-образы для установки гостевых систем;</description>
     </item>
-    <item rdf:about="http://zipofar.ru/doku.php?id=kvm&amp;rev=1503047882&amp;do=diff">
+    <item rdf:about="http://zipofar.ru/doku.php?id=ip_utility&amp;rev=1503325380&amp;do=diff">
         <dc:format>text/html</dc:format>
-        <dc:date>2017-08-18T12:18:02+03:00</dc:date>
+        <dc:date>2017-08-21T17:23:00+03:00</dc:date>
+        <title>ip_utility</title>
+        <link>http://zipofar.ru/doku.php?id=ip_utility&amp;rev=1503325380&amp;do=diff</link>
+        <description>IP Utility
+
+Установить адрес для интерфейса
+
+
+ip address add 10.0.0.1/24 dev eth1
+
+
+Поднять интерфейс
+
+
+ip link set eth1 up</description>
+    </item>
+    <item rdf:about="http://zipofar.ru/doku.php?id=kvm&amp;rev=1503401139&amp;do=diff">
+        <dc:format>text/html</dc:format>
+        <dc:date>2017-08-22T14:25:39+03:00</dc:date>
         <title>kvm</title>
-        <link>http://zipofar.ru/doku.php?id=kvm&amp;rev=1503047882&amp;do=diff</link>
+        <link>http://zipofar.ru/doku.php?id=kvm&amp;rev=1503401139&amp;do=diff</link>
         <description>KVM
 
 	*  Install KVM on Ubuntu 16
 	*  Mange VM in KVM
-	*  Увеличение размера диска ВМ на LVM</description>
+	*  Увеличение размера диска ВМ на LVM
+	*  Сеть в KVM</description>
     </item>
     <item rdf:about="http://zipofar.ru/doku.php?id=lvm&amp;rev=1502866695&amp;do=diff">
         <dc:format>text/html</dc:format>
@@ -208,11 +246,11 @@ LVM (xgu.ru)
 
 LVM SnapShot Explained</description>
     </item>
-    <item rdf:about="http://zipofar.ru/doku.php?id=mange_vm_in_kvm&amp;rev=1503057397&amp;do=diff">
+    <item rdf:about="http://zipofar.ru/doku.php?id=mange_vm_in_kvm&amp;rev=1503498490&amp;do=diff">
         <dc:format>text/html</dc:format>
-        <dc:date>2017-08-18T14:56:37+03:00</dc:date>
+        <dc:date>2017-08-23T17:28:10+03:00</dc:date>
         <title>mange_vm_in_kvm</title>
-        <link>http://zipofar.ru/doku.php?id=mange_vm_in_kvm&amp;rev=1503057397&amp;do=diff</link>
+        <link>http://zipofar.ru/doku.php?id=mange_vm_in_kvm&amp;rev=1503498490&amp;do=diff</link>
         <description>Mange VM in KVM
 
 Clone VM
@@ -282,11 +320,11 @@ virtual_alias_domains - домены для которых сервер явля
 
 Жил был почтовый сервер Exchange 2013 во внутренней сети, и все бы ничего, но захотелось получить доступ к почте из сети интернет. Т.к. тупо пробрасывать порт на серевер как-то не по фэншую, а выносить его в DMZ тем более не хотелось, было решено использовать обратный прокси.…</description>
     </item>
-    <item rdf:about="http://zipofar.ru/doku.php?id=start&amp;rev=1502969026&amp;do=diff">
+    <item rdf:about="http://zipofar.ru/doku.php?id=start&amp;rev=1503325290&amp;do=diff">
         <dc:format>text/html</dc:format>
-        <dc:date>2017-08-17T14:23:46+03:00</dc:date>
+        <dc:date>2017-08-21T17:21:30+03:00</dc:date>
         <title>start</title>
-        <link>http://zipofar.ru/doku.php?id=start&amp;rev=1502969026&amp;do=diff</link>
+        <link>http://zipofar.ru/doku.php?id=start&amp;rev=1503325290&amp;do=diff</link>
         <description>Почта (Exchange, Postfix, Dovecot)
 
 	*  Reverse proxy (обратный прокси) для доступа к Outlook Web App (OWA) из интернета

@@ -1,94 +1,34 @@
-1502866294	91.122.206.228	E	start	ingprog			16
-1502866525	91.122.206.228	C	lvm	ingprog	created		216
-1502866642	91.122.206.228	E	lvm	ingprog			89
-1502866675	91.122.206.228	E	lvm	ingprog			77
-1502866695	91.122.206.228	E	lvm	ingprog			9
-1502867052	91.122.206.228	E	start	ingprog			16
-1502867155	91.122.206.228	C	zfs	ingprog	created		295
-1502867247	91.122.206.228	E	start	ingprog			42
-1502867306	91.122.206.228	C	hyper-v_ubuntu	ingprog	created		177
-1502867594	91.122.206.228	E	hyper-v_ubuntu	ingprog			209
-1502867751	91.122.206.228	E	start	ingprog			92
-1502868207	91.122.206.228	C	не_срабатывают_gpo	ingprog	created		1646
-1502868375	91.122.206.228	E	start	ingprog			4
-1502968937	91.122.206.228	E	start	ingprog	[Linux] 		16
-1502969026	91.122.206.228	E	start	ingprog	[Linux] 		16
-1502969086	91.122.206.228	C	kvm	ingprog	created		76
-1502969186	91.122.206.228	C	install_kvm_on_ubuntu_16	ingprog	created		125
-1502969375	91.122.206.228	E	install_kvm_on_ubuntu_16	ingprog			421
-1502969419	91.122.206.228	E	install_kvm_on_ubuntu_16	ingprog			67
-1502969577	91.122.206.228	E	install_kvm_on_ubuntu_16	ingprog			88
-1502969671	91.122.206.228	E	install_kvm_on_ubuntu_16	ingprog			323
-1502969698	91.122.206.228	E	install_kvm_on_ubuntu_16	ingprog			2
-1502969825	91.122.206.228	E	install_kvm_on_ubuntu_16	ingprog			266
-1502969973	91.122.206.228	E	install_kvm_on_ubuntu_16	ingprog			267
-1502969994	91.122.206.228	E	install_kvm_on_ubuntu_16	ingprog			-2
-1502970791	91.122.206.228	E	install_kvm_on_ubuntu_16	ingprog			252
-1502972055	91.122.206.228	E	install_kvm_on_ubuntu_16	ingprog			187
-1502972600	91.122.206.228	E	install_kvm_on_ubuntu_16	ingprog			1131
-1502972920	91.122.206.228	E	install_kvm_on_ubuntu_16	ingprog			599
-1502972939	91.122.206.228	E	install_kvm_on_ubuntu_16	ingprog			-6
-1502972957	91.122.206.228	E	install_kvm_on_ubuntu_16	ingprog			3
-1502973122	91.122.206.228	E	install_kvm_on_ubuntu_16	ingprog			101
-1502973379	91.122.206.228	E	install_kvm_on_ubuntu_16	ingprog			238
-1502973701	91.122.206.228	E	install_kvm_on_ubuntu_16	ingprog			59
-1502978759	91.122.206.228	E	kvm	ingprog			40
-1502978778	91.122.206.228	C	mange_vm_in_kvm	ingprog	created		52
-1502978790	91.122.206.228	E	mange_vm_in_kvm	ingprog			-5
-1502978867	91.122.206.228	E	mange_vm_in_kvm	ingprog			133
-1502978873	91.122.206.228	E	mange_vm_in_kvm	ingprog			1
-1502978904	91.122.206.228	E	mange_vm_in_kvm	ingprog			28
-1502978919	91.122.206.228	E	mange_vm_in_kvm	ingprog			0
-1502979074	91.122.206.228	E	mange_vm_in_kvm	ingprog			180
-1502979115	91.122.206.228	E	mange_vm_in_kvm	ingprog			51
-1502979521	91.122.206.228	E	mange_vm_in_kvm	ingprog			72
-1503047882	91.122.206.228	E	kvm	ingprog			130
-1503048305	91.122.206.228	C	увеличение_размера_диска_вм_на_lvm	ingprog	created		712
-1503048560	91.122.206.228	E	увеличение_размера_диска_вм_на_lvm	ingprog			157
-1503048708	91.122.206.228	E	увеличение_размера_диска_вм_на_lvm	ingprog			290
-1503049242	91.122.206.228	E	увеличение_размера_диска_вм_на_lvm	ingprog			318
-1503049624	91.122.206.228	E	увеличение_размера_диска_вм_на_lvm	ingprog			251
-1503049879	91.122.206.228	E	увеличение_размера_диска_вм_на_lvm	ingprog			199
-1503050013	91.122.206.228	E	увеличение_размера_диска_вм_на_lvm	ingprog			193
-1503057397	91.122.206.228	E	mange_vm_in_kvm	ingprog			115
-1503325290	91.122.206.228	E	start	ingprog	[Linux] 		30
-1503325380	91.122.206.228	C	ip_utility	ingprog	created		206
-1503401139	91.122.206.228	E	kvm	ingprog			40
-1503401359	91.122.206.228	C	сеть_в_kvm	ingprog	created		61
-1503401425	91.122.206.228	E	сеть_в_kvm	ingprog			63
-1503401817	91.122.206.228	E	сеть_в_kvm	ingprog			456
-1503401866	91.122.206.228	E	сеть_в_kvm	ingprog			227
-1503402758	91.122.206.228	E	сеть_в_kvm	ingprog			339
-1503403136	91.122.206.228	E	сеть_в_kvm	ingprog			419
-1503403216	91.122.206.228	E	сеть_в_kvm	ingprog			69
-1503403406	91.122.206.228	E	сеть_в_kvm	ingprog			288
-1503403444	91.122.206.228	E	сеть_в_kvm	ingprog			2
-1503403676	91.122.206.228	E	сеть_в_kvm	ingprog			77
-1503404168	91.122.206.228	E	сеть_в_kvm	ingprog			376
-1503404563	91.122.206.228	E	сеть_в_kvm	ingprog			354
-1503404589	91.122.206.228	E	сеть_в_kvm	ingprog			23
-1503404606	91.122.206.228	E	сеть_в_kvm	ingprog			2
-1503404616	91.122.206.228	E	сеть_в_kvm	ingprog			-24
-1503404648	91.122.206.228	E	сеть_в_kvm	ingprog			-49
-1503404665	91.122.206.228	E	сеть_в_kvm	ingprog			1
-1503404672	91.122.206.228	E	сеть_в_kvm	ingprog			1
-1503404710	91.122.206.228	E	сеть_в_kvm	ingprog			-7
-1503404792	91.122.206.228	E	сеть_в_kvm	ingprog			154
-1503404821	91.122.206.228	E	сеть_в_kvm	ingprog			-4
-1503404894	91.122.206.228	E	сеть_в_kvm	ingprog			41
-1503405085	91.122.206.228	E	сеть_в_kvm	ingprog			283
-1503405165	91.122.206.228	E	сеть_в_kvm	ingprog			65
-1503405201	91.122.206.228	E	сеть_в_kvm	ingprog			0
-1503413272	91.122.206.228	E	сеть_в_kvm	ingprog			1521
-1503413553	91.122.206.228	E	сеть_в_kvm	ingprog	[Routed Network] 		295
-1503413720	91.122.206.228	E	сеть_в_kvm	ingprog	[Routed Network] 		260
-1503414018	91.122.206.228	E	сеть_в_kvm	ingprog	[Routed Network] 		728
-1503414052	91.122.206.228	E	сеть_в_kvm	ingprog	[Routed Network] 		8
-1503414626	91.122.206.228	E	сеть_в_kvm	ingprog			514
-1503414949	91.122.206.228	E	сеть_в_kvm	ingprog	[NAT-based Network] 		700
-1503415060	91.122.206.228	E	сеть_в_kvm	ingprog	[NAT-based Network] 		-23
-1503415094	91.122.206.228	E	сеть_в_kvm	ingprog			-2
-1503415138	91.122.206.228	E	сеть_в_kvm	ingprog			82
-1503415226	91.122.206.228	E	сеть_в_kvm	ingprog	[NAT-based Network] 		-47
-1503415361	91.122.206.228	E	сеть_в_kvm	ingprog			298
 1503415463	91.122.206.228	E	сеть_в_kvm	ingprog	[Ссылки] 		101
+1503498359	91.122.206.228	E	mange_vm_in_kvm	ingprog			279
+1503498490	91.122.206.228	E	mange_vm_in_kvm	ingprog			441
+1504096322	91.122.206.228	E	start	ingprog	[Linux] 		26
+1504096354	91.122.206.228	C	iptables	ingprog	created		39
+1504096399	91.122.206.228	C	nat	ingprog	created		88
+1504096492	91.122.206.228	E	start	ingprog			24
+1504096544	91.122.206.228	C	openvpn	ingprog	created		90
+1504096794	91.122.206.228	E	openvpn	ingprog			115
+1504097286	91.122.206.228	E	openvpn	ingprog			234
+1504097297	91.122.206.228	E	openvpn	ingprog			24
+1504097312	91.122.206.228	E	openvpn	ingprog			14
+1504097371	91.122.206.228	E	openvpn	ingprog			45
+1504097581	91.122.206.228	E	openvpn	ingprog			52
+1504097816	91.122.206.228	E	openvpn	ingprog			12
+1504098030	91.122.206.228	E	openvpn	ingprog			72
+1504106825	91.122.206.228	E	openvpn	ingprog			176
+1504106839	91.122.206.228	E	openvpn	ingprog			13
+1504167297	91.122.206.228	E	ip_utility	ingprog			80
+1504169735	91.122.206.228	E	ip_utility	ingprog			92
+1504184537	91.122.206.228	E	nat	ingprog			95
+1504247767	91.122.206.228	E	openvpn	ingprog			67
+1504247797	91.122.206.228	E	openvpn	ingprog			20
+1504247809	91.122.206.228	C	install_openvpn_on_ubuntu_16.04	ingprog	created		824
+1504247859	91.122.206.228	E	openvpn	ingprog			-754
+1504248022	91.122.206.228	C	windows_2008_r2_openvpn_server	ingprog	created		971
+1504248113	91.122.206.228	E	windows_2008_r2_openvpn_server	ingprog			-11
+1504248160	91.122.206.228	E	windows_2008_r2_openvpn_server	ingprog			105
+1504250031	91.122.206.228	E	windows_2008_r2_openvpn_server	ingprog			378
+1504250503	91.122.206.228	E	windows_2008_r2_openvpn_server	ingprog			339
+1504250547	91.122.206.228	E	windows_2008_r2_openvpn_server	ingprog			45
+1504250601	91.122.206.228	E	windows_2008_r2_openvpn_server	ingprog	[ccd/client1] 		81
+1504250881	91.122.206.228	E	windows_2008_r2_openvpn_server	ingprog			585
+1504250920	91.122.206.228	E	windows_2008_r2_openvpn_server	ingprog			53

@@ -89,3 +89,4 @@ interface
 autostart
 computers
 operating
+keepalive

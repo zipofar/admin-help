@@ -11,17 +11,15 @@
         <description></description>
         <link>http://zipofar.ru/</link>
         <image rdf:resource="http://zipofar.ru/lib/tpl/dokuwiki/images/favicon.ico" />
-       <dc:date>2017-08-17T08:51:39+03:00</dc:date>
+       <dc:date>2017-08-30T19:53:37+03:00</dc:date>
         <items>
             <rdf:Seq>
-                <rdf:li rdf:resource="http://zipofar.ru/doku.php?id=start&amp;rev=1502868375&amp;do=diff"/>
-                <rdf:li rdf:resource="http://zipofar.ru/doku.php?id=%D0%BD%D0%B5_%D1%81%D1%80%D0%B0%D0%B1%D0%B0%D1%82%D1%8B%D0%B2%D0%B0%D1%8E%D1%82_gpo&amp;rev=1502868207&amp;do=diff"/>
-                <rdf:li rdf:resource="http://zipofar.ru/doku.php?id=hyper-v_ubuntu&amp;rev=1502867594&amp;do=diff"/>
-                <rdf:li rdf:resource="http://zipofar.ru/doku.php?id=zfs&amp;rev=1502867155&amp;do=diff"/>
-                <rdf:li rdf:resource="http://zipofar.ru/doku.php?id=lvm&amp;rev=1502866695&amp;do=diff"/>
-                <rdf:li rdf:resource="http://zipofar.ru/doku.php?id=1%D1%81_ubuntu&amp;rev=1502013134&amp;do=diff"/>
-                <rdf:li rdf:resource="http://zipofar.ru/doku.php?id=1c_-_%D0%BF%D0%BE%D0%B4%D0%BA%D0%BB%D1%8E%D1%87%D0%B5%D0%BD%D0%B8%D0%B5_%D0%BA_%D1%81%D0%B5%D1%80%D0%B2%D0%B5%D1%80%D1%83_1%D1%81_%D1%83%D1%81%D1%82%D0%B0%D0%BD%D0%BE%D0%B2%D0%BB%D0%B5%D0%BD%D0%BD%D0%BE%D0%BC%D1%83_%D0%BD%D0%B0_ubuntu&amp;rev=1501839822&amp;do=diff"/>
-                <rdf:li rdf:resource="http://zipofar.ru/doku.php?id=postfix_dovecot_virtual_users_and_passwd&amp;rev=1500474370&amp;do=diff"/>
+                <rdf:li rdf:resource="http://zipofar.ru/doku.php?id=openvpn&amp;rev=1504106839&amp;do=diff"/>
+                <rdf:li rdf:resource="http://zipofar.ru/doku.php?id=start&amp;rev=1504096492&amp;do=diff"/>
+                <rdf:li rdf:resource="http://zipofar.ru/doku.php?id=nat&amp;rev=1504096399&amp;do=diff"/>
+                <rdf:li rdf:resource="http://zipofar.ru/doku.php?id=iptables&amp;rev=1504096354&amp;do=diff"/>
+                <rdf:li rdf:resource="http://zipofar.ru/doku.php?id=mange_vm_in_kvm&amp;rev=1503498490&amp;do=diff"/>
+                <rdf:li rdf:resource="http://zipofar.ru/doku.php?id=%D1%81%D0%B5%D1%82%D1%8C_%D0%B2_kvm&amp;rev=1503415463&amp;do=diff"/>
             </rdf:Seq>
         </items>
     </channel>
@@ -30,12 +28,36 @@
         <link>http://zipofar.ru/</link>
         <url>http://zipofar.ru/lib/tpl/dokuwiki/images/favicon.ico</url>
     </image>
-    <item rdf:about="http://zipofar.ru/doku.php?id=start&amp;rev=1502868375&amp;do=diff">
+    <item rdf:about="http://zipofar.ru/doku.php?id=openvpn&amp;rev=1504106839&amp;do=diff">
         <dc:format>text/html</dc:format>
-        <dc:date>2017-08-16T10:26:15+03:00</dc:date>
+        <dc:date>2017-08-30T18:27:19+03:00</dc:date>
+        <dc:creator>ingprog</dc:creator>
+        <title>openvpn</title>
+        <link>http://zipofar.ru/doku.php?id=openvpn&amp;rev=1504106839&amp;do=diff</link>
+        <description>OpenVPN + Ubuntu 16.04
+
+Install
+
+
+apt install openvpn easy-rsa
+
+gunzip -c /usr/share/doc/openvpn/examples/sample-config-files/server.conf.gz | sudo tee /etc/openvpn/server.conf
+
+make-cadir ~/openvpn-ca
+
+
+
+vim ~/openvpn-ca/vars
+
+
+	*  export KEY_COUNTRY=</description>
+    </item>
+    <item rdf:about="http://zipofar.ru/doku.php?id=start&amp;rev=1504096492&amp;do=diff">
+        <dc:format>text/html</dc:format>
+        <dc:date>2017-08-30T15:34:52+03:00</dc:date>
         <dc:creator>ingprog</dc:creator>
         <title>start</title>
-        <link>http://zipofar.ru/doku.php?id=start&amp;rev=1502868375&amp;do=diff</link>
+        <link>http://zipofar.ru/doku.php?id=start&amp;rev=1504096492&amp;do=diff</link>
         <description>Почта (Exchange, Postfix, Dovecot)
 
 	*  Reverse proxy (обратный прокси) для доступа к Outlook Web App (OWA) из интернета
@@ -51,103 +73,79 @@ Linux
 	*   cron спамит auth.log (pam_unix(cron:session): session opened for user root by (uid=0))
 	*   настройка…</description>
     </item>
-    <item rdf:about="http://zipofar.ru/doku.php?id=%D0%BD%D0%B5_%D1%81%D1%80%D0%B0%D0%B1%D0%B0%D1%82%D1%8B%D0%B2%D0%B0%D1%8E%D1%82_gpo&amp;rev=1502868207&amp;do=diff">
+    <item rdf:about="http://zipofar.ru/doku.php?id=nat&amp;rev=1504096399&amp;do=diff">
         <dc:format>text/html</dc:format>
-        <dc:date>2017-08-16T10:23:27+03:00</dc:date>
+        <dc:date>2017-08-30T15:33:19+03:00</dc:date>
         <dc:creator>ingprog</dc:creator>
-        <title>не_срабатывают_gpo - created</title>
-        <link>http://zipofar.ru/doku.php?id=%D0%BD%D0%B5_%D1%81%D1%80%D0%B0%D0%B1%D0%B0%D1%82%D1%8B%D0%B2%D0%B0%D1%8E%D1%82_gpo&amp;rev=1502868207&amp;do=diff</link>
-        <description>Не срабатывают GPO
+        <title>nat - created</title>
+        <link>http://zipofar.ru/doku.php?id=nat&amp;rev=1504096399&amp;do=diff</link>
+        <description>NAT
 
-Иногда бывает так-что при просмотре gpresult, политики применяются, но по факту не работают.
-При этом в Журнале событий -&gt; Система можно лицезреть подобные ошибки</description>
+
+
+iptables -t nat -A POSTROUTING -o ppp0 -j MASQUERADE</description>
     </item>
-    <item rdf:about="http://zipofar.ru/doku.php?id=hyper-v_ubuntu&amp;rev=1502867594&amp;do=diff">
+    <item rdf:about="http://zipofar.ru/doku.php?id=iptables&amp;rev=1504096354&amp;do=diff">
         <dc:format>text/html</dc:format>
-        <dc:date>2017-08-16T10:13:14+03:00</dc:date>
+        <dc:date>2017-08-30T15:32:34+03:00</dc:date>
         <dc:creator>ingprog</dc:creator>
-        <title>hyper-v_ubuntu</title>
-        <link>http://zipofar.ru/doku.php?id=hyper-v_ubuntu&amp;rev=1502867594&amp;do=diff</link>
-        <description>Hyper-V + Ubuntu
+        <title>iptables - created</title>
+        <link>http://zipofar.ru/doku.php?id=iptables&amp;rev=1504096354&amp;do=diff</link>
+        <description>IPTables
 
-Official Doc by Microsoft
-
-Для установки служб интеграции Hyper-v в Ubuntu 16
-
-
-apt-get update
-apt-get install linux-image-virtual
-apt-get install linux-tools-virtual linux-cloud-tools-virtual</description>
+	*  NAT</description>
     </item>
-    <item rdf:about="http://zipofar.ru/doku.php?id=zfs&amp;rev=1502867155&amp;do=diff">
+    <item rdf:about="http://zipofar.ru/doku.php?id=mange_vm_in_kvm&amp;rev=1503498490&amp;do=diff">
         <dc:format>text/html</dc:format>
-        <dc:date>2017-08-16T10:05:55+03:00</dc:date>
+        <dc:date>2017-08-23T17:28:10+03:00</dc:date>
         <dc:creator>ingprog</dc:creator>
-        <title>zfs - created</title>
-        <link>http://zipofar.ru/doku.php?id=zfs&amp;rev=1502867155&amp;do=diff</link>
-        <description>ZFS
+        <title>mange_vm_in_kvm</title>
+        <link>http://zipofar.ru/doku.php?id=mange_vm_in_kvm&amp;rev=1503498490&amp;do=diff</link>
+        <description>Mange VM in KVM
 
-ZFS на русском
+Clone VM
 
-ZFS on English
 
-Oracle Solaris ZFS Administration Guide</description>
+virt-clone -o name-vm1 --name name-vm2-clone --file /dev/ubuntu-vg/vm3
+
+
+Delete VM
+
+
+virsh destroy name-vm
+virsh undefine name-vm
+
+
+Add VM
+
+
+virsh define /etc/libvirt/qemu/name-vm.xml
+
+
+Show All VM
+
+
+virsh list --all
+
+
+Add disk to VM</description>
     </item>
-    <item rdf:about="http://zipofar.ru/doku.php?id=lvm&amp;rev=1502866695&amp;do=diff">
+    <item rdf:about="http://zipofar.ru/doku.php?id=%D1%81%D0%B5%D1%82%D1%8C_%D0%B2_kvm&amp;rev=1503415463&amp;do=diff">
         <dc:format>text/html</dc:format>
-        <dc:date>2017-08-16T09:58:15+03:00</dc:date>
+        <dc:date>2017-08-22T18:24:23+03:00</dc:date>
         <dc:creator>ingprog</dc:creator>
-        <title>lvm</title>
-        <link>http://zipofar.ru/doku.php?id=lvm&amp;rev=1502866695&amp;do=diff</link>
-        <description>LVM
+        <title>сеть_в_kvm - [Ссылки] </title>
+        <link>http://zipofar.ru/doku.php?id=%D1%81%D0%B5%D1%82%D1%8C_%D0%B2_kvm&amp;rev=1503415463&amp;do=diff</link>
+        <description>Сеть в KVM
 
-LVM (wiki.archlinux)
+Типы сетей
 
-LVM (Habr)
+	*  Bridget Network
+	*  Routed Network
+	*  NAT-based Network
 
-LVM (xgu.ru)
+Bridget Network
 
-LVM SnapShot Explained</description>
-    </item>
-    <item rdf:about="http://zipofar.ru/doku.php?id=1%D1%81_ubuntu&amp;rev=1502013134&amp;do=diff">
-        <dc:format>text/html</dc:format>
-        <dc:date>2017-08-06T12:52:14+03:00</dc:date>
-        <dc:creator>ingprog</dc:creator>
-        <title>1с_ubuntu</title>
-        <link>http://zipofar.ru/doku.php?id=1%D1%81_ubuntu&amp;rev=1502013134&amp;do=diff</link>
-        <description>1С + Ubuntu
-
-Для установки 1с сервера на ubuntu, нужно как миниму 2 файла
-
-
-1c-enterprise83-common_8.3.10-2375_amd64.deb
-1c-enterprise83-server_8.3.10-2375_amd64.deb
-
-# Третий файл нужен для возможности публикации 1с как веб сервис
-# т.е. для доступа через Apache
-
-1c-enterprise83-ws_8.3.10-2375_amd64.deb</description>
-    </item>
-    <item rdf:about="http://zipofar.ru/doku.php?id=1c_-_%D0%BF%D0%BE%D0%B4%D0%BA%D0%BB%D1%8E%D1%87%D0%B5%D0%BD%D0%B8%D0%B5_%D0%BA_%D1%81%D0%B5%D1%80%D0%B2%D0%B5%D1%80%D1%83_1%D1%81_%D1%83%D1%81%D1%82%D0%B0%D0%BD%D0%BE%D0%B2%D0%BB%D0%B5%D0%BD%D0%BD%D0%BE%D0%BC%D1%83_%D0%BD%D0%B0_ubuntu&amp;rev=1501839822&amp;do=diff">
-        <dc:format>text/html</dc:format>
-        <dc:date>2017-08-04T12:43:42+03:00</dc:date>
-        <dc:creator>ingprog</dc:creator>
-        <title>1c_-_подключение_к_серверу_1с_установленному_на_ubuntu</title>
-        <link>http://zipofar.ru/doku.php?id=1c_-_%D0%BF%D0%BE%D0%B4%D0%BA%D0%BB%D1%8E%D1%87%D0%B5%D0%BD%D0%B8%D0%B5_%D0%BA_%D1%81%D0%B5%D1%80%D0%B2%D0%B5%D1%80%D1%83_1%D1%81_%D1%83%D1%81%D1%82%D0%B0%D0%BD%D0%BE%D0%B2%D0%BB%D0%B5%D0%BD%D0%BD%D0%BE%D0%BC%D1%83_%D0%BD%D0%B0_ubuntu&amp;rev=1501839822&amp;do=diff</link>
-        <description>1C - подключение к серверу 1С установленному на Ubuntu
-
-При подключении к серверу 1С через ММС (Администрирование серверов 1С Предприятие) появлялись различне ошибки, связанные с подключением.</description>
-    </item>
-    <item rdf:about="http://zipofar.ru/doku.php?id=postfix_dovecot_virtual_users_and_passwd&amp;rev=1500474370&amp;do=diff">
-        <dc:format>text/html</dc:format>
-        <dc:date>2017-07-19T17:26:10+03:00</dc:date>
-        <dc:creator>ingprog</dc:creator>
-        <title>postfix_dovecot_virtual_users_and_passwd - [Теперь настроим Dovecot.] </title>
-        <link>http://zipofar.ru/doku.php?id=postfix_dovecot_virtual_users_and_passwd&amp;rev=1500474370&amp;do=diff</link>
-        <description>Postfix с использованием виртуальных пользователей и Dovecot в качестве LDA и текстовой базой данных.
-
-Сначала настроим postfix.
-
-Здесь представлен только фрагмент  конфига.</description>
+Bridge - это некий виртуальный свитч в Linux, к которому можно подключить хост и гостевые ВМ.</description>
     </item>
 </rdf:RDF>

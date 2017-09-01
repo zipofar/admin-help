@@ -201,3 +201,6 @@ iptables
 switches
 physical
 handbook
+readonly
+bootmenu
+ifconfig

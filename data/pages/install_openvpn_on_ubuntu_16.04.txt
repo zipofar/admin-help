@@ -1,0 +1,50 @@
+===== Install on Ubuntu 16.04 =====
+
+<code>
+apt install openvpn easy-rsa
+
+gunzip -c /usr/share/doc/openvpn/examples/sample-config-files/server.conf.gz | sudo tee /etc/openvpn/server.conf
+
+make-cadir ~/openvpn-ca
+</code>
+
+<code>
+vim ~/openvpn-ca/vars
+</code>
+
+  * export KEY_COUNTRY="US"
+  * export KEY_PROVINCE="CA"
+  * export KEY_CITY="SanFrancisco"
+  * export KEY_ORG="Fort-Funston"
+  * export KEY_EMAIL="me@myhost.mydomain"
+  * export KEY_OU="MyOrganizationalUnit"
+
+<code>
+cd ~/openvpn-ca
+
+source vars
+
+./clean-all
+
+./build-ca
+
+./build-key-server server
+
+./build-dh
+
+openvpn --genkey --secret ta.key
+</code>
+
+Положит следующие файлы в папку /etc/openvpn
+
+  * ca.cart
+  * server.crt
+  * server.key
+  * dh2048.pem
+  * ta.key
+
+Ключи для клиентов
+
+<code>
+./build-key client1
+</code>

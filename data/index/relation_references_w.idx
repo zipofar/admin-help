@@ -32,3 +32,9 @@ mange_vm_in_kvm
 увеличение_размера_диска_вм_на_lvm
 ip_utility
 сеть_в_kvm
+iptables
+nat
+openvpn
+install_on_ubuntu_16.04
+install_openvpn_on_ubuntu_16.04
+windows_2008_r2_openvpn_server

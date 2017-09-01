@@ -208,3 +208,11 @@ based
 addbr
 addif
 route
+cache
+drive
+rhel6
+cadir
+build
+dport
+proto
+netsh

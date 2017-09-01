@@ -31,13 +31,43 @@ virsh undefine name-vm</pre>
 
 <h5 id="add_disk_to_vm">Add disk to VM</h5>
 <div class="level5">
-<pre class="code">virsh attach-disk Guest1 /dev/sr0 vdc
-# В ВМ появится диск vdc</pre>
+<pre class="code">virsh attach-disk Guest1 /dev/sr0
+
+virsh attach-device Guest1 /tmp/hdd.xml
+
+# hdd.xml
+&lt;disk type=&#039;file&#039; device=&#039;disk&#039;&gt;
+   &lt;driver name=&#039;qemu&#039; type=&#039;raw&#039; cache=&#039;none&#039;/&gt;
+   &lt;source file=&#039;/dev/ubuntu-vg/vm3_2&#039;/&gt;
+   &lt;target dev=&#039;vdb&#039;/&gt;
+&lt;/disk&gt;
+
+# Добавить диск на постоянной основе
+virsh attach-device --config Guest1 /tmp/hdd.xml</pre>
 
 </div>
 
 <h5 id="create_new_mac_address">Create new MAC address</h5>
 <div class="level5">
 <pre class="code">MACADDR=&quot;52:54:00:$(dd if=/dev/urandom bs=512 count=1 2&gt;/dev/null | md5sum | sed &#039;s/^\(..\)\(..\)\(..\).*$/\1:\2:\3/&#039;)&quot;; echo $MACADDR</pre>
+
+</div>
+
+<h5 id="load_vm_from_iso">Load VM from ISO</h5>
+<div class="level5">
+<pre class="code">&lt;disk type=&#039;file&#039; device=&#039;cdrom&#039;&gt;
+      &lt;driver name=&#039;qemu&#039; type=&#039;raw&#039;/&gt;
+      &lt;source file=&#039;/opt/isos/CentOS-6.3-x86_64-bin-DVD1.iso&#039;/&gt;
+      &lt;target dev=&#039;hdc&#039; bus=&#039;ide&#039;/&gt;
+      &lt;readonly/&gt;
+      &lt;address type=&#039;drive&#039; controller=&#039;0&#039; bus=&#039;1&#039; unit=&#039;0&#039;/&gt;
+&lt;/disk&gt;
+
+&lt;os&gt;
+    &lt;type arch=&#039;x86_64&#039; machine=&#039;rhel6.2.0&#039;&gt;hvm&lt;/type&gt;
+    &lt;boot dev=&#039;cdrom&#039;/&gt;
+    &lt;boot dev=&#039;hd&#039;/&gt;
+    &lt;bootmenu enable=&#039;yes&#039;/&gt;
+&lt;/os&gt;</pre>
 
 </div>

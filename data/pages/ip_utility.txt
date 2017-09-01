@@ -9,3 +9,13 @@ ip address add 10.0.0.1/24 dev eth1
 <code>
 ip link set eth1 up
 </code>
+
+Добавить gateway
+<code>
+ip route add default via 192.168.1.254
+</code>
+
+Добавить маршрут
+<code>
+ip route add 172.16.0.0/24 via 192.168.10.1
+</code>
