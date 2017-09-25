@@ -39,3 +39,8 @@ concurrency
 advancedzfs
 communicate
 postrouting
+rewriterule
+rewritecond
+virtualhost
+timedatectl
+credentials

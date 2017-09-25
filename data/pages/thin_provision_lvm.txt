@@ -1,0 +1,68 @@
+====== Thin Provision LVM ======
+
+===== Создание Thin Provision logical volumes =====
+
+Создаем группу Volume Group
+<code>
+vgcreate vg001 /dev/sdb
+</code>
+
+Создаем пул
+<code>
+lvcreate -l 100%FREE -T vg001/pool
+</code>
+
+Создаем раздел Logical Volume
+<code>
+lvcreate -V 1G -n vm1 vg001/pool
+
+# А можно создать раздел больше, чем физический раздел
+lvcreate -V 10G -n vm1 vg001/pool
+</code>
+
+
+===== Snapshot Thin Provision LV =====
+
+<code>
+# Создаем файловую систему для vm1
+mkfs.ext4 /dev/vg001/vm1
+
+# Маунтим vm1
+mount /dev/vg001/vm1 /mnt
+
+# Создаем файл
+touch /mnt/t1.txt
+
+# Создаем snapshot
+lvcreate -s -n vm1_snap1 vg001/vm1
+
+# Смотрим, что получилось
+lvs --all
+
+# Создаем еще файл
+touch /mnt/t2.txt
+
+#### Откатываемся до состояния snapshot-а
+
+# Отключаем раздел vm1
+umount /mnt
+
+# Деактивируем раздел vm1
+lvchange -an vg001/vm1
+
+# Заменяем текущее содержимое vm1 на snapshot
+lvconvert --merge vg001/vm1_snap1
+
+# Активируем раздел vm1
+lvchange -ay vg001/vm1
+
+# Все, snapshot применился и автоматически удалился
+# Теперь можно опять примаунтить vm1 и увидеть, что
+# все изменения с момента снапшота исчезли.
+
+# Также snapshot можно просто удалить не откатываясь на него
+lvremove vg001/vm1_snap1
+</code>
+
+===== Ссылки =====
+[[https://www-rhstorage.rhcloud.com/blog/vpodzime/lvm-thin-provisioning|About Thin Provision LVM]]

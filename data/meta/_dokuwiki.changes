@@ -1,34 +1,56 @@
-1503415463	91.122.206.228	E	сеть_в_kvm	ingprog	[Ссылки] 		101
-1503498359	91.122.206.228	E	mange_vm_in_kvm	ingprog			279
-1503498490	91.122.206.228	E	mange_vm_in_kvm	ingprog			441
-1504096322	91.122.206.228	E	start	ingprog	[Linux] 		26
-1504096354	91.122.206.228	C	iptables	ingprog	created		39
-1504096399	91.122.206.228	C	nat	ingprog	created		88
-1504096492	91.122.206.228	E	start	ingprog			24
-1504096544	91.122.206.228	C	openvpn	ingprog	created		90
-1504096794	91.122.206.228	E	openvpn	ingprog			115
-1504097286	91.122.206.228	E	openvpn	ingprog			234
-1504097297	91.122.206.228	E	openvpn	ingprog			24
-1504097312	91.122.206.228	E	openvpn	ingprog			14
-1504097371	91.122.206.228	E	openvpn	ingprog			45
-1504097581	91.122.206.228	E	openvpn	ingprog			52
-1504097816	91.122.206.228	E	openvpn	ingprog			12
-1504098030	91.122.206.228	E	openvpn	ingprog			72
-1504106825	91.122.206.228	E	openvpn	ingprog			176
-1504106839	91.122.206.228	E	openvpn	ingprog			13
-1504167297	91.122.206.228	E	ip_utility	ingprog			80
-1504169735	91.122.206.228	E	ip_utility	ingprog			92
-1504184537	91.122.206.228	E	nat	ingprog			95
-1504247767	91.122.206.228	E	openvpn	ingprog			67
-1504247797	91.122.206.228	E	openvpn	ingprog			20
-1504247809	91.122.206.228	C	install_openvpn_on_ubuntu_16.04	ingprog	created		824
-1504247859	91.122.206.228	E	openvpn	ingprog			-754
-1504248022	91.122.206.228	C	windows_2008_r2_openvpn_server	ingprog	created		971
-1504248113	91.122.206.228	E	windows_2008_r2_openvpn_server	ingprog			-11
-1504248160	91.122.206.228	E	windows_2008_r2_openvpn_server	ingprog			105
-1504250031	91.122.206.228	E	windows_2008_r2_openvpn_server	ingprog			378
-1504250503	91.122.206.228	E	windows_2008_r2_openvpn_server	ingprog			339
-1504250547	91.122.206.228	E	windows_2008_r2_openvpn_server	ingprog			45
-1504250601	91.122.206.228	E	windows_2008_r2_openvpn_server	ingprog	[ccd/client1] 		81
-1504250881	91.122.206.228	E	windows_2008_r2_openvpn_server	ingprog			585
-1504250920	91.122.206.228	E	windows_2008_r2_openvpn_server	ingprog			53
+1505397031	91.122.206.228	E	обязательно_настроить_directoryindex	ingprog			420
+1505397144	91.122.206.228	E	обязательно_настроить_directoryindex	ingprog			133
+1505397389	91.122.206.228	E	обязательно_настроить_directoryindex	ingprog			251
+1505397543	91.122.206.228	E	обязательно_настроить_directoryindex	ingprog			437
+1506083890	91.122.219.149	E	start	ingprog	[Linux] 		20
+1506083926	91.122.219.149	C	samba	ingprog	created		75
+1506083961	91.122.219.149	E	samba	ingprog			54
+1506084104	91.122.219.149	C	samba_доступ_к_папке_по_паролю	ingprog	created		481
+1506088082	91.122.219.149	E	samba_доступ_к_папке_по_паролю	ingprog			59
+1506089189	91.122.219.149	E	samba_доступ_к_папке_по_паролю	ingprog			193
+1506091173	91.122.219.149	E	samba_доступ_к_папке_по_паролю	ingprog			270
+1506091217	91.122.219.149	E	samba_доступ_к_папке_по_паролю	ingprog			108
+1506091507	91.122.219.149	E	samba_доступ_к_папке_по_паролю	ingprog			272
+1506091590	91.122.219.149	E	samba	ingprog			82
+1506091609	91.122.219.149	C	ubuntu_16_samba_в_домене_ad	ingprog	created		51
+1506091908	91.122.219.149	E	ubuntu_16_samba_в_домене_ad	ingprog			346
+1506092398	91.122.219.149	E	ubuntu_16_samba_в_домене_ad	ingprog			58
+1506092909	91.122.219.149	E	ubuntu_16_samba_в_домене_ad	ingprog			575
+1506093244	91.122.219.149	E	ubuntu_16_samba_в_домене_ad	ingprog			323
+1506093457	91.122.219.149	E	ubuntu_16_samba_в_домене_ad	ingprog			257
+1506324114	91.122.219.149	E	ubuntu_16_samba_в_домене_ad	ingprog			413
+1506324139	91.122.219.149	E	ubuntu_16_samba_в_домене_ad	ingprog			50
+1506324270	91.122.219.149	E	ubuntu_16_samba_в_домене_ad	ingprog			-32
+1506324293	91.122.219.149	E	ubuntu_16_samba_в_домене_ad	ingprog			12
+1506324320	91.122.219.149	E	ubuntu_16_samba_в_домене_ad	ingprog			43
+1506324627	91.122.219.149	C	почему_выбираем_idmap_rid	ingprog	created		210
+1506326281	91.122.219.149	E	почему_выбираем_idmap_rid	ingprog			737
+1506326321	91.122.219.149	E	почему_выбираем_idmap_rid	ingprog			-2
+1506326708	91.122.219.149	E	почему_выбираем_idmap_rid	ingprog			581
+1506326825	91.122.219.149	E	почему_выбираем_idmap_rid	ingprog			71
+1506326837	91.122.219.149	E	почему_выбираем_idmap_rid	ingprog			-3
+1506326973	91.122.219.149	E	почему_выбираем_idmap_rid	ingprog			67
+1506327453	91.122.219.149	E	ubuntu_16_samba_в_домене_ad	ingprog			26
+1506327698	91.122.219.149	E	ubuntu_16_samba_в_домене_ad	ingprog			124
+1506327748	91.122.219.149	E	ubuntu_16_samba_в_домене_ad	ingprog			44
+1506327772	91.122.219.149	E	ubuntu_16_samba_в_домене_ad	ingprog	[Далее будем рисовать с чистого файла /etc/samba/smb.conf] 		-3
+1506329308	91.122.219.149	E	ubuntu_16_samba_в_домене_ad	ingprog	[Далее будем рисовать с чистого файла /etc/samba/smb.conf] 		893
+1506329346	91.122.219.149	E	ubuntu_16_samba_в_домене_ad	ingprog	[Далее будем рисовать с чистого файла /etc/samba/smb.conf] 		3
+1506332618	91.122.219.149	E	ubuntu_16_samba_в_домене_ad	ingprog	[Далее будем рисовать с чистого файла /etc/samba/smb.conf] 		40
+1506332633	91.122.219.149	E	ubuntu_16_samba_в_домене_ad	ingprog			11
+1506332720	91.122.219.149	E	ubuntu_16_samba_в_домене_ad	ingprog			402
+1506342139	91.122.206.228	E	ubuntu_16_samba_в_домене_ad	ingprog	[Следующая опция, которую нам советует интернет (winbind offline logon).] 		925
+1506342590	91.122.206.228	E	ubuntu_16_samba_в_домене_ad	ingprog	[Следующая опция, которую нам советует интернет (winbind offline logon).] 		157
+1506342605	91.122.206.228	E	ubuntu_16_samba_в_домене_ad	ingprog	[Следующая опция, которую нам советует интернет (winbind offline logon).] 		-3
+1506343142	91.122.206.228	E	ubuntu_16_samba_в_домене_ad	ingprog	[Следующая опция, которую нам советует интернет (map acl inherit).] 		209
+1506343206	91.122.206.228	E	ubuntu_16_samba_в_домене_ad	ingprog	[Следующая опция, которую нам советует интернет (map acl inherit).] 		49
+1506344019	91.122.206.228	E	ubuntu_16_samba_в_домене_ad	ingprog	[Следующая опция, которую нам советует интернет (map acl inherit).] 		209
+1506344790	91.122.206.228	E	ubuntu_16_samba_в_домене_ad	ingprog	[И напоследок, чтобы Samba не пыталась стать домен-контроллером] 		174
+1506345025	91.122.206.228	E	ubuntu_16_samba_в_домене_ad	ingprog	[Присоединяемся к домену] 		109
+1506345163	91.122.206.228	E	ubuntu_16_samba_в_домене_ad	ingprog	[Присоединяемся к домену] 		110
+1506345176	91.122.206.228	E	ubuntu_16_samba_в_домене_ad	ingprog	[Присоединяемся к домену] 		20
+1506345300	91.122.206.228	E	ubuntu_16_samba_в_домене_ad	ingprog	[Присоединяемся к домену] 		638
+1506345387	91.122.206.228	E	ubuntu_16_samba_в_домене_ad	ingprog	[Присоединяемся к домену] 		62
+1506346537	91.122.206.228	E	ubuntu_16_samba_в_домене_ad	ingprog	[Присоединяемся к домену] 		225
+1506346557	91.122.206.228	E	ubuntu_16_samba_в_домене_ad	ingprog	[Присоединяемся к домену] 		9
+1506347244	91.122.206.228	E	ubuntu_16_samba_в_домене_ad	ingprog	[Присоединяемся к домену] 		67

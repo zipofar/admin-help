@@ -1,0 +1,39 @@
+
+<h1 class="sectionedit1" id="samba_доступ_к_папке_по_паролю">Samba доступ к папке по паролю</h1>
+<div class="level1">
+
+<p>
+У Samba есть свой собственный репозиторий с пользователями и паролями. Это может быть файл passdb.tdb.
+</p>
+
+<p>
+Чтобы сделать доступ к папке по паролю, нужно создать системного пользователя, а затем добавить его в Samba.
+</p>
+<pre class="code">adduser smb1
+
+smbpasswd -a smb1
+
+chown smb1:smb1 /var/samba/demo
+chmod 770 /var/samba/demo
+
+# Или лучше создать группу например smb000 и добавлять пользователей в нее
+chown root:smb000 /var/samba/demo
+chmod 770 /var/samba/demo</pre>
+
+<p>
+Создание сетевой папки
+</p>
+<pre class="code">mkdir /var/samba/demo
+
+# /etc/smb.conf
+[demo]
+    path = /var/samba/demo
+    read only = no # Иначе не даст создавать файлы и папки
+    create mode = 0770 # Маска при создании файлов
+    directory mode = 0770 # Маска при создании директорий</pre>
+
+<p>
+Кстати, если пользователь Windows имеет такие же логин и пароль как и на samba сервере, при обращении к папке на samba сервере, пароль запрашиваться не будет.
+</p>
+
+</div>

@@ -31,3 +31,11 @@ NAT
 OpenVPN + Ubuntu 16.04
 Install on Ubuntu 16.04
 Windows 2008 R2 OpenVPN server
+Настройка NTP клиента на Domain Controller
+Thin Provision LVM
+Apache
+Обязательно настроить DirectoryIndex
+Samba
+Samba доступ к папке по паролю
+Ubuntu 16 + Samba в домене AD
+Почему выбираем idmap_rid

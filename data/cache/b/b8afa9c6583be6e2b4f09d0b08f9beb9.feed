@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- generator="FeedCreator 1.7.2-ppt DokuWiki" -->
+<?xml-stylesheet href="http://www.zipofar.ru/lib/exe/css.php?s=feed" type="text/css"?>
+<rdf:RDF
+    xmlns="http://purl.org/rss/1.0/"
+    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+    xmlns:dc="http://purl.org/dc/elements/1.1/">
+    <channel rdf:about="http://www.zipofar.ru/feed.php">
+        <title>AdminHelpers playground</title>
+        <description></description>
+        <link>http://www.zipofar.ru/</link>
+        <image rdf:resource="http://www.zipofar.ru/lib/tpl/dokuwiki/images/favicon.ico" />
+       <dc:date>2017-09-08T22:42:51+03:00</dc:date>
+        <items>
+            <rdf:Seq>
+                <rdf:li rdf:resource="http://www.zipofar.ru/doku.php?id=playground:playground&amp;rev=1504252008&amp;do=diff"/>
+            </rdf:Seq>
+        </items>
+    </channel>
+    <image rdf:about="http://www.zipofar.ru/lib/tpl/dokuwiki/images/favicon.ico">
+        <title>AdminHelpers</title>
+        <link>http://www.zipofar.ru/</link>
+        <url>http://www.zipofar.ru/lib/tpl/dokuwiki/images/favicon.ico</url>
+    </image>
+    <item rdf:about="http://www.zipofar.ru/doku.php?id=playground:playground&amp;rev=1504252008&amp;do=diff">
+        <dc:format>text/html</dc:format>
+        <dc:date>2017-09-01T10:46:48+03:00</dc:date>
+        <title>playground:playground</title>
+        <link>http://www.zipofar.ru/doku.php?id=playground:playground&amp;rev=1504252008&amp;do=diff</link>
+        <description>PlayGround</description>
+    </item>
+</rdf:RDF>

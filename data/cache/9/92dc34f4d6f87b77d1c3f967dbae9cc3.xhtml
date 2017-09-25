@@ -1,0 +1,64 @@
+
+<h1 class="sectionedit1" id="c_-_подключение_к_серверу_1с_установленному_на_ubuntu">1C - подключение к серверу 1С установленному на Ubuntu</h1>
+<div class="level1">
+
+<p>
+При подключении к серверу 1С через ММС (Администрирование серверов 1С Предприятие) появлялись различне ошибки, связанные с подключением.
+</p>
+
+<p>
+Следующие решения мне помогли:
+</p>
+
+<p>
+1. Прописать в /etc/hosts адрес интерфейса и FQDN название сервера (любое выдуманное название подойдет)
+</p>
+<pre class="code"># /etc/hosts
+192.168.0.32 test.1c-srv.com</pre>
+
+<p>
+2. Прописать в hosts на системе с которой подключаетесь к серверу 1С (скорее всего Windows). Т.к. у меня Windows 7, то hosts находится в папке C:\Windows\system32\drivers\etc. Так вот в hosts прописать следующее:
+</p>
+<pre class="code">192.168.0.32 test.1c-srv.com test
+192.168.0.32 ubuntu64 ubuntu64
+
+# ubuntu64 - это реальное название моего linux сервера. Почему его надо прописывать? 
+Потому-что это название фигурирует в ветке &quot;Рабочие серверы&quot; и &quot;Рабочие процессы&quot;. 
+И пока я его не прописал, базу я создать не мог.</pre>
+
+<p>
+Еще при создании базы был затык в том, что не удавалось подключиться к postgresql.
+Учитывая, что сервер 1С и postgres установлены на одной машине и казалось бы сервер 1С должен
+обращаться к postgres локально (через Local). Но фиг. Файл настройки доступа к Postgres.
+</p>
+<pre class="code"># /etc/postgresql/9.6/main/pg_hba.conf
+
+local    all    postgres               trust
+host     all    all       0.0.0.0/0    md5</pre>
+
+<p>
+При создании базы в ММС пришлось указать “Защищенное соединение = только соединенеие” и 
+только тогда удалось создать базу. В общем ХЗ как это все работает. Надо разбираться.
+</p>
+
+<p>
+И еще ссылки по теме:
+</p>
+
+<p>
+<a href="https://документооборот.net/faq/1s-doc-postgre-sql-vps.html" class="urlextern" title="https://документооборот.net/faq/1s-doc-postgre-sql-vps.html" rel="nofollow">Установка 1С:Документооборот на VPS-сервере с PostgreSQL</a>
+</p>
+
+<p>
+<a href="https://habrahabr.ru/post/155735/#chapter6" class="urlextern" title="https://habrahabr.ru/post/155735/#chapter6" rel="nofollow">Как установить 1С Предприятие 8.2 (релиз 8.2.16.368 от 05.10.12) на линукс CentOS 6.3 (статья, HowTo)</a>
+</p>
+
+<p>
+<a href="https://infostart.ru/public/502542/" class="urlextern" title="https://infostart.ru/public/502542/" rel="nofollow">Установка 1С Сервер 8.3.7 (i386 и x64) и PostgreSQL 9.4.x x64 на Ubuntu Server 14.04 x64</a>
+</p>
+
+<p>
+<a href="https://habrahabr.ru/company/stss/blog/282852/" class="urlextern" title="https://habrahabr.ru/company/stss/blog/282852/" rel="nofollow">Сервер приложений 1С на Linux</a>
+</p>
+
+</div>

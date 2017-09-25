@@ -1,0 +1,59 @@
+
+<h2 class="sectionedit1" id="install_on_ubuntu_1604">Install on Ubuntu 16.04</h2>
+<div class="level2">
+<pre class="code">apt install openvpn easy-rsa
+
+gunzip -c /usr/share/doc/openvpn/examples/sample-config-files/server.conf.gz | sudo tee /etc/openvpn/server.conf
+
+make-cadir ~/openvpn-ca</pre>
+<pre class="code">vim ~/openvpn-ca/vars</pre>
+<ul>
+<li class="level1"><div class="li"> export KEY_COUNTRY=“US”</div>
+</li>
+<li class="level1"><div class="li"> export KEY_PROVINCE=“CA”</div>
+</li>
+<li class="level1"><div class="li"> export KEY_CITY=“SanFrancisco”</div>
+</li>
+<li class="level1"><div class="li"> export KEY_ORG=“Fort-Funston”</div>
+</li>
+<li class="level1"><div class="li"> export KEY_EMAIL=“me@myhost.mydomain”</div>
+</li>
+<li class="level1"><div class="li"> export KEY_OU=“MyOrganizationalUnit”</div>
+</li>
+</ul>
+<pre class="code">cd ~/openvpn-ca
+
+source vars
+
+./clean-all
+
+./build-ca
+
+./build-key-server server
+
+./build-dh
+
+openvpn --genkey --secret ta.key</pre>
+
+<p>
+Положит следующие файлы в папку /etc/openvpn
+</p>
+<ul>
+<li class="level1"><div class="li"> ca.cart</div>
+</li>
+<li class="level1"><div class="li"> server.crt</div>
+</li>
+<li class="level1"><div class="li"> server.key</div>
+</li>
+<li class="level1"><div class="li"> dh2048.pem</div>
+</li>
+<li class="level1"><div class="li"> ta.key</div>
+</li>
+</ul>
+
+<p>
+Ключи для клиентов
+</p>
+<pre class="code">./build-key client1</pre>
+
+</div>

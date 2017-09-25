@@ -1,65 +1,11 @@
 
 <h1 class="sectionedit1" id="openvpn_ubuntu_1604">OpenVPN + Ubuntu 16.04</h1>
 <div class="level1">
-
-</div>
-<!-- EDIT1 SECTION "OpenVPN + Ubuntu 16.04" [1-38] -->
-<h2 class="sectionedit2" id="install">Install</h2>
-<div class="level2">
-<pre class="code">apt install openvpn easy-rsa
-
-gunzip -c /usr/share/doc/openvpn/examples/sample-config-files/server.conf.gz | sudo tee /etc/openvpn/server.conf
-
-make-cadir ~/openvpn-ca</pre>
-<pre class="code">vim ~/openvpn-ca/vars</pre>
 <ul>
-<li class="level1"><div class="li"> export KEY_COUNTRY=“US”</div>
+<li class="level1"><div class="li"> <a href="/doku.php?id=install_openvpn_on_ubuntu_16.04" class="wikilink1" title="install_openvpn_on_ubuntu_16.04">Install OpenVPN on Ubuntu 16.04</a></div>
 </li>
-<li class="level1"><div class="li"> export KEY_PROVINCE=“CA”</div>
-</li>
-<li class="level1"><div class="li"> export KEY_CITY=“SanFrancisco”</div>
-</li>
-<li class="level1"><div class="li"> export KEY_ORG=“Fort-Funston”</div>
-</li>
-<li class="level1"><div class="li"> export KEY_EMAIL=“me@myhost.mydomain”</div>
-</li>
-<li class="level1"><div class="li"> export KEY_OU=“MyOrganizationalUnit”</div>
-</li>
-</ul>
-<pre class="code">cd ~/openvpn-ca
-
-source vars
-
-./clean-all
-
-./build-ca
-
-./build-key-server server
-
-./build-dh
-
-openvpn --genkey --secret ta.key</pre>
-
-<p>
-Положит следующие файлы в папку /etc/openvpn
-</p>
-<ul>
-<li class="level1"><div class="li"> ca.cart</div>
-</li>
-<li class="level1"><div class="li"> server.crt</div>
-</li>
-<li class="level1"><div class="li"> server.key</div>
-</li>
-<li class="level1"><div class="li"> dh2048.pem</div>
-</li>
-<li class="level1"><div class="li"> ta.key</div>
+<li class="level1"><div class="li"> <a href="/doku.php?id=windows_2008_r2_openvpn_server" class="wikilink1" title="windows_2008_r2_openvpn_server">Windows 2008 R2 OpenVPN server</a></div>
 </li>
 </ul>
 
-<p>
-Ключи для клиентов
-</p>
-<pre class="code">./build-key client1</pre>
-
 </div>
-<!-- EDIT2 SECTION "Install" [39-] -->

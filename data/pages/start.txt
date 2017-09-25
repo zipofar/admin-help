@@ -22,8 +22,11 @@
   * [[IP Utility|IP Utility]]
   * [[IPTables|IPTables]]
   * [[OpenVPN|OpenVPN]]
+  * [[Apache|Apache]]
+  * [[Samba|Samba]]
 
 
 ====== Windows ======
 
   * [[Не срабатывают GPO|Не срабатывают GPO]]
+  * [[Настройка NTP клиента на Domain Controller|Настройка NTP клиента на Domain Controller]]

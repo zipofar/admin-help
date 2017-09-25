@@ -11,15 +11,14 @@
         <description></description>
         <link>http://zipofar.ru/</link>
         <image rdf:resource="http://zipofar.ru/lib/tpl/dokuwiki/images/favicon.ico" />
-       <dc:date>2017-08-30T19:53:37+03:00</dc:date>
+       <dc:date>2017-09-14T15:52:42+03:00</dc:date>
         <items>
             <rdf:Seq>
-                <rdf:li rdf:resource="http://zipofar.ru/doku.php?id=openvpn&amp;rev=1504106839&amp;do=diff"/>
-                <rdf:li rdf:resource="http://zipofar.ru/doku.php?id=start&amp;rev=1504096492&amp;do=diff"/>
-                <rdf:li rdf:resource="http://zipofar.ru/doku.php?id=nat&amp;rev=1504096399&amp;do=diff"/>
-                <rdf:li rdf:resource="http://zipofar.ru/doku.php?id=iptables&amp;rev=1504096354&amp;do=diff"/>
-                <rdf:li rdf:resource="http://zipofar.ru/doku.php?id=mange_vm_in_kvm&amp;rev=1503498490&amp;do=diff"/>
-                <rdf:li rdf:resource="http://zipofar.ru/doku.php?id=%D1%81%D0%B5%D1%82%D1%8C_%D0%B2_kvm&amp;rev=1503415463&amp;do=diff"/>
+                <rdf:li rdf:resource="http://zipofar.ru/doku.php?id=thin_provision_lvm&amp;rev=1504861954&amp;do=diff"/>
+                <rdf:li rdf:resource="http://zipofar.ru/doku.php?id=lvm&amp;rev=1504859013&amp;do=diff"/>
+                <rdf:li rdf:resource="http://zipofar.ru/doku.php?id=%D0%BD%D0%B0%D1%81%D1%82%D1%80%D0%BE%D0%B9%D0%BA%D0%B0_ntp_%D0%BA%D0%BB%D0%B8%D0%B5%D0%BD%D1%82%D0%B0_%D0%BD%D0%B0_domain_controller&amp;rev=1504777219&amp;do=diff"/>
+                <rdf:li rdf:resource="http://zipofar.ru/doku.php?id=start&amp;rev=1504777211&amp;do=diff"/>
+                <rdf:li rdf:resource="http://zipofar.ru/doku.php?id=windows_2008_r2_openvpn_server&amp;rev=1504250920&amp;do=diff"/>
             </rdf:Seq>
         </items>
     </channel>
@@ -28,36 +27,76 @@
         <link>http://zipofar.ru/</link>
         <url>http://zipofar.ru/lib/tpl/dokuwiki/images/favicon.ico</url>
     </image>
-    <item rdf:about="http://zipofar.ru/doku.php?id=openvpn&amp;rev=1504106839&amp;do=diff">
+    <item rdf:about="http://zipofar.ru/doku.php?id=thin_provision_lvm&amp;rev=1504861954&amp;do=diff">
         <dc:format>text/html</dc:format>
-        <dc:date>2017-08-30T18:27:19+03:00</dc:date>
+        <dc:date>2017-09-08T12:12:34+03:00</dc:date>
         <dc:creator>ingprog</dc:creator>
-        <title>openvpn</title>
-        <link>http://zipofar.ru/doku.php?id=openvpn&amp;rev=1504106839&amp;do=diff</link>
-        <description>OpenVPN + Ubuntu 16.04
+        <title>thin_provision_lvm - [Snapshot Thin Provision LV] </title>
+        <link>http://zipofar.ru/doku.php?id=thin_provision_lvm&amp;rev=1504861954&amp;do=diff</link>
+        <description>Thin Provision LVM
 
-Install
+Создание Thin Provision logical volumes
 
-
-apt install openvpn easy-rsa
-
-gunzip -c /usr/share/doc/openvpn/examples/sample-config-files/server.conf.gz | sudo tee /etc/openvpn/server.conf
-
-make-cadir ~/openvpn-ca
+Создаем группу Volume Group
 
 
+vgcreate vg001 /dev/sdb
 
-vim ~/openvpn-ca/vars
+
+Создаем пул
 
 
-	*  export KEY_COUNTRY=</description>
+lvcreate -l 100%FREE -T vg001/pool
+
+
+Создаем раздел Logical Volume
+
+
+lvcreate -V 1G -n vm1 vg001/pool
+
+# А можно создать раздел больше, чем физический раздел
+lvcreate -V 10G -n vm1 vg001/pool</description>
     </item>
-    <item rdf:about="http://zipofar.ru/doku.php?id=start&amp;rev=1504096492&amp;do=diff">
+    <item rdf:about="http://zipofar.ru/doku.php?id=lvm&amp;rev=1504859013&amp;do=diff">
         <dc:format>text/html</dc:format>
-        <dc:date>2017-08-30T15:34:52+03:00</dc:date>
+        <dc:date>2017-09-08T11:23:33+03:00</dc:date>
         <dc:creator>ingprog</dc:creator>
-        <title>start</title>
-        <link>http://zipofar.ru/doku.php?id=start&amp;rev=1504096492&amp;do=diff</link>
+        <title>lvm</title>
+        <link>http://zipofar.ru/doku.php?id=lvm&amp;rev=1504859013&amp;do=diff</link>
+        <description>LVM
+
+Thin Provision LVM
+
+LVM (wiki.archlinux)
+
+LVM (Habr)
+
+LVM (xgu.ru)
+
+LVM SnapShot Explained</description>
+    </item>
+    <item rdf:about="http://zipofar.ru/doku.php?id=%D0%BD%D0%B0%D1%81%D1%82%D1%80%D0%BE%D0%B9%D0%BA%D0%B0_ntp_%D0%BA%D0%BB%D0%B8%D0%B5%D0%BD%D1%82%D0%B0_%D0%BD%D0%B0_domain_controller&amp;rev=1504777219&amp;do=diff">
+        <dc:format>text/html</dc:format>
+        <dc:date>2017-09-07T12:40:19+03:00</dc:date>
+        <dc:creator>ingprog</dc:creator>
+        <title>настройка_ntp_клиента_на_domain_controller</title>
+        <link>http://zipofar.ru/doku.php?id=%D0%BD%D0%B0%D1%81%D1%82%D1%80%D0%BE%D0%B9%D0%BA%D0%B0_ntp_%D0%BA%D0%BB%D0%B8%D0%B5%D0%BD%D1%82%D0%B0_%D0%BD%D0%B0_domain_controller&amp;rev=1504777219&amp;do=diff</link>
+        <description>Настройка NTP клиента на Domain Controller
+
+Если кто не знает этого наизусть, то так вот находим все DC и того, кто из них PDC эмулятор
+
+
+netdom query fsmo
+
+
+Теперь проверяю доступность с PDC эмулятора сервера времени.</description>
+    </item>
+    <item rdf:about="http://zipofar.ru/doku.php?id=start&amp;rev=1504777211&amp;do=diff">
+        <dc:format>text/html</dc:format>
+        <dc:date>2017-09-07T12:40:11+03:00</dc:date>
+        <dc:creator>ingprog</dc:creator>
+        <title>start - [Windows] </title>
+        <link>http://zipofar.ru/doku.php?id=start&amp;rev=1504777211&amp;do=diff</link>
         <description>Почта (Exchange, Postfix, Dovecot)
 
 	*  Reverse proxy (обратный прокси) для доступа к Outlook Web App (OWA) из интернета
@@ -73,79 +112,22 @@ Linux
 	*   cron спамит auth.log (pam_unix(cron:session): session opened for user root by (uid=0))
 	*   настройка…</description>
     </item>
-    <item rdf:about="http://zipofar.ru/doku.php?id=nat&amp;rev=1504096399&amp;do=diff">
+    <item rdf:about="http://zipofar.ru/doku.php?id=windows_2008_r2_openvpn_server&amp;rev=1504250920&amp;do=diff">
         <dc:format>text/html</dc:format>
-        <dc:date>2017-08-30T15:33:19+03:00</dc:date>
+        <dc:date>2017-09-01T10:28:40+03:00</dc:date>
         <dc:creator>ingprog</dc:creator>
-        <title>nat - created</title>
-        <link>http://zipofar.ru/doku.php?id=nat&amp;rev=1504096399&amp;do=diff</link>
-        <description>NAT
+        <title>windows_2008_r2_openvpn_server</title>
+        <link>http://zipofar.ru/doku.php?id=windows_2008_r2_openvpn_server&amp;rev=1504250920&amp;do=diff</link>
+        <description>Windows 2008 R2 OpenVPN server
+
+Нюансы при создании openvpn сервера на windows 2008
+
+1. Определение путей в конфигурационном файле
 
 
-
-iptables -t nat -A POSTROUTING -o ppp0 -j MASQUERADE</description>
-    </item>
-    <item rdf:about="http://zipofar.ru/doku.php?id=iptables&amp;rev=1504096354&amp;do=diff">
-        <dc:format>text/html</dc:format>
-        <dc:date>2017-08-30T15:32:34+03:00</dc:date>
-        <dc:creator>ingprog</dc:creator>
-        <title>iptables - created</title>
-        <link>http://zipofar.ru/doku.php?id=iptables&amp;rev=1504096354&amp;do=diff</link>
-        <description>IPTables
-
-	*  NAT</description>
-    </item>
-    <item rdf:about="http://zipofar.ru/doku.php?id=mange_vm_in_kvm&amp;rev=1503498490&amp;do=diff">
-        <dc:format>text/html</dc:format>
-        <dc:date>2017-08-23T17:28:10+03:00</dc:date>
-        <dc:creator>ingprog</dc:creator>
-        <title>mange_vm_in_kvm</title>
-        <link>http://zipofar.ru/doku.php?id=mange_vm_in_kvm&amp;rev=1503498490&amp;do=diff</link>
-        <description>Mange VM in KVM
-
-Clone VM
+ca &quot;C:\\Program Files\\OpenVPN\\config\\ca.crt&quot;
 
 
-virt-clone -o name-vm1 --name name-vm2-clone --file /dev/ubuntu-vg/vm3
-
-
-Delete VM
-
-
-virsh destroy name-vm
-virsh undefine name-vm
-
-
-Add VM
-
-
-virsh define /etc/libvirt/qemu/name-vm.xml
-
-
-Show All VM
-
-
-virsh list --all
-
-
-Add disk to VM</description>
-    </item>
-    <item rdf:about="http://zipofar.ru/doku.php?id=%D1%81%D0%B5%D1%82%D1%8C_%D0%B2_kvm&amp;rev=1503415463&amp;do=diff">
-        <dc:format>text/html</dc:format>
-        <dc:date>2017-08-22T18:24:23+03:00</dc:date>
-        <dc:creator>ingprog</dc:creator>
-        <title>сеть_в_kvm - [Ссылки] </title>
-        <link>http://zipofar.ru/doku.php?id=%D1%81%D0%B5%D1%82%D1%8C_%D0%B2_kvm&amp;rev=1503415463&amp;do=diff</link>
-        <description>Сеть в KVM
-
-Типы сетей
-
-	*  Bridget Network
-	*  Routed Network
-	*  NAT-based Network
-
-Bridget Network
-
-Bridge - это некий виртуальный свитч в Linux, к которому можно подключить хост и гостевые ВМ.</description>
+2. Файлы в каталоге ccd должны быть без расширения</description>
     </item>
 </rdf:RDF>

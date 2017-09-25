@@ -1,0 +1,23 @@
+a:2:{s:7:"current";a:9:{s:4:"date";a:2:{s:7:"created";i:1504860037;s:8:"modified";i:1504861954;}s:7:"creator";s:7:"ingprog";s:4:"user";s:7:"ingprog";s:11:"last_change";a:8:{s:4:"date";i:1504861954;s:2:"ip";s:14:"91.122.219.149";s:4:"type";s:1:"E";s:2:"id";s:18:"thin_provision_lvm";s:4:"user";s:7:"ingprog";s:3:"sum";s:29:"[Snapshot Thin Provision LV] ";s:5:"extra";s:0:"";s:10:"sizechange";i:129;}s:11:"contributor";a:1:{s:7:"ingprog";s:7:"ingprog";}s:5:"title";s:18:"Thin Provision LVM";s:11:"description";a:2:{s:15:"tableofcontents";a:4:{i:0;a:4:{s:3:"hid";s:18:"thin_provision_lvm";s:5:"title";s:18:"Thin Provision LVM";s:4:"type";s:2:"ul";s:5:"level";i:1;}i:1;a:4:{s:3:"hid";s:47:"создание_thin_provision_logical_volumes";s:5:"title";s:47:"Создание Thin Provision logical volumes";s:4:"type";s:2:"ul";s:5:"level";i:2;}i:2;a:4:{s:3:"hid";s:26:"snapshot_thin_provision_lv";s:5:"title";s:26:"Snapshot Thin Provision LV";s:4:"type";s:2:"ul";s:5:"level";i:2;}i:3;a:4:{s:3:"hid";s:12:"ссылки";s:5:"title";s:12:"Ссылки";s:4:"type";s:2:"ul";s:5:"level";i:2;}}s:8:"abstract";s:410:"Thin Provision LVM
+
+Создание Thin Provision logical volumes
+
+Создаем группу Volume Group
+
+
+vgcreate vg001 /dev/sdb
+
+
+Создаем пул
+
+
+lvcreate -l 100%FREE -T vg001/pool
+
+
+Создаем раздел Logical Volume
+
+
+lvcreate -V 1G -n vm1 vg001/pool
+
+# А можно создать раздел больше, чем физический раздел
+lvcreate -V 10G -n vm1 vg001/pool";}s:8:"internal";a:2:{s:5:"cache";b:1;s:3:"toc";b:1;}s:8:"relation";a:1:{s:10:"firstimage";s:0:"";}}s:10:"persistent";a:5:{s:4:"date";a:2:{s:7:"created";i:1504860037;s:8:"modified";i:1504861954;}s:7:"creator";s:7:"ingprog";s:4:"user";s:7:"ingprog";s:11:"last_change";a:8:{s:4:"date";i:1504861954;s:2:"ip";s:14:"91.122.219.149";s:4:"type";s:1:"E";s:2:"id";s:18:"thin_provision_lvm";s:4:"user";s:7:"ingprog";s:3:"sum";s:29:"[Snapshot Thin Provision LV] ";s:5:"extra";s:0:"";s:10:"sizechange";i:129;}s:11:"contributor";a:1:{s:7:"ingprog";s:7:"ingprog";}}}

@@ -31,3 +31,11 @@ nat
 openvpn
 install_openvpn_on_ubuntu_16.04
 windows_2008_r2_openvpn_server
+настройка_ntp_клиента_на_domain_controller
+thin_provision_lvm
+apache
+обязательно_настроить_directoryindex
+samba
+samba_доступ_к_папке_по_паролю
+ubuntu_16_samba_в_домене_ad
+почему_выбираем_idmap_rid

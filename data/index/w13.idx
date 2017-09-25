@@ -19,3 +19,6 @@ autosubscribe
 authenticated
 mydestination
 communication
+announceflags
+authoritative
+rewriteengine

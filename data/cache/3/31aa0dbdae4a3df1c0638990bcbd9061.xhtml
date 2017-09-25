@@ -1,0 +1,91 @@
+
+<h1 class="sectionedit1" id="windows_2008_r2_openvpn_server">Windows 2008 R2 OpenVPN server</h1>
+<div class="level1">
+
+<p>
+Нюансы при создании openvpn сервера на windows 2008
+</p>
+
+<p>
+1. Определение путей в конфигурационном файле
+</p>
+<pre class="code">ca &quot;C:\\Program Files\\OpenVPN\\config\\ca.crt&quot;</pre>
+
+<p>
+2. Файлы в каталоге ccd должны быть без расширения
+</p>
+
+<p>
+3. Обязательно включить перенаправление IP пакетов на реальном и TAP интерфейсах
+</p>
+<pre class="code"># Открыть powershell 
+netsh interface ipv4 show interfaces
+
+netsh interface ipv4 set interface &lt;id&gt; forwarding=&quot;enabled&quot;</pre>
+
+</div>
+<!-- EDIT1 SECTION "Windows 2008 R2 OpenVPN server" [1-652] -->
+<h2 class="sectionedit2" id="рабочий_конфиг">Рабочий конфиг</h2>
+<div class="level2">
+
+</div>
+<!-- EDIT2 SECTION "Рабочий конфиг" [653-692] -->
+<h3 class="sectionedit3" id="serverovpn">server.ovpn</h3>
+<div class="level3">
+<pre class="code"># server.ovpn
+port 1194
+proto tcp
+dev tun
+
+ca &quot;C:\\Program Files\\OpenVPN\\config\\ca.crt&quot;
+cert &quot;C:\\Program Files\\OpenVPN\\config\\server.crt&quot;
+key &quot;C:\\Program Files\\OpenVPN\\config\\server.key &quot;
+dh &quot;C:\\Program Files\\OpenVPN\\config\\dh2048.pem&quot;
+
+server 10.8.0.0 255.255.255.0
+
+ifconfig-pool-persist &quot;C:\\Program Files\\OpenVPN\\config\\ipp.txt&quot;
+
+# Для того, чтобы иметь возможность обращаться к серверу
+# по его локальному адресу, а не только адресу из сети openvpn.
+# Т.е. при запуске openvpn на клиенте, на клиенте же будет прописываться
+# статический маршрут.
+push &quot;route 1.1.1.0 255.255.255.0&quot;
+
+client-config-dir &quot;C:\\Program Files\\OpenVPN\\config\\ccd&quot;
+
+# Данная директива прописывает статический маршрут на сервере, для возможности
+# обращения с сервера к клиенту по его локальному адресу клиента.
+route 192.168.0.0 255.255.255.0
+
+keepalive 10 120
+
+tls-auth &quot;C:\\Program Files\\OpenVPN\\config\\ta.key&quot; 0 
+cipher AES-128-CBC
+auth SHA256
+comp-lzo
+
+max-clients 100
+
+persist-key
+persist-tun
+status &quot;C:\\Program Files\\OpenVPN\\openvpn-status.log&quot;
+log &quot;C:\\Program Files\\OpenVPN\\openvpn.log&quot;
+verb 3</pre>
+
+</div>
+<!-- EDIT3 SECTION "server.ovpn" [693-2117] -->
+<h3 class="sectionedit4" id="ccd_client1">ccd/client1</h3>
+<div class="level3">
+<pre class="code"># ccd/client1
+
+# Для того чтобы с сервера можно было пинговать 
+# клиента по его локальному адресу, 
+# а не только по адресу назначенному openvpn
+iroute 192.168.0.0 255.255.255.0
+
+# Для назначения постоянного адреса клиенту
+ifconfig-push 10.8.0.101 10.8.0.102</pre>
+
+</div>
+<!-- EDIT4 SECTION "ccd/client1" [2118-] -->
