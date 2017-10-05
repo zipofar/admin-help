@@ -223,3 +223,8 @@ domain2
 usename
 offline
 inherit
+2419200
+records
+dnshabr
+3600000
+masters

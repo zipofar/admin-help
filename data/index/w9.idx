@@ -103,3 +103,4 @@ smbpasswd
 timesyncd
 workgroup
 passwords
+recursion

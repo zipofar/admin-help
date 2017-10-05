@@ -11,14 +11,14 @@
         <description></description>
         <link>http://zipofar.ru/</link>
         <image rdf:resource="http://zipofar.ru/lib/tpl/dokuwiki/images/favicon.ico" />
-       <dc:date>2017-09-14T15:52:42+03:00</dc:date>
+       <dc:date>2017-09-30T05:02:13+03:00</dc:date>
         <items>
             <rdf:Seq>
-                <rdf:li rdf:resource="http://zipofar.ru/doku.php?id=thin_provision_lvm&amp;rev=1504861954&amp;do=diff"/>
-                <rdf:li rdf:resource="http://zipofar.ru/doku.php?id=lvm&amp;rev=1504859013&amp;do=diff"/>
-                <rdf:li rdf:resource="http://zipofar.ru/doku.php?id=%D0%BD%D0%B0%D1%81%D1%82%D1%80%D0%BE%D0%B9%D0%BA%D0%B0_ntp_%D0%BA%D0%BB%D0%B8%D0%B5%D0%BD%D1%82%D0%B0_%D0%BD%D0%B0_domain_controller&amp;rev=1504777219&amp;do=diff"/>
-                <rdf:li rdf:resource="http://zipofar.ru/doku.php?id=start&amp;rev=1504777211&amp;do=diff"/>
-                <rdf:li rdf:resource="http://zipofar.ru/doku.php?id=windows_2008_r2_openvpn_server&amp;rev=1504250920&amp;do=diff"/>
+                <rdf:li rdf:resource="http://zipofar.ru/doku.php?id=ubuntu_16_samba_%D0%B2_%D0%B4%D0%BE%D0%BC%D0%B5%D0%BD%D0%B5_ad&amp;rev=1506347244&amp;do=diff"/>
+                <rdf:li rdf:resource="http://zipofar.ru/doku.php?id=%D0%BF%D0%BE%D1%87%D0%B5%D0%BC%D1%83_%D0%B2%D1%8B%D0%B1%D0%B8%D1%80%D0%B0%D0%B5%D0%BC_idmap_rid&amp;rev=1506326973&amp;do=diff"/>
+                <rdf:li rdf:resource="http://zipofar.ru/doku.php?id=samba&amp;rev=1506091590&amp;do=diff"/>
+                <rdf:li rdf:resource="http://zipofar.ru/doku.php?id=samba_%D0%B4%D0%BE%D1%81%D1%82%D1%83%D0%BF_%D0%BA_%D0%BF%D0%B0%D0%BF%D0%BA%D0%B5_%D0%BF%D0%BE_%D0%BF%D0%B0%D1%80%D0%BE%D0%BB%D1%8E&amp;rev=1506091507&amp;do=diff"/>
+                <rdf:li rdf:resource="http://zipofar.ru/doku.php?id=start&amp;rev=1506083890&amp;do=diff"/>
             </rdf:Seq>
         </items>
     </channel>
@@ -27,76 +27,76 @@
         <link>http://zipofar.ru/</link>
         <url>http://zipofar.ru/lib/tpl/dokuwiki/images/favicon.ico</url>
     </image>
-    <item rdf:about="http://zipofar.ru/doku.php?id=thin_provision_lvm&amp;rev=1504861954&amp;do=diff">
+    <item rdf:about="http://zipofar.ru/doku.php?id=ubuntu_16_samba_%D0%B2_%D0%B4%D0%BE%D0%BC%D0%B5%D0%BD%D0%B5_ad&amp;rev=1506347244&amp;do=diff">
         <dc:format>text/html</dc:format>
-        <dc:date>2017-09-08T12:12:34+03:00</dc:date>
+        <dc:date>2017-09-25T16:47:24+03:00</dc:date>
         <dc:creator>ingprog</dc:creator>
-        <title>thin_provision_lvm - [Snapshot Thin Provision LV] </title>
-        <link>http://zipofar.ru/doku.php?id=thin_provision_lvm&amp;rev=1504861954&amp;do=diff</link>
-        <description>Thin Provision LVM
+        <title>ubuntu_16_samba_в_домене_ad - [Присоединяемся к домену] </title>
+        <link>http://zipofar.ru/doku.php?id=ubuntu_16_samba_%D0%B2_%D0%B4%D0%BE%D0%BC%D0%B5%D0%BD%D0%B5_ad&amp;rev=1506347244&amp;do=diff</link>
+        <description>Ubuntu 16 + Samba в домене AD
 
-Создание Thin Provision logical volumes
-
-Создаем группу Volume Group
+Установим время с помощью стандартной утилиты timedatectl
 
 
-vgcreate vg001 /dev/sdb
+timedatectl set-timezone Europe/Moscow
 
-
-Создаем пул
-
-
-lvcreate -l 100%FREE -T vg001/pool
-
-
-Создаем раздел Logical Volume
-
-
-lvcreate -V 1G -n vm1 vg001/pool
-
-# А можно создать раздел больше, чем физический раздел
-lvcreate -V 10G -n vm1 vg001/pool</description>
+# В качестве сервера времени будем использовать контроллер домена
+nano /etc/systemd/timesyncd.conf
+    [Time]
+        NTP=dc1.domain.com
+        
+# Проверим время
+timedatectl status</description>
     </item>
-    <item rdf:about="http://zipofar.ru/doku.php?id=lvm&amp;rev=1504859013&amp;do=diff">
+    <item rdf:about="http://zipofar.ru/doku.php?id=%D0%BF%D0%BE%D1%87%D0%B5%D0%BC%D1%83_%D0%B2%D1%8B%D0%B1%D0%B8%D1%80%D0%B0%D0%B5%D0%BC_idmap_rid&amp;rev=1506326973&amp;do=diff">
         <dc:format>text/html</dc:format>
-        <dc:date>2017-09-08T11:23:33+03:00</dc:date>
+        <dc:date>2017-09-25T11:09:33+03:00</dc:date>
         <dc:creator>ingprog</dc:creator>
-        <title>lvm</title>
-        <link>http://zipofar.ru/doku.php?id=lvm&amp;rev=1504859013&amp;do=diff</link>
-        <description>LVM
+        <title>почему_выбираем_idmap_rid</title>
+        <link>http://zipofar.ru/doku.php?id=%D0%BF%D0%BE%D1%87%D0%B5%D0%BC%D1%83_%D0%B2%D1%8B%D0%B1%D0%B8%D1%80%D0%B0%D0%B5%D0%BC_idmap_rid&amp;rev=1506326973&amp;do=diff</link>
+        <description>Почему выбираем idmap_rid
 
-Thin Provision LVM
+Какие виды трансляций SID_ов в UID, GID вообще есть.
 
-LVM (wiki.archlinux)
+	*  tdb, tdb2
+	*  ldap
+	*  rid
+	*  hash
+	*  autorid
+	*  ad
+	*  nss
 
-LVM (Habr)
-
-LVM (xgu.ru)
-
-LVM SnapShot Explained</description>
+RID не требует базы данных, и транслирует SID по формуле. А это значит, что при одинаковой настройке диапазона UID, GID мы всегда будем получать для конкретного SID один и тот же UID, GID.…</description>
     </item>
-    <item rdf:about="http://zipofar.ru/doku.php?id=%D0%BD%D0%B0%D1%81%D1%82%D1%80%D0%BE%D0%B9%D0%BA%D0%B0_ntp_%D0%BA%D0%BB%D0%B8%D0%B5%D0%BD%D1%82%D0%B0_%D0%BD%D0%B0_domain_controller&amp;rev=1504777219&amp;do=diff">
+    <item rdf:about="http://zipofar.ru/doku.php?id=samba&amp;rev=1506091590&amp;do=diff">
         <dc:format>text/html</dc:format>
-        <dc:date>2017-09-07T12:40:19+03:00</dc:date>
+        <dc:date>2017-09-22T17:46:30+03:00</dc:date>
         <dc:creator>ingprog</dc:creator>
-        <title>настройка_ntp_клиента_на_domain_controller</title>
-        <link>http://zipofar.ru/doku.php?id=%D0%BD%D0%B0%D1%81%D1%82%D1%80%D0%BE%D0%B9%D0%BA%D0%B0_ntp_%D0%BA%D0%BB%D0%B8%D0%B5%D0%BD%D1%82%D0%B0_%D0%BD%D0%B0_domain_controller&amp;rev=1504777219&amp;do=diff</link>
-        <description>Настройка NTP клиента на Domain Controller
+        <title>samba</title>
+        <link>http://zipofar.ru/doku.php?id=samba&amp;rev=1506091590&amp;do=diff</link>
+        <description>Samba
 
-Если кто не знает этого наизусть, то так вот находим все DC и того, кто из них PDC эмулятор
-
-
-netdom query fsmo
-
-
-Теперь проверяю доступность с PDC эмулятора сервера времени.</description>
+	*  Samba доступ к папке по паролю
+	*  Ubuntu 16 + Samba в домене AD</description>
     </item>
-    <item rdf:about="http://zipofar.ru/doku.php?id=start&amp;rev=1504777211&amp;do=diff">
+    <item rdf:about="http://zipofar.ru/doku.php?id=samba_%D0%B4%D0%BE%D1%81%D1%82%D1%83%D0%BF_%D0%BA_%D0%BF%D0%B0%D0%BF%D0%BA%D0%B5_%D0%BF%D0%BE_%D0%BF%D0%B0%D1%80%D0%BE%D0%BB%D1%8E&amp;rev=1506091507&amp;do=diff">
         <dc:format>text/html</dc:format>
-        <dc:date>2017-09-07T12:40:11+03:00</dc:date>
+        <dc:date>2017-09-22T17:45:07+03:00</dc:date>
         <dc:creator>ingprog</dc:creator>
-        <title>start - [Windows] </title>
-        <link>http://zipofar.ru/doku.php?id=start&amp;rev=1504777211&amp;do=diff</link>
+        <title>samba_доступ_к_папке_по_паролю</title>
+        <link>http://zipofar.ru/doku.php?id=samba_%D0%B4%D0%BE%D1%81%D1%82%D1%83%D0%BF_%D0%BA_%D0%BF%D0%B0%D0%BF%D0%BA%D0%B5_%D0%BF%D0%BE_%D0%BF%D0%B0%D1%80%D0%BE%D0%BB%D1%8E&amp;rev=1506091507&amp;do=diff</link>
+        <description>Samba доступ к папке по паролю
+
+У Samba есть свой собственный репозиторий с пользователями и паролями. Это может быть файл passdb.tdb.
+
+Чтобы сделать доступ к папке по паролю, нужно создать системного пользователя, а затем добавить его в Samba.</description>
+    </item>
+    <item rdf:about="http://zipofar.ru/doku.php?id=start&amp;rev=1506083890&amp;do=diff">
+        <dc:format>text/html</dc:format>
+        <dc:date>2017-09-22T15:38:10+03:00</dc:date>
+        <dc:creator>ingprog</dc:creator>
+        <title>start - [Linux] </title>
+        <link>http://zipofar.ru/doku.php?id=start&amp;rev=1506083890&amp;do=diff</link>
         <description>Почта (Exchange, Postfix, Dovecot)
 
 	*  Reverse proxy (обратный прокси) для доступа к Outlook Web App (OWA) из интернета
@@ -111,23 +111,5 @@ Linux
 
 	*   cron спамит auth.log (pam_unix(cron:session): session opened for user root by (uid=0))
 	*   настройка…</description>
-    </item>
-    <item rdf:about="http://zipofar.ru/doku.php?id=windows_2008_r2_openvpn_server&amp;rev=1504250920&amp;do=diff">
-        <dc:format>text/html</dc:format>
-        <dc:date>2017-09-01T10:28:40+03:00</dc:date>
-        <dc:creator>ingprog</dc:creator>
-        <title>windows_2008_r2_openvpn_server</title>
-        <link>http://zipofar.ru/doku.php?id=windows_2008_r2_openvpn_server&amp;rev=1504250920&amp;do=diff</link>
-        <description>Windows 2008 R2 OpenVPN server
-
-Нюансы при создании openvpn сервера на windows 2008
-
-1. Определение путей в конфигурационном файле
-
-
-ca &quot;C:\\Program Files\\OpenVPN\\config\\ca.crt&quot;
-
-
-2. Файлы в каталоге ccd должны быть без расширения</description>
     </item>
 </rdf:RDF>

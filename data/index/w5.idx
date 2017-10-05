@@ -236,3 +236,9 @@ vgpgk
 logon
 posix
 shell
+bind9
+86400
+retry
+named
+zones
+slave

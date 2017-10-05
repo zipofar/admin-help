@@ -1,0 +1,77 @@
+====== Настраиваем BIND9 DNS Slave сервер ======
+
+==== Сервер верхнего уровня, который содержит в себе NS записи для наших двух DNS серверов ====
+Да, в моем случае сервер верхнего уровня, это корневой сервер, который отдает ip адреса для серверов, обслуживающих зону RU.
+
+<code>
+$TTL    604800
+.       IN      SOA     A.ROOT.NET. root.localhost. (
+                              1         ; Serial
+                         604800         ; Refresh
+                          86400         ; Retry
+                        2419200         ; Expire
+                         604800 )       ; Negative Cache TTL
+
+.                       IN      NS    A.ROOT.NET.
+A.ROOT.NET.             IN      A     192.168.0.185
+ru.                     IN      NS    ns1.ru.
+ru.                     IN      NS    ns2.ru.
+ns1.ru.                 IN      A     192.168.0.186
+ns2.ru.                 IN      A     192.168.0.188
+</code>
+
+==== Сервер NS1.RU, является master сервером, и обслуживает домены, находящиеся в зоне RU. ====
+Вот так выглядит файл зоны db.ru
+<code>
+$TTL    604800
+@       IN      SOA     ns1.ru. root.localhost. (
+                              8         ; Serial
+                              5         ; Refresh
+                          86400         ; Retry
+                        2419200         ; Expire
+                         604800 )       ; Negative Cache TTL
+
+@               IN      NS      ns1.ru.
+@               IN      NS      ns2.ru.
+ns1.ru.         IN      A       192.168.0.186
+ns2.ru.         IN      A       192.168.0.188
+zipofar.ru.     IN      A       1.1.1.1
+habrahabr.ru.   IN      A       2.2.2.2
+auto.ru.        IN      A       3.3.3.3
+a.ru.           IN      A       4.4.4.4
+b.ru.           IN      A       5.5.5.5
+c.ru            IN      A       6.6.6.6
+d.ru            IN      A       7.7.7.7
+</code>
+
+Вот так выглядит файл зоны named.conf.local
+<code>
+zone "ru." {
+        type master;
+        file "/etc/bind/db.ru";
+        also-notify { 192.168.0.188; };
+        allow-transfer { any; };
+};
+</code>
+
+Так выглядит файл db.root. Но это только для моего показательного случая, т.к. я эмулирую и корневую зону тоже.
+<code>
+.                        3600000      NS    A.ROOT.NET.
+A.ROOT.NET.              3600000      A     192.168.0.185
+</code>
+==== Сервер NS2.RU, является slave сервером, и обслуживает домены, находящиеся в зоне RU. ====
+Вот так выглядит файл named.conf.local
+<code>
+zone "ru." {
+        type slave;
+        file "/var/lib/bind/db.ru";
+        masters { 192.168.0.186;  };
+        masterfile-format text;
+};
+</code>
+
+Так выглядит файл db.root. Но это только для моего показательного случая, т.к. я эмулирую и корневую зону тоже.
+<code>
+.                        3600000      NS    A.ROOT.NET.
+A.ROOT.NET.              3600000      A     192.168.0.185
+</code>

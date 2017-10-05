@@ -24,6 +24,7 @@
   * [[OpenVPN|OpenVPN]]
   * [[Apache|Apache]]
   * [[Samba|Samba]]
+  * [[DNS|DNS]]
 
 
 ====== Windows ======

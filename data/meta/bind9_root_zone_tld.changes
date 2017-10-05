@@ -1,0 +1,24 @@
+1507124401	91.122.219.149	C	bind9_root_zone_tld	ingprog	created		106
+1507124533	91.122.219.149	E	bind9_root_zone_tld	ingprog			87
+1507124934	91.122.219.149	E	bind9_root_zone_tld	ingprog			275
+1507125183	91.122.219.149	E	bind9_root_zone_tld	ingprog			379
+1507125270	91.122.219.149	E	bind9_root_zone_tld	ingprog			5
+1507125331	91.122.219.149	E	bind9_root_zone_tld	ingprog			135
+1507125371	91.122.219.149	E	bind9_root_zone_tld	ingprog			0
+1507125401	91.122.219.149	E	bind9_root_zone_tld	ingprog			94
+1507125438	91.122.219.149	E	bind9_root_zone_tld	ingprog			3
+1507125605	91.122.219.149	E	bind9_root_zone_tld	ingprog			225
+1507125756	91.122.219.149	E	bind9_root_zone_tld	ingprog	[Правим /etc/bind/named.conf.defaul-zones] 		130
+1507126030	91.122.219.149	E	bind9_root_zone_tld	ingprog	[Создаем корневую зону /etc/bind/db.root] 		539
+1507126122	91.122.219.149	E	bind9_root_zone_tld	ingprog	[Правим /etc/bind/named.options] 		81
+1507126152	91.122.219.149	E	bind9_root_zone_tld	ingprog	[Создаем сервер, отвечающий за зону RU] 		123
+1507126192	91.122.219.149	E	bind9_root_zone_tld	ingprog	[Создаем сервер, отвечающий за зону RU] 		38
+1507126232	91.122.219.149	E	bind9_root_zone_tld	ingprog	[Создаем сервер, отвечающий за зону RU 192.168.0.186] 		5
+1507126295	91.122.219.149	E	bind9_root_zone_tld	ingprog	[Создаем сервер, отвечающий за зону RU (ip 192.168.0.186)] 		45
+1507126349	91.122.219.149	E	bind9_root_zone_tld	ingprog	[Создаем сервер, отвечающий за зону RU (ip 192.168.0.186)] 		7
+1507126472	91.122.219.149	E	bind9_root_zone_tld	ingprog	[Создаем сервер, отвечающий за зону RU (ip 192.168.0.186)] 		1179
+1507126644	91.122.219.149	E	bind9_root_zone_tld	ingprog	[Создаем зону RU /etc/bind/db.ru] 		-411
+1507126674	91.122.219.149	E	bind9_root_zone_tld	ingprog	[Создаем зону RU /etc/bind/db.ru] 		4
+1507126816	91.122.219.149	E	bind9_root_zone_tld	ingprog	[Создаем зону RU /etc/bind/db.ru] 		148
+1507126896	91.122.219.149	E	bind9_root_zone_tld	ingprog	[Правим /etc/bind/named.conf.defaul-zones] 		10
+1507127121	91.122.219.149	E	bind9_root_zone_tld	ingprog	[Правим /etc/bind/named.conf.local] 		413

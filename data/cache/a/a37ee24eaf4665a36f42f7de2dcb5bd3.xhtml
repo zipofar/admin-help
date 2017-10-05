@@ -1,0 +1,166 @@
+
+<h1 class="sectionedit1" id="ubuntu_16_samba_в_домене_ad">Ubuntu 16 + Samba в домене AD</h1>
+<div class="level1">
+
+</div>
+<!-- EDIT1 SECTION "Ubuntu 16 + Samba в домене AD" [1-52] -->
+<h2 class="sectionedit2" id="установим_время_с_помощью_стандартной_утилиты_timedatectl">Установим время с помощью стандартной утилиты timedatectl</h2>
+<div class="level2">
+<pre class="code">timedatectl set-timezone Europe/Moscow
+
+# В качестве сервера времени будем использовать контроллер домена
+nano /etc/systemd/timesyncd.conf
+    [Time]
+        NTP=dc1.domain.com
+        
+# Проверим время
+timedatectl status</pre>
+
+</div>
+<!-- EDIT2 SECTION "Установим время с помощью стандартной утилиты timedatectl" [53-470] -->
+<h2 class="sectionedit3" id="установим_следующие_пакеты">Установим следующие пакеты</h2>
+<div class="level2">
+<pre class="code">samba - собственно samba сервер
+krb5-config - конфигурационные файлы для Kerberos
+krb5-user - программа для аутинтефикации с помощью Kerberos
+libpam-winbind - плагин для интеграции с Windows domain authentication
+libnss-winbind - плагин для интеграции службы имен Samba
+winbind - сервис для распознования виндовых пользователей и групп</pre>
+
+<p>
+В процессе установки может ничего не спросить и автоматически найти название домена. Если попросит ввести realm, то нужно ввести название домена заглавными буквами (прим. DOMAIN.LOC).
+</p>
+
+<p>
+Далее нужно проверить возможность получения Kerberos билетов
+</p>
+<pre class="code">kinit domain_admin_user
+klist</pre>
+
+</div>
+<!-- EDIT3 SECTION "Установим следующие пакеты" [471-1534] -->
+<h2 class="sectionedit4" id="далее_будем_рисовать_с_чистого_файла_etc_samba_smbconf">Далее будем рисовать с чистого файла /etc/samba/smb.conf</h2>
+<div class="level2">
+<pre class="code">[global]
+workgroup = DOMAIN
+realm = DOMAIN.LOC
+
+# Эти две опции отвечают как раз за авторизацию через AD
+security = ADS
+encrypt passwords = true</pre>
+
+</div>
+<!-- EDIT4 SECTION "Далее будем рисовать с чистого файла /etc/samba/smb.conf" [1535-1837] -->
+<h3 class="sectionedit5" id="эти_опции_отвечают_за_трансляцию_windows_sid_в_linux_uid_gid">Эти опции отвечают за трансляцию Windows SID в Linux UID, GID.</h3>
+<div class="level3">
+
+<p>
+<a href="/doku.php?id=%D0%BF%D0%BE%D1%87%D0%B5%D0%BC%D1%83_%D0%B2%D1%8B%D0%B1%D0%B8%D1%80%D0%B0%D0%B5%D0%BC_idmap_rid" class="wikilink1" title="почему_выбираем_idmap_rid">Почему выбираем idmap_rid</a>
+</p>
+<pre class="code"># man smb.conf
+# man idmap_rid
+idmap config *:backend = rid
+idmap config *:range = 5000-100000</pre>
+
+</div>
+<!-- EDIT5 SECTION "Эти опции отвечают за трансляцию Windows SID в Linux UID, GID." [1838-2135] -->
+<h3 class="sectionedit6" id="следующая_опция_которую_нам_советует_интернет_winbind_use_default_domain">Следующая опция, которую нам советует интернет (winbind use default domain).</h3>
+<div class="level3">
+<pre class="code">winbind use default domain = yes|no</pre>
+
+<p>
+По умолчанию данная функия выключена.
+Этот параметр определяет должен ли демон winbind брать на себя управление пользователями, в случае когда мы вводим usename без доменной части. Включение данной функции удобно для Windows пользователей, но не удобно для функционирования SSH, <abbr title="File Transfer Protocol">FTP</abbr>, email в среде unix.
+Включение данной функции лучше избегать. Иначе могут возникать всякие непонятки в плане ответственности за username и group. Т.е. когда мы вводим username, может быть не понятно, какая система будет с ним работать winbind или /etc/passwd.
+</p>
+
+</div>
+<!-- EDIT6 SECTION "Следующая опция, которую нам советует интернет (winbind use default domain)." [2136-3234] -->
+<h3 class="sectionedit7" id="следующая_опция_которую_нам_советует_интернет_winbind_offline_logon">Следующая опция, которую нам советует интернет (winbind offline logon).</h3>
+<div class="level3">
+<pre class="code">winbind offline logon = yes|no</pre>
+
+<p>
+По дефолту выключен. Этот параметр определяет, будет ли winbind локально хранить credentials пользователя после удачного залогинивания.
+</p>
+
+</div>
+<!-- EDIT7 SECTION "Следующая опция, которую нам советует интернет (winbind offline logon)." [3235-3638] -->
+<h3 class="sectionedit8" id="следующая_опция_которую_нам_советует_интернет_winbind_enum_users">Следующая опция, которую нам советует интернет (winbind enum users).</h3>
+<div class="level3">
+<pre class="code">winbind enum users = yes|no
+winbind enum groups = yes|no</pre>
+
+<p>
+При большом количестве инсталляций использующих winbind может понадобиться предотвращать использование перечислений пользователей с помощью системных функций setpwent(), getpwent(), endpwent(). Если winbind enum users выключена, то вызов функции getpwent() не будет возвращать какой-либо информации. С другой стороны выключение данного функционала может приводить к странной работе некоторых программ. Короче можно включить.
+</p>
+
+</div>
+<!-- EDIT8 SECTION "Следующая опция, которую нам советует интернет (winbind enum users)." [3639-4560] -->
+<h3 class="sectionedit9" id="следующая_опция_которую_нам_советует_интернет_map_acl_inherit">Следующая опция, которую нам советует интернет (map acl inherit).</h3>
+<div class="level3">
+<pre class="code">map acl inherit = yes|no</pre>
+
+<p>
+Этот параметр нужен для того, чтобы позволить Windows 2000 редактору <abbr title="Access Control List">ACL</abbr> корректно использовать наследования с Samba POSIX <abbr title="Access Control List">ACL</abbr>. В принципе можно включить.
+</p>
+
+</div>
+<!-- EDIT9 SECTION "Следующая опция, которую нам советует интернет (map acl inherit)." [4561-4975] -->
+<h3 class="sectionedit10" id="и_напоследок_чтобы_samba_не_пыталась_стать_домен-контроллером">И напоследок, чтобы Samba не пыталась стать домен-контроллером</h3>
+<div class="level3">
+<pre class="code">domain master = no
+local master = no
+preferred master = no
+os level = 0</pre>
+
+</div>
+<!-- EDIT10 SECTION "И напоследок, чтобы Samba не пыталась стать домен-контроллером" [4976-5184] -->
+<h2 class="sectionedit11" id="присоединяемся_к_домену">Присоединяемся к домену</h2>
+<div class="level2">
+
+<p>
+Рестартуем Самбу и вводим ее в домен.
+</p>
+<pre class="code">net ads join -U admin -D DOMAIN</pre>
+
+<p>
+Проверим успешность предыдущей операции
+</p>
+<pre class="code">net ads testjoin</pre>
+
+<p>
+Рестартуем winbind. И теперь можно провести тест.
+</p>
+<pre class="code">wbinfo -t
+wbinfo -u
+wbinfo -g</pre>
+
+<p>
+Чтобы ваша Ubuntu прозрачно работала с пользователями домена (в частности, чтобы вы могли назначать пользователей домена владельцами папок и файлов), необходимо указать Ubuntu использовать Winbind как дополнительный источник информации о пользователях и группах.
+Для этого измените две строчки в файле /etc/nsswitch.conf:
+</p>
+<pre class="code">passwd:         compat winbind
+group:          compat winbind</pre>
+
+<p>
+Проверяем
+</p>
+<pre class="code">getent passwd
+getent group</pre>
+
+<p>
+Если хотите логиниться на самба сервере под доменными учетками
+</p>
+<pre class="code">pam-auth-update
+
+# /etc/samba/smb.conf добавить
+template shell = /bin/bash</pre>
+
+<p>
+Попробовать можно так
+</p>
+<pre class="code">su - &quot;DOMAIN\administrator&quot;</pre>
+
+</div>
+<!-- EDIT11 SECTION "Присоединяемся к домену" [5185-] -->

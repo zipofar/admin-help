@@ -1,0 +1,97 @@
+====== Своя корневая зона + TLD или как работает DNS в интернете ======
+
+===== Создаем сервер, отвечающий за корневую зону =====
+
+resolv.conf должен быть таким
+<code>
+nameserver 127.0.0.1
+</code>
+IP этого сервера 192.168.0.185
+
+IP сервера, который будет отвечать за зону RU = 192.168.0.186
+
+==== Создаем корневую зону /etc/bind/db.root ====
+<code>
+$TTL 604800
+.    IN    SOA    a.root.net.    admin.root.net. (
+                                            1  ; serial
+                                       604800  ; refresh
+                                        86400  ; retry
+                                      2419200  ; expire
+                                       604800 ); Negative Cache TTL
+                                       
+.             IN   NS   a.root.net.
+a.root.net.   IN   A    192.168.0.185
+
+# Вот эта штука называется Glue Records.
+# При запросе домена в зоне ru, клиент обратиться
+# к этому корневому серверу и в ответ получит
+# IP сервера ns1.ru, который обслуживает зону RU.
+# Далее клиент обратиться к серверу ns1.ru и получит
+# либо ip домена, либо ip NS сервера, который обслуживает
+# запрашиваемый домен.
+ru.           IN   NS   ns1.ru.
+ns1.ru.       IN   A    192.168.0.186
+                                       
+</code>
+
+==== Правим /etc/bind/named.conf.defaul-zones ====
+Переписываем блок, отвечающий за корневую зону
+<code>
+zone "." {
+   type master;
+   file "/etc/bind/db.root";
+};
+</code>
+
+==== Правим /etc/bind/named.options ====
+<code>
+# Добавим
+recursion no;
+
+# Изменим
+auth-nxdomain no;
+</code>
+
+===== Создаем сервер, отвечающий за зону RU (ip 192.168.0.186) =====
+resolv.conf должен быть таким
+<code>
+nameserver 127.0.0.1
+</code>
+Также отключим рекурсивные запросы и выключим auth-nxdomain (см. выше)
+
+==== Создаем зону RU /etc/bind/db.ru ====
+<code>
+$TTL 604800
+.    IN    SOA    ns1.ru.     admin.russia.ru. (
+                                            1  ; serial
+                                       604800  ; refresh
+                                        86400  ; retry
+                                      2419200  ; expire
+                                       604800 ); Negative Cache TTL
+                                       
+@             IN   NS   ns1.ru.
+ns1.ru.       IN   A    192.168.0.186
+
+# И вот здесь регистратор прописывает записи, указывающие на домен
+habrahabr.ru.    IN   NS   ns1.dnshabr.ru.
+ns1.dnshabr.ru.  IN   A    1.1.1.1                                         
+</code>
+
+==== Правим /etc/bind/named.conf.local ====
+Дописываем в файл
+<code>
+zone "ru." {
+   type master;
+   file "/etc/bind/db.ru";
+};
+</code>
+
+==== Правим /etc/bind/db.root ====
+Изменяем файл до такого состояния
+<code>
+# Изменяем для того, чтобы этот сервер использовал в качестве
+# корневого сервера вышесозданный наш корневой сервер.
+.           3600000   NS   a.root.net.
+a.root.net. 3600000   A    192.168.0.185
+</code>

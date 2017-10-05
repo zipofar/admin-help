@@ -1,56 +1,39 @@
-1505397031	91.122.206.228	E	обязательно_настроить_directoryindex	ingprog			420
-1505397144	91.122.206.228	E	обязательно_настроить_directoryindex	ingprog			133
-1505397389	91.122.206.228	E	обязательно_настроить_directoryindex	ingprog			251
-1505397543	91.122.206.228	E	обязательно_настроить_directoryindex	ingprog			437
-1506083890	91.122.219.149	E	start	ingprog	[Linux] 		20
-1506083926	91.122.219.149	C	samba	ingprog	created		75
-1506083961	91.122.219.149	E	samba	ingprog			54
-1506084104	91.122.219.149	C	samba_доступ_к_папке_по_паролю	ingprog	created		481
-1506088082	91.122.219.149	E	samba_доступ_к_папке_по_паролю	ingprog			59
-1506089189	91.122.219.149	E	samba_доступ_к_папке_по_паролю	ingprog			193
-1506091173	91.122.219.149	E	samba_доступ_к_папке_по_паролю	ingprog			270
-1506091217	91.122.219.149	E	samba_доступ_к_папке_по_паролю	ingprog			108
-1506091507	91.122.219.149	E	samba_доступ_к_папке_по_паролю	ingprog			272
-1506091590	91.122.219.149	E	samba	ingprog			82
-1506091609	91.122.219.149	C	ubuntu_16_samba_в_домене_ad	ingprog	created		51
-1506091908	91.122.219.149	E	ubuntu_16_samba_в_домене_ad	ingprog			346
-1506092398	91.122.219.149	E	ubuntu_16_samba_в_домене_ad	ingprog			58
-1506092909	91.122.219.149	E	ubuntu_16_samba_в_домене_ad	ingprog			575
-1506093244	91.122.219.149	E	ubuntu_16_samba_в_домене_ad	ingprog			323
-1506093457	91.122.219.149	E	ubuntu_16_samba_в_домене_ad	ingprog			257
-1506324114	91.122.219.149	E	ubuntu_16_samba_в_домене_ad	ingprog			413
-1506324139	91.122.219.149	E	ubuntu_16_samba_в_домене_ad	ingprog			50
-1506324270	91.122.219.149	E	ubuntu_16_samba_в_домене_ad	ingprog			-32
-1506324293	91.122.219.149	E	ubuntu_16_samba_в_домене_ad	ingprog			12
-1506324320	91.122.219.149	E	ubuntu_16_samba_в_домене_ad	ingprog			43
-1506324627	91.122.219.149	C	почему_выбираем_idmap_rid	ingprog	created		210
-1506326281	91.122.219.149	E	почему_выбираем_idmap_rid	ingprog			737
-1506326321	91.122.219.149	E	почему_выбираем_idmap_rid	ingprog			-2
-1506326708	91.122.219.149	E	почему_выбираем_idmap_rid	ingprog			581
-1506326825	91.122.219.149	E	почему_выбираем_idmap_rid	ingprog			71
-1506326837	91.122.219.149	E	почему_выбираем_idmap_rid	ingprog			-3
-1506326973	91.122.219.149	E	почему_выбираем_idmap_rid	ingprog			67
-1506327453	91.122.219.149	E	ubuntu_16_samba_в_домене_ad	ingprog			26
-1506327698	91.122.219.149	E	ubuntu_16_samba_в_домене_ad	ingprog			124
-1506327748	91.122.219.149	E	ubuntu_16_samba_в_домене_ad	ingprog			44
-1506327772	91.122.219.149	E	ubuntu_16_samba_в_домене_ad	ingprog	[Далее будем рисовать с чистого файла /etc/samba/smb.conf] 		-3
-1506329308	91.122.219.149	E	ubuntu_16_samba_в_домене_ad	ingprog	[Далее будем рисовать с чистого файла /etc/samba/smb.conf] 		893
-1506329346	91.122.219.149	E	ubuntu_16_samba_в_домене_ad	ingprog	[Далее будем рисовать с чистого файла /etc/samba/smb.conf] 		3
-1506332618	91.122.219.149	E	ubuntu_16_samba_в_домене_ad	ingprog	[Далее будем рисовать с чистого файла /etc/samba/smb.conf] 		40
-1506332633	91.122.219.149	E	ubuntu_16_samba_в_домене_ad	ingprog			11
-1506332720	91.122.219.149	E	ubuntu_16_samba_в_домене_ad	ingprog			402
-1506342139	91.122.206.228	E	ubuntu_16_samba_в_домене_ad	ingprog	[Следующая опция, которую нам советует интернет (winbind offline logon).] 		925
-1506342590	91.122.206.228	E	ubuntu_16_samba_в_домене_ad	ingprog	[Следующая опция, которую нам советует интернет (winbind offline logon).] 		157
-1506342605	91.122.206.228	E	ubuntu_16_samba_в_домене_ad	ingprog	[Следующая опция, которую нам советует интернет (winbind offline logon).] 		-3
-1506343142	91.122.206.228	E	ubuntu_16_samba_в_домене_ad	ingprog	[Следующая опция, которую нам советует интернет (map acl inherit).] 		209
-1506343206	91.122.206.228	E	ubuntu_16_samba_в_домене_ad	ingprog	[Следующая опция, которую нам советует интернет (map acl inherit).] 		49
-1506344019	91.122.206.228	E	ubuntu_16_samba_в_домене_ad	ingprog	[Следующая опция, которую нам советует интернет (map acl inherit).] 		209
-1506344790	91.122.206.228	E	ubuntu_16_samba_в_домене_ad	ingprog	[И напоследок, чтобы Samba не пыталась стать домен-контроллером] 		174
-1506345025	91.122.206.228	E	ubuntu_16_samba_в_домене_ad	ingprog	[Присоединяемся к домену] 		109
-1506345163	91.122.206.228	E	ubuntu_16_samba_в_домене_ad	ingprog	[Присоединяемся к домену] 		110
-1506345176	91.122.206.228	E	ubuntu_16_samba_в_домене_ad	ingprog	[Присоединяемся к домену] 		20
-1506345300	91.122.206.228	E	ubuntu_16_samba_в_домене_ad	ingprog	[Присоединяемся к домену] 		638
-1506345387	91.122.206.228	E	ubuntu_16_samba_в_домене_ad	ingprog	[Присоединяемся к домену] 		62
-1506346537	91.122.206.228	E	ubuntu_16_samba_в_домене_ad	ingprog	[Присоединяемся к домену] 		225
-1506346557	91.122.206.228	E	ubuntu_16_samba_в_домене_ad	ingprog	[Присоединяемся к домену] 		9
-1506347244	91.122.206.228	E	ubuntu_16_samba_в_домене_ad	ingprog	[Присоединяемся к домену] 		67
+1507123884	91.122.219.149	E	start	ingprog	[Linux] 		16
+1507124112	91.122.219.149	C	dns	ingprog	created		47
+1507124134	91.122.219.149	E	dns	ingprog			19
+1507124152	91.122.219.149	E	dns	ingprog			0
+1507124401	91.122.219.149	C	bind9_root_zone_tld	ingprog	created		106
+1507124533	91.122.219.149	E	bind9_root_zone_tld	ingprog			87
+1507124934	91.122.219.149	E	bind9_root_zone_tld	ingprog			275
+1507125183	91.122.219.149	E	bind9_root_zone_tld	ingprog			379
+1507125270	91.122.219.149	E	bind9_root_zone_tld	ingprog			5
+1507125331	91.122.219.149	E	bind9_root_zone_tld	ingprog			135
+1507125371	91.122.219.149	E	bind9_root_zone_tld	ingprog			0
+1507125401	91.122.219.149	E	bind9_root_zone_tld	ingprog			94
+1507125438	91.122.219.149	E	bind9_root_zone_tld	ingprog			3
+1507125605	91.122.219.149	E	bind9_root_zone_tld	ingprog			225
+1507125756	91.122.219.149	E	bind9_root_zone_tld	ingprog	[Правим /etc/bind/named.conf.defaul-zones] 		130
+1507126030	91.122.219.149	E	bind9_root_zone_tld	ingprog	[Создаем корневую зону /etc/bind/db.root] 		539
+1507126122	91.122.219.149	E	bind9_root_zone_tld	ingprog	[Правим /etc/bind/named.options] 		81
+1507126152	91.122.219.149	E	bind9_root_zone_tld	ingprog	[Создаем сервер, отвечающий за зону RU] 		123
+1507126192	91.122.219.149	E	bind9_root_zone_tld	ingprog	[Создаем сервер, отвечающий за зону RU] 		38
+1507126232	91.122.219.149	E	bind9_root_zone_tld	ingprog	[Создаем сервер, отвечающий за зону RU 192.168.0.186] 		5
+1507126295	91.122.219.149	E	bind9_root_zone_tld	ingprog	[Создаем сервер, отвечающий за зону RU (ip 192.168.0.186)] 		45
+1507126349	91.122.219.149	E	bind9_root_zone_tld	ingprog	[Создаем сервер, отвечающий за зону RU (ip 192.168.0.186)] 		7
+1507126472	91.122.219.149	E	bind9_root_zone_tld	ingprog	[Создаем сервер, отвечающий за зону RU (ip 192.168.0.186)] 		1179
+1507126644	91.122.219.149	E	bind9_root_zone_tld	ingprog	[Создаем зону RU /etc/bind/db.ru] 		-411
+1507126674	91.122.219.149	E	bind9_root_zone_tld	ingprog	[Создаем зону RU /etc/bind/db.ru] 		4
+1507126816	91.122.219.149	E	bind9_root_zone_tld	ingprog	[Создаем зону RU /etc/bind/db.ru] 		148
+1507126896	91.122.219.149	E	bind9_root_zone_tld	ingprog	[Правим /etc/bind/named.conf.defaul-zones] 		10
+1507127121	91.122.219.149	E	bind9_root_zone_tld	ingprog	[Правим /etc/bind/named.conf.local] 		413
+1507128456	91.122.206.228	E	dns	ingprog			36
+1507193074	91.122.206.228	C	bind9_slave	ingprog	created		871
+1507193173	91.122.206.228	E	bind9_slave	ingprog			222
+1507193190	91.122.206.228	E	bind9_slave	ingprog			-2
+1507193345	91.122.206.228	E	bind9_slave	ingprog			994
+1507193378	91.122.206.228	E	bind9_slave	ingprog	[Сервер NS1.RU, является master сервером, и обслуживает домены, находящиеся в зоне RU.] 		5
+1507195001	91.122.206.228	E	bind9_slave	ingprog			2
+1507195349	91.122.219.149	E	bind9_slave	ingprog	[Сервер NS1.RU, является master сервером, и обслуживает домены, находящиеся в зоне RU.] 		373
+1507195439	91.122.219.149	E	bind9_slave	ingprog	[Сервер NS2.RU, является slave сервером, и обслуживает домены, находящиеся в зоне RU.] 		213
+1507195657	91.122.219.149	E	bind9_slave	ingprog	[Сервер NS1.RU, является master сервером, и обслуживает домены, находящиеся в зоне RU.] 		323
+1507195679	91.122.219.149	E	bind9_slave	ingprog	[Сервер NS2.RU, является slave сервером, и обслуживает домены, находящиеся в зоне RU.] 		324

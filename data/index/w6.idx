@@ -296,3 +296,11 @@ groups
 wbinfo
 compat
 getent
+resolv
+604800
+serial
+expire
+defaul
+dnssec
+russia
+notify

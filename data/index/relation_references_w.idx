@@ -47,3 +47,6 @@ samba_по_паролю
 samba_доступ_к_папке_по_паролю
 ubuntu_16_samba_в_домене_ad
 почему_выбираем_idmap_rid
+dns
+bind9_root_zone_tld
+bind9_slave
