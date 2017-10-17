@@ -22,3 +22,6 @@ communication
 announceflags
 authoritative
 rewriteengine
+superpassword
+userparameter
+fpinglocation

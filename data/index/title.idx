@@ -42,3 +42,9 @@ Ubuntu 16 + Samba в домене AD
 DNS
 Своя корневая зона + TLD или как работает DNS в интернете
 Настраиваем BIND9 DNS Slave сервер
+Zabbix
+Авторегистрация хостов
+Настройка Template MySQL
+Настройка Template Ping
+Setting locale failed. Please check that your locale settings
+Zabbix настройка LLD Item prototypes

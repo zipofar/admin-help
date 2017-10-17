@@ -1,0 +1,33 @@
+
+<h1 class="sectionedit1" id="настройка_template_mysql">Настройка Template MySQL</h1>
+<div class="level1">
+
+<p>
+Добавляем пользователя MySQL. USAGE - значит без прав.
+</p>
+<pre class="code">GRANT USAGE ON *.* TO &#039;zabbix&#039;@&#039;localhost&#039; IDENTIFIED BY &#039;superpassword&#039;;
+FLUSH PRIVILEGES;</pre>
+
+<p>
+В /etc/zabbix/zabbix_agent.d должен быть файл userparameter_mysql.conf
+</p>
+<pre class="code">UserParameter=mysql.version,mysql -V
+UserParameter=mysql.status[*],echo &quot;show global status where Variable_name=&#039;$1&#039;;&quot; | HOME=/etc/zabbix mysql -N | awk &#039;{print $$2}&#039;
+UserParameter=mysql.ping,HOME=/etc/zabbix mysqladmin ping | grep -c alive
+# &#039;sum&#039; on data_length or index_length alone needed when we are getting this information for whole database instead of a single table
+UserParameter=mysql.size[*],echo &quot;select sum($(case &quot;$3&quot; in both|&quot;&quot;) echo &quot;data_length+index_length&quot;;; data|index) echo &quot;$3_length&quot;;; free) echo &quot;data_free&quot;;; esac)) from information_schema.tables$([[ &quot;$1&quot; = &quot;all&quot; || ! &quot;$1&quot; ]] || echo &quot; where table_schema=&#039;$1&#039;&quot;)$([[ &quot;$2&quot; = &quot;all&quot; || ! &quot;$2&quot; ]] || echo &quot;and table_name=&#039;$2&#039;&quot;);&quot; | HOME=/etc/zabbix mysql -N</pre>
+
+<p>
+Согласно файлу userparameter_mysql.conf смотрим где находится каталог <strong>HOME</strong>, там и создаем файл .my.cnf
+</p>
+<pre class="code"># .my.cnf
+
+[client]
+user = zabbix
+password = superpassword</pre>
+
+<p>
+Перезапускаем агента
+</p>
+
+</div>

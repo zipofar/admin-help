@@ -104,3 +104,5 @@ timesyncd
 workgroup
 passwords
 recursion
+discovery
+databases

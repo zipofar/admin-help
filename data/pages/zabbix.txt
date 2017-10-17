@@ -1,0 +1,6 @@
+====== Zabbix ======
+
+  * [[auto_reg_hosts|Авторегистрация хостов]]
+  * [[Zabbix_Template_mysql_setup|Настройка Template MySQL]]
+  * [[Zabbix_Template_Ping_Setup|Настройка Template Ping]]
+  * [[Zabbix_LLD_Setup|Настройка LLD Item prototypes]]

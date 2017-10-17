@@ -11,14 +11,16 @@
         <description></description>
         <link>http://zipofar.ru/</link>
         <image rdf:resource="http://zipofar.ru/lib/tpl/dokuwiki/images/favicon.ico" />
-       <dc:date>2017-09-30T05:02:13+03:00</dc:date>
+       <dc:date>2017-10-16T14:52:57+03:00</dc:date>
         <items>
             <rdf:Seq>
-                <rdf:li rdf:resource="http://zipofar.ru/doku.php?id=ubuntu_16_samba_%D0%B2_%D0%B4%D0%BE%D0%BC%D0%B5%D0%BD%D0%B5_ad&amp;rev=1506347244&amp;do=diff"/>
-                <rdf:li rdf:resource="http://zipofar.ru/doku.php?id=%D0%BF%D0%BE%D1%87%D0%B5%D0%BC%D1%83_%D0%B2%D1%8B%D0%B1%D0%B8%D1%80%D0%B0%D0%B5%D0%BC_idmap_rid&amp;rev=1506326973&amp;do=diff"/>
-                <rdf:li rdf:resource="http://zipofar.ru/doku.php?id=samba&amp;rev=1506091590&amp;do=diff"/>
-                <rdf:li rdf:resource="http://zipofar.ru/doku.php?id=samba_%D0%B4%D0%BE%D1%81%D1%82%D1%83%D0%BF_%D0%BA_%D0%BF%D0%B0%D0%BF%D0%BA%D0%B5_%D0%BF%D0%BE_%D0%BF%D0%B0%D1%80%D0%BE%D0%BB%D1%8E&amp;rev=1506091507&amp;do=diff"/>
-                <rdf:li rdf:resource="http://zipofar.ru/doku.php?id=start&amp;rev=1506083890&amp;do=diff"/>
+                <rdf:li rdf:resource="http://zipofar.ru/doku.php?id=setting_locale_failed&amp;rev=1507900459&amp;do=diff"/>
+                <rdf:li rdf:resource="http://zipofar.ru/doku.php?id=start&amp;rev=1507900339&amp;do=diff"/>
+                <rdf:li rdf:resource="http://zipofar.ru/doku.php?id=zabbix_template_ping_setup&amp;rev=1507641032&amp;do=diff"/>
+                <rdf:li rdf:resource="http://zipofar.ru/doku.php?id=zabbix&amp;rev=1507640139&amp;do=diff"/>
+                <rdf:li rdf:resource="http://zipofar.ru/doku.php?id=zabbix_template_mysql_setup&amp;rev=1507628823&amp;do=diff"/>
+                <rdf:li rdf:resource="http://zipofar.ru/doku.php?id=auto_reg_hosts&amp;rev=1507628104&amp;do=diff"/>
+                <rdf:li rdf:resource="http://zipofar.ru/doku.php?id=bind9_slave&amp;rev=1507195679&amp;do=diff"/>
             </rdf:Seq>
         </items>
     </channel>
@@ -27,76 +29,34 @@
         <link>http://zipofar.ru/</link>
         <url>http://zipofar.ru/lib/tpl/dokuwiki/images/favicon.ico</url>
     </image>
-    <item rdf:about="http://zipofar.ru/doku.php?id=ubuntu_16_samba_%D0%B2_%D0%B4%D0%BE%D0%BC%D0%B5%D0%BD%D0%B5_ad&amp;rev=1506347244&amp;do=diff">
+    <item rdf:about="http://zipofar.ru/doku.php?id=setting_locale_failed&amp;rev=1507900459&amp;do=diff">
         <dc:format>text/html</dc:format>
-        <dc:date>2017-09-25T16:47:24+03:00</dc:date>
+        <dc:date>2017-10-13T16:14:19+03:00</dc:date>
         <dc:creator>ingprog</dc:creator>
-        <title>ubuntu_16_samba_в_домене_ad - [Присоединяемся к домену] </title>
-        <link>http://zipofar.ru/doku.php?id=ubuntu_16_samba_%D0%B2_%D0%B4%D0%BE%D0%BC%D0%B5%D0%BD%D0%B5_ad&amp;rev=1506347244&amp;do=diff</link>
-        <description>Ubuntu 16 + Samba в домене AD
+        <title>setting_locale_failed - created</title>
+        <link>http://zipofar.ru/doku.php?id=setting_locale_failed&amp;rev=1507900459&amp;do=diff</link>
+        <description>Setting locale failed. Please check that your locale settings
 
-Установим время с помощью стандартной утилиты timedatectl
+Ошибка выглядит так
 
 
-timedatectl set-timezone Europe/Moscow
-
-# В качестве сервера времени будем использовать контроллер домена
-nano /etc/systemd/timesyncd.conf
-    [Time]
-        NTP=dc1.domain.com
-        
-# Проверим время
-timedatectl status</description>
+perl: warning: Setting locale failed.
+perl: warning: Please check that your locale settings:
+	LANGUAGE = (unset),
+	LC_ALL = (unset),
+	LC_CTYPE = &quot;UTF-8&quot;,
+	LANG = &quot;en_US.UTF-8&quot;
+    are supported and installed on your system.
+perl: warning: Falling back to the standard locale (&quot;C&quot;).
+locale: Cannot set LC_CTYPE to default locale: No such file or directory
+locale: Cannot set LC_ALL to default locale: No such file or…</description>
     </item>
-    <item rdf:about="http://zipofar.ru/doku.php?id=%D0%BF%D0%BE%D1%87%D0%B5%D0%BC%D1%83_%D0%B2%D1%8B%D0%B1%D0%B8%D1%80%D0%B0%D0%B5%D0%BC_idmap_rid&amp;rev=1506326973&amp;do=diff">
+    <item rdf:about="http://zipofar.ru/doku.php?id=start&amp;rev=1507900339&amp;do=diff">
         <dc:format>text/html</dc:format>
-        <dc:date>2017-09-25T11:09:33+03:00</dc:date>
-        <dc:creator>ingprog</dc:creator>
-        <title>почему_выбираем_idmap_rid</title>
-        <link>http://zipofar.ru/doku.php?id=%D0%BF%D0%BE%D1%87%D0%B5%D0%BC%D1%83_%D0%B2%D1%8B%D0%B1%D0%B8%D1%80%D0%B0%D0%B5%D0%BC_idmap_rid&amp;rev=1506326973&amp;do=diff</link>
-        <description>Почему выбираем idmap_rid
-
-Какие виды трансляций SID_ов в UID, GID вообще есть.
-
-	*  tdb, tdb2
-	*  ldap
-	*  rid
-	*  hash
-	*  autorid
-	*  ad
-	*  nss
-
-RID не требует базы данных, и транслирует SID по формуле. А это значит, что при одинаковой настройке диапазона UID, GID мы всегда будем получать для конкретного SID один и тот же UID, GID.…</description>
-    </item>
-    <item rdf:about="http://zipofar.ru/doku.php?id=samba&amp;rev=1506091590&amp;do=diff">
-        <dc:format>text/html</dc:format>
-        <dc:date>2017-09-22T17:46:30+03:00</dc:date>
-        <dc:creator>ingprog</dc:creator>
-        <title>samba</title>
-        <link>http://zipofar.ru/doku.php?id=samba&amp;rev=1506091590&amp;do=diff</link>
-        <description>Samba
-
-	*  Samba доступ к папке по паролю
-	*  Ubuntu 16 + Samba в домене AD</description>
-    </item>
-    <item rdf:about="http://zipofar.ru/doku.php?id=samba_%D0%B4%D0%BE%D1%81%D1%82%D1%83%D0%BF_%D0%BA_%D0%BF%D0%B0%D0%BF%D0%BA%D0%B5_%D0%BF%D0%BE_%D0%BF%D0%B0%D1%80%D0%BE%D0%BB%D1%8E&amp;rev=1506091507&amp;do=diff">
-        <dc:format>text/html</dc:format>
-        <dc:date>2017-09-22T17:45:07+03:00</dc:date>
-        <dc:creator>ingprog</dc:creator>
-        <title>samba_доступ_к_папке_по_паролю</title>
-        <link>http://zipofar.ru/doku.php?id=samba_%D0%B4%D0%BE%D1%81%D1%82%D1%83%D0%BF_%D0%BA_%D0%BF%D0%B0%D0%BF%D0%BA%D0%B5_%D0%BF%D0%BE_%D0%BF%D0%B0%D1%80%D0%BE%D0%BB%D1%8E&amp;rev=1506091507&amp;do=diff</link>
-        <description>Samba доступ к папке по паролю
-
-У Samba есть свой собственный репозиторий с пользователями и паролями. Это может быть файл passdb.tdb.
-
-Чтобы сделать доступ к папке по паролю, нужно создать системного пользователя, а затем добавить его в Samba.</description>
-    </item>
-    <item rdf:about="http://zipofar.ru/doku.php?id=start&amp;rev=1506083890&amp;do=diff">
-        <dc:format>text/html</dc:format>
-        <dc:date>2017-09-22T15:38:10+03:00</dc:date>
+        <dc:date>2017-10-13T16:12:19+03:00</dc:date>
         <dc:creator>ingprog</dc:creator>
         <title>start - [Linux] </title>
-        <link>http://zipofar.ru/doku.php?id=start&amp;rev=1506083890&amp;do=diff</link>
+        <link>http://zipofar.ru/doku.php?id=start&amp;rev=1507900339&amp;do=diff</link>
         <description>Почта (Exchange, Postfix, Dovecot)
 
 	*  Reverse proxy (обратный прокси) для доступа к Outlook Web App (OWA) из интернета
@@ -111,5 +71,72 @@ Linux
 
 	*   cron спамит auth.log (pam_unix(cron:session): session opened for user root by (uid=0))
 	*   настройка…</description>
+    </item>
+    <item rdf:about="http://zipofar.ru/doku.php?id=zabbix_template_ping_setup&amp;rev=1507641032&amp;do=diff">
+        <dc:format>text/html</dc:format>
+        <dc:date>2017-10-10T16:10:32+03:00</dc:date>
+        <dc:creator>ingprog</dc:creator>
+        <title>zabbix_template_ping_setup</title>
+        <link>http://zipofar.ru/doku.php?id=zabbix_template_ping_setup&amp;rev=1507641032&amp;do=diff</link>
+        <description>Настройка Template Ping
+
+При начальной настройке ping-а обычно возникает ошибка “failed address family for hostname not supported”.
+
+Проверяем /etc/zabbix/zabbix_server.conf и правим так, чтобы FPingLocation имел правильный путь.</description>
+    </item>
+    <item rdf:about="http://zipofar.ru/doku.php?id=zabbix&amp;rev=1507640139&amp;do=diff">
+        <dc:format>text/html</dc:format>
+        <dc:date>2017-10-10T15:55:39+03:00</dc:date>
+        <dc:creator>ingprog</dc:creator>
+        <title>zabbix</title>
+        <link>http://zipofar.ru/doku.php?id=zabbix&amp;rev=1507640139&amp;do=diff</link>
+        <description>Zabbix
+
+	*  Авторегистрация хостов
+	*  Настройка Template MySQL
+	*  Настройка Template Ping</description>
+    </item>
+    <item rdf:about="http://zipofar.ru/doku.php?id=zabbix_template_mysql_setup&amp;rev=1507628823&amp;do=diff">
+        <dc:format>text/html</dc:format>
+        <dc:date>2017-10-10T12:47:03+03:00</dc:date>
+        <dc:creator>ingprog</dc:creator>
+        <title>zabbix_template_mysql_setup</title>
+        <link>http://zipofar.ru/doku.php?id=zabbix_template_mysql_setup&amp;rev=1507628823&amp;do=diff</link>
+        <description>Настройка Template MySQL
+
+Добавляем пользователя MySQL. USAGE - значит без прав.
+
+
+GRANT USAGE ON *.* TO 'zabbix'@'localhost' IDENTIFIED BY 'superpassword';
+FLUSH PRIVILEGES;
+
+
+В /etc/zabbix/zabbix_agent.d должен быть файл userparameter_mysql.conf</description>
+    </item>
+    <item rdf:about="http://zipofar.ru/doku.php?id=auto_reg_hosts&amp;rev=1507628104&amp;do=diff">
+        <dc:format>text/html</dc:format>
+        <dc:date>2017-10-10T12:35:04+03:00</dc:date>
+        <dc:creator>ingprog</dc:creator>
+        <title>auto_reg_hosts</title>
+        <link>http://zipofar.ru/doku.php?id=auto_reg_hosts&amp;rev=1507628104&amp;do=diff</link>
+        <description>Авторегистрация хостов
+
+/etc/zabbix/zabbix_agentd.conf
+
+
+Server=8.8.8.8 # IP сервера, который будет запрашивать данные агента
+ServerActive=8.8.8.8 # IP сервера, на который агент будет слать запросы</description>
+    </item>
+    <item rdf:about="http://zipofar.ru/doku.php?id=bind9_slave&amp;rev=1507195679&amp;do=diff">
+        <dc:format>text/html</dc:format>
+        <dc:date>2017-10-05T12:27:59+03:00</dc:date>
+        <dc:creator>ingprog</dc:creator>
+        <title>bind9_slave - [Сервер NS2.RU, является slave сервером, и обслуживает домены, находящиеся в зоне RU.] </title>
+        <link>http://zipofar.ru/doku.php?id=bind9_slave&amp;rev=1507195679&amp;do=diff</link>
+        <description>Настраиваем BIND9 DNS Slave сервер
+
+Сервер верхнего уровня, который содержит в себе NS записи для наших двух DNS серверов
+
+Да, в моем случае сервер верхнего уровня, это корневой сервер, который отдает ip адреса для серверов, обслуживающих зону RU.</description>
     </item>
 </rdf:RDF>

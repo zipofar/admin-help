@@ -50,3 +50,10 @@ ubuntu_16_samba_в_домене_ad
 dns
 bind9_root_zone_tld
 bind9_slave
+zabbix
+авторегистрация_хостов
+auto_reg_hosts
+zabbix_template_mysql_setup
+zabbix_template_ping_setup
+setting_locale_failed
+zabbix_lld_setup

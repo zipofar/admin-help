@@ -44,3 +44,4 @@ rewritecond
 virtualhost
 timedatectl
 credentials
+reconfigure

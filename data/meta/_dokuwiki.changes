@@ -1,39 +1,36 @@
-1507123884	91.122.219.149	E	start	ingprog	[Linux] 		16
-1507124112	91.122.219.149	C	dns	ingprog	created		47
-1507124134	91.122.219.149	E	dns	ingprog			19
-1507124152	91.122.219.149	E	dns	ingprog			0
-1507124401	91.122.219.149	C	bind9_root_zone_tld	ingprog	created		106
-1507124533	91.122.219.149	E	bind9_root_zone_tld	ingprog			87
-1507124934	91.122.219.149	E	bind9_root_zone_tld	ingprog			275
-1507125183	91.122.219.149	E	bind9_root_zone_tld	ingprog			379
-1507125270	91.122.219.149	E	bind9_root_zone_tld	ingprog			5
-1507125331	91.122.219.149	E	bind9_root_zone_tld	ingprog			135
-1507125371	91.122.219.149	E	bind9_root_zone_tld	ingprog			0
-1507125401	91.122.219.149	E	bind9_root_zone_tld	ingprog			94
-1507125438	91.122.219.149	E	bind9_root_zone_tld	ingprog			3
-1507125605	91.122.219.149	E	bind9_root_zone_tld	ingprog			225
-1507125756	91.122.219.149	E	bind9_root_zone_tld	ingprog	[Правим /etc/bind/named.conf.defaul-zones] 		130
-1507126030	91.122.219.149	E	bind9_root_zone_tld	ingprog	[Создаем корневую зону /etc/bind/db.root] 		539
-1507126122	91.122.219.149	E	bind9_root_zone_tld	ingprog	[Правим /etc/bind/named.options] 		81
-1507126152	91.122.219.149	E	bind9_root_zone_tld	ingprog	[Создаем сервер, отвечающий за зону RU] 		123
-1507126192	91.122.219.149	E	bind9_root_zone_tld	ingprog	[Создаем сервер, отвечающий за зону RU] 		38
-1507126232	91.122.219.149	E	bind9_root_zone_tld	ingprog	[Создаем сервер, отвечающий за зону RU 192.168.0.186] 		5
-1507126295	91.122.219.149	E	bind9_root_zone_tld	ingprog	[Создаем сервер, отвечающий за зону RU (ip 192.168.0.186)] 		45
-1507126349	91.122.219.149	E	bind9_root_zone_tld	ingprog	[Создаем сервер, отвечающий за зону RU (ip 192.168.0.186)] 		7
-1507126472	91.122.219.149	E	bind9_root_zone_tld	ingprog	[Создаем сервер, отвечающий за зону RU (ip 192.168.0.186)] 		1179
-1507126644	91.122.219.149	E	bind9_root_zone_tld	ingprog	[Создаем зону RU /etc/bind/db.ru] 		-411
-1507126674	91.122.219.149	E	bind9_root_zone_tld	ingprog	[Создаем зону RU /etc/bind/db.ru] 		4
-1507126816	91.122.219.149	E	bind9_root_zone_tld	ingprog	[Создаем зону RU /etc/bind/db.ru] 		148
-1507126896	91.122.219.149	E	bind9_root_zone_tld	ingprog	[Правим /etc/bind/named.conf.defaul-zones] 		10
-1507127121	91.122.219.149	E	bind9_root_zone_tld	ingprog	[Правим /etc/bind/named.conf.local] 		413
-1507128456	91.122.206.228	E	dns	ingprog			36
-1507193074	91.122.206.228	C	bind9_slave	ingprog	created		871
-1507193173	91.122.206.228	E	bind9_slave	ingprog			222
-1507193190	91.122.206.228	E	bind9_slave	ingprog			-2
-1507193345	91.122.206.228	E	bind9_slave	ingprog			994
-1507193378	91.122.206.228	E	bind9_slave	ingprog	[Сервер NS1.RU, является master сервером, и обслуживает домены, находящиеся в зоне RU.] 		5
-1507195001	91.122.206.228	E	bind9_slave	ingprog			2
 1507195349	91.122.219.149	E	bind9_slave	ingprog	[Сервер NS1.RU, является master сервером, и обслуживает домены, находящиеся в зоне RU.] 		373
 1507195439	91.122.219.149	E	bind9_slave	ingprog	[Сервер NS2.RU, является slave сервером, и обслуживает домены, находящиеся в зоне RU.] 		213
 1507195657	91.122.219.149	E	bind9_slave	ingprog	[Сервер NS1.RU, является master сервером, и обслуживает домены, находящиеся в зоне RU.] 		323
 1507195679	91.122.219.149	E	bind9_slave	ingprog	[Сервер NS2.RU, является slave сервером, и обслуживает домены, находящиеся в зоне RU.] 		324
+1507627707	91.122.206.228	E	start	ingprog	[Linux] 		23
+1507627758	91.122.206.228	C	zabbix	ingprog	created		117
+1507627833	91.122.206.228	E	zabbix	ingprog			-29
+1507627859	91.122.206.228	C	auto_reg_hosts	ingprog	created		58
+1507628104	91.122.206.228	E	auto_reg_hosts	ingprog			268
+1507628191	91.122.206.228	E	zabbix	ingprog			70
+1507628317	91.122.206.228	C	zabbix_template_mysql_setup	ingprog	created		244
+1507628589	91.122.206.228	E	zabbix_template_mysql_setup	ingprog			831
+1507628797	91.122.206.228	E	zabbix_template_mysql_setup	ingprog			237
+1507628823	91.122.206.228	E	zabbix_template_mysql_setup	ingprog			41
+1507640139	91.122.206.228	E	zabbix	ingprog			68
+1507640598	91.122.206.228	C	zabbix_template_ping_setup	ingprog	created		383
+1507640793	91.122.206.228	E	zabbix_template_ping_setup	ingprog			165
+1507641032	91.122.206.228	E	zabbix_template_ping_setup	ingprog			1
+1507900339	91.122.206.228	E	start	ingprog	[Linux] 		92
+1507900459	91.122.206.228	C	setting_locale_failed	ingprog	created		813
+1508232813	91.122.219.149	E	zabbix	ingprog			64
+1508232849	91.122.219.149	C	zabbix_lld_setup	ingprog	created		1909
+1508232884	91.122.219.149	E	zabbix_lld_setup	ingprog			701
+1508232953	91.122.219.149	E	zabbix_lld_setup	ingprog			167
+1508232966	91.122.219.149	E	zabbix_lld_setup	ingprog			8
+1508233000	91.122.219.149	E	zabbix_lld_setup	ingprog			989
+1508233104	91.122.219.149	E	zabbix_lld_setup	ingprog			192
+1508233149	91.122.219.149	E	zabbix_lld_setup	ingprog			918
+1508233180	91.122.219.149	E	zabbix_lld_setup	ingprog			3
+1508233476	91.122.219.149	E	zabbix_lld_setup	ingprog			662
+1508233873	91.122.219.149	E	zabbix_lld_setup	ingprog			13
+1508234008	91.122.219.149	E	zabbix_lld_setup	ingprog			22
+1508234053	91.122.219.149	E	zabbix_lld_setup	ingprog			-22
+1508234074	91.122.219.149	E	zabbix_lld_setup	ingprog			28
+1508234186	91.122.219.149	E	zabbix_lld_setup	ingprog			12
+1508234506	91.122.219.149	E	zabbix_lld_setup	ingprog			118

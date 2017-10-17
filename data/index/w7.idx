@@ -228,3 +228,9 @@ records
 dnshabr
 3600000
 masters
+setting
+falling
+locales
+restart
+uzabbix
+pzabbix

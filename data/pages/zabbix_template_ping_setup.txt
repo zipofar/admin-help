@@ -1,0 +1,16 @@
+====== Настройка Template Ping ======
+
+При начальной настройке ping-а обычно возникает ошибка "failed address family for hostname not supported".
+
+Проверяем /etc/zabbix/zabbix_server.conf и правим так, чтобы FPingLocation имел правильный путь.
+<code>
+FpingLocation=/usr/bin/fping
+</code>
+
+Для fping надо установить SUID и группу владельца zabbix
+<code>
+chown root:zabbix /usr/bin/fping
+chmod u+s /usr/bin/fping
+</code> 
+
+
