@@ -1,0 +1,5 @@
+====== Настройка автозапуска zabbix на Ubuntu 16 ======
+<code>
+systemctl enable zabbix-server
+systemctl enable zabbix-agent
+</code>

@@ -1,0 +1,119 @@
+
+<h1 class="sectionedit1" id="master-slave_репликация_mysql_mariadb">Master-Slave репликация MySQL (MariaDB)</h1>
+<div class="level1">
+
+<p>
+<em>В общих чертах про репликацию mysql читай</em> <a href="http://highload.guide/blog/mysql_replication_2015.html" class="urlextern" title="http://highload.guide/blog/mysql_replication_2015.html" rel="nofollow">здесь</a>
+</p>
+
+<p>
+Про мультимастер решение и вообще полезно <a href="https://habrahabr.ru/post/276581/" class="urlextern" title="https://habrahabr.ru/post/276581/" rel="nofollow"> ЧИТАТЬ</a>
+</p>
+
+<p>
+Буду использовать MariaDB 10.0.29
+</p>
+<pre class="code">mysqladmin version</pre>
+
+</div>
+<!-- EDIT1 SECTION "Master-Slave репликация MySQL (MariaDB)" [1-428] -->
+<h2 class="sectionedit2" id="первое">Первое</h2>
+<div class="level2">
+
+<p>
+Мой файл конфигурации лежит здесь.
+</p>
+<pre class="code"># /etc/mysql/mariadb.conf.d/50-server.cnf
+
+[mysqld]
+user            = mysql
+pid-file        = /var/run/mysqld/mysqld.pid
+socket          = /var/run/mysqld/mysqld.sock
+port            = 3306
+basedir         = /usr
+datadir         = /var/lib/mysql
+tmpdir          = /tmp
+lc-messages-dir = /usr/share/mysql
+
+# Вот здесь меняем, чтобы был доступ по сети
+bind-address = 192.168.0.185
+
+[mariadb]
+# Включаем ведение журнала logbin. Обязательно для мастера.
+log-bin
+
+# Вот этот параметр у каждого сервера свой. Значение данного параметра может быть от 1 до 2^32-1. Нужен на мастере и слейве.
+server_id=1
+
+# Это название файла binlog-а для мастера. Опять же для каждого сервера должно быть индивидуальным.
+log-basename=master1
+
+# Тут указываем формат binlog-а. Должно быть одинаковым как на мастере, так и на слейве.
+binlog_format=ROW</pre>
+
+</div>
+<!-- EDIT2 SECTION "Первое" [429-1666] -->
+<h2 class="sectionedit3" id="второе_-_gtid">Второе - GTID</h2>
+<div class="level2">
+
+<p>
+Знаем, что надо обязательно использовать GTID. Документация MariaDB говорит, что с версии 10.0 оно включено по дефолту.
+<a href="https://dev.mysql.com/doc/refman/5.7/en/replication-mode-change-online-enable-gtids.html" class="urlextern" title="https://dev.mysql.com/doc/refman/5.7/en/replication-mode-change-online-enable-gtids.html" rel="nofollow">Здесь</a> можно читануть пошаговую инструкцию для включения этой штуки, т.к. не во всех дистрибах mysql оно включено.
+</p>
+
+<p>
+Если вкратце, то для свежого сервера
+</p>
+<pre class="code"># my.cnf
+gtid-mode=ON
+
+# В командной строке mysql
+SET @@GLOBAL.GTID_MODE = ON;</pre>
+
+</div>
+<!-- EDIT3 SECTION "Второе - GTID" [1667-2377] -->
+<h2 class="sectionedit4" id="третье_-_как_вкл_репликацию">Третье - как ВКЛ репликацию</h2>
+<div class="level2">
+
+<p>
+Вся работа с настройкой и управлением репликацией происходит в командной строке mysql.
+</p>
+
+<p>
+CHANGE MASTER TO - вот эта команда и служит для настройки слейва. Именно слейва, т.к. мастером оно является изначально.
+</p>
+
+<p>
+START SLAVE, STOP SLAVE - да, вот так вот оно (слейв) включается и выключается.
+</p>
+
+</div>
+<!-- EDIT4 SECTION "Третье - как ВКЛ репликацию" [2378-2920] -->
+<h3 class="sectionedit5" id="настраиваем_слейв">Настраиваем слейв</h3>
+<div class="level3">
+<pre class="code">CHANGE MASTER TO
+  MASTER_HOST=&#039;master.domain.com | ip address&#039;,
+  MASTER_USER=&#039;replication_user&#039;,
+  MASTER_PASSWORD=&#039;megapassword&#039;,
+  MASTER_USE_GTID = current_pos</pre>
+
+<p>
+Естественно, что на мастере нужно создать такого пользователя с таким паролем и дать ему права.
+</p>
+<pre class="code">CREATE USER replication_user@localhost IDENTIFIED BY &#039;megapassword&#039;;
+GRANT REPLICATION SLAVE ON *.* TO &#039;replication_user&#039;@&#039;%&#039;;</pre>
+
+</div>
+<!-- EDIT5 SECTION "Настраиваем слейв" [2921-3463] -->
+<h3 class="sectionedit6" id="еще_полезные_команды">Еще полезные команды</h3>
+<div class="level3">
+<pre class="code">show master status;
+show slave status\G;
+show variables like &#039;%gtid%&#039;;
+show processlist\G;
+
+reset master;
+reset slave;</pre>
+
+</div>
+<!-- EDIT6 SECTION "Еще полезные команды" [3464-] -->

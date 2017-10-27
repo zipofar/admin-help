@@ -234,3 +234,13 @@ locales
 restart
 uzabbix
 pzabbix
+devices
+loading
+mariadb
+basedir
+datadir
+master1
+current
+numbers
+library
+varchar

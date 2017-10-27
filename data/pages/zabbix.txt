@@ -4,3 +4,5 @@
   * [[Zabbix_Template_mysql_setup|Настройка Template MySQL]]
   * [[Zabbix_Template_Ping_Setup|Настройка Template Ping]]
   * [[Zabbix_LLD_Setup|Настройка LLD Item prototypes]]
+  * [[Zabbix_autostart_setup|Настройка автозапуска zabbix]]
+  * [[Zabbix_SNMP_MIB_Mikrotik|Настройка SNMP с применением mib]]

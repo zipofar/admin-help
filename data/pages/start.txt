@@ -18,6 +18,7 @@
   * [[ZFS|ZFS]]
   * [[Hyper-V + Ubuntu|Hyper-V + Ubuntu]]
   * [[KVM|KVM]]
+  * [[lxd|LXD]]
   * [[SSH|SSH]]
   * [[IP Utility|IP Utility]]
   * [[IPTables|IPTables]]
@@ -27,6 +28,7 @@
   * [[DNS|DNS]]
   * [[Zabbix|Zabbix]]
   * [[setting_locale_failed|Setting locale failed. Please check that your locale settings]]
+  * [[databases|Базы данных]]
 
 
 

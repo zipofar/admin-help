@@ -255,3 +255,10 @@ ctype
 rules
 agnet
 array
+snmpd
+gtids
+reset
+alter
+event
+multi
+uroot

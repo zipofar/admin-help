@@ -1,0 +1,17 @@
+====== Настройка SNMP с применением MIB ======
+
+Если взять вот этот [[https://share.zabbix.com/network_devices/mikrotik/mikrotik-routeros|шаблон]] для мониторинга Mikrotik по SNMP, то в нем используются MIB вместо цифровых OID. Чтобы заработали MIB нужно установить 
+<code>
+apt-get install snmp-mibs-downloader
+</code>
+
+В файле /etc/snmp/snmp.conf внесем некоторые изменения
+<code>
+# As the snmp packages come without MIB files due to license reasons, loading
+# of MIBs is disabled by default. If you added the MIBs you can reenable 
+# loading them by commenting out the following line. 
+mibs :BRIDGE-MIB:Q-BRIDGE-MIB:IP-MIB:IF-MIB 
+#mibs +ALL - включает поиск по всем MIB файлам
+</code>
+
+После этого обязательно рестартуем snmpd и zabbix-server

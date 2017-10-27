@@ -1,0 +1,4 @@
+====== Show IPTables Rules ======
+<code>
+iptables -L -n -v --line-numbers
+</code>

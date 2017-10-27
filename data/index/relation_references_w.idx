@@ -57,3 +57,11 @@ zabbix_template_mysql_setup
 zabbix_template_ping_setup
 setting_locale_failed
 zabbix_lld_setup
+zabbix_autostart_setup
+zabbix_snmp_mib_mikrotik
+databases
+master-slave_replication_mysql_mariadb
+show_iptables_rules
+lxd
+global_transaction_id
+master-slave_step_by_step

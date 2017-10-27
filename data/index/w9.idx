@@ -106,3 +106,7 @@ passwords
 recursion
 discovery
 databases
+systemctl
+variables
+increment
+mysqldump

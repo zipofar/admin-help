@@ -1,0 +1,2 @@
+====== LXD ======
+[[https://stgraber.org/2016/03/11/lxd-2-0-blog-post-series-012/|Читаем здесь]]

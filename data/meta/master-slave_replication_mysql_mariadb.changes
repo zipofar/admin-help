@@ -1,0 +1,35 @@
+1508497418	91.122.206.228	C	master-slave_replication_mysql_mariadb	ingprog	created		206
+1508497430	91.122.206.228	E	master-slave_replication_mysql_mariadb	ingprog			4
+1508497499	91.122.206.228	E	master-slave_replication_mysql_mariadb	ingprog			85
+1508497649	91.122.206.228	E	master-slave_replication_mysql_mariadb	ingprog			308
+1508497827	91.122.206.228	E	master-slave_replication_mysql_mariadb	ingprog	[Первое] 		77
+1508497959	91.122.206.228	E	master-slave_replication_mysql_mariadb	ingprog	[Первое] 		404
+1508498176	91.122.206.228	E	master-slave_replication_mysql_mariadb	ingprog	[Первое] 		253
+1508498312	91.122.206.228	E	master-slave_replication_mysql_mariadb	ingprog	[Первое] 		308
+1508498470	91.122.206.228	E	master-slave_replication_mysql_mariadb	ingprog	[Первое] 		328
+1508498539	91.122.206.228	E	master-slave_replication_mysql_mariadb	ingprog	[Первое] 		1
+1508498626	91.122.206.228	E	master-slave_replication_mysql_mariadb	ingprog	[Первое] 		219
+1508498871	91.122.206.228	E	master-slave_replication_mysql_mariadb	ingprog	[Второе] 		295
+1508498961	91.122.206.228	E	master-slave_replication_mysql_mariadb	ingprog	[Второе] 		162
+1508498985	91.122.206.228	E	master-slave_replication_mysql_mariadb	ingprog	[Второе GTID] 		2
+1508499059	91.122.206.228	E	master-slave_replication_mysql_mariadb	ingprog	[Второе - GTID] 		83
+1508500077	91.122.206.228	E	master-slave_replication_mysql_mariadb	ingprog	[Третье - как ВКЛ репликацию] 		479
+1508500312	91.122.206.228	E	master-slave_replication_mysql_mariadb	ingprog	[Третье - как ВКЛ репликацию] 		1
+1508500449	91.122.206.228	E	master-slave_replication_mysql_mariadb	ingprog	[Третье - как ВКЛ репликацию] 		192
+1508500456	91.122.206.228	E	master-slave_replication_mysql_mariadb	ingprog	[Настраиваем слейв] 		0
+1508500854	91.122.206.228	E	master-slave_replication_mysql_mariadb	ingprog	[Настраиваем слейв] 		318
+1508502018	91.122.206.228	E	master-slave_replication_mysql_mariadb	ingprog	[Настраиваем слейв] 		33
+1508502104	91.122.206.228	E	master-slave_replication_mysql_mariadb	ingprog	[Настраиваем слейв] 		52
+1508502179	91.122.206.228	E	master-slave_replication_mysql_mariadb	ingprog	[Еще полезные команды] 		15
+1508502374	91.122.206.228	E	master-slave_replication_mysql_mariadb	ingprog	[Еще полезные команды] 		91
+1508502404	91.122.206.228	E	master-slave_replication_mysql_mariadb	ingprog	[Еще полезные команды] 		28
+1508502483	91.122.206.228	E	master-slave_replication_mysql_mariadb	ingprog	[Первое] 		-488
+1508502567	91.122.206.228	E	master-slave_replication_mysql_mariadb	ingprog	[Первое] 		49
+1508502619	91.122.206.228	E	master-slave_replication_mysql_mariadb	ingprog	[Второе - GTID] 		11
+1508503322	91.122.206.228	E	master-slave_replication_mysql_mariadb	ingprog	[Master-Slave репликация MySQL (MariaDB)] 		131
+1508940977	91.122.206.228	E	master-slave_replication_mysql_mariadb	ingprog	[Настраиваем слейв] 		-41
+1508942747	91.122.206.228	E	master-slave_replication_mysql_mariadb	ingprog	[Master-Slave репликация MySQL (MariaDB)] 		117
+1508942859	91.122.206.228	E	master-slave_replication_mysql_mariadb	ingprog	[Первое] 		7
+1508942931	91.122.206.228	E	master-slave_replication_mysql_mariadb	ingprog	[Настраиваем слейв] 		62
+1509094826	91.122.206.228	E	master-slave_replication_mysql_mariadb	ingprog	[Еще полезные команды] 		2912
+1509094858	91.122.206.228	E	master-slave_replication_mysql_mariadb	ingprog			20

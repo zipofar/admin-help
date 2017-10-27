@@ -1,0 +1,404 @@
+====== Настройка Master-Slave репликации по шагам и переключение Slave to Master и обратно ======
+
+Конфиг мастера
+
+<code>
+[mysqld]
+bind-address = 10.0.0.1
+
+[mariadb]
+log-bin
+server_id=1
+log-basename=srv1
+binlog_format=ROW
+binlog-do-db=db1
+binlog-ignore-db=mysql
+binlog-ignore-db=information_schema
+binlog-ignore-db=performance_schema
+</code>
+
+Конфиг слейва
+<code>
+[mysqld]
+bind-address = 10.0.0.2
+
+[mariadb]
+log-bin
+server_id=2
+log-basename=srv2
+binlog_format=ROW
+binlog-do-db=db1
+binlog-ignore-db=mysql
+binlog-ignore-db=information_schema
+binlog-ignore-db=performance_schema
+</code>
+
+На обоих серверах создаем пользователя для репликации.
+<code>
+GRANT REPLICATION SLAVE ON *.* TO 'rep'@'%'IDENTIFIED BY 'rep';
+</code>
+
+На обоих серверах создаем базу данных.
+<code>
+CREATE DATABASE db1;
+</code>
+
+Для тестов сделал такую табличку на srv1 (будет мастером).
+<code>
+CREATE TABLE t1 (id INT NOT NULL AUTO_INCREMENT PRIMARY KEY, code VARCHAR(255));
+</code>
+
+Прежде чем вставлять данные, очистим значения GTID позиций бинлога мастера и слейва на srv1.
+<code>
+RESET MASTER;
+SET GLOBAL gtid_slave_pos=’’;
+</code>
+
+Переменные GTID на srv1 должны теперь выглядеть так.
+<code>
+MariaDB [(none)]> show variables like '%gtid%';
++------------------------+-------+
+| Variable_name          | Value |
++------------------------+-------+
+| gtid_binlog_pos        |       |
+| gtid_binlog_state      |       |
+| gtid_current_pos       |       |
+| gtid_domain_id         | 0     |
+| gtid_ignore_duplicates | OFF   |
+| gtid_seq_no            | 0     |
+| gtid_slave_pos         |       |
+| gtid_strict_mode       | OFF   |
+| last_gtid              |       |
++------------------------+-------+
+</code>
+
+Вставим пять записей в таблицу t1.
+<code>
+# Повторить 5 раз
+INSERT INTO db1.t1 (code) VALUES (uuid());
+</code>
+
+Смотрим GTID на srv1
+<code>
+MariaDB [(none)]> show variables like '%gtid%';
++------------------------+-------+
+| Variable_name          | Value |
++------------------------+-------+
+| gtid_binlog_pos        | 0-1-5 |
+| gtid_binlog_state      | 0-1-5 |
+| gtid_current_pos       | 0-1-5 |
+| gtid_domain_id         | 0     |
+| gtid_ignore_duplicates | OFF   |
+| gtid_seq_no            | 0     |
+| gtid_slave_pos         |       |
+| gtid_strict_mode       | OFF   |
+| last_gtid              | 0-1-5 |
++------------------------+-------+
+</code>
+
+Делаем дамп базы на srv1
+<code>
+mysqldump –uroot db1 > db1-dump.sql
+</code>
+
+Копируем дамп на srv2 загружаем в mysql
+<code>
+mysql –uroot db1 < db1-dump.sql
+</code>
+
+Также на srv2 ресетим все gtid
+<code>
+RESET MASTER;
+SET GLOBAL gtid_slave_pos=’’;
+</code>
+
+Смотрим GTID на srv2.
+<code>
+MariaDB [(none)]> show variables like '%gtid%';
++------------------------+-------+
+| Variable_name          | Value |
++------------------------+-------+
+| gtid_binlog_pos        |       |
+| gtid_binlog_state      |       |
+| gtid_current_pos       |       |
+| gtid_domain_id         | 0     |
+| gtid_ignore_duplicates | OFF   |
+| gtid_seq_no            | 0     |
+| gtid_slave_pos         |       |
+| gtid_strict_mode       | OFF   |
+| last_gtid              |       |
++------------------------+-------+
+</code>
+
+Помним, что бэкап базы на srv1 сделали на позиции 0-1-5.
+Теперь для того, чтобы продолжить репликацию с этой позиции, нужно задать gtid_slave_pos = ‘0-1-5’ на srv2.
+<code>
+SET GLOBAL gtid_slave_pos = ‘0-1-5’;
+</code>
+
+Смотрим на srv2
+<code>
+MariaDB [(none)]> show variables like '%gtid%';
++------------------------+-------+
+| Variable_name          | Value |
++------------------------+-------+
+| gtid_binlog_pos        |       |
+| gtid_binlog_state      |       |
+| gtid_current_pos       | 0-1-5 |
+| gtid_domain_id         | 0     |
+| gtid_ignore_duplicates | OFF   |
+| gtid_seq_no            | 0     |
+| gtid_slave_pos         | 0-1-5 |
+| gtid_strict_mode       | OFF   |
+| last_gtid              |       |
++------------------------+-------+
+</code>
+
+Посмотрим на srv1 название бинлога. Нам нужно значение 'File'.
+<code>
+SHOW MASTER STATUS;
+
+MariaDB [(none)]> show master status;
++-----------------+----------+--------------+---------------------------------------------+
+| File            | Position | Binlog_Do_DB | Binlog_Ignore_DB                            |
++-----------------+----------+--------------+---------------------------------------------+
+| srv1-bin.000001 |     1211 | db1          | mysql,information_schema,performance_schema |
++-----------------+----------+--------------+---------------------------------------------+
+</code>
+
+Настроим slave на srv2.
+<code>
+CHANGE MASTER TO
+  MASTER_HOST='10.0.0.1',
+  MASTER_USER='rep',
+  MASTER_PASSWORD='rep',
+  MASTER_LOG_FILE=' srv1-bin.000001',
+  MASTER_USE_GTID = current_pos
+</code>
+
+Стартуем слейв на srv2 и смотрим состояние.
+<code>
+START SLAVE;
+SHOW SLAVE STATUS\G;
+</code>
+
+Следующие значения должны быть такими:
+<code>
+Slave_IO_Running: Yes
+Slave_SQL_Running: Yes
+</code>
+
+Теперь внесем еще две записи на srv1 и посмотрим gtid на srv1.
+<code>
+MariaDB [(none)]> show variables like '%gtid%';
++------------------------+-------+
+| Variable_name          | Value |
++------------------------+-------+
+| gtid_binlog_pos        | 0-1-7 |
+| gtid_binlog_state      | 0-1-7 |
+| gtid_current_pos       | 0-1-7 |
+| gtid_domain_id         | 0     |
+| gtid_ignore_duplicates | OFF   |
+| gtid_seq_no            | 0     |
+| gtid_slave_pos         |       |
+| gtid_strict_mode       | OFF   |
+| last_gtid              | 0-1-7 |
++------------------------+-------+
+</code>
+
+Также посмотрим на srv2 gtid.
+<code>
+MariaDB [(none)]> show variables like '%gtid%';
++------------------------+-------+
+| Variable_name          | Value |
++------------------------+-------+
+| gtid_binlog_pos        |       |
+| gtid_binlog_state      |       |
+| gtid_current_pos       | 0-1-7 |
+| gtid_domain_id         | 0     |
+| gtid_ignore_duplicates | OFF   |
+| gtid_seq_no            | 0     |
+| gtid_slave_pos         | 0-1-7 |
+| gtid_strict_mode       | OFF   |
+| last_gtid              |       |
++------------------------+-------+
+</code>
+
+Все. Репликация работает.
+
+
+===== Переключаем Slave to Master =====
+
+Представим, что с сервером srv1, что-то произошло и мы не может на него писать. В связи с этим где-то что-то переключили и поток данных перенаправили на srv2. Т.е. из слейва (srv2) надо сделать мастер.
+
+Прежде чем начать писать на слейв(srv2), делаем ресет.
+<code>
+#srv2
+RESET MASTER;
+</code>
+
+Предположим, что слейв остановился на позиции 0-1-7.
+<code>
+#srv2
+MariaDB [(none)]> show variables like '%gtid%';
++------------------------+-------+
+| Variable_name          | Value |
++------------------------+-------+
+| gtid_binlog_pos        |       |
+| gtid_binlog_state      |       |
+| gtid_current_pos       | 0-1-7 |
+| gtid_domain_id         | 0     |
+| gtid_ignore_duplicates | OFF   |
+| gtid_seq_no            | 0     |
+| gtid_slave_pos         | 0-1-7 |
+| gtid_strict_mode       | OFF   |
+| last_gtid              |       |
++------------------------+-------+
+</code>
+
+Видим, что позиция бинлога пустая, значит запись начнется с позиции 0-2-0.
+
+Вставим две записи на srv2.
+<code>
+INSERT INTO db1.t1 (code) VALUES (uuid());
+</code>
+
+Получаем на srv2.
+<code>
+MariaDB [(none)]> show variables like '%gtid%';
++------------------------+-------+
+| Variable_name          | Value |
++------------------------+-------+
+| gtid_binlog_pos        | 0-2-2 |
+| gtid_binlog_state      | 0-2-2 |
+| gtid_current_pos       | 0-1-7 |
+| gtid_domain_id         | 0     |
+| gtid_ignore_duplicates | OFF   |
+| gtid_seq_no            | 0     |
+| gtid_slave_pos         | 0-1-7 |
+| gtid_strict_mode       | OFF   |
+| last_gtid              | 0-2-2 |
++------------------------+-------+
+</code>
+
+Предположим, что srv1 ввели в работу, и мы хотим чтобы он снова стал мастером, но база у нас 10ТБ и затаскивать на srv1 такой большой бэкап нет никакого желания. Сделаем его (srv1) слейвом, догоним базу до текущего состояния srv2 и переключим опять в мастер.
+
+Смотрим srv1.
+<code>
+MariaDB [(none)]> show variables like '%gtid%';
++------------------------+-------+
+| Variable_name          | Value |
++------------------------+-------+
+| gtid_binlog_pos        | 0-1-7 |
+| gtid_binlog_state      | 0-1-7 |
+| gtid_current_pos       | 0-1-7 |
+| gtid_domain_id         | 0     |
+| gtid_ignore_duplicates | OFF   |
+| gtid_seq_no            | 0     |
+| gtid_slave_pos         |       |
+| gtid_strict_mode       | OFF   |
+| last_gtid              | 0-1-7 |
++------------------------+-------+
+</code>
+
+Допустим ничего не поломалось и мастер (srv1) стоит на той же позиции, на которой закончил репликацию слейв.
+
+Ресетим srv1.
+<code>
+RESET MASTER;
+RESET SLAVE;
+</code>
+
+Выставляем (srv1) slave_pos в позицию 0-2-0, т.е. в ту позицию с которой начал писать бинлог srv2 и получается на которой остановилась запись на srv1.
+<code>
+SET GLOBAL gtid_slave_pos=’0-2-0’
+</code>
+
+Настраиваем на srv1 slave.
+<code>
+CHANGE MASTER TO
+  MASTER_HOST='10.0.0.2',
+  MASTER_USER='rep',
+  MASTER_PASSWORD='rep',
+  MASTER_LOG_FILE=' srv2-bin.000001',
+  MASTER_USE_GTID = current_pos
+</code>
+
+Запускаем слейв на srv1
+<code>
+START SLAVE;
+</code>
+
+Смотрим gtid на srv1
+<code>
+MariaDB [(none)]> show variables like '%gtid%';
++------------------------+-------+
+| Variable_name          | Value |
++------------------------+-------+
+| gtid_binlog_pos        |       |
+| gtid_binlog_state      |       |
+| gtid_current_pos       | 0-2-2 |
+| gtid_domain_id         | 0     |
+| gtid_ignore_duplicates | OFF   |
+| gtid_seq_no            | 0     |
+| gtid_slave_pos         | 0-2-2 |
+| gtid_strict_mode       | OFF   |
+| last_gtid              |       |
++------------------------+-------+
+</code>
+
+Ура. Все прошло удачно. Теперь srv1 стал слейвом.
+
+Вставим еще одну запись на srv2 «для порядка» так сказать.
+
+===== Ну и теперь вернем все как было, т.е. srv1 сделаем мастером, а srv2 слейвом =====
+
+Сначала блокируем все таблицы на запись в db1 на srv2.
+<code>
+USE db1;
+FLUSH TABLES WITH READ LOCK;
+</code>
+
+Дождемся пока все данные на srv1 дозапишуться (если слейв отстает от мастера).
+<code>
+SHOW PROCESSLIST\G;
+</code>
+
+Останавливаем слейв на srv1
+<code>
+STOP SLAVE;
+</code>
+
+На всякий случай сделаем ресет для srv1.
+<code>
+RESET MASTER;
+</code>
+
+Допустим, что где-то там переключаем поток данных на srv1 и готово. Srv1 снова стал мастером. Отсчет позиции бинлога на srv1 начнется с 0-1-0.
+
+Снимаем lock на srv2 и ресетим.
+<code>
+UNLOCK TABLES;
+RESET MASTER;
+RESET SLAVE;
+</code>
+
+На srv2 устанавливаем начальную позицию gtid в 0-1-0.
+<code>
+SET GLOBAL gtid_slave_pos=’0-1-0’;
+</code>
+
+Настраиваем слейв на srv2.
+<code>
+CHANGE MASTER TO
+  MASTER_HOST='10.0.0.1',
+  MASTER_USER='rep',
+  MASTER_PASSWORD='rep',
+  MASTER_LOG_FILE=' srv1-bin.000001',
+  MASTER_USE_GTID = current_pos
+</code>
+
+Стартуем слейв.
+<code>
+START SLAVE;
+</code>

@@ -1,0 +1,4 @@
+====== SSH ======
+
+[[https://habrahabr.ru/post/331348/|Магия SSH]]
+[[https://habrahabr.ru/post/122445/|Памятка SSH]]
