@@ -65,3 +65,13 @@ show_iptables_rules
 lxd
 global_transaction_id
 master-slave_step_by_step
+innodb_performance_optimization
+nginx
+multy_root
+try_files
+config_php
+redmine
+application
+lxd_not_start_refused_socket_is_busy
+systemd
+postgres_master_slave

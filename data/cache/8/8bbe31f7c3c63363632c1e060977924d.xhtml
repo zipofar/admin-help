@@ -1,0 +1,50 @@
+
+<h1 class="sectionedit1" id="root_директива_multy_root">Root директива (multy root)</h1>
+<div class="level1">
+
+<p>
+Задаёт корневой <strong>каталог</strong> для запросов. 
+</p>
+
+<p>
+Корень сайта лучше задавать в директиве server.
+</p>
+<pre class="code">server {
+    listen 80;
+    server_name test1.loc;
+    index index.html;
+    
+    root /var/www/test1.loc;
+}</pre>
+
+<p>
+Также root можно использовать в location для перенаправления запроса в другую директорию.
+</p>
+<pre class="code">    location /foo {
+        root /var/www/test1.loc/;
+    }</pre>
+
+<p>
+Это значит, что запрос <a href="http://test1.loc/foo" class="urlextern" title="http://test1.loc/foo" rel="nofollow">http://test1.loc/foo</a> приведет к поиску index файла в каталоге /var/www/test1.loc/foo
+</p>
+
+<p>
+Если сделать так:
+</p>
+<pre class="code">    location /foo {
+        root /var/www/test1.loc/bar/commit/;
+    }</pre>
+
+<p>
+Это значит, что запрос <a href="http://test1.loc/foo" class="urlextern" title="http://test1.loc/foo" rel="nofollow">http://test1.loc/foo</a> приведет к поиску index файла в каталоге /var/www/test1.loc/bar/commit/foo
+</p>
+
+<p>
+Т.е. видно, что “foo” из location просто подставляется в конец директивы root и таким образом формируется путь к каталогу. И не забывайте ставить слешь в конце директивы root.
+</p>
+
+<p>
+В значении параметра путь можно использовать переменные, кроме $document_root и $realpath_root.
+</p>
+
+</div>

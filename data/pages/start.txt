@@ -24,11 +24,14 @@
   * [[IPTables|IPTables]]
   * [[OpenVPN|OpenVPN]]
   * [[Apache|Apache]]
+  * [[nginx|NGINX]]
   * [[Samba|Samba]]
   * [[DNS|DNS]]
   * [[Zabbix|Zabbix]]
   * [[setting_locale_failed|Setting locale failed. Please check that your locale settings]]
   * [[databases|Базы данных]]
+  * [[redmine|Redmine]]
+  * [[systemd|systemd]]
 
 
 

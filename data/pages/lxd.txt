@@ -1,2 +1,3 @@
 ====== LXD ======
-[[https://stgraber.org/2016/03/11/lxd-2-0-blog-post-series-012/|Читаем здесь]]
+  * [[https://stgraber.org/2016/03/11/lxd-2-0-blog-post-series-012/|Читаем здесь]]
+  * [[lxd_not_start_refused_socket_is_busy|Не запускается LXD]]

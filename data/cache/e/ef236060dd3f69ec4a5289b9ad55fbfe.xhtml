@@ -1,0 +1,88 @@
+
+<h2 class="sectionedit1" id="try_files_директива">Try_files директива</h2>
+<div class="level2">
+
+<p>
+Директива try_files проверяет существует ли файл или директория согласно uri. Если существует, то открывает ее. Если не существует, то пытается сделать редирект. Если и редирект не отработал, то возвращает код статуса.
+</p>
+
+<p>
+Синтаксис в официальной документации выглядит так:
+</p>
+<pre class="code">Syntax: 	
+try_files file ... uri;
+try_files file ... =code;</pre>
+
+<p>
+Это значит, что под аргументом file понимается путь до файла в операционной системе, который берется начиная от пути, определенном в директиве root.
+</p>
+
+<p>
+Т.е. try_files проверяет, существует ли файл по такому пути, если не существует, то либо прекращает работу, либо переходит к следующему аргументу file, если он есть конечно.
+</p>
+
+</div>
+<!-- EDIT1 SECTION "Try_files директива" [1-1170] -->
+<h2 class="sectionedit2" id="пример_1">Пример 1</h2>
+<div class="level2">
+
+<p>
+Здесь когда вводим в адресную строку браузера <a href="http://test1.loc/images" class="urlextern" title="http://test1.loc/images" rel="nofollow">http://test1.loc/images</a>, происходит следующее. NGINX проверяет существует ли файл /var/www/test1.loc/foo/img01.jpg и если существует, то передает его клиенту (браузеру), если не существует, то проверяет существует ли файл /var/www/test1.loc/bar/img02.jpg и если существует, то передает его клиенту (браузеру), если не существует, то передает клиенту (браузеру) код ошибки.
+</p>
+<pre class="code">server {
+    listen 80;
+    server_name test1.loc;
+    index index.html;
+    root /var/www/test1.loc;
+    
+    location /images {
+        try_files /foo/img01.jpg /bar/img02.jpg;
+    }
+}</pre>
+
+</div>
+<!-- EDIT2 SECTION "Пример 1" [1171-2081] -->
+<h2 class="sectionedit3" id="определение_uri_args">Определение $uri, $args</h2>
+<div class="level2">
+
+<p>
+В переменной $uri хранится значение пути до файла. Например из примера выше $uri=/images. Т.е. если в адресной строке набрать <a href="http://test1.loc/images/foo/bar/img01.jpg" class="urlextern" title="http://test1.loc/images/foo/bar/img01.jpg" rel="nofollow">http://test1.loc/images/foo/bar/img01.jpg</a>, то $uri будет содержать /images/foo/bar/img01.jpg.
+</p>
+
+<p>
+В переменной $args хранятся аргументы. На пример $args будет содержать в себе a=1&amp;b=2 в таком случае <a href="http://test1.loc/images?a=1&amp;b=2" class="urlextern" title="http://test1.loc/images?a=1&amp;b=2" rel="nofollow">http://test1.loc/images?a=1&amp;b=2</a>
+</p>
+
+<p>
+Кстати, посмотреть какое значение содержит переменная можно с помощью вот такого метода:
+</p>
+<pre class="code">location /
+{
+    return 200 $uri; # или любая другая переменная
+}</pre>
+
+<p>
+Для дебаггинга есть еще такая <a href="https://github.com/openresty/echo-nginx-module#installation" class="urlextern" title="https://github.com/openresty/echo-nginx-module#installation" rel="nofollow">штука</a>.
+</p>
+
+</div>
+<!-- EDIT3 SECTION "Определение $uri, $args" [2082-3055] -->
+<h2 class="sectionedit4" id="пример_2">Пример 2</h2>
+<div class="level2">
+
+<p>
+Здесь когда вводим в адресную строку браузера <a href="http://test1.loc/xxx/foo.html" class="urlextern" title="http://test1.loc/xxx/foo.html" rel="nofollow">http://test1.loc/xxx/foo.html</a>, происходит следующее. NGINX проверяет существует ли файл <strong>/var/www/test1.loc/xxx/foo.html</strong> и если существует, то передает его клиенту (браузеру), если не существует, то проверяет существует ли файл <strong>/var/www/test1.loc/bar/default.jpg</strong> и если существует, то передает его клиенту (браузеру), если не существует, то передает клиенту (браузеру) код ошибки.
+</p>
+<pre class="code">server {
+    listen 80;
+    server_name test1.loc;
+    index index.html;
+    root /var/www/test1.loc;
+    
+    location /xxx {
+        try_files $uri /bar/default.jpg;
+    }
+}</pre>
+
+</div>
+<!-- EDIT4 SECTION "Пример 2" [3056-] -->

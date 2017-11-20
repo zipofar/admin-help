@@ -1,0 +1,37 @@
+====== Root директива (multy root) ======
+
+Задаёт корневой **каталог** для запросов. 
+
+Корень сайта лучше задавать в директиве server.
+<code>
+server {
+    listen 80;
+    server_name test1.loc;
+    index index.html;
+    
+    root /var/www/test1.loc;
+}
+</code>
+
+Также root можно использовать в location для перенаправления запроса в другую директорию.
+<code>
+    location /foo {
+        root /var/www/test1.loc/;
+    }
+</code>
+
+Это значит, что запрос http://test1.loc/foo приведет к поиску index файла в каталоге /var/www/test1.loc/foo
+
+
+Если сделать так:
+<code>
+    location /foo {
+        root /var/www/test1.loc/bar/commit/;
+    }
+</code>
+
+Это значит, что запрос http://test1.loc/foo приведет к поиску index файла в каталоге /var/www/test1.loc/bar/commit/foo
+
+Т.е. видно, что "foo" из location просто подставляется в конец директивы root и таким образом формируется путь к каталогу. И не забывайте ставить слешь в конце директивы root.
+
+В значении параметра путь можно использовать переменные, кроме $document_root и $realpath_root.

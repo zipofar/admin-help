@@ -1,0 +1,181 @@
+
+<h1 class="sectionedit1" id="master-slave_postgres_потоковая_репликация">Master-Slave Postgres потоковая репликация</h1>
+<div class="level1">
+
+<p>
+И на мастере и на слейве нужно делать одинаковые настройки. Т.к. мастер-слейв репликация для того и нужна, чтобы в какой-то момент при падении мастера, таковым сделать слейв.
+</p>
+
+<p>
+Потоковая репликация бывает синхронной и асинхронной. По умолчанию, если не делать специальных настроек, репликация будет асинхронной.
+</p>
+
+</div>
+<!-- EDIT1 SECTION "Master-Slave Postgres потоковая репликация" [1-644] -->
+<h3 class="sectionedit2" id="начнем_с_конфига_postgresqlconf_минимально-упрощенный_конфиг">Начнем с конфига postgresql.conf (минимально-упрощенный конфиг)</h3>
+<div class="level3">
+<div class="spoiler"><div 
+class="title"> listen_addresses = '*' </div><input type="button" value="Show" onClick="c = 
+this.parentNode.getElementsByTagName('div')[1]; if (this.value == 'Show') { 
+c.style.display = ''; this.value = 'Hide' } else { c.style.display = 'none'; this.value = 
+'Show' }" /><div class="content" style="display: none">Чтобы принимать подключения по сети.
+Specifies the TCP/IP address(es) on which the server is to listen for connections from client applications. The value takes the form of a comma-separated list of host names and/or numeric IP addresses. The special entry * corresponds to all available IP interfaces. The entry 0.0.0.0 allows listening for all IPv4 addresses and :: allows listening for all IPv6 addresses. If the list is empty, the server does not listen on any IP interface at all, in which case only Unix-domain sockets can be used to connect to it. The default value is localhost, which allows only local TCP/IP “loopback” connections to be made. While client authentication (Гл. 19) allows fine-grained control over who can access the server, listen_addresses controls which interfaces accept connection attempts, which can help prevent repeated malicious connection requests on insecure network interfaces. This parameter can only be set at server start. 
+</div></div><div class="spoiler"><div 
+class="title"> wal_level = hot_standby </div><input type="button" value="Show" onClick="c = 
+this.parentNode.getElementsByTagName('div')[1]; if (this.value == 'Show') { 
+c.style.display = ''; this.value = 'Hide' } else { c.style.display = 'none'; this.value = 
+'Show' }" /><div class="content" style="display: none">Параметр wal_level определяет, как много информации записывается в WAL. Со значением minimal (по умолчанию) в журнал записывается только информация, необходимая для восстановления после сбоя или аварийного отключения. Вариант replica добавляет в него то, что необходимо для архивирования WAL, а также информацию, необходимую для выполнения запросов на ведомом сервере в режиме «только чтение». Наконец, logical добавляет информацию, требуемую для поддержки логического декодирования. Каждый последующий уровень включает всю информацию, записываемую на всех предыдущих. Задать этот параметр можно только при запуске сервера.
+<p>
+На уровне minimal некоторые массовые операции могут выполняться в обход журнала без риска потери данных, и при этом они выполнятся гораздо быстрее (см. Подраздел 14.4.7). В частности, такая оптимизация возможна с операциями:
+</p>
+<pre class="code">  CREATE TABLE AS
+  CREATE INDEX
+  CLUSTER
+  COPY с таблицами, которые были созданы или опустошены в той же транзакции</pre>
+
+<p>
+Однако такой минимальный журнал не будет содержать достаточно информации для восстановления данных из базовой копии и журналов, поэтому для реализации стратегии архивации WAL (см. archive_mode) и потоковой репликации необходим уровень replica или более высокий.
+</p>
+
+<p>
+На уровне logical в журнал записывается та же информация, что и на уровне replica, плюс информация, необходимая для извлечения из журнала наборов логических изменений. Повышение уровня до logical приводит к значительному увеличению объёма WAL, особенно если многие таблицы имеют характеристику REPLICA IDENTITY FULL и выполняется множество команд UPDATE и DELETE.
+</p>
+
+<p>
+В выпусках до 9.6 для этого параметра допускались значения archive и hot_standby. Эти значения по-прежнему принимаются, но теперь отображаются в значение replica.
+</p>
+</div></div><div class="spoiler"><div 
+class="title"> wal_log_hints = on </div><input type="button" value="Show" onClick="c = 
+this.parentNode.getElementsByTagName('div')[1]; if (this.value == 'Show') { 
+c.style.display = ''; this.value = 'Hide' } else { c.style.display = 'none'; this.value = 
+'Show' }" /><div class="content" style="display: none">Для использования <a href="https://postgrespro.ru/docs/postgresql/9.6/app-pgrewind" class="urlextern" title="https://postgrespro.ru/docs/postgresql/9.6/app-pgrewind" rel="nofollow">pg_rewind</a>.
+<p>
+Когда этот параметр имеет значение on, сервер PostgreSQL записывает в WAL всё содержимое каждой страницы при первом изменении этой страницы после контрольной точки, даже при второстепенных изменениях так называемых вспомогательных битов.
+</p>
+
+<p>
+Если включён расчёт контрольных сумм данных, изменения вспомогательных битов всегда проходят через WAL и этот параметр игнорируется. С помощью этого параметра можно проверить, насколько больше дополнительной информации записывалось бы в журнал, если бы для базы данных был включён подсчёт контрольных сумм.
+</p>
+
+<p>
+Этот параметр можно задать только при запуске сервера. По умолчанию он имеет значение off.
+</p>
+</div></div><div class="spoiler"><div 
+class="title"> max_wal_senders = 10 </div><input type="button" value="Show" onClick="c = 
+this.parentNode.getElementsByTagName('div')[1]; if (this.value == 'Show') { 
+c.style.display = ''; this.value = 'Hide' } else { c.style.display = 'none'; this.value = 
+'Show' }" /><div class="content" style="display: none">Максимальное число слейвов, которые смогут одновременно подключиться. Ставим побольше, т.к. слейв может случайно отключиться, а соединение на мастере не закрыться.
+<p>
+Задаёт максимально допустимое число одновременных подключений ведомых серверов или клиентов потокового копирования (т. е. максимальное количество одновременно работающих процессов передачи WAL). По умолчанию это значение равно нулю, то есть репликация отключается. Передающие WAL процессы учитываются в общем числе соединений, так что этот параметр не может превышать max_connections. В случае неожиданного отключения клиента потоковой передачи слот подключения может оставаться занятым до достижения тайм-аута, так что этот параметр должен быть немного больше максимального ожидаемого числа клиентов, чтобы отключившиеся клиенты могли переподключиться немедленно. Задать этот параметр можно только при запуске сервера. Чтобы к данному серверу могли подключаться ведомые, уровень wal_level должен быть replica или выше.
+</p>
+</div></div><div class="spoiler"><div 
+class="title"> wal_keep_segments = 10 </div><input type="button" value="Show" onClick="c = 
+this.parentNode.getElementsByTagName('div')[1]; if (this.value == 'Show') { 
+c.style.display = ''; this.value = 'Hide' } else { c.style.display = 'none'; this.value = 
+'Show' }" /><div class="content" style="display: none">Задаёт минимальное число файлов прошлых сегментов журнала, которые будут сохраняться в каталоге pg_xlog, чтобы ведомый сервер мог выбрать их при потоковой репликации. Обычно сегмент имеет размер 16 мегабайт. Если ведомый сервер, подключённый к передающему, отстаёт больше чем на wal_keep_segments сегментов, передающий удаляет сегменты WAL, всё ещё необходимые ведомому, и в этом случае соединение репликации прерывается. В результате этого затем также будут прерваны зависимые соединения. (Однако ведомый сервер сможет восстановиться, выбрав этот сегмент из архива, если осуществляется архивация WAL.)
+<p>
+Этот параметр задаёт только минимальное число сегментов, сохраняемое в каталоге pg_xlog; система может сохранить больше сегментов для архивации WAL или для восстановления с момента контрольной точки. Если wal_keep_segments равен нулю (это значение по умолчанию), система не сохраняет никакие дополнительные сегменты для ведомых серверов, поэтому число старых сегментов WAL, доступных для ведомых серверов, зависит от положения предыдущей контрольной точки и состояния архивации WAL. Задать этот параметр можно только в postgresql.conf или в командной строке при запуске сервера.
+</p>
+</div></div><div class="spoiler"><div 
+class="title"> hot_standby = on </div><input type="button" value="Show" onClick="c = 
+this.parentNode.getElementsByTagName('div')[1]; if (this.value == 'Show') { 
+c.style.display = ''; this.value = 'Hide' } else { c.style.display = 'none'; this.value = 
+'Show' }" /><div class="content" style="display: none">Определяет, можно ли будет подключаться к серверу и выполнять запросы в процессе восстановления, как описано в Разделе 26.5. Значение по умолчанию — off (подключения не разрешаются). Задать этот параметр можно только при запуске сервера. Данный параметр играет роль только в режиме ведомого сервера или при восстановлении архива.
+</div></div><div class="spoiler"><div 
+class="title"> synchronous_standby_names = ' ' </div><input type="button" value="Show" onClick="c = 
+this.parentNode.getElementsByTagName('div')[1]; if (this.value == 'Show') { 
+c.style.display = ''; this.value = 'Hide' } else { c.style.display = 'none'; this.value = 
+'Show' }" /><div class="content" style="display: none"># Один из параметров, которые нужно использовать для включения синхронной репликации. Если список аргументов пустой, то синхронная репликация отключена.
+<p>
+Определяет список ведомых серверов, которые могут поддерживать синхронную репликацию. Активных синхронных ведомых серверов может быть один или несколько; транзакции, ожидающие фиксирования, будут завершаться только после того, как эти ведомые серверы подтвердят получение их данных. Синхронными ведомыми серверами будут те, имена которых указаны в начале этого списка, и которые подключены к главному и принимают поток данных в реальном времени (что показывает признак streaming в представлении pg_stat_replication). Следующие ведомые серверы в этом списке являются потенциальными синхронными серверами. Если любой из текущих синхронных ведомых серверов отключается по какой-либо причине, он немедленно заменяется другим, следующим по приоритету. Таким образом, указание нескольких имён ведомых серверов позволяет обеспечить очень высокую степень доступности.
+</p>
+<pre class="code">  Этот параметр принимает список ведомых серверов в одной из следующих форм:</pre>
+<pre class="code">  число_синхронных ( имя_ведомого [, ...] )
+  имя_ведомого [, ...]</pre>
+
+<p>
+здесь число_синхронных — число синхронных ведомых серверов, от которых необходимо дожидаться ответов для завершения транзакций, а имя_ведомого — имя ведомого сервера. Например, со значением 3 (s1, s2, s3, s4) фиксирование транзакций будет завершаться только после получения записей WAL тремя выбранными по приоритету ведомыми серверами из списка s1, s2, s3 и s4.
+</p>
+
+<p>
+Вторая форма использовалась в PostgreSQL до версии 9.6 и по-прежнему поддерживается. По сути она равнозначна первой с числом_синхронных, равным 1. Например, 1 (s1, s2) и s1, s2 действуют одинаково: в качестве синхронного ведомого выбирается либо s1, либо s2.
+</p>
+
+<p>
+В качестве имени ведомого сервера в данном случае указывается значение параметра application_name, задаваемое в строке подключения primary_conninfo на ведомом сервере, принимающем WAL. Уникальность этих имён не контролируется. В случае дублирования имён более приоритетным синхронным ведомым будет считаться один, хотя какой именно, не определено. Специальному указанию * соответствует любое имя приложения (application_name), включая имя приложения по умолчанию (walreceiver).
+</p>
+
+<p>
+Каждое имя_ведомого должно задаваться в виде допустимого идентификатора SQL, кроме *. При необходимости его можно заключать в кавычки. Но заметьте, что идентификаторы имя_ведомого сравниваются с именами приложений без учёта регистра, независимо от того, заключены ли они в кавычки или нет.
+</p>
+
+<p>
+Если имена синхронных ведомых серверов не определены, синхронная репликация не включается и фиксируемые транзакции не будут ждать репликации. Это поведение по умолчанию. Даже когда синхронная репликация включена, для отдельных транзакций можно отключить ожидание репликации, задав для параметра synchronous_commit значение local или off.
+</p>
+
+<p>
+Задать этот параметр можно только в postgresql.conf или в командной строке при запуске сервера.
+</p>
+</div></div>
+</div>
+<!-- EDIT2 SECTION "Начнем с конфига postgresql.conf (минимально-упрощенный конфиг)" [645-16210] -->
+<h3 class="sectionedit3" id="еще_нам_понадобиться_файл_recoveryconf">Еще нам понадобиться файл recovery.conf</h3>
+<div class="level3">
+
+<p>
+Файл обычно находится /var/lib/postgresql/9.5/main/recovery.conf и должен быть доступен на чтение для пользователя от которого работает postgres.
+</p>
+<div class="spoiler"><div 
+class="title"> standby_mode = on </div><input type="button" value="Show" onClick="c = 
+this.parentNode.getElementsByTagName('div')[1]; if (this.value == 'Show') { 
+c.style.display = ''; this.value = 'Hide' } else { c.style.display = 'none'; this.value = 
+'Show' }" /><div class="content" style="display: none">Specifies whether to start the PostgreSQL server as a standby. If this parameter is on, the server will not stop recovery when the end of archived WAL is reached, but will keep trying to continue recovery by fetching new WAL segments using restore_command and/or by connecting to the primary server as specified by the primary_conninfo setting.
+</div></div><div class="spoiler"><div 
+class="title"> primary_conninfo </div><input type="button" value="Show" onClick="c = 
+this.parentNode.getElementsByTagName('div')[1]; if (this.value == 'Show') { 
+c.style.display = ''; this.value = 'Hide' } else { c.style.display = 'none'; this.value = 
+'Show' }" /><div class="content" style="display: none"><ul>
+<li class="level1"><div class="li"> Образец: primary_conninfo = &#039;host=10.0.10.30 port=5432 user=rep password=rep&#039;</div>
+</li>
+<li class="level1"><div class="li"> Specifies a connection string to be used for the standby server to connect with the primary. This string is in the format described in Section 32.1.1. If any option is unspecified in this string, then the corresponding environment variable (see Section 32.14) is checked. If the environment variable is not set either, then defaults are used.</div>
+</li>
+<li class="level1"><div class="li"> The connection string should specify the host name (or address) of the primary server, as well as the port number if it is not the same as the standby server&#039;s default. Also specify a user name corresponding to a suitably-privileged role on the primary (see Section 26.2.5.1). A password needs to be provided too, if the primary demands password authentication. It can be provided in the primary_conninfo string, or in a separate ~/.pgpass file on the standby server (use replication as the database name). Do not specify a database name in the primary_conninfo string.</div>
+</li>
+<li class="level1"><div class="li"> This setting has no effect if standby_mode is off.</div>
+</li>
+</ul>
+</div></div><div class="spoiler"><div 
+class="title"> trigger_file </div><input type="button" value="Show" onClick="c = 
+this.parentNode.getElementsByTagName('div')[1]; if (this.value == 'Show') { 
+c.style.display = ''; this.value = 'Hide' } else { c.style.display = 'none'; this.value = 
+'Show' }" /><div class="content" style="display: none"><ul>
+<li class="level1"><div class="li"> Образец: trigger_file = &#039;/tmp/trigger_stop&#039;</div>
+</li>
+<li class="level1"><div class="li"> Суть: чтобы переключить слейв в режим мастера (т.е. разрешить insert) можно просто создать пустой файл (trigger_stop в нашем примере) , согласно указанным параметрам. Сразу (через несколько секунд) после создания такого файла произойдет переименование файла recovery.conf в recovery.done и сервер перейдет в режим мастера.</div>
+</li>
+<li class="level1"><div class="li"> Specifies a trigger file whose presence ends recovery in the standby. Even if this value is not set, you can still promote the standby using pg_ctl promote. This setting has no effect if standby_mode is off.</div>
+</li>
+</ul>
+</div></div><div class="spoiler"><div 
+class="title"> recovery_target_timeline = 'latest' </div><input type="button" value="Show" onClick="c = 
+this.parentNode.getElementsByTagName('div')[1]; if (this.value == 'Show') { 
+c.style.display = ''; this.value = 'Hide' } else { c.style.display = 'none'; this.value = 
+'Show' }" /><div class="content" style="display: none"><ul>
+<li class="level1"><div class="li"> Достаточно важный параметр. Пригодится когда будете переключать слейв на другой мастер. Суть в том, что когда слейв становится мастером, создается новая временная линия (timeline) для wal файлов. И соответственно другой слейв придется переключить на новый мастер. Так вот это параметр скажет, что реплицироваться надо с последней timeline.</div>
+</li>
+<li class="level1"><div class="li"> Указывает линию времени для восстановления. По умолчанию производится восстановление той же линии времени, которая была текущей в момент создания базовой резервной копии. Со значением latest восстанавливаться будет последняя линия времени, найденная в архиве, что полезно для резервного сервера. Иное значение параметра может потребоваться в более сложной ситуации повторного восстановления, когда необходимо вернуться к состоянию, которое само было достигнуто после восстановления на момент времени.</div>
+</li>
+</ul>
+</div></div>
+</div>
+<!-- EDIT3 SECTION "Еще нам понадобиться файл recovery.conf" [16211-20459] -->
+<h3 class="sectionedit4" id="утилитка_для_копирования_базы_с_мастера">Утилитка для копирования базы с мастера</h3>
+<div class="level3">
+
+<p>
+<a href="https://postgrespro.ru/docs/postgresql/9.6/app-pgbasebackup.html" class="urlextern" title="https://postgrespro.ru/docs/postgresql/9.6/app-pgbasebackup.html" rel="nofollow">pg_basebackup</a>
+</p>
+<pre class="code">pg_basebackup -h 10.0.15.10 -U replica -D /var/lib/postgresql/9.6/main -P --xlog</pre>
+
+</div>
+<!-- EDIT4 SECTION "Утилитка для копирования базы с мастера" [20460-] -->

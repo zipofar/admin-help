@@ -11,16 +11,14 @@
         <description></description>
         <link>http://zipofar.ru/</link>
         <image rdf:resource="http://zipofar.ru/lib/tpl/dokuwiki/images/favicon.ico" />
-       <dc:date>2017-10-26T19:38:53+03:00</dc:date>
+       <dc:date>2017-11-09T09:29:13+03:00</dc:date>
         <items>
             <rdf:Seq>
-                <rdf:li rdf:resource="http://zipofar.ru/doku.php?id=master-slave_replication_mysql_mariadb&amp;rev=1508942931&amp;do=diff"/>
-                <rdf:li rdf:resource="http://zipofar.ru/doku.php?id=global_transaction_id&amp;rev=1508936430&amp;do=diff"/>
-                <rdf:li rdf:resource="http://zipofar.ru/doku.php?id=databases&amp;rev=1508852295&amp;do=diff"/>
-                <rdf:li rdf:resource="http://zipofar.ru/doku.php?id=lxd&amp;rev=1508846642&amp;do=diff"/>
-                <rdf:li rdf:resource="http://zipofar.ru/doku.php?id=start&amp;rev=1508846598&amp;do=diff"/>
-                <rdf:li rdf:resource="http://zipofar.ru/doku.php?id=show_iptables_rules&amp;rev=1508758854&amp;do=diff"/>
-                <rdf:li rdf:resource="http://zipofar.ru/doku.php?id=iptables&amp;rev=1508758817&amp;do=diff"/>
+                <rdf:li rdf:resource="http://zipofar.ru/doku.php?id=config_php&amp;rev=1510059695&amp;do=diff"/>
+                <rdf:li rdf:resource="http://zipofar.ru/doku.php?id=nginx&amp;rev=1510059359&amp;do=diff"/>
+                <rdf:li rdf:resource="http://zipofar.ru/doku.php?id=try_files&amp;rev=1510046944&amp;do=diff"/>
+                <rdf:li rdf:resource="http://zipofar.ru/doku.php?id=multy_root&amp;rev=1509634066&amp;do=diff"/>
+                <rdf:li rdf:resource="http://zipofar.ru/doku.php?id=start&amp;rev=1509632148&amp;do=diff"/>
                 <rdf:li rdf:resource="http://zipofar.ru/doku.php?image=zabbix_lld_5.jpg&amp;ns=&amp;rev=1508234502&amp;tab_details=history&amp;mediado=diff&amp;do=media"/>
                 <rdf:li rdf:resource="http://zipofar.ru/doku.php?image=zabbix_lld_4.jpg&amp;ns=&amp;rev=1508234394&amp;tab_details=history&amp;mediado=diff&amp;do=media"/>
                 <rdf:li rdf:resource="http://zipofar.ru/doku.php?image=zabbix_lld_3.jpg&amp;ns=&amp;rev=1508234176&amp;tab_details=history&amp;mediado=diff&amp;do=media"/>
@@ -34,57 +32,81 @@
         <link>http://zipofar.ru/</link>
         <url>http://zipofar.ru/lib/tpl/dokuwiki/images/favicon.ico</url>
     </image>
-    <item rdf:about="http://zipofar.ru/doku.php?id=master-slave_replication_mysql_mariadb&amp;rev=1508942931&amp;do=diff">
+    <item rdf:about="http://zipofar.ru/doku.php?id=config_php&amp;rev=1510059695&amp;do=diff">
         <dc:format>text/html</dc:format>
-        <dc:date>2017-10-25T17:48:51+03:00</dc:date>
+        <dc:date>2017-11-07T16:01:35+03:00</dc:date>
         <dc:creator>ingprog</dc:creator>
-        <title>master-slave_replication_mysql_mariadb - [Настраиваем слейв] </title>
-        <link>http://zipofar.ru/doku.php?id=master-slave_replication_mysql_mariadb&amp;rev=1508942931&amp;do=diff</link>
-        <description>Master-Slave репликация MySQL (MariaDB)
+        <title>config_php</title>
+        <link>http://zipofar.ru/doku.php?id=config_php&amp;rev=1510059695&amp;do=diff</link>
+        <description>Config for PHP
 
-В общих чертах про репликацию mysql читай здесь
 
-Про мультимастер решение и вообще полезно  ЧИТАТЬ
+server {
+        listen 80;
+        root /var/www/wp1.loc;
+        index index.php index.html;
+        server_name wp1.loc;
 
-Пошаговая настройка Slave (MariaDB)
+        location / {
+                try_files $uri $uri/ /index.php$args;
+        }
 
-Буду использовать MariaDB 10.0.29</description>
+        location ~ \.php$ {
+                include snippets/fastcgi-php.conf;
+                fastcgi_pass 10.0.3.238:9000;
+        }
+
+}</description>
     </item>
-    <item rdf:about="http://zipofar.ru/doku.php?id=global_transaction_id&amp;rev=1508936430&amp;do=diff">
+    <item rdf:about="http://zipofar.ru/doku.php?id=nginx&amp;rev=1510059359&amp;do=diff">
         <dc:format>text/html</dc:format>
-        <dc:date>2017-10-25T16:00:30+03:00</dc:date>
+        <dc:date>2017-11-07T15:55:59+03:00</dc:date>
         <dc:creator>ingprog</dc:creator>
-        <title>global_transaction_id</title>
-        <link>http://zipofar.ru/doku.php?id=global_transaction_id&amp;rev=1508936430&amp;do=diff</link>
-        <description>Global Transaction ID (MariaDB)</description>
-    </item>
-    <item rdf:about="http://zipofar.ru/doku.php?id=databases&amp;rev=1508852295&amp;do=diff">
-        <dc:format>text/html</dc:format>
-        <dc:date>2017-10-24T16:38:15+03:00</dc:date>
-        <dc:creator>ingprog</dc:creator>
-        <title>databases</title>
-        <link>http://zipofar.ru/doku.php?id=databases&amp;rev=1508852295&amp;do=diff</link>
-        <description>Базы данных
+        <title>nginx</title>
+        <link>http://zipofar.ru/doku.php?id=nginx&amp;rev=1510059359&amp;do=diff</link>
+        <description>NGINX
 
-	*  Master-Slave репликация MySQL (MariaDB)
-	*  Global Transaction ID (MariaDB)</description>
+	*  Root директива (multy root)
+	*  Try_files директива
+	*  Config for PHP</description>
     </item>
-    <item rdf:about="http://zipofar.ru/doku.php?id=lxd&amp;rev=1508846642&amp;do=diff">
+    <item rdf:about="http://zipofar.ru/doku.php?id=try_files&amp;rev=1510046944&amp;do=diff">
         <dc:format>text/html</dc:format>
-        <dc:date>2017-10-24T15:04:02+03:00</dc:date>
+        <dc:date>2017-11-07T12:29:04+03:00</dc:date>
         <dc:creator>ingprog</dc:creator>
-        <title>lxd - created</title>
-        <link>http://zipofar.ru/doku.php?id=lxd&amp;rev=1508846642&amp;do=diff</link>
-        <description>LXD
+        <title>try_files - [Определение $uri, $args] </title>
+        <link>http://zipofar.ru/doku.php?id=try_files&amp;rev=1510046944&amp;do=diff</link>
+        <description>Try_files директива
 
-Читаем здесь</description>
+Директива try_files проверяет существует ли файл или директория согласно uri. Если существует, то открывает ее. Если не существует, то пытается сделать редирект. Если и редирект не отработал, то возвращает код статуса.</description>
     </item>
-    <item rdf:about="http://zipofar.ru/doku.php?id=start&amp;rev=1508846598&amp;do=diff">
+    <item rdf:about="http://zipofar.ru/doku.php?id=multy_root&amp;rev=1509634066&amp;do=diff">
         <dc:format>text/html</dc:format>
-        <dc:date>2017-10-24T15:03:18+03:00</dc:date>
+        <dc:date>2017-11-02T17:47:46+03:00</dc:date>
+        <dc:creator>ingprog</dc:creator>
+        <title>multy_root</title>
+        <link>http://zipofar.ru/doku.php?id=multy_root&amp;rev=1509634066&amp;do=diff</link>
+        <description>Root директива (multy root)
+
+Задаёт корневой каталог для запросов. 
+
+Корень сайта лучше задавать в директиве server.
+
+
+server {
+    listen 80;
+    server_name test1.loc;
+    index index.html;
+    
+    root /var/www/test1.loc;
+}</description>
+    </item>
+    <item rdf:about="http://zipofar.ru/doku.php?id=start&amp;rev=1509632148&amp;do=diff">
+        <dc:format>text/html</dc:format>
+        <dc:date>2017-11-02T17:15:48+03:00</dc:date>
         <dc:creator>ingprog</dc:creator>
         <title>start - [Linux] </title>
-        <link>http://zipofar.ru/doku.php?id=start&amp;rev=1508846598&amp;do=diff</link>
+        <link>http://zipofar.ru/doku.php?id=start&amp;rev=1509632148&amp;do=diff</link>
         <description>Почта (Exchange, Postfix, Dovecot)
 
 	*  Reverse proxy (обратный прокси) для доступа к Outlook Web App (OWA) из интернета
@@ -99,28 +121,6 @@ Linux
 
 	*   cron спамит auth.log (pam_unix(cron:session): session opened for user root by (uid=0))
 	*   настройка…</description>
-    </item>
-    <item rdf:about="http://zipofar.ru/doku.php?id=show_iptables_rules&amp;rev=1508758854&amp;do=diff">
-        <dc:format>text/html</dc:format>
-        <dc:date>2017-10-23T14:40:54+03:00</dc:date>
-        <dc:creator>ingprog</dc:creator>
-        <title>show_iptables_rules - created</title>
-        <link>http://zipofar.ru/doku.php?id=show_iptables_rules&amp;rev=1508758854&amp;do=diff</link>
-        <description>Show IPTables Rules
-
-
-iptables -L -n -v --line-numbers</description>
-    </item>
-    <item rdf:about="http://zipofar.ru/doku.php?id=iptables&amp;rev=1508758817&amp;do=diff">
-        <dc:format>text/html</dc:format>
-        <dc:date>2017-10-23T14:40:17+03:00</dc:date>
-        <dc:creator>ingprog</dc:creator>
-        <title>iptables</title>
-        <link>http://zipofar.ru/doku.php?id=iptables&amp;rev=1508758817&amp;do=diff</link>
-        <description>IPTables
-
-	*  NAT
-	*  Show IPTables Rules</description>
     </item>
     <item rdf:about="http://zipofar.ru/doku.php?image=zabbix_lld_5.jpg&amp;ns=&amp;rev=1508234502&amp;tab_details=history&amp;mediado=diff&amp;do=media">
         <dc:format>text/html</dc:format>

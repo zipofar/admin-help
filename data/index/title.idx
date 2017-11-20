@@ -57,3 +57,13 @@ Show IPTables Rules
 LXD
 
 Настройка Master-Slave репликации по шагам и переключение Slave to Master и обратно
+Innodb Performance Optimization Basics
+NGINX
+Root директива (multy root)
+Try_files директива
+Config for PHP
+
+
+Не запускается LXD
+
+Master-Slave Postgres потоковая репликация

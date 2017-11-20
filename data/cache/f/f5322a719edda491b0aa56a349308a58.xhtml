@@ -1,0 +1,28 @@
+
+<h1 class="sectionedit1" id="не_запускается_lxd">Не запускается LXD</h1>
+<div class="level1">
+
+<p>
+Возникла такая проблема. Не запускается LXD и вот такие ошибки при попытке перезапуска lxd.
+</p>
+<pre class="code"># Ошибка
+error: Unable to talk to LXD: Get http://unix.socket/1.0: dial unix /var/lib/lxd/unix.socket: connect: connection refused
+
+# Ошибка
+Connection refused is LXD running?</pre>
+
+<p>
+Все из-за того, что сначала я установил LXC, а потом добавил LXD. И получилось так, что сначала успевал стартовать lxc network, а потом на этот же порт пытался забиндиться lxd network. 
+</p>
+
+<p>
+Сетевые настройки храняться здесь
+</p>
+<pre class="code">/etc/default/lxc-net
+/etc/default/lxd-bridge</pre>
+
+<p>
+Пришлось отключить USE_LXC_BRIDGE=“false” в файле lxc-net.
+</p>
+
+</div>

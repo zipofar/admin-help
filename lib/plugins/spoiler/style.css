@@ -1,0 +1,20 @@
+.spoiler {
+	margin-top: 0.0em;
+	margin-bottom: 0.5em;
+}
+.spoiler .title {
+	font-size: 100%;
+	display: block;
+	float: left;
+}
+.spoiler .title:after {
+	content: ': ';
+}
+.spoiler input {
+	font-size: 70%;
+}
+.spoiler .content {
+	border: 1px dashed black;
+	padding: 0.5em;
+	margin-top: 0.5em;
+}

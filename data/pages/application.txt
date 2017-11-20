@@ -1,0 +1,8 @@
+<code>
+@import url(../../../stylesheets/application.css);
+
+.status-1 > .status { background-color: green }
+.priority-3 > .priority { background-color:red  }
+.splitcontent > div { float: none; width: 100% }
+
+</code>

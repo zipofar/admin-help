@@ -1,0 +1,17 @@
+a:44:{i:0;a:3:{i:0;s:14:"document_start";i:1;a:0:{}i:2;i:0;}i:1;a:3:{i:0;s:6:"header";i:1;a:3:{i:0;s:36:"Root директива (multy root)";i:1;i:1;i:2;i:1;}i:2;i:1;}i:2;a:3:{i:0;s:12:"section_open";i:1;a:1:{i:0;i:1;}i:2;i:1;}i:3;a:3:{i:0;s:6:"p_open";i:1;a:0:{}i:2;i:1;}i:4;a:3:{i:0;s:5:"cdata";i:1;a:1:{i:0;s:30:"Задаёт корневой ";}i:2;i:53;}i:5;a:3:{i:0;s:11:"strong_open";i:1;a:0:{}i:2;i:83;}i:6;a:3:{i:0;s:5:"cdata";i:1;a:1:{i:0;s:14:"каталог";}i:2;i:85;}i:7;a:3:{i:0;s:12:"strong_close";i:1;a:0:{}i:2;i:99;}i:8;a:3:{i:0;s:5:"cdata";i:1;a:1:{i:0;s:26:" для запросов. ";}i:2;i:101;}i:9;a:3:{i:0;s:7:"p_close";i:1;a:0:{}i:2;i:127;}i:10;a:3:{i:0;s:6:"p_open";i:1;a:0:{}i:2;i:127;}i:11;a:3:{i:0;s:5:"cdata";i:1;a:1:{i:0;s:81:"Корень сайта лучше задавать в директиве server.";}i:2;i:129;}i:12;a:3:{i:0;s:7:"p_close";i:1;a:0:{}i:2;i:216;}i:13;a:3:{i:0;s:4:"code";i:1;a:3:{i:0;s:110:"
+server {
+    listen 80;
+    server_name test1.loc;
+    index index.html;
+    
+    root /var/www/test1.loc;
+}
+";i:1;N;i:2;N;}i:2;i:216;}i:14;a:3:{i:0;s:6:"p_open";i:1;a:0:{}i:2;i:216;}i:15;a:3:{i:0;s:5:"cdata";i:1;a:1:{i:0;s:154:"Также root можно использовать в location для перенаправления запроса в другую директорию.";}i:2;i:336;}i:16;a:3:{i:0;s:7:"p_close";i:1;a:0:{}i:2;i:496;}i:17;a:3:{i:0;s:4:"code";i:1;a:3:{i:0;s:61:"
+    location /foo {
+        root /var/www/test1.loc/;
+    }
+";i:1;N;i:2;N;}i:2;i:496;}i:18;a:3:{i:0;s:6:"p_open";i:1;a:0:{}i:2;i:496;}i:19;a:3:{i:0;s:5:"cdata";i:1;a:1:{i:0;s:41:"Это значит, что запрос ";}i:2;i:567;}i:20;a:3:{i:0;s:12:"externallink";i:1;a:2:{i:0;s:20:"http://test1.loc/foo";i:1;N;}i:2;i:608;}i:21;a:3:{i:0;s:5:"cdata";i:1;a:1:{i:0;s:93:" приведет к поиску index файла в каталоге /var/www/test1.loc/foo";}i:2;i:628;}i:22;a:3:{i:0;s:7:"p_close";i:1;a:0:{}i:2;i:721;}i:23;a:3:{i:0;s:6:"p_open";i:1;a:0:{}i:2;i:721;}i:24;a:3:{i:0;s:5:"cdata";i:1;a:1:{i:0;s:31:"Если сделать так:";}i:2;i:724;}i:25;a:3:{i:0;s:7:"p_close";i:1;a:0:{}i:2;i:761;}i:26;a:3:{i:0;s:4:"code";i:1;a:3:{i:0;s:72:"
+    location /foo {
+        root /var/www/test1.loc/bar/commit/;
+    }
+";i:1;N;i:2;N;}i:2;i:761;}i:27;a:3:{i:0;s:6:"p_open";i:1;a:0:{}i:2;i:761;}i:28;a:3:{i:0;s:5:"cdata";i:1;a:1:{i:0;s:41:"Это значит, что запрос ";}i:2;i:843;}i:29;a:3:{i:0;s:12:"externallink";i:1;a:2:{i:0;s:20:"http://test1.loc/foo";i:1;N;}i:2;i:884;}i:30;a:3:{i:0;s:5:"cdata";i:1;a:1:{i:0;s:104:" приведет к поиску index файла в каталоге /var/www/test1.loc/bar/commit/foo";}i:2;i:904;}i:31;a:3:{i:0;s:7:"p_close";i:1;a:0:{}i:2;i:1008;}i:32;a:3:{i:0;s:6:"p_open";i:1;a:0:{}i:2;i:1008;}i:33;a:3:{i:0;s:5:"cdata";i:1;a:1:{i:0;s:26:"Т.е. видно, что ";}i:2;i:1010;}i:34;a:3:{i:0;s:18:"doublequoteopening";i:1;a:0:{}i:2;i:1036;}i:35;a:3:{i:0;s:5:"cdata";i:1;a:1:{i:0;s:3:"foo";}i:2;i:1037;}i:36;a:3:{i:0;s:18:"doublequoteclosing";i:1;a:0:{}i:2;i:1040;}i:37;a:3:{i:0;s:5:"cdata";i:1;a:1:{i:0;s:266:" из location просто подставляется в конец директивы root и таким образом формируется путь к каталогу. И не забывайте ставить слешь в конце директивы root.";}i:2;i:1041;}i:38;a:3:{i:0;s:7:"p_close";i:1;a:0:{}i:2;i:1307;}i:39;a:3:{i:0;s:6:"p_open";i:1;a:0:{}i:2;i:1307;}i:40;a:3:{i:0;s:5:"cdata";i:1;a:1:{i:0;s:150:"В значении параметра путь можно использовать переменные, кроме $document_root и $realpath_root.";}i:2;i:1309;}i:41;a:3:{i:0;s:7:"p_close";i:1;a:0:{}i:2;i:1459;}i:42;a:3:{i:0;s:13:"section_close";i:1;a:0:{}i:2;i:1459;}i:43;a:3:{i:0;s:12:"document_end";i:1;a:0:{}i:2;i:1459;}}

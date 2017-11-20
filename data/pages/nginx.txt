@@ -1,0 +1,5 @@
+====== NGINX ======
+
+  * [[multy_root|Root директива (multy root)]]
+  * [[try_files|Try_files директива]]
+  * [[config_php|Config for PHP]]

@@ -1,53 +1,45 @@
-1508497264	91.122.206.228	E	start	ingprog	[Linux] 		40
-1508497360	91.122.206.228	C	databases	ingprog	created		133
-1508497418	91.122.206.228	C	master-slave_replication_mysql_mariadb	ingprog	created		206
-1508497430	91.122.206.228	E	master-slave_replication_mysql_mariadb	ingprog			4
-1508497499	91.122.206.228	E	master-slave_replication_mysql_mariadb	ingprog			85
-1508497649	91.122.206.228	E	master-slave_replication_mysql_mariadb	ingprog			308
-1508497827	91.122.206.228	E	master-slave_replication_mysql_mariadb	ingprog	[Первое] 		77
-1508497959	91.122.206.228	E	master-slave_replication_mysql_mariadb	ingprog	[Первое] 		404
-1508498176	91.122.206.228	E	master-slave_replication_mysql_mariadb	ingprog	[Первое] 		253
-1508498312	91.122.206.228	E	master-slave_replication_mysql_mariadb	ingprog	[Первое] 		308
-1508498470	91.122.206.228	E	master-slave_replication_mysql_mariadb	ingprog	[Первое] 		328
-1508498539	91.122.206.228	E	master-slave_replication_mysql_mariadb	ingprog	[Первое] 		1
-1508498626	91.122.206.228	E	master-slave_replication_mysql_mariadb	ingprog	[Первое] 		219
-1508498871	91.122.206.228	E	master-slave_replication_mysql_mariadb	ingprog	[Второе] 		295
-1508498961	91.122.206.228	E	master-slave_replication_mysql_mariadb	ingprog	[Второе] 		162
-1508498985	91.122.206.228	E	master-slave_replication_mysql_mariadb	ingprog	[Второе GTID] 		2
-1508499059	91.122.206.228	E	master-slave_replication_mysql_mariadb	ingprog	[Второе - GTID] 		83
-1508500077	91.122.206.228	E	master-slave_replication_mysql_mariadb	ingprog	[Третье - как ВКЛ репликацию] 		479
-1508500312	91.122.206.228	E	master-slave_replication_mysql_mariadb	ingprog	[Третье - как ВКЛ репликацию] 		1
-1508500449	91.122.206.228	E	master-slave_replication_mysql_mariadb	ingprog	[Третье - как ВКЛ репликацию] 		192
-1508500456	91.122.206.228	E	master-slave_replication_mysql_mariadb	ingprog	[Настраиваем слейв] 		0
-1508500854	91.122.206.228	E	master-slave_replication_mysql_mariadb	ingprog	[Настраиваем слейв] 		318
-1508502018	91.122.206.228	E	master-slave_replication_mysql_mariadb	ingprog	[Настраиваем слейв] 		33
-1508502104	91.122.206.228	E	master-slave_replication_mysql_mariadb	ingprog	[Настраиваем слейв] 		52
-1508502179	91.122.206.228	E	master-slave_replication_mysql_mariadb	ingprog	[Еще полезные команды] 		15
-1508502374	91.122.206.228	E	master-slave_replication_mysql_mariadb	ingprog	[Еще полезные команды] 		91
-1508502404	91.122.206.228	E	master-slave_replication_mysql_mariadb	ingprog	[Еще полезные команды] 		28
-1508502483	91.122.206.228	E	master-slave_replication_mysql_mariadb	ingprog	[Первое] 		-488
-1508502567	91.122.206.228	E	master-slave_replication_mysql_mariadb	ingprog	[Первое] 		49
-1508502619	91.122.206.228	E	master-slave_replication_mysql_mariadb	ingprog	[Второе - GTID] 		11
-1508503322	91.122.206.228	E	master-slave_replication_mysql_mariadb	ingprog	[Master-Slave репликация MySQL (MariaDB)] 		131
-1508758804	91.122.206.228	E	iptables	ingprog			39
-1508758817	91.122.206.228	E	iptables	ingprog			9
-1508758854	91.122.206.228	C	show_iptables_rules	ingprog	created		81
-1508846598	91.122.206.228	E	start	ingprog	[Linux] 		16
-1508846642	91.122.206.228	C	lxd	ingprog	created		107
-1508852194	91.122.206.228	E	databases	ingprog			52
-1508852295	91.122.206.228	E	databases	ingprog			10
-1508852302	91.122.206.228	C	global_transaction_id	ingprog	created		45
-1508936430	91.122.206.228	E	global_transaction_id	ingprog			1
-1508940977	91.122.206.228	E	master-slave_replication_mysql_mariadb	ingprog	[Настраиваем слейв] 		-41
-1508942747	91.122.206.228	E	master-slave_replication_mysql_mariadb	ingprog	[Master-Slave репликация MySQL (MariaDB)] 		117
-1508942859	91.122.206.228	E	master-slave_replication_mysql_mariadb	ingprog	[Первое] 		7
-1508942931	91.122.206.228	E	master-slave_replication_mysql_mariadb	ingprog	[Настраиваем слейв] 		62
-1509094826	91.122.206.228	E	master-slave_replication_mysql_mariadb	ingprog	[Еще полезные команды] 		2912
-1509094858	91.122.206.228	E	master-slave_replication_mysql_mariadb	ingprog			20
-1509094911	91.122.206.228	D	global_transaction_id	ingprog	removed		-46
-1509094953	91.122.206.228	E	databases	ingprog			104
-1509094961	91.122.206.228	E	databases	ingprog			-1
-1509094979	91.122.206.228	C	master-slave_step_by_step	ingprog	created		145
-1509095183	91.122.206.228	E	master-slave_step_by_step	ingprog			6585
-1509095260	91.122.206.228	E	master-slave_step_by_step	ingprog			28
-1509105590	91.122.206.228	E	master-slave_step_by_step	ingprog			5905
+1509719120	91.122.206.228	E	try_files	ingprog	[Пример 2] 		7
+1509719201	91.122.206.228	E	try_files	ingprog	[Пример 2] 		23
+1509719229	91.122.206.228	E	try_files	ingprog	[Пример 2] 		23
+1509719253	91.122.206.228	E	try_files	ingprog	[Пример 2] 		0
+1509719297	91.122.206.228	E	try_files	ingprog	[Пример 2] 		-38
+1510046411	91.122.206.228	E	try_files	ingprog	[Определение $uri, $args] 		174
+1510046510	91.122.206.228	E	try_files	ingprog	[Определение $uri, $args] 		270
+1510046944	91.122.206.228	E	try_files	ingprog	[Определение $uri, $args] 		131
+1510059359	91.122.206.228	E	nginx	ingprog			34
+1510059562	91.122.206.228	C	config_php	ingprog	created		393
+1510059638	91.122.206.228	E	config_php	ingprog			232
+1510059695	91.122.206.228	E	config_php	ingprog			1106
+1510513531	62.192.246.21	E	start	ingprog	[Linux] 		24
+1510513597	62.192.246.21	C	redmine	ingprog	created		35
+1510513612	62.192.246.21	C	application	ingprog	created		214
+1510667214	91.122.206.228	E	lxd	ingprog			82
+1510667481	91.122.206.228	C	lxd_not_start_refused_socket_is_busy	ingprog	created		412
+1510667680	91.122.206.228	E	lxd_not_start_refused_socket_is_busy	ingprog			515
+1510667963	91.122.206.228	E	start	ingprog	[Linux] 		24
+1510667994	91.122.206.228	C	systemd	ingprog	created		269
+1511161103	91.122.206.228	E	databases	ingprog			52
+1511161490	91.122.206.228	C	postgres_master_slave	ingprog	created		642
+1511162890	91.122.206.228	E	postgres_master_slave	ingprog			1164
+1511163540	91.122.206.228	E	postgres_master_slave	ingprog			275
+1511167255	91.122.206.228	E	postgres_master_slave	ingprog			47
+1511167481	91.122.206.228	E	postgres_master_slave	ingprog			930
+1511168101	91.122.206.228	E	postgres_master_slave	ingprog			-8
+1511168129	91.122.206.228	E	postgres_master_slave	ingprog			-1
+1511168316	91.122.206.228	E	postgres_master_slave	ingprog			3085
+1511168926	91.122.206.228	E	postgres_master_slave	ingprog			9880
+1511168974	91.122.206.228	E	postgres_master_slave	ingprog	[Начнем с конфига postgresql.conf (минимально-упрощенный конфиг)] 		18
+1511169653	91.122.206.228	E	postgres_master_slave	ingprog	[Начнем с конфига postgresql.conf (минимально-упрощенный конфиг)] 		-7
+1511169714	91.122.206.228	E	postgres_master_slave	ingprog	[Начнем с конфига postgresql.conf (минимально-упрощенный конфиг)] 		1
+1511169943	91.122.206.228	E	postgres_master_slave	ingprog	[Начнем с конфига postgresql.conf (минимально-упрощенный конфиг)] 		297
+1511170534	91.122.206.228	E	postgres_master_slave	ingprog	[Еще нам понадобиться файл recovery.conf] 		2330
+1511170761	91.122.206.228	E	postgres_master_slave	ingprog	[Начнем с конфига postgresql.conf (минимально-упрощенный конфиг)] 		124
+1511181485	91.122.206.228	E	postgres_master_slave	ingprog	[Начнем с конфига postgresql.conf (минимально-упрощенный конфиг)] 		60
+1511181962	91.122.206.228	E	postgres_master_slave	ingprog	[Еще нам понадобиться файл recovery.conf] 		171
+1511181973	91.122.206.228	E	postgres_master_slave	ingprog	[Еще нам понадобиться файл recovery.conf] 		11
+1511182379	91.122.206.228	E	postgres_master_slave	ingprog	[Утилитка для копирования базы с мастера] 		82
+1511182394	91.122.206.228	E	postgres_master_slave	ingprog	[Утилитка для копирования базы с мастера [[https://postgrespro.ru/docs/postgresql/9.6/app-pgbasebackup.html|pg_basebackup]]] 		0
+1511189107	91.122.206.228	E	postgres_master_slave	ingprog	[Еще нам понадобиться файл recovery.conf] 		1590
+1511189124	91.122.206.228	E	postgres_master_slave	ingprog	[Еще нам понадобиться файл recovery.conf] 		1
+1511189258	91.122.206.228	E	postgres_master_slave	ingprog	[Еще нам понадобиться файл recovery.conf] 		3
+1511193136	91.122.206.228	E	postgres_master_slave	ingprog	[Еще нам понадобиться файл recovery.conf] 		26
