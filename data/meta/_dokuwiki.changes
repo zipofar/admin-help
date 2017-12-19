@@ -1,31 +1,3 @@
-1509719120	91.122.206.228	E	try_files	ingprog	[Пример 2] 		7
-1509719201	91.122.206.228	E	try_files	ingprog	[Пример 2] 		23
-1509719229	91.122.206.228	E	try_files	ingprog	[Пример 2] 		23
-1509719253	91.122.206.228	E	try_files	ingprog	[Пример 2] 		0
-1509719297	91.122.206.228	E	try_files	ingprog	[Пример 2] 		-38
-1510046411	91.122.206.228	E	try_files	ingprog	[Определение $uri, $args] 		174
-1510046510	91.122.206.228	E	try_files	ingprog	[Определение $uri, $args] 		270
-1510046944	91.122.206.228	E	try_files	ingprog	[Определение $uri, $args] 		131
-1510059359	91.122.206.228	E	nginx	ingprog			34
-1510059562	91.122.206.228	C	config_php	ingprog	created		393
-1510059638	91.122.206.228	E	config_php	ingprog			232
-1510059695	91.122.206.228	E	config_php	ingprog			1106
-1510513531	62.192.246.21	E	start	ingprog	[Linux] 		24
-1510513597	62.192.246.21	C	redmine	ingprog	created		35
-1510513612	62.192.246.21	C	application	ingprog	created		214
-1510667214	91.122.206.228	E	lxd	ingprog			82
-1510667481	91.122.206.228	C	lxd_not_start_refused_socket_is_busy	ingprog	created		412
-1510667680	91.122.206.228	E	lxd_not_start_refused_socket_is_busy	ingprog			515
-1510667963	91.122.206.228	E	start	ingprog	[Linux] 		24
-1510667994	91.122.206.228	C	systemd	ingprog	created		269
-1511161103	91.122.206.228	E	databases	ingprog			52
-1511161490	91.122.206.228	C	postgres_master_slave	ingprog	created		642
-1511162890	91.122.206.228	E	postgres_master_slave	ingprog			1164
-1511163540	91.122.206.228	E	postgres_master_slave	ingprog			275
-1511167255	91.122.206.228	E	postgres_master_slave	ingprog			47
-1511167481	91.122.206.228	E	postgres_master_slave	ingprog			930
-1511168101	91.122.206.228	E	postgres_master_slave	ingprog			-8
-1511168129	91.122.206.228	E	postgres_master_slave	ingprog			-1
 1511168316	91.122.206.228	E	postgres_master_slave	ingprog			3085
 1511168926	91.122.206.228	E	postgres_master_slave	ingprog			9880
 1511168974	91.122.206.228	E	postgres_master_slave	ingprog	[Начнем с конфига postgresql.conf (минимально-упрощенный конфиг)] 		18
@@ -43,3 +15,13 @@
 1511189124	91.122.206.228	E	postgres_master_slave	ingprog	[Еще нам понадобиться файл recovery.conf] 		1
 1511189258	91.122.206.228	E	postgres_master_slave	ingprog	[Еще нам понадобиться файл recovery.conf] 		3
 1511193136	91.122.206.228	E	postgres_master_slave	ingprog	[Еще нам понадобиться файл recovery.conf] 		26
+1511193595	91.122.206.228	E	postgres_master_slave	ingprog	[Утилитка для копирования базы с мастера] 		177
+1511193737	91.122.206.228	E	postgres_master_slave	ingprog	[Еще нам понадобиться файл recovery.conf] 		115
+1512736938	91.122.206.228	E	nat	ingprog			360
+1513664792	91.122.206.228	E	start	ingprog	[Linux] 		83
+1513665114	91.122.206.228	C	balancing_traffic_failover	ingprog	created		129
+1513665213	91.122.206.228	C	lvs_begin_direct_routing	ingprog	created		1494
+1513665374	91.122.206.228	E	lvs_begin_direct_routing	ingprog			944
+1513665418	91.122.206.228	E	lvs_begin_direct_routing	ingprog			1564
+1513665689	91.122.206.228	E	lvs_begin_direct_routing	ingprog			2476
+1513665732	91.122.206.228	E	lvs_begin_direct_routing	ingprog	[Теперь настроим LVS] 		-32

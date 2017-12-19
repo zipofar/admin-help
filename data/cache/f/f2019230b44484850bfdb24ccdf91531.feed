@@ -11,14 +11,10 @@
         <description></description>
         <link>http://zipofar.ru/</link>
         <image rdf:resource="http://zipofar.ru/lib/tpl/dokuwiki/images/favicon.ico" />
-       <dc:date>2017-11-09T09:29:13+03:00</dc:date>
+       <dc:date>2017-12-08T08:12:17+03:00</dc:date>
         <items>
             <rdf:Seq>
-                <rdf:li rdf:resource="http://zipofar.ru/doku.php?id=config_php&amp;rev=1510059695&amp;do=diff"/>
-                <rdf:li rdf:resource="http://zipofar.ru/doku.php?id=nginx&amp;rev=1510059359&amp;do=diff"/>
-                <rdf:li rdf:resource="http://zipofar.ru/doku.php?id=try_files&amp;rev=1510046944&amp;do=diff"/>
-                <rdf:li rdf:resource="http://zipofar.ru/doku.php?id=multy_root&amp;rev=1509634066&amp;do=diff"/>
-                <rdf:li rdf:resource="http://zipofar.ru/doku.php?id=start&amp;rev=1509632148&amp;do=diff"/>
+                <rdf:li rdf:resource="http://zipofar.ru/doku.php?id=postgres_master_slave&amp;rev=1511193737&amp;do=diff"/>
                 <rdf:li rdf:resource="http://zipofar.ru/doku.php?image=zabbix_lld_5.jpg&amp;ns=&amp;rev=1508234502&amp;tab_details=history&amp;mediado=diff&amp;do=media"/>
                 <rdf:li rdf:resource="http://zipofar.ru/doku.php?image=zabbix_lld_4.jpg&amp;ns=&amp;rev=1508234394&amp;tab_details=history&amp;mediado=diff&amp;do=media"/>
                 <rdf:li rdf:resource="http://zipofar.ru/doku.php?image=zabbix_lld_3.jpg&amp;ns=&amp;rev=1508234176&amp;tab_details=history&amp;mediado=diff&amp;do=media"/>
@@ -32,95 +28,15 @@
         <link>http://zipofar.ru/</link>
         <url>http://zipofar.ru/lib/tpl/dokuwiki/images/favicon.ico</url>
     </image>
-    <item rdf:about="http://zipofar.ru/doku.php?id=config_php&amp;rev=1510059695&amp;do=diff">
+    <item rdf:about="http://zipofar.ru/doku.php?id=postgres_master_slave&amp;rev=1511193737&amp;do=diff">
         <dc:format>text/html</dc:format>
-        <dc:date>2017-11-07T16:01:35+03:00</dc:date>
+        <dc:date>2017-11-20T19:02:17+03:00</dc:date>
         <dc:creator>ingprog</dc:creator>
-        <title>config_php</title>
-        <link>http://zipofar.ru/doku.php?id=config_php&amp;rev=1510059695&amp;do=diff</link>
-        <description>Config for PHP
+        <title>postgres_master_slave - [Еще нам понадобиться файл recovery.conf] </title>
+        <link>http://zipofar.ru/doku.php?id=postgres_master_slave&amp;rev=1511193737&amp;do=diff</link>
+        <description>Master-Slave Postgres потоковая репликация
 
-
-server {
-        listen 80;
-        root /var/www/wp1.loc;
-        index index.php index.html;
-        server_name wp1.loc;
-
-        location / {
-                try_files $uri $uri/ /index.php$args;
-        }
-
-        location ~ \.php$ {
-                include snippets/fastcgi-php.conf;
-                fastcgi_pass 10.0.3.238:9000;
-        }
-
-}</description>
-    </item>
-    <item rdf:about="http://zipofar.ru/doku.php?id=nginx&amp;rev=1510059359&amp;do=diff">
-        <dc:format>text/html</dc:format>
-        <dc:date>2017-11-07T15:55:59+03:00</dc:date>
-        <dc:creator>ingprog</dc:creator>
-        <title>nginx</title>
-        <link>http://zipofar.ru/doku.php?id=nginx&amp;rev=1510059359&amp;do=diff</link>
-        <description>NGINX
-
-	*  Root директива (multy root)
-	*  Try_files директива
-	*  Config for PHP</description>
-    </item>
-    <item rdf:about="http://zipofar.ru/doku.php?id=try_files&amp;rev=1510046944&amp;do=diff">
-        <dc:format>text/html</dc:format>
-        <dc:date>2017-11-07T12:29:04+03:00</dc:date>
-        <dc:creator>ingprog</dc:creator>
-        <title>try_files - [Определение $uri, $args] </title>
-        <link>http://zipofar.ru/doku.php?id=try_files&amp;rev=1510046944&amp;do=diff</link>
-        <description>Try_files директива
-
-Директива try_files проверяет существует ли файл или директория согласно uri. Если существует, то открывает ее. Если не существует, то пытается сделать редирект. Если и редирект не отработал, то возвращает код статуса.</description>
-    </item>
-    <item rdf:about="http://zipofar.ru/doku.php?id=multy_root&amp;rev=1509634066&amp;do=diff">
-        <dc:format>text/html</dc:format>
-        <dc:date>2017-11-02T17:47:46+03:00</dc:date>
-        <dc:creator>ingprog</dc:creator>
-        <title>multy_root</title>
-        <link>http://zipofar.ru/doku.php?id=multy_root&amp;rev=1509634066&amp;do=diff</link>
-        <description>Root директива (multy root)
-
-Задаёт корневой каталог для запросов. 
-
-Корень сайта лучше задавать в директиве server.
-
-
-server {
-    listen 80;
-    server_name test1.loc;
-    index index.html;
-    
-    root /var/www/test1.loc;
-}</description>
-    </item>
-    <item rdf:about="http://zipofar.ru/doku.php?id=start&amp;rev=1509632148&amp;do=diff">
-        <dc:format>text/html</dc:format>
-        <dc:date>2017-11-02T17:15:48+03:00</dc:date>
-        <dc:creator>ingprog</dc:creator>
-        <title>start - [Linux] </title>
-        <link>http://zipofar.ru/doku.php?id=start&amp;rev=1509632148&amp;do=diff</link>
-        <description>Почта (Exchange, Postfix, Dovecot)
-
-	*  Reverse proxy (обратный прокси) для доступа к Outlook Web App (OWA) из интернета
-	*  Настройка Ubuntu 16 + Postfix + Dovecot 2 IMAP POP3
-	*  Настройка SMTP аутэнтификации в Postfix с помощью Dovecot
-	*  Postfix + Dovecot + MySQL
-	*  Postfix ограничить число исходящих соединений
-	*  Telnet 993 port
-	*  Postfix + Dovecot virtual users and passwd
-
-Linux
-
-	*   cron спамит auth.log (pam_unix(cron:session): session opened for user root by (uid=0))
-	*   настройка…</description>
+И на мастере и на слейве нужно делать одинаковые настройки. Т.к. мастер-слейв репликация для того и нужна, чтобы в какой-то момент при падении мастера, таковым сделать слейв.</description>
     </item>
     <item rdf:about="http://zipofar.ru/doku.php?image=zabbix_lld_5.jpg&amp;ns=&amp;rev=1508234502&amp;tab_details=history&amp;mediado=diff&amp;do=media">
         <dc:format>text/html</dc:format>

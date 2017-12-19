@@ -22,3 +22,5 @@
 1511189124	91.122.206.228	E	postgres_master_slave	ingprog	[Еще нам понадобиться файл recovery.conf] 		1
 1511189258	91.122.206.228	E	postgres_master_slave	ingprog	[Еще нам понадобиться файл recovery.conf] 		3
 1511193136	91.122.206.228	E	postgres_master_slave	ingprog	[Еще нам понадобиться файл recovery.conf] 		26
+1511193595	91.122.206.228	E	postgres_master_slave	ingprog	[Утилитка для копирования базы с мастера] 		177
+1511193737	91.122.206.228	E	postgres_master_slave	ingprog	[Еще нам понадобиться файл recovery.conf] 		115

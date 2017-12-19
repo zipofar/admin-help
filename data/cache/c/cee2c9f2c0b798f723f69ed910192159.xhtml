@@ -1,0 +1,112 @@
+
+<h1 class="sectionedit1" id="lvs_начало_direct_routing">LVS начало + Direct Routing</h1>
+<div class="level1">
+
+<p>
+Что такое LVS (Linux Virtual Server) – это встроенный компонент в ядре Linux, который обеспечивает перенаправление IP пакетов на группу серверов, обрабатывающих эти пакеты.
+</p>
+
+<p>
+Что такое IPVSADM – это просто консольная утилита для настройки и взаимодействия с LVS.
+</p>
+
+<p>
+Что такое KEEPALIVED – это ПО в виде демона, с помощью которого можно настраивать как LVS так и VRRP путем редактирования конфига.
+</p>
+
+<p>
+И… Т.е. при использовании KEEPALIVED для настройки балансера не обязательно устанавливать IPVSADM, но она полезна тем, что с ее помощью можно посмотреть, как настроен LVS.
+</p>
+
+<p>
+Ммм… почему нельзя обойтись без KEEPALIVED и просто использовать IPVSADM? Можно конечно, но воспринимайте KEEPALIVED как удобный инструмент для настройки балансера. Также с помощью него можно легко настроить еще и запасной (standby) балансировщик, с использованием технологии VRRP.
+</p>
+
+<p>
+Ну хорошо. Давай начнем с IPVSADM, а там посмотрим. Для начала нужно ознакомиться с возможностями LVS <a href="https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/5/html/virtual_server_administration/ch-lvs-overview-vsa" class="urlextern" title="https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/5/html/virtual_server_administration/ch-lvs-overview-vsa" rel="nofollow"> здесь</a> или <a href="http://www.linuxvirtualserver.org/how.html" class="urlextern" title="http://www.linuxvirtualserver.org/how.html" rel="nofollow">здесь</a>.
+</p>
+
+<p>
+Из прочитанного становится ясно, что есть Direct Routing и NAT, ну и IP Tunneling. Начнем с Direct Routing и забудем пока об отказоустойчивости балансировщика.
+</p>
+
+<p>
+Представим, что у нас везде белые IP адреса на Real Server-ах запущен nginx на порту 80. Т.е. мы хотим перенапрявлять запросы на порт 80 на RealServer 01 и RealServer 02.
+</p>
+
+<p>
+<a href="/lib/exe/detail.php?id=lvs_begin_direct_routing&amp;media=lvs_directrouting_scheme.png" class="media" title="lvs_directrouting_scheme.png"><img src="/lib/exe/fetch.php?w=400&amp;tok=77a69c&amp;media=lvs_directrouting_scheme.png" class="mediacenter" alt="" width="400" /></a>
+</p>
+
+<p>
+Вот так примерно выглядит схема. Красными и зелеными стрелками показана схема движения пакетов.
+Виртуальный IP адрес (VIP) является общим для реальных серверов и балансировщика. Виртуальный IP на балансировщике нужен для того, чтобы принимать пакеты с запросом и напрямую перенапрявлять их реальным серверам. Все реальные сервера должны иметь сконфигурированные алиасы на интерфейсе для приема пакетов на виртуальный IP адрес, чтобы сервер мог локально обработать принятые пакеты. Причем эти алиасы не должны обрабатывать arp запросы. Физические интерфейсы балансировщика и реальных серверов обязательно должны быть соединены через hub/switch. Такое соединение необходимо т.к. балансировщик отправляет пакеты напрямую (по mac адресу) реальному серверу. Также все эти сервера должны находится в одной подсети. Более подробно <a href="http://www.linuxvirtualserver.org/VS-DRouting.html" class="urlextern" title="http://www.linuxvirtualserver.org/VS-DRouting.html" rel="nofollow">здесь</a>.
+</p>
+
+</div>
+<!-- EDIT1 SECTION "LVS начало + Direct Routing" [1-4003] -->
+<h2 class="sectionedit2" id="приступим_непосредственно_к_настройке_балансировщика">Приступим непосредственно к настройке балансировщика.</h2>
+<div class="level2">
+
+</div>
+<!-- EDIT2 SECTION "Приступим непосредственно к настройке балансировщика." [4004-4118] -->
+<h3 class="sectionedit3" id="включаем_форвардинг_пакетов">Включаем форвардинг пакетов</h3>
+<div class="level3">
+<pre class="code">echo 1 &gt; /proc/sys/net/ipv4/ip_forward</pre>
+
+</div>
+<!-- EDIT3 SECTION "Включаем форвардинг пакетов" [4119-4237] -->
+<h3 class="sectionedit4" id="настроим_vip_на_балансировщике">Настроим VIP на балансировщике</h3>
+<div class="level3">
+<pre class="code">#/etc/network/interfaces
+auto eth0:0
+iface eth0:0 inet static
+	address 192.200.0.198
+	netmask 255.255.255.0</pre>
+<pre class="code">ifup eth0:0</pre>
+
+<p>
+Настройка VIP на реальных серверах может осуществляться различными способами. Самое главное избежать так называемой ARP Problem. Это когда алиас интерфейс для виртуального IP настроен так, что он отвечает на arp запросы. Читаем <a href="http://www.linuxvirtualserver.org/docs/arp.html" class="urlextern" title="http://www.linuxvirtualserver.org/docs/arp.html" rel="nofollow">здесь</a>.
+</p>
+
+<p>
+Я лично выбрал метод с помощью iptables.
+</p>
+<pre class="code">iptables –t nat –A PREROUTING –d 192.200.0.198 –j REDIRECT</pre>
+
+<p>
+Т.е. когда пакет попадает на сервер он не отбрасывается, а передается на обработку localhost-у на тот же порт на который он пытался попасть.
+</p>
+
+</div>
+<!-- EDIT4 SECTION "Настроим VIP на балансировщике" [4238-5317] -->
+<h3 class="sectionedit5" id="теперь_настроим_lvs">Теперь настроим LVS</h3>
+<div class="level3">
+<pre class="code"># -A - добавляем виртуальный сервис
+# -t – использовать TCP сервис
+# -u – если хотим обслуживать UDP
+# -далее идет ip адрес и порт
+# -s – планировщик, т.е. каким способом будет выбираться реальный сервер
+# -rr – я выбрал round robin
+ipvsadm -A -t 192.200.0.198:80 -s rr</pre>
+
+<p>
+Этой командой добавляем реальные сервера
+</p>
+<pre class="code"># -a – добавить реальный сервер
+# -t – использовать TCP сервис
+# -далее идет ip адрес и порт
+# -r – ip реального сервера
+# -далее собственно и происходит выбор вида роутинга
+# -g – gatewaying (direct routing)
+# -i – IPIP Tunneling
+# -m – masquerading (NAT)
+ipvsadm -a -t 192.200.0.198:80 -r 192.200.0.20:80 -g
+ipvsadm -a -t 192.200.0.198:80 -r 192.200.0.21:80 –g</pre>
+
+<p>
+Более подробно читайте # man ipvsadm
+</p>
+
+</div>
+<!-- EDIT5 SECTION "Теперь настроим LVS" [5318-] -->

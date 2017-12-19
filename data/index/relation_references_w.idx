@@ -75,3 +75,5 @@ application
 lxd_not_start_refused_socket_is_busy
 systemd
 postgres_master_slave
+balancing_traffic_failover
+lvs_begin_direct_routing

@@ -11,7 +11,7 @@
         <description></description>
         <link>http://www.zipofar.ru/</link>
         <image rdf:resource="http://www.zipofar.ru/lib/tpl/dokuwiki/images/favicon.ico" />
-       <dc:date>2017-09-08T22:42:51+03:00</dc:date>
+       <dc:date>2017-11-28T13:04:17+03:00</dc:date>
         <items>
             <rdf:Seq>
                 <rdf:li rdf:resource="http://www.zipofar.ru/doku.php?id=playground:playground&amp;rev=1504252008&amp;do=diff"/>

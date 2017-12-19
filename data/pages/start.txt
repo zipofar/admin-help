@@ -32,6 +32,7 @@
   * [[databases|Базы данных]]
   * [[redmine|Redmine]]
   * [[systemd|systemd]]
+  * [[balancing_traffic_failover|Балансировка траффика и HA]]
 
 
 

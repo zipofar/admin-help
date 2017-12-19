@@ -1,0 +1,5 @@
+1513665213	91.122.206.228	C	lvs_begin_direct_routing	ingprog	created		1494
+1513665374	91.122.206.228	E	lvs_begin_direct_routing	ingprog			944
+1513665418	91.122.206.228	E	lvs_begin_direct_routing	ingprog			1564
+1513665689	91.122.206.228	E	lvs_begin_direct_routing	ingprog			2476
+1513665732	91.122.206.228	E	lvs_begin_direct_routing	ingprog	[Теперь настроим LVS] 		-32

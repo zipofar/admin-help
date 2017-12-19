@@ -347,3 +347,10 @@ xlog
 stat
 5432
 role
+eth0
+1023
+vrrp
+об
+ах
+ifup
+ipip

@@ -1,0 +1,3 @@
+====== Балансировка траффика и HA ======
+
+  * [[lvs_begin_direct_routing|LVS начало + Direct Routing]]
