@@ -1,0 +1,171 @@
+
+<h1 class="sectionedit1" id="master-slave_репликация_mysql_mariadb">Master-Slave репликация MySQL (MariaDB)</h1>
+<div class="level1">
+
+<p>
+<em>В общих чертах про репликацию mysql читай</em> <a href="http://highload.guide/blog/mysql_replication_2015.html" class="urlextern" title="http://highload.guide/blog/mysql_replication_2015.html" rel="nofollow">здесь</a>
+</p>
+
+<p>
+Про мультимастер решение и вообще полезно <a href="https://habrahabr.ru/post/276581/" class="urlextern" title="https://habrahabr.ru/post/276581/" rel="nofollow"> ЧИТАТЬ</a>
+</p>
+
+<p>
+<a href="https://mariadb.com/kb/en/library/setting-up-replication/" class="urlextern" title="https://mariadb.com/kb/en/library/setting-up-replication/" rel="nofollow">Пошаговая настройка Slave (MariaDB)</a>
+</p>
+
+<p>
+Буду использовать MariaDB 10.0.29
+</p>
+<pre class="code">mysqladmin version</pre>
+
+</div>
+<!-- EDIT1 SECTION "Master-Slave репликация MySQL (MariaDB)" [1-545] -->
+<h2 class="sectionedit2" id="первое_config">Первое config</h2>
+<div class="level2">
+
+<p>
+Мой файл конфигурации лежит здесь.
+</p>
+<pre class="code"># /etc/mysql/mariadb.conf.d/50-server.cnf
+
+[mysqld]
+user            = mysql
+pid-file        = /var/run/mysqld/mysqld.pid
+socket          = /var/run/mysqld/mysqld.sock
+port            = 3306
+basedir         = /usr
+datadir         = /var/lib/mysql
+tmpdir          = /tmp
+lc-messages-dir = /usr/share/mysql
+
+# Вот здесь меняем, чтобы был доступ по сети
+bind-address = 192.168.0.185
+
+[mariadb]
+# Включаем ведение журнала logbin. Обязательно для мастера.
+log-bin
+
+# Вот этот параметр у каждого сервера свой. Значение данного параметра может быть от 1 до 2^32-1. Нужен на мастере и слейве.
+server_id=1
+
+# Это название файла binlog-а для мастера. Опять же для каждого сервера должно быть индивидуальным.
+log-basename=master1
+
+# Тут указываем формат binlog-а. Должно быть одинаковым как на мастере, так и на слейве.
+binlog_format=ROW</pre>
+
+</div>
+<!-- EDIT2 SECTION "Первое config" [546-1790] -->
+<h2 class="sectionedit3" id="второе_-_gtid">Второе - GTID</h2>
+<div class="level2">
+
+<p>
+Знаем, что надо обязательно использовать GTID. Документация MariaDB говорит, что с версии 10.0 оно включено по дефолту.
+<a href="https://dev.mysql.com/doc/refman/5.7/en/replication-mode-change-online-enable-gtids.html" class="urlextern" title="https://dev.mysql.com/doc/refman/5.7/en/replication-mode-change-online-enable-gtids.html" rel="nofollow">Здесь</a> можно читануть пошаговую инструкцию для включения этой штуки, т.к. не во всех дистрибах mysql оно включено.
+</p>
+
+<p>
+Если вкратце, то для свежого сервера
+</p>
+<pre class="code"># my.cnf
+gtid-mode=ON
+
+# В командной строке mysql
+SET @@GLOBAL.GTID_MODE = ON;</pre>
+
+</div>
+<!-- EDIT3 SECTION "Второе - GTID" [1791-2501] -->
+<h2 class="sectionedit4" id="третье_-_как_вкл_репликацию">Третье - как ВКЛ репликацию</h2>
+<div class="level2">
+
+<p>
+Вся работа с настройкой и управлением репликацией происходит в командной строке mysql.
+</p>
+
+<p>
+CHANGE MASTER TO - вот эта команда и служит для настройки слейва. Именно слейва, т.к. мастером оно является изначально.
+</p>
+
+<p>
+START SLAVE, STOP SLAVE - да, вот так вот оно (слейв) включается и выключается.
+</p>
+
+</div>
+<!-- EDIT4 SECTION "Третье - как ВКЛ репликацию" [2502-3044] -->
+<h3 class="sectionedit5" id="настраиваем_слейв">Настраиваем слейв</h3>
+<div class="level3">
+<pre class="code">CHANGE MASTER TO
+  MASTER_HOST=&#039;master.domain.com | ip address&#039;,
+  MASTER_USER=&#039;replication_user&#039;,
+  MASTER_PASSWORD=&#039;megapassword&#039;,
+  MASTER_USE_GTID = current_pos,
+  MASTER_LOG_FILE=&#039;mariadb-bin.000096&#039;,
+  MASTER_LOG_POS=568</pre>
+
+<p>
+Естественно, что на мастере нужно создать такого пользователя с таким паролем и дать ему права.
+</p>
+<pre class="code">GRANT REPLICATION SLAVE ON *.* TO &#039;replication_user&#039;@&#039;%&#039;IDENTIFIED BY &#039;megapassword&#039;;</pre>
+
+</div>
+<!-- EDIT5 SECTION "Настраиваем слейв" [3045-3608] -->
+<h3 class="sectionedit6" id="еще_полезные_команды">Еще полезные команды</h3>
+<div class="level3">
+<pre class="code">show master status;
+show slave status\G;
+show variables like &#039;%gtid%&#039;;
+show processlist\G;
+
+reset master;
+reset slave;</pre>
+
+</div>
+<!-- EDIT6 SECTION "Еще полезные команды" [3609-3792] -->
+<h2 class="sectionedit7" id="термины_и_особенности_mariadb">Термины и особенности MariaDB</h2>
+<div class="level2">
+
+<p>
+MariaDB и MySQL имеют различную реализацию GTID и не совместимы друг с другом.
+</p>
+
+<p>
+Определения:
+</p>
+<ul>
+<li class="level1"><div class="li"> DML (Data Manipulation Language): SELECT, INSERT, UPDATE, DELETE, MERGE…</div>
+</li>
+<li class="level1"><div class="li"> DDL (Data Definition Language): CREATE, ALTER, DROP, TRUNCATE…</div>
+</li>
+</ul>
+
+<p>
+На мастере все изменения базы данных (DML и DDL) записываются в бинарный лог как binlog события. Слэйв подключается к мастеру и читает эти binlog события, а затем проигрывает эти события у себя локально для того, чтобы произвести те же изменения, что и на мастере. Сервер может быть одновременно и мастером и слэйвом.
+</p>
+
+<p>
+Слэйв отслеживает позицию в бинлоге мастера, и знает номер позиции для последнего события, примененного на слейве. Это позволяет слейву переподключаться и продолжать репликацию с того места, где она прервалась.
+</p>
+
+<p>
+GTID представляет собой новое событие, которое прикрепляется к каждой группе событий (event group) в бинлоге. (Группа событий (event group) это коллекция событий, которая применяется как некий единый блок). Поскольку GTID уникально для всей группы серверов, это позволяет легко идентифицировать изменения в бинлоге на серверах в группе.
+</p>
+
+<p>
+Фича – состояние слейва аварийно устойчиво. Для этого слейв пишет значение текущего GTID в базу данных mysql, таблицу gtid_slave_pos. И т.к. эта таблица использует транзакционный движок InnoDB, то обновление GTID происходит в той же транзакции, в которой происходит обновление реплицируемых данных. Это означает, что если сервер умрет, то не запишутся как сами реплицируемые данные так и GTID.
+</p>
+
+<p>
+GTID состоит из трех цифр разделенных «-». Например 0-1-10.
+</p>
+<ul>
+<li class="level1"><div class="li"> Первая цифра – ID домена. Используется в случае multi-master репликации.</div>
+</li>
+<li class="level1"><div class="li"> Вторая цифра – ID сервер.</div>
+</li>
+<li class="level1"><div class="li"> Третья цифра – ID последовательности.</div>
+</li>
+</ul>
+
+</div>
+<!-- EDIT7 SECTION "Термины и особенности MariaDB" [3793-] -->

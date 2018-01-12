@@ -1,0 +1,3 @@
+====== cat <<EOF или что такое heredoc ======
+
+Пока что оставлю [[https://stackoverflow.com/questions/2500436/how-does-cat-eof-work-in-bash|ссылочку]]

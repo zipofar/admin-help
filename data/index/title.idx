@@ -69,3 +69,9 @@ Config for PHP
 Master-Slave Postgres потоковая репликация
 Балансировка траффика и HA
 LVS начало + Direct Routing
+Уведомления в Telegram при успешном входе по SSH (Ubuntu 16.04)
+Bash
+cat <<EOF или что такое heredoc
+Munin
+Создаем свой плагин для Munin
+Настройка Munin + Nginx (Ubuntu 16.04)

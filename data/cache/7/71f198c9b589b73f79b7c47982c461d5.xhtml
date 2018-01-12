@@ -1,0 +1,194 @@
+
+<h1 class="sectionedit1" id="создаем_свой_плагин_для_munin">Создаем свой плагин для Munin</h1>
+<div class="level1">
+<ul>
+<li class="level1"><div class="li"> <a href="http://munin-monitoring.org/wiki/HowToWritePlugins" class="urlextern" title="http://munin-monitoring.org/wiki/HowToWritePlugins" rel="nofollow">Пример создания плагина в официальной wiki</a> </div>
+</li>
+<li class="level1"><div class="li"> <a href="https://www.agix.com.au/create-your-own-munin-plugin/" class="urlextern" title="https://www.agix.com.au/create-your-own-munin-plugin/" rel="nofollow">Еще один тутор по созданию плагина к Munin</a></div>
+</li>
+</ul>
+
+<p>
+Нужно обязательно сказать, что создавать плагины для Munin очень легко.
+Первое о чем нужно знать - плагин это просто скрипт, который возвращает числовые значения в определенном формате. Причем этот скрипт может быть написан на любом языке (bash, perl, php, python и т.д.). Также надо помнить, что по дефолту Munin запрашивает скрипты раз в 5 минут.
+</p>
+
+<p>
+Для примера пусть наш плагин будет возвращать рандомно два значения от 0 до 10.
+</p>
+
+<p>
+Перейдем в каталог /etc/munin/plugins и увидим, что здесь находятся симлинки на скрипты. У меня вот здесь /usr/share/munin/plugins.
+Назовем наш плагин random_val
+</p>
+
+<p>
+Создадим его
+</p>
+<pre class="code">nano /usr/share/munin/plugins/random_val</pre>
+
+<p>
+Сделаем исполняемым
+</p>
+<pre class="code">chmod +x /usr/share/munin/plugins/random_val</pre>
+
+<p>
+Наш скрипт пока только с одним графиком
+</p>
+<pre class="code">#!/bin/bash
+
+r1=$(( $RANDOM % 10 ));
+
+case $1 in
+   config)
+        cat &lt;&lt;&#039;EOM&#039;
+graph_title Random values
+graph_vlabel random val
+graph_category system
+random11.label random1
+EOM
+        exit 0;;
+esac
+
+printf &quot;random11.value &quot;
+echo $r1</pre>
+
+<p>
+Поясним наш код.
+</p>
+<pre class="code">r1=$(( $RANDOM % 10 )); # переменная r1 получает рандомное число.</pre>
+
+<p>
+В блоке case описывается конфигурация графика. Нужен он для того, чтобы Munin мог выделить параметры конфигурации вызвав наш скрипт с аргументом config.
+</p>
+<pre class="code">graph_title # название графика
+graph_vlabel # название вертикальной оси
+graph_category system # в какой категории будет находиться ссылка на график
+random11.label random1 # определяется название метки (random1) для данных random11.value.</pre>
+
+<p>
+Следующий блок просто выводиться значение в понятном Munin-у формате.
+</p>
+<pre class="code">printf &quot;random11.value &quot;
+echo $r1</pre>
+
+<p>
+Чтобы активировать наш плагин, создадим симлинк
+</p>
+<pre class="code">ln -s /usr/share/munin/plugins/random_val /etc/munin/plugins/random_val</pre>
+
+<p>
+И перезапустим Munin
+</p>
+<pre class="code">systemctl restart munin-node</pre>
+
+<p>
+Вот и  все. Теперь можно идти в вебинтерфейс
+</p>
+
+<p>
+<a href="/lib/exe/detail.php?id=create_custom_munin_plugin&amp;media=screenshot_2018-01-08_19-05-31.png" class="media" title="screenshot_2018-01-08_19-05-31.png"><img src="/lib/exe/fetch.php?w=400&amp;tok=2977b3&amp;media=screenshot_2018-01-08_19-05-31.png" class="media" alt="" width="400" /></a>
+</p>
+
+<p>
+Примерно так будет выглядеть график через 25 минут
+</p>
+
+<p>
+<a href="/lib/exe/detail.php?id=create_custom_munin_plugin&amp;media=screenshot_2018-01-08_19-24-57.png" class="media" title="screenshot_2018-01-08_19-24-57.png"><img src="/lib/exe/fetch.php?w=400&amp;tok=3f2a48&amp;media=screenshot_2018-01-08_19-24-57.png" class="media" alt="" width="400" /></a>
+</p>
+
+<p>
+Давайте добавим еще один график на нашу диаграмму.
+</p>
+<pre class="code">#!/bin/bash
+
+r1=$(( $RANDOM % 10 ));
+r2=$(( $RANDOM % 10 ));
+
+case $1 in
+   config)
+        cat &lt;&lt;&#039;EOM&#039;
+graph_title Random values
+graph_vlabel random val
+graph_category system
+random11.label random1
+random22.label random2
+EOM
+        exit 0;;
+esac
+
+printf &quot;random11.value &quot;
+echo $r1
+printf &quot;random22.value &quot;
+echo $r2</pre>
+
+<p>
+Теперь график может выглядеть так
+</p>
+
+<p>
+<a href="/lib/exe/detail.php?id=create_custom_munin_plugin&amp;media=screenshot_2018-01-08_20-23-12.png" class="media" title="screenshot_2018-01-08_20-23-12.png"><img src="/lib/exe/fetch.php?w=400&amp;tok=938e64&amp;media=screenshot_2018-01-08_20-23-12.png" class="media" alt="" width="400" /></a>
+</p>
+
+</div>
+<!-- EDIT1 SECTION "Создаем свой плагин для Munin" [1-3850] -->
+<h2 class="sectionedit2" id="настройка_warning_critical">Настройка Warning Critical</h2>
+<div class="level2">
+
+<p>
+Графики это конечно хорошо, но еще нужны оповещения в случае превышения пороговых значений.
+Добавим в файл /usr/share/munin/plugins/random_val в блок case следующие значения
+</p>
+<pre class="code">random11.warning 3
+random11.critical 5</pre>
+
+<p>
+Теперь все это будет выглядеть так
+</p>
+<pre class="code">#!/bin/bash
+r1=$(( $RANDOM % 10 ));
+r2=$(( $RANDOM % 10 ));
+case $1 in
+   config)
+        cat &lt;&lt;&#039;EOM&#039;
+graph_title Random values
+graph_vlabel random val
+graph_category system
+random11.label random1
+random22.label random2
+random11.warning 3
+random11.critical 5
+EOM
+        exit 0;;
+esac
+printf &quot;random11.value &quot;
+echo $r1
+printf &quot;random22.value &quot;
+echo $r2</pre>
+
+<p>
+Хотя я не вижу смысла именно в обоих (warning и critical) значениях. Так как при настройке уведомлений, нельзя разделить или как-то выделить один из этих параметров.
+Также данные настройки пороговых значений можно переопределить для каждого хоста в отдельности. Сделать это можно в файле /etc/munin/munin.conf. На пример так
+</p>
+<pre class="code">[munin1.testing]
+    address 127.0.0.1
+    use_node_name yes
+    random_val.random11.critical 4 # Здесь переопределяется значение порогового значения
+# random_val - имя плагина как в директории /etc/munin/plugins
+# random11 - название графика
+# critical - название уровня порогового значения (critical или warning)</pre>
+
+<p>
+Сами уведомления настраиваются в файле /etc/munin/munin.conf
+<a href="http://munin-monitoring.org/wiki/munin.conf" class="urlextern" title="http://munin-monitoring.org/wiki/munin.conf" rel="nofollow">Здесь</a> официальная wiki
+</p>
+<pre class="code"># Добавим строчку в любом месте
+contact.mail.command /etc/munin/telegram.sh
+# contact - обязательное
+# mail - вместо этого можно любое значение
+# command - обязательное
+# /etc/munin/telegram.sh - путь до любого скрипта, который пошлет уведомление</pre>
+
+</div>
+<!-- EDIT2 SECTION "Настройка Warning Critical" [3851-] -->

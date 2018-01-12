@@ -1,4 +1,5 @@
 ====== SSH ======
 
-[[https://habrahabr.ru/post/331348/|Магия SSH]]
-[[https://habrahabr.ru/post/122445/|Памятка SSH]]
+  * [[https://habrahabr.ru/post/331348/|Магия SSH]]
+  * [[https://habrahabr.ru/post/122445/|Памятка SSH]]
+  * [[telegram_ssh_notification_success_login|Уведомления в Telegram при успешном входе по SSH (Ubuntu 16.04)]]

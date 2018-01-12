@@ -1,0 +1,73 @@
+
+<h1 class="sectionedit1" id="увеличение_размера_диска_вм_на_lvm">Увеличение размера диска ВМ на LVM</h1>
+<div class="level1">
+
+<p>
+В качестве диска для ВМ используется LVM раздел. В свою очередь операционная система ВМ также установлена на LVM раздел. Т.е. получается LVM на LVM.
+Задача: увеличить размер диска для ВМ.
+</p>
+
+<p>
+1. Увеличиваем раздел Logical Volume, который использует ВМ. И перезагружаем ее.
+</p>
+<pre class="code">$ lvextend -L +2G /dev/ubuntu-vg/vm3</pre>
+
+<p>
+2. Заходим на ВМ и смотрим, что объем диска увеличился.
+</p>
+<pre class="code"># У меня это /dev/vda
+$ lsblk
+
+vda
+|-vda1 part /boot
+|-vda2 part
+|-vda5 part
+   |-ubuntu--kvm2--vg-root   lvm /
+   |-ubuntu--kvm2--vg-swap_1 lvm [SWAP]</pre>
+
+<p>
+3. Смотрим партишены
+</p>
+<pre class="code">parted -l /dev/vda
+
+Number  Start   End     Size    Type      File system  Flags
+ 1      1049kB  512MB   511MB   primary   ext2         boot
+ 2      513MB   4662MB  9149MB  extended
+ 5      513MB   4662MB  9149MB  logical                lvm
+
+# Видно, что 2 и 5 разделы одинаковые, т.е. 2-й раздел вмещает в себя 5-й. Т.е. надо расширить оба.</pre>
+
+<p>
+4. Расширяем разделы
+</p>
+<pre class="code">$ parted /dev/vda
+     resizepart 2 9662
+     resizepart 5 9662
+# Перезагружаем ВМ</pre>
+
+<p>
+5. Расширяем до максимума PV /dev/vda5
+</p>
+<pre class="code">pvresize /dev/vda5</pre>
+
+<p>
+6. Расширяем нужный LV (в моем случае это /dev/ubuntu-kvm2-vg/root)
+</p>
+<pre class="code">lvextend -l +100%FREE /dev/ubuntu-kvm2-vg/root</pre>
+
+<p>
+7. Теперь расширяем саму файловую систему до максимального размера раздела.
+</p>
+<pre class="code">resize2fs /dev/mapper/ubuntu--kvm2--vg-root</pre>
+
+<p>
+Посмотреть где какие файловые системы
+</p>
+<pre class="code">blkid</pre>
+
+<p>
+Посмотреть размеры примаунченых разделов
+</p>
+<pre class="code">df -h</pre>
+
+</div>

@@ -1,27 +1,23 @@
-1511168316	91.122.206.228	E	postgres_master_slave	ingprog			3085
-1511168926	91.122.206.228	E	postgres_master_slave	ingprog			9880
-1511168974	91.122.206.228	E	postgres_master_slave	ingprog	[Начнем с конфига postgresql.conf (минимально-упрощенный конфиг)] 		18
-1511169653	91.122.206.228	E	postgres_master_slave	ingprog	[Начнем с конфига postgresql.conf (минимально-упрощенный конфиг)] 		-7
-1511169714	91.122.206.228	E	postgres_master_slave	ingprog	[Начнем с конфига postgresql.conf (минимально-упрощенный конфиг)] 		1
-1511169943	91.122.206.228	E	postgres_master_slave	ingprog	[Начнем с конфига postgresql.conf (минимально-упрощенный конфиг)] 		297
-1511170534	91.122.206.228	E	postgres_master_slave	ingprog	[Еще нам понадобиться файл recovery.conf] 		2330
-1511170761	91.122.206.228	E	postgres_master_slave	ingprog	[Начнем с конфига postgresql.conf (минимально-упрощенный конфиг)] 		124
-1511181485	91.122.206.228	E	postgres_master_slave	ingprog	[Начнем с конфига postgresql.conf (минимально-упрощенный конфиг)] 		60
-1511181962	91.122.206.228	E	postgres_master_slave	ingprog	[Еще нам понадобиться файл recovery.conf] 		171
-1511181973	91.122.206.228	E	postgres_master_slave	ingprog	[Еще нам понадобиться файл recovery.conf] 		11
-1511182379	91.122.206.228	E	postgres_master_slave	ingprog	[Утилитка для копирования базы с мастера] 		82
-1511182394	91.122.206.228	E	postgres_master_slave	ingprog	[Утилитка для копирования базы с мастера [[https://postgrespro.ru/docs/postgresql/9.6/app-pgbasebackup.html|pg_basebackup]]] 		0
-1511189107	91.122.206.228	E	postgres_master_slave	ingprog	[Еще нам понадобиться файл recovery.conf] 		1590
-1511189124	91.122.206.228	E	postgres_master_slave	ingprog	[Еще нам понадобиться файл recovery.conf] 		1
-1511189258	91.122.206.228	E	postgres_master_slave	ingprog	[Еще нам понадобиться файл recovery.conf] 		3
-1511193136	91.122.206.228	E	postgres_master_slave	ingprog	[Еще нам понадобиться файл recovery.conf] 		26
-1511193595	91.122.206.228	E	postgres_master_slave	ingprog	[Утилитка для копирования базы с мастера] 		177
-1511193737	91.122.206.228	E	postgres_master_slave	ingprog	[Еще нам понадобиться файл recovery.conf] 		115
-1512736938	91.122.206.228	E	nat	ingprog			360
-1513664792	91.122.206.228	E	start	ingprog	[Linux] 		83
-1513665114	91.122.206.228	C	balancing_traffic_failover	ingprog	created		129
-1513665213	91.122.206.228	C	lvs_begin_direct_routing	ingprog	created		1494
-1513665374	91.122.206.228	E	lvs_begin_direct_routing	ingprog			944
 1513665418	91.122.206.228	E	lvs_begin_direct_routing	ingprog			1564
 1513665689	91.122.206.228	E	lvs_begin_direct_routing	ingprog			2476
 1513665732	91.122.206.228	E	lvs_begin_direct_routing	ingprog	[Теперь настроим LVS] 		-32
+1513670055	91.122.206.228	E	lvs_begin_direct_routing	ingprog			75
+1513836319	91.122.206.228	E	настройка_ubuntu_16_postfix_dovecot_2_imap_pop3	ingprog			171
+1515175322	62.192.246.21	E	ssh	ingprog			150
+1515175475	62.192.246.21	C	telegram_ssh_notification_success_login	ingprog	created		2354
+1515175528	62.192.246.21	E	telegram_ssh_notification_success_login	ingprog	[Уведомления в Telegram при успешном входе по SSH (Ubuntu 16.04)] 		11
+1515352343	62.192.246.21	E	start	ingprog	[Linux] 		17
+1515352401	62.192.246.21	C	bash	ingprog	created		87
+1515352466	62.192.246.21	C	cat_eof_heredoc	ingprog	created		183
+1515352480	62.192.246.21	E	cat_eof_heredoc	ingprog			0
+1515432966	62.192.246.21	E	start	ingprog	[Linux] 		19
+1515433025	62.192.246.21	C	munin	ingprog	created		105
+1515433290	62.192.246.21	C	create_custom_munin_plugin	ingprog	created		2817
+1515433323	62.192.246.21	E	create_custom_munin_plugin	ingprog			-5
+1515433503	62.192.246.21	E	create_custom_munin_plugin	ingprog			696
+1515433630	62.192.246.21	E	create_custom_munin_plugin	ingprog			195
+1515433642	62.192.246.21	E	create_custom_munin_plugin	ingprog			-19
+1515660110	91.122.206.228	E	create_custom_munin_plugin	ingprog			164
+1515683597	91.122.206.228	E	munin	ingprog			81
+1515683885	91.122.206.228	C	setup_munin_nginx_ubuntu	ingprog	created		1253
+1515763876	91.122.206.228	E	create_custom_munin_plugin	ingprog			2395

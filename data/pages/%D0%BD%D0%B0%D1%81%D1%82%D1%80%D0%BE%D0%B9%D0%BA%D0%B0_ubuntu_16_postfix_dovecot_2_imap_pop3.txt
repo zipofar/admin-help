@@ -19,6 +19,8 @@ info_log_path = /var/log/dovecot-lda.log
 # Файлы должны быть доступны на запись для пользователя dovecot
 # conf.d/15-lda.conf
 protocol lda {
+# Эти файлы нужно обязательно создать вручную и 
+# назначить им права на запись/чтение для dovecot
 log_path = /var/log/dovecot-lda_err.log
 info_log_path = /var/log/dovecot-lda.log
 }

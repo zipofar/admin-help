@@ -1,0 +1,3 @@
+====== Bash ======
+
+  * [[cat<<EOF_heredoc|cat <<EOF или что такое heredoc]]

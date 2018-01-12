@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- generator="FeedCreator 1.7.2-ppt DokuWiki" -->
+<?xml-stylesheet href="https://zipofar.ru/lib/exe/css.php?s=feed" type="text/css"?>
+<rdf:RDF
+    xmlns="http://purl.org/rss/1.0/"
+    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+    xmlns:dc="http://purl.org/dc/elements/1.1/">
+    <channel rdf:about="https://zipofar.ru/feed.php">
+        <title>AdminHelpers</title>
+        <description></description>
+        <link>https://zipofar.ru/</link>
+        <image rdf:resource="https://zipofar.ru/lib/tpl/dokuwiki/images/favicon.ico" />
+       <dc:date>2017-12-24T21:47:30+03:00</dc:date>
+        <items>
+            <rdf:Seq>
+                <rdf:li rdf:resource="https://zipofar.ru/doku.php?id=%D0%BD%D0%B0%D1%81%D1%82%D1%80%D0%BE%D0%B9%D0%BA%D0%B0_ubuntu_16_postfix_dovecot_2_imap_pop3&amp;rev=1513836319&amp;do=diff"/>
+                <rdf:li rdf:resource="https://zipofar.ru/doku.php?id=lvs_begin_direct_routing&amp;rev=1513670055&amp;do=diff"/>
+                <rdf:li rdf:resource="https://zipofar.ru/doku.php?image=lvs_directrouting_scheme.png&amp;ns=&amp;rev=1513665362&amp;tab_details=history&amp;mediado=diff&amp;do=media"/>
+                <rdf:li rdf:resource="https://zipofar.ru/doku.php?id=balancing_traffic_failover&amp;rev=1513665114&amp;do=diff"/>
+                <rdf:li rdf:resource="https://zipofar.ru/doku.php?id=start&amp;rev=1513664792&amp;do=diff"/>
+                <rdf:li rdf:resource="https://zipofar.ru/doku.php?id=nat&amp;rev=1512736938&amp;do=diff"/>
+                <rdf:li rdf:resource="https://zipofar.ru/doku.php?id=postgres_master_slave&amp;rev=1511193737&amp;do=diff"/>
+                <rdf:li rdf:resource="https://zipofar.ru/doku.php?image=zabbix_lld_5.jpg&amp;ns=&amp;rev=1508234502&amp;tab_details=history&amp;mediado=diff&amp;do=media"/>
+                <rdf:li rdf:resource="https://zipofar.ru/doku.php?image=zabbix_lld_4.jpg&amp;ns=&amp;rev=1508234394&amp;tab_details=history&amp;mediado=diff&amp;do=media"/>
+                <rdf:li rdf:resource="https://zipofar.ru/doku.php?image=zabbix_lld_3.jpg&amp;ns=&amp;rev=1508234176&amp;tab_details=history&amp;mediado=diff&amp;do=media"/>
+                <rdf:li rdf:resource="https://zipofar.ru/doku.php?image=zabbix_lld_2.jpg&amp;ns=&amp;rev=1508233983&amp;tab_details=history&amp;mediado=diff&amp;do=media"/>
+                <rdf:li rdf:resource="https://zipofar.ru/doku.php?image=zabbix_lld_1.jpg&amp;ns=&amp;rev=1508233855&amp;tab_details=history&amp;mediado=diff&amp;do=media"/>
+            </rdf:Seq>
+        </items>
+    </channel>
+    <image rdf:about="https://zipofar.ru/lib/tpl/dokuwiki/images/favicon.ico">
+        <title>AdminHelpers</title>
+        <link>https://zipofar.ru/</link>
+        <url>https://zipofar.ru/lib/tpl/dokuwiki/images/favicon.ico</url>
+    </image>
+    <item rdf:about="https://zipofar.ru/doku.php?id=%D0%BD%D0%B0%D1%81%D1%82%D1%80%D0%BE%D0%B9%D0%BA%D0%B0_ubuntu_16_postfix_dovecot_2_imap_pop3&amp;rev=1513836319&amp;do=diff">
+        <dc:format>text/html</dc:format>
+        <dc:date>2017-12-21T09:05:19+03:00</dc:date>
+        <dc:creator>ingprog</dc:creator>
+        <title>настройка_ubuntu_16_postfix_dovecot_2_imap_pop3</title>
+        <link>https://zipofar.ru/doku.php?id=%D0%BD%D0%B0%D1%81%D1%82%D1%80%D0%BE%D0%B9%D0%BA%D0%B0_ubuntu_16_postfix_dovecot_2_imap_pop3&amp;rev=1513836319&amp;do=diff</link>
+        <description>Настройка Ubuntu 16 + Postfix + Dovecot 2 IMAP POP3
+
+Работаем с системными пользователями
+
+Включаем LDA для системных пользователей
+
+
+# /etc/postfix/main.cf
+mailbox_command = /usr/lib/dovecot/dovecot-lda -f &quot;$SENDER&quot; -a &quot;$RECIPIENT&quot;</description>
+    </item>
+    <item rdf:about="https://zipofar.ru/doku.php?id=lvs_begin_direct_routing&amp;rev=1513670055&amp;do=diff">
+        <dc:format>text/html</dc:format>
+        <dc:date>2017-12-19T10:54:15+03:00</dc:date>
+        <dc:creator>ingprog</dc:creator>
+        <title>lvs_begin_direct_routing</title>
+        <link>https://zipofar.ru/doku.php?id=lvs_begin_direct_routing&amp;rev=1513670055&amp;do=diff</link>
+        <description>LVS начало + Direct Routing
+
+Что такое LVS (Linux Virtual Server) – это встроенный компонент в ядре Linux, который обеспечивает перенаправление IP пакетов на группу серверов, обрабатывающих эти пакеты.</description>
+    </item>
+    <item rdf:about="https://zipofar.ru/doku.php?image=lvs_directrouting_scheme.png&amp;ns=&amp;rev=1513665362&amp;tab_details=history&amp;mediado=diff&amp;do=media">
+        <dc:format>text/html</dc:format>
+        <dc:date>2017-12-19T09:36:02+03:00</dc:date>
+        <dc:creator>ingprog</dc:creator>
+        <title>lvs_directrouting_scheme.png - created</title>
+        <link>https://zipofar.ru/doku.php?image=lvs_directrouting_scheme.png&amp;ns=&amp;rev=1513665362&amp;tab_details=history&amp;mediado=diff&amp;do=media</link>
+        <description>&lt;img src=&quot;https://zipofar.ru/lib/exe/fetch.php?w=445&amp;h=500&amp;t=1513665362&amp;amp;tok=cde0aa&amp;amp;media=lvs_directrouting_scheme.png&quot; alt=&quot;lvs_directrouting_scheme.png&quot; /&gt;</description>
+    </item>
+    <item rdf:about="https://zipofar.ru/doku.php?id=balancing_traffic_failover&amp;rev=1513665114&amp;do=diff">
+        <dc:format>text/html</dc:format>
+        <dc:date>2017-12-19T09:31:54+03:00</dc:date>
+        <dc:creator>ingprog</dc:creator>
+        <title>balancing_traffic_failover - created</title>
+        <link>https://zipofar.ru/doku.php?id=balancing_traffic_failover&amp;rev=1513665114&amp;do=diff</link>
+        <description>Балансировка траффика и HA
+
+	*  LVS начало + Direct Routing</description>
+    </item>
+    <item rdf:about="https://zipofar.ru/doku.php?id=start&amp;rev=1513664792&amp;do=diff">
+        <dc:format>text/html</dc:format>
+        <dc:date>2017-12-19T09:26:32+03:00</dc:date>
+        <dc:creator>ingprog</dc:creator>
+        <title>start - [Linux] </title>
+        <link>https://zipofar.ru/doku.php?id=start&amp;rev=1513664792&amp;do=diff</link>
+        <description>Почта (Exchange, Postfix, Dovecot)
+
+	*  Reverse proxy (обратный прокси) для доступа к Outlook Web App (OWA) из интернета
+	*  Настройка Ubuntu 16 + Postfix + Dovecot 2 IMAP POP3
+	*  Настройка SMTP аутэнтификации в Postfix с помощью Dovecot
+	*  Postfix + Dovecot + MySQL
+	*  Postfix ограничить число исходящих соединений
+	*  Telnet 993 port
+	*  Postfix + Dovecot virtual users and passwd
+
+Linux
+
+	*   cron спамит auth.log (pam_unix(cron:session): session opened for user root by (uid=0))
+	*   настройка…</description>
+    </item>
+    <item rdf:about="https://zipofar.ru/doku.php?id=nat&amp;rev=1512736938&amp;do=diff">
+        <dc:format>text/html</dc:format>
+        <dc:date>2017-12-08T15:42:18+03:00</dc:date>
+        <dc:creator>ingprog</dc:creator>
+        <title>nat</title>
+        <link>https://zipofar.ru/doku.php?id=nat&amp;rev=1512736938&amp;do=diff</link>
+        <description>NAT
+
+
+
+iptables -t nat -A POSTROUTING -o ppp0 -j MASQUERADE
+
+iptables -t nat -A PREROUTING -p tcp --dport 8001 -j DNAT --to-destination 192.168.1.200:8080
+
+## Change source addresses to 1.2.3.4.
+# iptables -t nat -A POSTROUTING -o eth0 -j SNAT --to 1.2.3.4
+
+## Change source addresses to 1.2.3.4, 1.2.3.5 or 1.2.3.6
+# iptables -t nat -A POSTROUTING -o eth0 -j SNAT --to 1.2.3.4-1.2.3.6
+
+## Change source addresses to 1.2.3.4, ports 1-1023
+# iptables -t nat -A POSTROUTING -p tcp -o eth0 -j SNAT --to …</description>
+    </item>
+    <item rdf:about="https://zipofar.ru/doku.php?id=postgres_master_slave&amp;rev=1511193737&amp;do=diff">
+        <dc:format>text/html</dc:format>
+        <dc:date>2017-11-20T19:02:17+03:00</dc:date>
+        <dc:creator>ingprog</dc:creator>
+        <title>postgres_master_slave - [Еще нам понадобиться файл recovery.conf] </title>
+        <link>https://zipofar.ru/doku.php?id=postgres_master_slave&amp;rev=1511193737&amp;do=diff</link>
+        <description>Master-Slave Postgres потоковая репликация
+
+И на мастере и на слейве нужно делать одинаковые настройки. Т.к. мастер-слейв репликация для того и нужна, чтобы в какой-то момент при падении мастера, таковым сделать слейв.</description>
+    </item>
+    <item rdf:about="https://zipofar.ru/doku.php?image=zabbix_lld_5.jpg&amp;ns=&amp;rev=1508234502&amp;tab_details=history&amp;mediado=diff&amp;do=media">
+        <dc:format>text/html</dc:format>
+        <dc:date>2017-10-17T13:01:42+03:00</dc:date>
+        <dc:creator>ingprog</dc:creator>
+        <title>zabbix_lld_5.jpg - created</title>
+        <link>https://zipofar.ru/doku.php?image=zabbix_lld_5.jpg&amp;ns=&amp;rev=1508234502&amp;tab_details=history&amp;mediado=diff&amp;do=media</link>
+        <description>&lt;img src=&quot;https://zipofar.ru/lib/exe/fetch.php?w=500&amp;h=309&amp;t=1508234502&amp;amp;tok=a14706&amp;amp;media=zabbix_lld_5.jpg&quot; alt=&quot;zabbix_lld_5.jpg&quot; /&gt;</description>
+    </item>
+    <item rdf:about="https://zipofar.ru/doku.php?image=zabbix_lld_4.jpg&amp;ns=&amp;rev=1508234394&amp;tab_details=history&amp;mediado=diff&amp;do=media">
+        <dc:format>text/html</dc:format>
+        <dc:date>2017-10-17T12:59:54+03:00</dc:date>
+        <dc:creator>ingprog</dc:creator>
+        <title>zabbix_lld_4.jpg - created</title>
+        <link>https://zipofar.ru/doku.php?image=zabbix_lld_4.jpg&amp;ns=&amp;rev=1508234394&amp;tab_details=history&amp;mediado=diff&amp;do=media</link>
+        <description>&lt;img src=&quot;https://zipofar.ru/lib/exe/fetch.php?w=500&amp;h=102&amp;t=1508234394&amp;amp;tok=804f05&amp;amp;media=zabbix_lld_4.jpg&quot; alt=&quot;zabbix_lld_4.jpg&quot; /&gt;</description>
+    </item>
+    <item rdf:about="https://zipofar.ru/doku.php?image=zabbix_lld_3.jpg&amp;ns=&amp;rev=1508234176&amp;tab_details=history&amp;mediado=diff&amp;do=media">
+        <dc:format>text/html</dc:format>
+        <dc:date>2017-10-17T12:56:16+03:00</dc:date>
+        <dc:creator>ingprog</dc:creator>
+        <title>zabbix_lld_3.jpg - created</title>
+        <link>https://zipofar.ru/doku.php?image=zabbix_lld_3.jpg&amp;ns=&amp;rev=1508234176&amp;tab_details=history&amp;mediado=diff&amp;do=media</link>
+        <description>&lt;img src=&quot;https://zipofar.ru/lib/exe/fetch.php?w=449&amp;h=499&amp;t=1508234176&amp;amp;tok=e60133&amp;amp;media=zabbix_lld_3.jpg&quot; alt=&quot;zabbix_lld_3.jpg&quot; /&gt;</description>
+    </item>
+    <item rdf:about="https://zipofar.ru/doku.php?image=zabbix_lld_2.jpg&amp;ns=&amp;rev=1508233983&amp;tab_details=history&amp;mediado=diff&amp;do=media">
+        <dc:format>text/html</dc:format>
+        <dc:date>2017-10-17T12:53:03+03:00</dc:date>
+        <dc:creator>ingprog</dc:creator>
+        <title>zabbix_lld_2.jpg - created</title>
+        <link>https://zipofar.ru/doku.php?image=zabbix_lld_2.jpg&amp;ns=&amp;rev=1508233983&amp;tab_details=history&amp;mediado=diff&amp;do=media</link>
+        <description>&lt;img src=&quot;https://zipofar.ru/lib/exe/fetch.php?w=499&amp;h=430&amp;t=1508233983&amp;amp;tok=653460&amp;amp;media=zabbix_lld_2.jpg&quot; alt=&quot;zabbix_lld_2.jpg&quot; /&gt;</description>
+    </item>
+    <item rdf:about="https://zipofar.ru/doku.php?image=zabbix_lld_1.jpg&amp;ns=&amp;rev=1508233855&amp;tab_details=history&amp;mediado=diff&amp;do=media">
+        <dc:format>text/html</dc:format>
+        <dc:date>2017-10-17T12:50:55+03:00</dc:date>
+        <dc:creator>ingprog</dc:creator>
+        <title>zabbix_lld_1.jpg - created</title>
+        <link>https://zipofar.ru/doku.php?image=zabbix_lld_1.jpg&amp;ns=&amp;rev=1508233855&amp;tab_details=history&amp;mediado=diff&amp;do=media</link>
+        <description>&lt;img src=&quot;https://zipofar.ru/lib/exe/fetch.php?w=468&amp;h=500&amp;t=1508233855&amp;amp;tok=6f4133&amp;amp;media=zabbix_lld_1.jpg&quot; alt=&quot;zabbix_lld_1.jpg&quot; /&gt;</description>
+    </item>
+</rdf:RDF>

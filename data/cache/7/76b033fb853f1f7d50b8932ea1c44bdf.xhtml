@@ -1,0 +1,50 @@
+
+<h1 class="sectionedit1" id="почему_выбираем_idmap_rid">Почему выбираем idmap_rid</h1>
+<div class="level1">
+
+<p>
+Какие виды трансляций SID_ов в UID, GID вообще есть.
+</p>
+<ul>
+<li class="level1"><div class="li"> tdb, tdb2</div>
+</li>
+<li class="level1"><div class="li"> ldap</div>
+</li>
+<li class="level1"><div class="li"> rid</div>
+</li>
+<li class="level1"><div class="li"> hash</div>
+</li>
+<li class="level1"><div class="li"> autorid</div>
+</li>
+<li class="level1"><div class="li"> ad</div>
+</li>
+<li class="level1"><div class="li"> nss</div>
+</li>
+</ul>
+
+<p>
+RID не требует базы данных, и транслирует SID по формуле. А это значит, что при одинаковой настройке диапазона UID, GID мы всегда будем получать для конкретного SID один и тот же UID, GID.
+</p>
+
+<p>
+Нужно это для того, чтобы в случае сбоя при котором вам придется перезавести сервер в домен, пользователи не потеряли доступ к файлам. Да и вообще для удобства полезно имеет на разных серверах одинаковое соответствие SID-ов и UID-ов.
+</p>
+
+<p>
+Звездочка в записи idmap * : backend = rid означает, что данная настройка будет применятся ко всем доменам (в случае наличия многодоменной структуры).
+Можно каждому домену выделять собственный диапазон и настройку соответствия.
+</p>
+<pre class="code">Idmap config * : backend = rid
+Idmap config * : range = 10000-300000
+
+Idmap config DOMAIN1 : backend = rid
+Idmap config DOMAIN1 : range = 10000-20000
+
+Idmap config DOMAIN2 : backend = rid
+Idmap config DOMAIN2 : range = 30000-40000</pre>
+
+<p>
+<a href="http://www.vgpgk.vrn.ru/?q=node/783" class="urlextern" title="http://www.vgpgk.vrn.ru/?q=node/783" rel="nofollow">Ссылка на тему</a>
+</p>
+
+</div>

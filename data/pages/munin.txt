@@ -1,0 +1,4 @@
+====== Munin ======
+
+  * [[setup_munin_nginx_ubuntu|Настройка Munin + Nginx (Ubuntu 16.04)]]
+  * [[create_custom_munin_plugin|Создаем свой плагин для Munin]]

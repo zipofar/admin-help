@@ -1,0 +1,50 @@
+
+<h1 class="sectionedit1" id="настройка_munin_nginx_ubuntu_1604">Настройка Munin + Nginx (Ubuntu 16.04)</h1>
+<div class="level1">
+
+<p>
+Сразу даю ссылочку на <a href="http://guide.munin-monitoring.org/en/stable-2.0/example/webserver/nginx.html" class="urlextern" title="http://guide.munin-monitoring.org/en/stable-2.0/example/webserver/nginx.html" rel="nofollow">официальную документацию.</a>
+</p>
+
+<p>
+Но лично у меня вот этот блок, который использует fastcgi-html.sock не заработал
+</p>
+<pre class="code">location /munin/ {
+    fastcgi_split_path_info ^(/munin)(.*);
+    fastcgi_param PATH_INFO $fastcgi_path_info;
+    fastcgi_pass unix:/var/run/munin/fastcgi-html.sock;
+    include fastcgi_params;
+}</pre>
+
+<p>
+Вместо этого пришлось сделать так
+</p>
+<pre class="code">location /munin {
+    alias /var/cache/munin/www;
+}</pre>
+
+<p>
+Итоговый вариант выглядит так
+</p>
+<pre class="code"># /etc/nginx/site-available/munin
+server {
+   listen 80;
+   server_name munin.loc;
+
+   location ^~ /munin-cgi/munin-cgi-graph/ {
+       fastcgi_split_path_info ^(/munin-cgi/munin-cgi-graph)(.*);
+       fastcgi_param PATH_INFO $fastcgi_path_info;
+       fastcgi_pass unix:/var/run/munin/fastcgi-graph.sock;
+       include fastcgi_params;
+   }
+
+   location /munin/static/ {
+       alias /etc/munin/static/;
+   }
+
+   location /munin {
+       alias /var/cache/munin/www;
+   }
+}</pre>
+
+</div>

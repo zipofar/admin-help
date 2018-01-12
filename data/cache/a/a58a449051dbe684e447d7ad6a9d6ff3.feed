@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- generator="FeedCreator 1.7.2-ppt DokuWiki" -->
+<?xml-stylesheet href="https://zipofar.ru/lib/exe/css.php?s=feed" type="text/css"?>
+<rdf:RDF
+    xmlns="http://purl.org/rss/1.0/"
+    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+    xmlns:dc="http://purl.org/dc/elements/1.1/">
+    <channel rdf:about="https://zipofar.ru/feed.php">
+        <title>AdminHelpers cron_спамит_auth.log_pam_unix_cron:session</title>
+        <description></description>
+        <link>https://zipofar.ru/</link>
+        <image rdf:resource="https://zipofar.ru/lib/tpl/dokuwiki/images/favicon.ico" />
+       <dc:date>2018-01-08T14:00:56+03:00</dc:date>
+        <items>
+            <rdf:Seq>
+            </rdf:Seq>
+        </items>
+    </channel>
+    <image rdf:about="https://zipofar.ru/lib/tpl/dokuwiki/images/favicon.ico">
+        <title>AdminHelpers</title>
+        <link>https://zipofar.ru/</link>
+        <url>https://zipofar.ru/lib/tpl/dokuwiki/images/favicon.ico</url>
+    </image>
+</rdf:RDF>

@@ -1,0 +1,81 @@
+
+<h1 class="sectionedit1" id="thin_provision_lvm">Thin Provision LVM</h1>
+<div class="level1">
+
+</div>
+<!-- EDIT1 SECTION "Thin Provision LVM" [1-34] -->
+<h2 class="sectionedit2" id="создание_thin_provision_logical_volumes">Создание Thin Provision logical volumes</h2>
+<div class="level2">
+
+<p>
+Создаем группу Volume Group
+</p>
+<pre class="code">vgcreate vg001 /dev/sdb</pre>
+
+<p>
+Создаем пул
+</p>
+<pre class="code">lvcreate -l 100%FREE -T vg001/pool</pre>
+
+<p>
+Создаем раздел Logical Volume
+</p>
+<pre class="code">lvcreate -V 1G -n vm1 vg001/pool
+
+# А можно создать раздел больше, чем физический раздел
+lvcreate -V 10G -n vm1 vg001/pool</pre>
+
+</div>
+<!-- EDIT2 SECTION "Создание Thin Provision logical volumes" [35-476] -->
+<h2 class="sectionedit3" id="snapshot_thin_provision_lv">Snapshot Thin Provision LV</h2>
+<div class="level2">
+<pre class="code"># Создаем файловую систему для vm1
+mkfs.ext4 /dev/vg001/vm1
+
+# Маунтим vm1
+mount /dev/vg001/vm1 /mnt
+
+# Создаем файл
+touch /mnt/t1.txt
+
+# Создаем snapshot
+lvcreate -s -n vm1_snap1 vg001/vm1
+
+# Смотрим, что получилось
+lvs --all
+
+# Создаем еще файл
+touch /mnt/t2.txt
+
+#### Откатываемся до состояния snapshot-а
+
+# Отключаем раздел vm1
+umount /mnt
+
+# Деактивируем раздел vm1
+lvchange -an vg001/vm1
+
+# Заменяем текущее содержимое vm1 на snapshot
+lvconvert --merge vg001/vm1_snap1
+
+# Активируем раздел vm1
+lvchange -ay vg001/vm1
+
+# Все, snapshot применился и автоматически удалился
+# Теперь можно опять примаунтить vm1 и увидеть, что
+# все изменения с момента снапшота исчезли.
+
+# Также snapshot можно просто удалить не откатываясь на него
+lvremove vg001/vm1_snap1</pre>
+
+</div>
+<!-- EDIT3 SECTION "Snapshot Thin Provision LV" [477-1625] -->
+<h2 class="sectionedit4" id="ссылки">Ссылки</h2>
+<div class="level2">
+
+<p>
+<a href="https://www-rhstorage.rhcloud.com/blog/vpodzime/lvm-thin-provisioning" class="urlextern" title="https://www-rhstorage.rhcloud.com/blog/vpodzime/lvm-thin-provisioning" rel="nofollow">About Thin Provision LVM</a>
+</p>
+
+</div>
+<!-- EDIT4 SECTION "Ссылки" [1626-] -->

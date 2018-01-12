@@ -1,0 +1,94 @@
+
+<h1 class="sectionedit1" id="настраиваем_bind9_dns_slave_сервер">Настраиваем BIND9 DNS Slave сервер</h1>
+<div class="level1">
+
+</div>
+<!-- EDIT1 SECTION "Настраиваем BIND9 DNS Slave сервер" [1-67] -->
+<h3 class="sectionedit2" id="сервер_верхнего_уровня_который_содержит_в_себе_ns_записи_для_наших_двух_dns_серверов">Сервер верхнего уровня, который содержит в себе NS записи для наших двух DNS серверов</h3>
+<div class="level3">
+
+<p>
+Да, в моем случае сервер верхнего уровня, это корневой сервер, который отдает ip адреса для серверов, обслуживающих зону RU.
+</p>
+<pre class="code">$TTL    604800
+.       IN      SOA     A.ROOT.NET. root.localhost. (
+                              1         ; Serial
+                         604800         ; Refresh
+                          86400         ; Retry
+                        2419200         ; Expire
+                         604800 )       ; Negative Cache TTL
+
+.                       IN      NS    A.ROOT.NET.
+A.ROOT.NET.             IN      A     192.168.0.185
+ru.                     IN      NS    ns1.ru.
+ru.                     IN      NS    ns2.ru.
+ns1.ru.                 IN      A     192.168.0.186
+ns2.ru.                 IN      A     192.168.0.188</pre>
+
+</div>
+<!-- EDIT2 SECTION "Сервер верхнего уровня, который содержит в себе NS записи для наших двух DNS серверов" [68-1093] -->
+<h3 class="sectionedit3" id="сервер_ns1ru_является_master_сервером_и_обслуживает_домены_находящиеся_в_зоне_ru">Сервер NS1.RU, является master сервером, и обслуживает домены, находящиеся в зоне RU.</h3>
+<div class="level3">
+
+<p>
+Вот так выглядит файл зоны db.ru
+</p>
+<pre class="code">$TTL    604800
+@       IN      SOA     ns1.ru. root.localhost. (
+                              8         ; Serial
+                              5         ; Refresh
+                          86400         ; Retry
+                        2419200         ; Expire
+                         604800 )       ; Negative Cache TTL
+
+@               IN      NS      ns1.ru.
+@               IN      NS      ns2.ru.
+ns1.ru.         IN      A       192.168.0.186
+ns2.ru.         IN      A       192.168.0.188
+zipofar.ru.     IN      A       1.1.1.1
+habrahabr.ru.   IN      A       2.2.2.2
+auto.ru.        IN      A       3.3.3.3
+a.ru.           IN      A       4.4.4.4
+b.ru.           IN      A       5.5.5.5
+c.ru            IN      A       6.6.6.6
+d.ru            IN      A       7.7.7.7</pre>
+
+<p>
+Вот так выглядит файл зоны named.conf.local
+</p>
+<pre class="code">zone &quot;ru.&quot; {
+        type master;
+        file &quot;/etc/bind/db.ru&quot;;
+        also-notify { 192.168.0.188; };
+        allow-transfer { any; };
+};</pre>
+
+<p>
+Так выглядит файл db.root. Но это только для моего показательного случая, т.к. я эмулирую и корневую зону тоже.
+</p>
+<pre class="code">.                        3600000      NS    A.ROOT.NET.
+A.ROOT.NET.              3600000      A     192.168.0.185</pre>
+
+</div>
+<!-- EDIT3 SECTION "Сервер NS1.RU, является master сервером, и обслуживает домены, находящиеся в зоне RU." [1094-2638] -->
+<h3 class="sectionedit4" id="сервер_ns2ru_является_slave_сервером_и_обслуживает_домены_находящиеся_в_зоне_ru">Сервер NS2.RU, является slave сервером, и обслуживает домены, находящиеся в зоне RU.</h3>
+<div class="level3">
+
+<p>
+Вот так выглядит файл named.conf.local
+</p>
+<pre class="code">zone &quot;ru.&quot; {
+        type slave;
+        file &quot;/var/lib/bind/db.ru&quot;;
+        masters { 192.168.0.186;  };
+        masterfile-format text;
+};</pre>
+
+<p>
+Так выглядит файл db.root. Но это только для моего показательного случая, т.к. я эмулирую и корневую зону тоже.
+</p>
+<pre class="code">.                        3600000      NS    A.ROOT.NET.
+A.ROOT.NET.              3600000      A     192.168.0.185</pre>
+
+</div>
+<!-- EDIT4 SECTION "Сервер NS2.RU, является slave сервером, и обслуживает домены, находящиеся в зоне RU." [2639-] -->

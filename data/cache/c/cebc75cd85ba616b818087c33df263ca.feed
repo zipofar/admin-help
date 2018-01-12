@@ -1,0 +1,983 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- generator="FeedCreator 1.7.2-ppt DokuWiki" -->
+<?xml-stylesheet href="https://zipofar.ru/lib/exe/css.php?s=feed" type="text/css"?>
+<rdf:RDF
+    xmlns="http://purl.org/rss/1.0/"
+    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+    xmlns:dc="http://purl.org/dc/elements/1.1/">
+    <channel rdf:about="https://zipofar.ru/feed.php">
+        <title>AdminHelpers</title>
+        <description></description>
+        <link>https://zipofar.ru/</link>
+        <image rdf:resource="https://zipofar.ru/lib/tpl/dokuwiki/images/favicon.ico" />
+       <dc:date>2017-12-25T23:25:28+03:00</dc:date>
+        <items>
+            <rdf:Seq>
+                <rdf:li rdf:resource="https://zipofar.ru/doku.php?id=%D0%BD%D0%B0%D1%81%D1%82%D1%80%D0%BE%D0%B9%D0%BA%D0%B0_fail2ban_%D0%B4%D0%BB%D1%8F_%D0%BE%D1%82%D0%BF%D1%80%D0%B0%D0%B2%D0%BA%D0%B8_%D0%BF%D0%BE%D1%87%D1%82%D1%8B&amp;rev=1496411821&amp;do=diff"/>
+                <rdf:li rdf:resource="https://zipofar.ru/doku.php?id=%D0%BD%D0%B0%D1%81%D1%82%D1%80%D0%BE%D0%B9%D0%BA%D0%B0_ntp_%D0%BA%D0%BB%D0%B8%D0%B5%D0%BD%D1%82%D0%B0_%D0%BD%D0%B0_domain_controller&amp;rev=1504777219&amp;do=diff"/>
+                <rdf:li rdf:resource="https://zipofar.ru/doku.php?id=%D0%BD%D0%B0%D1%81%D1%82%D1%80%D0%BE%D0%B9%D0%BA%D0%B0_smtp_%D0%B0%D1%83%D1%82%D1%8D%D0%BD%D1%82%D0%B8%D1%84%D0%B8%D0%BA%D0%B0%D1%86%D0%B8%D0%B8_%D0%B2_postfix_%D1%81_%D0%BF%D0%BE%D0%BC%D0%BE%D1%89%D1%8C%D1%8E_dovecot&amp;rev=1500453792&amp;do=diff"/>
+                <rdf:li rdf:resource="https://zipofar.ru/doku.php?id=%D0%BD%D0%B0%D1%81%D1%82%D1%80%D0%BE%D0%B9%D0%BA%D0%B0_ubuntu_16_postfix_dovecot_2_imap_pop3&amp;rev=1513836319&amp;do=diff"/>
+                <rdf:li rdf:resource="https://zipofar.ru/doku.php?id=%D0%BD%D0%B5_%D1%81%D1%80%D0%B0%D0%B1%D0%B0%D1%82%D1%8B%D0%B2%D0%B0%D1%8E%D1%82_gpo&amp;rev=1502868207&amp;do=diff"/>
+                <rdf:li rdf:resource="https://zipofar.ru/doku.php?id=%D0%BE%D0%B1%D1%8F%D0%B7%D0%B0%D1%82%D0%B5%D0%BB%D1%8C%D0%BD%D0%BE_%D0%BD%D0%B0%D1%81%D1%82%D1%80%D0%BE%D0%B8%D1%82%D1%8C_directoryindex&amp;rev=1505397543&amp;do=diff"/>
+                <rdf:li rdf:resource="https://zipofar.ru/doku.php?id=%D0%BF%D0%BE%D1%87%D0%B5%D0%BC%D1%83_%D0%B2%D1%8B%D0%B1%D0%B8%D1%80%D0%B0%D0%B5%D0%BC_idmap_rid&amp;rev=1506326973&amp;do=diff"/>
+                <rdf:li rdf:resource="https://zipofar.ru/doku.php?id=%D1%81%D0%B5%D1%82%D1%8C_%D0%B2_kvm&amp;rev=1503415463&amp;do=diff"/>
+                <rdf:li rdf:resource="https://zipofar.ru/doku.php?id=%D1%83%D0%B2%D0%B5%D0%BB%D0%B8%D1%87%D0%B5%D0%BD%D0%B8%D0%B5_%D1%80%D0%B0%D0%B7%D0%BC%D0%B5%D1%80%D0%B0_%D0%B4%D0%B8%D1%81%D0%BA%D0%B0_%D0%B2%D0%BC_%D0%BD%D0%B0_lvm&amp;rev=1503050013&amp;do=diff"/>
+                <rdf:li rdf:resource="https://zipofar.ru/doku.php?id=1%D1%81_ubuntu&amp;rev=1502013134&amp;do=diff"/>
+                <rdf:li rdf:resource="https://zipofar.ru/doku.php?id=1c_-_%D0%BF%D0%BE%D0%B4%D0%BA%D0%BB%D1%8E%D1%87%D0%B5%D0%BD%D0%B8%D0%B5_%D0%BA_%D1%81%D0%B5%D1%80%D0%B2%D0%B5%D1%80%D1%83_1%D1%81_%D1%83%D1%81%D1%82%D0%B0%D0%BD%D0%BE%D0%B2%D0%BB%D0%B5%D0%BD%D0%BD%D0%BE%D0%BC%D1%83_%D0%BD%D0%B0_ubuntu&amp;rev=1501839822&amp;do=diff"/>
+                <rdf:li rdf:resource="https://zipofar.ru/doku.php?id=apache&amp;rev=1505396481&amp;do=diff"/>
+                <rdf:li rdf:resource="https://zipofar.ru/doku.php?id=application&amp;rev=1510513612&amp;do=diff"/>
+                <rdf:li rdf:resource="https://zipofar.ru/doku.php?id=auto_reg_hosts&amp;rev=1507628104&amp;do=diff"/>
+                <rdf:li rdf:resource="https://zipofar.ru/doku.php?id=balancing_traffic_failover&amp;rev=1513665114&amp;do=diff"/>
+                <rdf:li rdf:resource="https://zipofar.ru/doku.php?id=bind9_root_zone_tld&amp;rev=1507127121&amp;do=diff"/>
+                <rdf:li rdf:resource="https://zipofar.ru/doku.php?id=bind9_slave&amp;rev=1507195679&amp;do=diff"/>
+                <rdf:li rdf:resource="https://zipofar.ru/doku.php?id=config_php&amp;rev=1510059695&amp;do=diff"/>
+                <rdf:li rdf:resource="https://zipofar.ru/doku.php?id=cron_%D1%81%D0%BF%D0%B0%D0%BC%D0%B8%D1%82_auth.log&amp;rev=1496391445&amp;do=diff"/>
+                <rdf:li rdf:resource="https://zipofar.ru/doku.php?id=databases&amp;rev=1511161103&amp;do=diff"/>
+                <rdf:li rdf:resource="https://zipofar.ru/doku.php?id=dns&amp;rev=1507128456&amp;do=diff"/>
+                <rdf:li rdf:resource="https://zipofar.ru/doku.php?id=hyper-v_ubuntu&amp;rev=1502867594&amp;do=diff"/>
+                <rdf:li rdf:resource="https://zipofar.ru/doku.php?id=innodb_performance_optimization&amp;rev=1509369092&amp;do=diff"/>
+                <rdf:li rdf:resource="https://zipofar.ru/doku.php?id=install_kvm_on_ubuntu_16&amp;rev=1502973701&amp;do=diff"/>
+                <rdf:li rdf:resource="https://zipofar.ru/doku.php?id=install_openvpn_on_ubuntu_16.04&amp;rev=1504247809&amp;do=diff"/>
+                <rdf:li rdf:resource="https://zipofar.ru/doku.php?id=ip_utility&amp;rev=1504169735&amp;do=diff"/>
+                <rdf:li rdf:resource="https://zipofar.ru/doku.php?id=iptables&amp;rev=1508758817&amp;do=diff"/>
+                <rdf:li rdf:resource="https://zipofar.ru/doku.php?id=kvm&amp;rev=1503401139&amp;do=diff"/>
+                <rdf:li rdf:resource="https://zipofar.ru/doku.php?id=lvm&amp;rev=1504859013&amp;do=diff"/>
+                <rdf:li rdf:resource="https://zipofar.ru/doku.php?id=lvs_begin_direct_routing&amp;rev=1513670055&amp;do=diff"/>
+                <rdf:li rdf:resource="https://zipofar.ru/doku.php?id=lxd&amp;rev=1510667214&amp;do=diff"/>
+                <rdf:li rdf:resource="https://zipofar.ru/doku.php?id=lxd_not_start_refused_socket_is_busy&amp;rev=1510667680&amp;do=diff"/>
+                <rdf:li rdf:resource="https://zipofar.ru/doku.php?id=mange_vm_in_kvm&amp;rev=1503498490&amp;do=diff"/>
+                <rdf:li rdf:resource="https://zipofar.ru/doku.php?id=master-slave_replication_mysql_mariadb&amp;rev=1509094858&amp;do=diff"/>
+                <rdf:li rdf:resource="https://zipofar.ru/doku.php?id=master-slave_step_by_step&amp;rev=1509105590&amp;do=diff"/>
+                <rdf:li rdf:resource="https://zipofar.ru/doku.php?id=multy_root&amp;rev=1509634066&amp;do=diff"/>
+                <rdf:li rdf:resource="https://zipofar.ru/doku.php?id=nat&amp;rev=1512736938&amp;do=diff"/>
+                <rdf:li rdf:resource="https://zipofar.ru/doku.php?id=nginx&amp;rev=1510059359&amp;do=diff"/>
+                <rdf:li rdf:resource="https://zipofar.ru/doku.php?id=openvpn&amp;rev=1504247859&amp;do=diff"/>
+                <rdf:li rdf:resource="https://zipofar.ru/doku.php?id=postfix_%D0%BE%D0%B3%D1%80%D0%B0%D0%BD%D0%B8%D1%87%D0%B8%D1%82%D1%8C_%D1%87%D0%B8%D1%81%D0%BB%D0%BE_%D0%B8%D1%81%D1%85%D0%BE%D0%B4%D1%8F%D1%89%D0%B8%D1%85_%D1%81%D0%BE%D0%B5%D0%B4%D0%B8%D0%BD%D0%B5%D0%BD%D0%B8%D0%B9&amp;rev=1500022281&amp;do=diff"/>
+                <rdf:li rdf:resource="https://zipofar.ru/doku.php?id=postfix_dovecot_mysql&amp;rev=1496245807&amp;do=diff"/>
+                <rdf:li rdf:resource="https://zipofar.ru/doku.php?id=postfix_dovecot_virtual_users_and_passwd&amp;rev=1500474370&amp;do=diff"/>
+                <rdf:li rdf:resource="https://zipofar.ru/doku.php?id=postgres_master_slave&amp;rev=1511193737&amp;do=diff"/>
+                <rdf:li rdf:resource="https://zipofar.ru/doku.php?id=redmine&amp;rev=1510513597&amp;do=diff"/>
+                <rdf:li rdf:resource="https://zipofar.ru/doku.php?id=reverse_proxy_for_owa&amp;rev=1493380568&amp;do=diff"/>
+                <rdf:li rdf:resource="https://zipofar.ru/doku.php?id=samba&amp;rev=1506091590&amp;do=diff"/>
+                <rdf:li rdf:resource="https://zipofar.ru/doku.php?id=samba_%D0%B4%D0%BE%D1%81%D1%82%D1%83%D0%BF_%D0%BA_%D0%BF%D0%B0%D0%BF%D0%BA%D0%B5_%D0%BF%D0%BE_%D0%BF%D0%B0%D1%80%D0%BE%D0%BB%D1%8E&amp;rev=1506091507&amp;do=diff"/>
+                <rdf:li rdf:resource="https://zipofar.ru/doku.php?id=setting_locale_failed&amp;rev=1507900459&amp;do=diff"/>
+                <rdf:li rdf:resource="https://zipofar.ru/doku.php?id=show_iptables_rules&amp;rev=1508758854&amp;do=diff"/>
+                <rdf:li rdf:resource="https://zipofar.ru/doku.php?id=ssh&amp;rev=1508313203&amp;do=diff"/>
+                <rdf:li rdf:resource="https://zipofar.ru/doku.php?id=start&amp;rev=1513664792&amp;do=diff"/>
+                <rdf:li rdf:resource="https://zipofar.ru/doku.php?id=systemd&amp;rev=1510667994&amp;do=diff"/>
+                <rdf:li rdf:resource="https://zipofar.ru/doku.php?id=telnet_993_port&amp;rev=1500471018&amp;do=diff"/>
+                <rdf:li rdf:resource="https://zipofar.ru/doku.php?id=thin_provision_lvm&amp;rev=1504861954&amp;do=diff"/>
+                <rdf:li rdf:resource="https://zipofar.ru/doku.php?id=try_files&amp;rev=1510046944&amp;do=diff"/>
+                <rdf:li rdf:resource="https://zipofar.ru/doku.php?id=ubuntu_16_samba_%D0%B2_%D0%B4%D0%BE%D0%BC%D0%B5%D0%BD%D0%B5_ad&amp;rev=1506347244&amp;do=diff"/>
+                <rdf:li rdf:resource="https://zipofar.ru/doku.php?id=windows_2008_r2_openvpn_server&amp;rev=1504250920&amp;do=diff"/>
+                <rdf:li rdf:resource="https://zipofar.ru/doku.php?id=zabbix&amp;rev=1508313478&amp;do=diff"/>
+                <rdf:li rdf:resource="https://zipofar.ru/doku.php?id=zabbix_autostart_setup&amp;rev=1508237123&amp;do=diff"/>
+                <rdf:li rdf:resource="https://zipofar.ru/doku.php?id=zabbix_lld_setup&amp;rev=1508234506&amp;do=diff"/>
+                <rdf:li rdf:resource="https://zipofar.ru/doku.php?id=zabbix_snmp_mib_mikrotik&amp;rev=1508315456&amp;do=diff"/>
+                <rdf:li rdf:resource="https://zipofar.ru/doku.php?id=zabbix_template_mysql_setup&amp;rev=1507628823&amp;do=diff"/>
+                <rdf:li rdf:resource="https://zipofar.ru/doku.php?id=zabbix_template_ping_setup&amp;rev=1507641032&amp;do=diff"/>
+                <rdf:li rdf:resource="https://zipofar.ru/doku.php?id=zfs&amp;rev=1502867155&amp;do=diff"/>
+            </rdf:Seq>
+        </items>
+    </channel>
+    <image rdf:about="https://zipofar.ru/lib/tpl/dokuwiki/images/favicon.ico">
+        <title>AdminHelpers</title>
+        <link>https://zipofar.ru/</link>
+        <url>https://zipofar.ru/lib/tpl/dokuwiki/images/favicon.ico</url>
+    </image>
+    <item rdf:about="https://zipofar.ru/doku.php?id=%D0%BD%D0%B0%D1%81%D1%82%D1%80%D0%BE%D0%B9%D0%BA%D0%B0_fail2ban_%D0%B4%D0%BB%D1%8F_%D0%BE%D1%82%D0%BF%D1%80%D0%B0%D0%B2%D0%BA%D0%B8_%D0%BF%D0%BE%D1%87%D1%82%D1%8B&amp;rev=1496411821&amp;do=diff">
+        <dc:format>text/html</dc:format>
+        <dc:date>2017-06-02T16:57:01+03:00</dc:date>
+        <title>настройка_fail2ban_для_отправки_почты</title>
+        <link>https://zipofar.ru/doku.php?id=%D0%BD%D0%B0%D1%81%D1%82%D1%80%D0%BE%D0%B9%D0%BA%D0%B0_fail2ban_%D0%B4%D0%BB%D1%8F_%D0%BE%D1%82%D0%BF%D1%80%D0%B0%D0%B2%D0%BA%D0%B8_%D0%BF%D0%BE%D1%87%D1%82%D1%8B&amp;rev=1496411821&amp;do=diff</link>
+        <description>Настройка fail2ban для отправки почты
+
+Внутри каждого jail нужно добавить action = %(action_mwl)s
+
+
+# Пример для ssh
+
+[sshd]
+
+bantime = 60
+port    = ssh
+logpath = %(sshd_log)s
+action = %(action_mwl)s</description>
+    </item>
+    <item rdf:about="https://zipofar.ru/doku.php?id=%D0%BD%D0%B0%D1%81%D1%82%D1%80%D0%BE%D0%B9%D0%BA%D0%B0_ntp_%D0%BA%D0%BB%D0%B8%D0%B5%D0%BD%D1%82%D0%B0_%D0%BD%D0%B0_domain_controller&amp;rev=1504777219&amp;do=diff">
+        <dc:format>text/html</dc:format>
+        <dc:date>2017-09-07T12:40:19+03:00</dc:date>
+        <title>настройка_ntp_клиента_на_domain_controller</title>
+        <link>https://zipofar.ru/doku.php?id=%D0%BD%D0%B0%D1%81%D1%82%D1%80%D0%BE%D0%B9%D0%BA%D0%B0_ntp_%D0%BA%D0%BB%D0%B8%D0%B5%D0%BD%D1%82%D0%B0_%D0%BD%D0%B0_domain_controller&amp;rev=1504777219&amp;do=diff</link>
+        <description>Настройка NTP клиента на Domain Controller
+
+Если кто не знает этого наизусть, то так вот находим все DC и того, кто из них PDC эмулятор
+
+
+netdom query fsmo
+
+
+Теперь проверяю доступность с PDC эмулятора сервера времени.</description>
+    </item>
+    <item rdf:about="https://zipofar.ru/doku.php?id=%D0%BD%D0%B0%D1%81%D1%82%D1%80%D0%BE%D0%B9%D0%BA%D0%B0_smtp_%D0%B0%D1%83%D1%82%D1%8D%D0%BD%D1%82%D0%B8%D1%84%D0%B8%D0%BA%D0%B0%D1%86%D0%B8%D0%B8_%D0%B2_postfix_%D1%81_%D0%BF%D0%BE%D0%BC%D0%BE%D1%89%D1%8C%D1%8E_dovecot&amp;rev=1500453792&amp;do=diff">
+        <dc:format>text/html</dc:format>
+        <dc:date>2017-07-19T11:43:12+03:00</dc:date>
+        <title>настройка_smtp_аутэнтификации_в_postfix_с_помощью_dovecot</title>
+        <link>https://zipofar.ru/doku.php?id=%D0%BD%D0%B0%D1%81%D1%82%D1%80%D0%BE%D0%B9%D0%BA%D0%B0_smtp_%D0%B0%D1%83%D1%82%D1%8D%D0%BD%D1%82%D0%B8%D1%84%D0%B8%D0%BA%D0%B0%D1%86%D0%B8%D0%B8_%D0%B2_postfix_%D1%81_%D0%BF%D0%BE%D0%BC%D0%BE%D1%89%D1%8C%D1%8E_dovecot&amp;rev=1500453792&amp;do=diff</link>
+        <description>Настройка SMTP аутэнтификации в Postfix с помощью Dovecot
+
+Основную часть настройки авторизации Dovecot-а смотреть здесь.
+
+Зачем это вообще надо, т.е. зачем нужна SMTP аутентификация?</description>
+    </item>
+    <item rdf:about="https://zipofar.ru/doku.php?id=%D0%BD%D0%B0%D1%81%D1%82%D1%80%D0%BE%D0%B9%D0%BA%D0%B0_ubuntu_16_postfix_dovecot_2_imap_pop3&amp;rev=1513836319&amp;do=diff">
+        <dc:format>text/html</dc:format>
+        <dc:date>2017-12-21T09:05:19+03:00</dc:date>
+        <title>настройка_ubuntu_16_postfix_dovecot_2_imap_pop3</title>
+        <link>https://zipofar.ru/doku.php?id=%D0%BD%D0%B0%D1%81%D1%82%D1%80%D0%BE%D0%B9%D0%BA%D0%B0_ubuntu_16_postfix_dovecot_2_imap_pop3&amp;rev=1513836319&amp;do=diff</link>
+        <description>Настройка Ubuntu 16 + Postfix + Dovecot 2 IMAP POP3
+
+Работаем с системными пользователями
+
+Включаем LDA для системных пользователей
+
+
+# /etc/postfix/main.cf
+mailbox_command = /usr/lib/dovecot/dovecot-lda -f &quot;$SENDER&quot; -a &quot;$RECIPIENT&quot;</description>
+    </item>
+    <item rdf:about="https://zipofar.ru/doku.php?id=%D0%BD%D0%B5_%D1%81%D1%80%D0%B0%D0%B1%D0%B0%D1%82%D1%8B%D0%B2%D0%B0%D1%8E%D1%82_gpo&amp;rev=1502868207&amp;do=diff">
+        <dc:format>text/html</dc:format>
+        <dc:date>2017-08-16T10:23:27+03:00</dc:date>
+        <title>не_срабатывают_gpo</title>
+        <link>https://zipofar.ru/doku.php?id=%D0%BD%D0%B5_%D1%81%D1%80%D0%B0%D0%B1%D0%B0%D1%82%D1%8B%D0%B2%D0%B0%D1%8E%D1%82_gpo&amp;rev=1502868207&amp;do=diff</link>
+        <description>Не срабатывают GPO
+
+Иногда бывает так-что при просмотре gpresult, политики применяются, но по факту не работают.
+При этом в Журнале событий -&gt; Система можно лицезреть подобные ошибки</description>
+    </item>
+    <item rdf:about="https://zipofar.ru/doku.php?id=%D0%BE%D0%B1%D1%8F%D0%B7%D0%B0%D1%82%D0%B5%D0%BB%D1%8C%D0%BD%D0%BE_%D0%BD%D0%B0%D1%81%D1%82%D1%80%D0%BE%D0%B8%D1%82%D1%8C_directoryindex&amp;rev=1505397543&amp;do=diff">
+        <dc:format>text/html</dc:format>
+        <dc:date>2017-09-14T16:59:03+03:00</dc:date>
+        <title>обязательно_настроить_directoryindex</title>
+        <link>https://zipofar.ru/doku.php?id=%D0%BE%D0%B1%D1%8F%D0%B7%D0%B0%D1%82%D0%B5%D0%BB%D1%8C%D0%BD%D0%BE_%D0%BD%D0%B0%D1%81%D1%82%D1%80%D0%BE%D0%B8%D1%82%D1%8C_directoryindex&amp;rev=1505397543&amp;do=diff</link>
+        <description>Обязательно настроить DirectoryIndex
+
+Т.к. при использовании mod_rewrite будут перебираться все расширения по дефолту (cgi, html,pl...).
+
+Т.е. если ссылка заканчивается на слэшь, что является признаком директории, dir_mod подставит аля index.cgi и т.д. до тех пор пока не перебирет все расширения в поисках существующего индексного файла в папке.…</description>
+    </item>
+    <item rdf:about="https://zipofar.ru/doku.php?id=%D0%BF%D0%BE%D1%87%D0%B5%D0%BC%D1%83_%D0%B2%D1%8B%D0%B1%D0%B8%D1%80%D0%B0%D0%B5%D0%BC_idmap_rid&amp;rev=1506326973&amp;do=diff">
+        <dc:format>text/html</dc:format>
+        <dc:date>2017-09-25T11:09:33+03:00</dc:date>
+        <title>почему_выбираем_idmap_rid</title>
+        <link>https://zipofar.ru/doku.php?id=%D0%BF%D0%BE%D1%87%D0%B5%D0%BC%D1%83_%D0%B2%D1%8B%D0%B1%D0%B8%D1%80%D0%B0%D0%B5%D0%BC_idmap_rid&amp;rev=1506326973&amp;do=diff</link>
+        <description>Почему выбираем idmap_rid
+
+Какие виды трансляций SID_ов в UID, GID вообще есть.
+
+	*  tdb, tdb2
+	*  ldap
+	*  rid
+	*  hash
+	*  autorid
+	*  ad
+	*  nss
+
+RID не требует базы данных, и транслирует SID по формуле. А это значит, что при одинаковой настройке диапазона UID, GID мы всегда будем получать для конкретного SID один и тот же UID, GID.…</description>
+    </item>
+    <item rdf:about="https://zipofar.ru/doku.php?id=%D1%81%D0%B5%D1%82%D1%8C_%D0%B2_kvm&amp;rev=1503415463&amp;do=diff">
+        <dc:format>text/html</dc:format>
+        <dc:date>2017-08-22T18:24:23+03:00</dc:date>
+        <title>сеть_в_kvm</title>
+        <link>https://zipofar.ru/doku.php?id=%D1%81%D0%B5%D1%82%D1%8C_%D0%B2_kvm&amp;rev=1503415463&amp;do=diff</link>
+        <description>Сеть в KVM
+
+Типы сетей
+
+	*  Bridget Network
+	*  Routed Network
+	*  NAT-based Network
+
+Bridget Network
+
+Bridge - это некий виртуальный свитч в Linux, к которому можно подключить хост и гостевые ВМ.</description>
+    </item>
+    <item rdf:about="https://zipofar.ru/doku.php?id=%D1%83%D0%B2%D0%B5%D0%BB%D0%B8%D1%87%D0%B5%D0%BD%D0%B8%D0%B5_%D1%80%D0%B0%D0%B7%D0%BC%D0%B5%D1%80%D0%B0_%D0%B4%D0%B8%D1%81%D0%BA%D0%B0_%D0%B2%D0%BC_%D0%BD%D0%B0_lvm&amp;rev=1503050013&amp;do=diff">
+        <dc:format>text/html</dc:format>
+        <dc:date>2017-08-18T12:53:33+03:00</dc:date>
+        <title>увеличение_размера_диска_вм_на_lvm</title>
+        <link>https://zipofar.ru/doku.php?id=%D1%83%D0%B2%D0%B5%D0%BB%D0%B8%D1%87%D0%B5%D0%BD%D0%B8%D0%B5_%D1%80%D0%B0%D0%B7%D0%BC%D0%B5%D1%80%D0%B0_%D0%B4%D0%B8%D1%81%D0%BA%D0%B0_%D0%B2%D0%BC_%D0%BD%D0%B0_lvm&amp;rev=1503050013&amp;do=diff</link>
+        <description>Увеличение размера диска ВМ на LVM
+
+В качестве диска для ВМ используется LVM раздел. В свою очередь операционная система ВМ также установлена на LVM раздел. Т.е. получается LVM на LVM.
+Задача: увеличить размер диска для ВМ.</description>
+    </item>
+    <item rdf:about="https://zipofar.ru/doku.php?id=1%D1%81_ubuntu&amp;rev=1502013134&amp;do=diff">
+        <dc:format>text/html</dc:format>
+        <dc:date>2017-08-06T12:52:14+03:00</dc:date>
+        <title>1с_ubuntu</title>
+        <link>https://zipofar.ru/doku.php?id=1%D1%81_ubuntu&amp;rev=1502013134&amp;do=diff</link>
+        <description>1С + Ubuntu
+
+Для установки 1с сервера на ubuntu, нужно как миниму 2 файла
+
+
+1c-enterprise83-common_8.3.10-2375_amd64.deb
+1c-enterprise83-server_8.3.10-2375_amd64.deb
+
+# Третий файл нужен для возможности публикации 1с как веб сервис
+# т.е. для доступа через Apache
+
+1c-enterprise83-ws_8.3.10-2375_amd64.deb</description>
+    </item>
+    <item rdf:about="https://zipofar.ru/doku.php?id=1c_-_%D0%BF%D0%BE%D0%B4%D0%BA%D0%BB%D1%8E%D1%87%D0%B5%D0%BD%D0%B8%D0%B5_%D0%BA_%D1%81%D0%B5%D1%80%D0%B2%D0%B5%D1%80%D1%83_1%D1%81_%D1%83%D1%81%D1%82%D0%B0%D0%BD%D0%BE%D0%B2%D0%BB%D0%B5%D0%BD%D0%BD%D0%BE%D0%BC%D1%83_%D0%BD%D0%B0_ubuntu&amp;rev=1501839822&amp;do=diff">
+        <dc:format>text/html</dc:format>
+        <dc:date>2017-08-04T12:43:42+03:00</dc:date>
+        <title>1c_-_подключение_к_серверу_1с_установленному_на_ubuntu</title>
+        <link>https://zipofar.ru/doku.php?id=1c_-_%D0%BF%D0%BE%D0%B4%D0%BA%D0%BB%D1%8E%D1%87%D0%B5%D0%BD%D0%B8%D0%B5_%D0%BA_%D1%81%D0%B5%D1%80%D0%B2%D0%B5%D1%80%D1%83_1%D1%81_%D1%83%D1%81%D1%82%D0%B0%D0%BD%D0%BE%D0%B2%D0%BB%D0%B5%D0%BD%D0%BD%D0%BE%D0%BC%D1%83_%D0%BD%D0%B0_ubuntu&amp;rev=1501839822&amp;do=diff</link>
+        <description>1C - подключение к серверу 1С установленному на Ubuntu
+
+При подключении к серверу 1С через ММС (Администрирование серверов 1С Предприятие) появлялись различне ошибки, связанные с подключением.</description>
+    </item>
+    <item rdf:about="https://zipofar.ru/doku.php?id=apache&amp;rev=1505396481&amp;do=diff">
+        <dc:format>text/html</dc:format>
+        <dc:date>2017-09-14T16:41:21+03:00</dc:date>
+        <title>apache</title>
+        <link>https://zipofar.ru/doku.php?id=apache&amp;rev=1505396481&amp;do=diff</link>
+        <description>Apache
+
+	*  Обязательно настроить DirectoryIndex</description>
+    </item>
+    <item rdf:about="https://zipofar.ru/doku.php?id=application&amp;rev=1510513612&amp;do=diff">
+        <dc:format>text/html</dc:format>
+        <dc:date>2017-11-12T22:06:52+03:00</dc:date>
+        <title>application</title>
+        <link>https://zipofar.ru/doku.php?id=application&amp;rev=1510513612&amp;do=diff</link>
+        <description>@import url(../../../stylesheets/application.css);
+
+.status-1 &gt; .status { background-color: green }
+.priority-3 &gt; .priority { background-color:red  }
+.splitcontent &gt; div { float: none; width: 100% }</description>
+    </item>
+    <item rdf:about="https://zipofar.ru/doku.php?id=auto_reg_hosts&amp;rev=1507628104&amp;do=diff">
+        <dc:format>text/html</dc:format>
+        <dc:date>2017-10-10T12:35:04+03:00</dc:date>
+        <title>auto_reg_hosts</title>
+        <link>https://zipofar.ru/doku.php?id=auto_reg_hosts&amp;rev=1507628104&amp;do=diff</link>
+        <description>Авторегистрация хостов
+
+/etc/zabbix/zabbix_agentd.conf
+
+
+Server=8.8.8.8 # IP сервера, который будет запрашивать данные агента
+ServerActive=8.8.8.8 # IP сервера, на который агент будет слать запросы</description>
+    </item>
+    <item rdf:about="https://zipofar.ru/doku.php?id=balancing_traffic_failover&amp;rev=1513665114&amp;do=diff">
+        <dc:format>text/html</dc:format>
+        <dc:date>2017-12-19T09:31:54+03:00</dc:date>
+        <title>balancing_traffic_failover</title>
+        <link>https://zipofar.ru/doku.php?id=balancing_traffic_failover&amp;rev=1513665114&amp;do=diff</link>
+        <description>Балансировка траффика и HA
+
+	*  LVS начало + Direct Routing</description>
+    </item>
+    <item rdf:about="https://zipofar.ru/doku.php?id=bind9_root_zone_tld&amp;rev=1507127121&amp;do=diff">
+        <dc:format>text/html</dc:format>
+        <dc:date>2017-10-04T17:25:21+03:00</dc:date>
+        <title>bind9_root_zone_tld</title>
+        <link>https://zipofar.ru/doku.php?id=bind9_root_zone_tld&amp;rev=1507127121&amp;do=diff</link>
+        <description>Своя корневая зона + TLD или как работает DNS в интернете
+
+Создаем сервер, отвечающий за корневую зону
+
+resolv.conf должен быть таким
+
+
+nameserver 127.0.0.1</description>
+    </item>
+    <item rdf:about="https://zipofar.ru/doku.php?id=bind9_slave&amp;rev=1507195679&amp;do=diff">
+        <dc:format>text/html</dc:format>
+        <dc:date>2017-10-05T12:27:59+03:00</dc:date>
+        <title>bind9_slave</title>
+        <link>https://zipofar.ru/doku.php?id=bind9_slave&amp;rev=1507195679&amp;do=diff</link>
+        <description>Настраиваем BIND9 DNS Slave сервер
+
+Сервер верхнего уровня, который содержит в себе NS записи для наших двух DNS серверов
+
+Да, в моем случае сервер верхнего уровня, это корневой сервер, который отдает ip адреса для серверов, обслуживающих зону RU.</description>
+    </item>
+    <item rdf:about="https://zipofar.ru/doku.php?id=config_php&amp;rev=1510059695&amp;do=diff">
+        <dc:format>text/html</dc:format>
+        <dc:date>2017-11-07T16:01:35+03:00</dc:date>
+        <title>config_php</title>
+        <link>https://zipofar.ru/doku.php?id=config_php&amp;rev=1510059695&amp;do=diff</link>
+        <description>Config for PHP
+
+
+server {
+        listen 80;
+        root /var/www/wp1.loc;
+        index index.php index.html;
+        server_name wp1.loc;
+
+        location / {
+                try_files $uri $uri/ /index.php$args;
+        }
+
+        location ~ \.php$ {
+                include snippets/fastcgi-php.conf;
+                fastcgi_pass 10.0.3.238:9000;
+        }
+
+}</description>
+    </item>
+    <item rdf:about="https://zipofar.ru/doku.php?id=cron_%D1%81%D0%BF%D0%B0%D0%BC%D0%B8%D1%82_auth.log&amp;rev=1496391445&amp;do=diff">
+        <dc:format>text/html</dc:format>
+        <dc:date>2017-06-02T11:17:25+03:00</dc:date>
+        <title>cron_спамит_auth.log</title>
+        <link>https://zipofar.ru/doku.php?id=cron_%D1%81%D0%BF%D0%B0%D0%BC%D0%B8%D1%82_auth.log&amp;rev=1496391445&amp;do=diff</link>
+        <description>Сron спамит auth.log (pam_unix(cron:session): session opened for user root by (uid=0))
+
+Вот такие записи бывают в /etc/var/auth.log
+
+
+Jun  2 10:39:01 mail-serv CRON[28225]: pam_unix(cron:session): session opened for user root by (uid=0)
+Jun  2 10:39:02 mail-serv CRON[28225]: pam_unix(cron:session): session closed for user root</description>
+    </item>
+    <item rdf:about="https://zipofar.ru/doku.php?id=databases&amp;rev=1511161103&amp;do=diff">
+        <dc:format>text/html</dc:format>
+        <dc:date>2017-11-20T09:58:23+03:00</dc:date>
+        <title>databases</title>
+        <link>https://zipofar.ru/doku.php?id=databases&amp;rev=1511161103&amp;do=diff</link>
+        <description>Базы данных
+
+	*  Master-Slave репликация MySQL (MariaDB)
+	*  Настройка Master-Slave репликации по шагам и переключение Slave to Master и обратно
+	*  Innodb Performance Optimization
+	*  Master-Slave Postgres</description>
+    </item>
+    <item rdf:about="https://zipofar.ru/doku.php?id=dns&amp;rev=1507128456&amp;do=diff">
+        <dc:format>text/html</dc:format>
+        <dc:date>2017-10-04T17:47:36+03:00</dc:date>
+        <title>dns</title>
+        <link>https://zipofar.ru/doku.php?id=dns&amp;rev=1507128456&amp;do=diff</link>
+        <description>DNS
+
+	*  BIND9 + ROOT zone + TLD
+	*  BIND9 Slave</description>
+    </item>
+    <item rdf:about="https://zipofar.ru/doku.php?id=hyper-v_ubuntu&amp;rev=1502867594&amp;do=diff">
+        <dc:format>text/html</dc:format>
+        <dc:date>2017-08-16T10:13:14+03:00</dc:date>
+        <title>hyper-v_ubuntu</title>
+        <link>https://zipofar.ru/doku.php?id=hyper-v_ubuntu&amp;rev=1502867594&amp;do=diff</link>
+        <description>Hyper-V + Ubuntu
+
+Official Doc by Microsoft
+
+Для установки служб интеграции Hyper-v в Ubuntu 16
+
+
+apt-get update
+apt-get install linux-image-virtual
+apt-get install linux-tools-virtual linux-cloud-tools-virtual</description>
+    </item>
+    <item rdf:about="https://zipofar.ru/doku.php?id=innodb_performance_optimization&amp;rev=1509369092&amp;do=diff">
+        <dc:format>text/html</dc:format>
+        <dc:date>2017-10-30T16:11:32+03:00</dc:date>
+        <title>innodb_performance_optimization</title>
+        <link>https://zipofar.ru/doku.php?id=innodb_performance_optimization&amp;rev=1509369092&amp;do=diff</link>
+        <description>Innodb Performance Optimization Basics
+
+	*  Innodb Performance Optimization Basics
+	*  Оптимальная настройка Mysql
+	*  InnoDB Infrastructure Cleanup</description>
+    </item>
+    <item rdf:about="https://zipofar.ru/doku.php?id=install_kvm_on_ubuntu_16&amp;rev=1502973701&amp;do=diff">
+        <dc:format>text/html</dc:format>
+        <dc:date>2017-08-17T15:41:41+03:00</dc:date>
+        <title>install_kvm_on_ubuntu_16</title>
+        <link>https://zipofar.ru/doku.php?id=install_kvm_on_ubuntu_16&amp;rev=1502973701&amp;do=diff</link>
+        <description>Install KVM on Ubuntu 16
+
+
+$ grep -E '(vmx|svm)' /proc/cpuinfo
+$ apt-get update
+$ apt-get install qemu-kvm libvirt-bin virtinst bridge-utils cpu-checker
+
+$ kvm-ok
+INFO: /dev/kvm exists
+KVM acceleration can be used
+
+
+	*  /var/lib/libvirt/boot/ — ISO-образы для установки гостевых систем;</description>
+    </item>
+    <item rdf:about="https://zipofar.ru/doku.php?id=install_openvpn_on_ubuntu_16.04&amp;rev=1504247809&amp;do=diff">
+        <dc:format>text/html</dc:format>
+        <dc:date>2017-09-01T09:36:49+03:00</dc:date>
+        <title>install_openvpn_on_ubuntu_16.04</title>
+        <link>https://zipofar.ru/doku.php?id=install_openvpn_on_ubuntu_16.04&amp;rev=1504247809&amp;do=diff</link>
+        <description>Install on Ubuntu 16.04
+
+
+apt install openvpn easy-rsa
+
+gunzip -c /usr/share/doc/openvpn/examples/sample-config-files/server.conf.gz | sudo tee /etc/openvpn/server.conf
+
+make-cadir ~/openvpn-ca
+
+
+
+vim ~/openvpn-ca/vars
+
+
+	*  export KEY_COUNTRY=“US”</description>
+    </item>
+    <item rdf:about="https://zipofar.ru/doku.php?id=ip_utility&amp;rev=1504169735&amp;do=diff">
+        <dc:format>text/html</dc:format>
+        <dc:date>2017-08-31T11:55:35+03:00</dc:date>
+        <title>ip_utility</title>
+        <link>https://zipofar.ru/doku.php?id=ip_utility&amp;rev=1504169735&amp;do=diff</link>
+        <description>IP Utility
+
+Установить адрес для интерфейса
+
+
+ip address add 10.0.0.1/24 dev eth1
+
+
+Поднять интерфейс
+
+
+ip link set eth1 up
+
+
+Добавить gateway
+
+
+ip route add default via 192.168.1.254
+
+
+Добавить маршрут</description>
+    </item>
+    <item rdf:about="https://zipofar.ru/doku.php?id=iptables&amp;rev=1508758817&amp;do=diff">
+        <dc:format>text/html</dc:format>
+        <dc:date>2017-10-23T14:40:17+03:00</dc:date>
+        <title>iptables</title>
+        <link>https://zipofar.ru/doku.php?id=iptables&amp;rev=1508758817&amp;do=diff</link>
+        <description>IPTables
+
+	*  NAT
+	*  Show IPTables Rules</description>
+    </item>
+    <item rdf:about="https://zipofar.ru/doku.php?id=kvm&amp;rev=1503401139&amp;do=diff">
+        <dc:format>text/html</dc:format>
+        <dc:date>2017-08-22T14:25:39+03:00</dc:date>
+        <title>kvm</title>
+        <link>https://zipofar.ru/doku.php?id=kvm&amp;rev=1503401139&amp;do=diff</link>
+        <description>KVM
+
+	*  Install KVM on Ubuntu 16
+	*  Mange VM in KVM
+	*  Увеличение размера диска ВМ на LVM
+	*  Сеть в KVM</description>
+    </item>
+    <item rdf:about="https://zipofar.ru/doku.php?id=lvm&amp;rev=1504859013&amp;do=diff">
+        <dc:format>text/html</dc:format>
+        <dc:date>2017-09-08T11:23:33+03:00</dc:date>
+        <title>lvm</title>
+        <link>https://zipofar.ru/doku.php?id=lvm&amp;rev=1504859013&amp;do=diff</link>
+        <description>LVM
+
+Thin Provision LVM
+
+LVM (wiki.archlinux)
+
+LVM (Habr)
+
+LVM (xgu.ru)
+
+LVM SnapShot Explained</description>
+    </item>
+    <item rdf:about="https://zipofar.ru/doku.php?id=lvs_begin_direct_routing&amp;rev=1513670055&amp;do=diff">
+        <dc:format>text/html</dc:format>
+        <dc:date>2017-12-19T10:54:15+03:00</dc:date>
+        <title>lvs_begin_direct_routing</title>
+        <link>https://zipofar.ru/doku.php?id=lvs_begin_direct_routing&amp;rev=1513670055&amp;do=diff</link>
+        <description>LVS начало + Direct Routing
+
+Что такое LVS (Linux Virtual Server) – это встроенный компонент в ядре Linux, который обеспечивает перенаправление IP пакетов на группу серверов, обрабатывающих эти пакеты.</description>
+    </item>
+    <item rdf:about="https://zipofar.ru/doku.php?id=lxd&amp;rev=1510667214&amp;do=diff">
+        <dc:format>text/html</dc:format>
+        <dc:date>2017-11-14T16:46:54+03:00</dc:date>
+        <title>lxd</title>
+        <link>https://zipofar.ru/doku.php?id=lxd&amp;rev=1510667214&amp;do=diff</link>
+        <description>LXD
+
+	*  Читаем здесь
+	*  Не запускается LXD</description>
+    </item>
+    <item rdf:about="https://zipofar.ru/doku.php?id=lxd_not_start_refused_socket_is_busy&amp;rev=1510667680&amp;do=diff">
+        <dc:format>text/html</dc:format>
+        <dc:date>2017-11-14T16:54:40+03:00</dc:date>
+        <title>lxd_not_start_refused_socket_is_busy</title>
+        <link>https://zipofar.ru/doku.php?id=lxd_not_start_refused_socket_is_busy&amp;rev=1510667680&amp;do=diff</link>
+        <description>Не запускается LXD
+
+Возникла такая проблема. Не запускается LXD и вот такие ошибки при попытке перезапуска lxd.
+
+
+# Ошибка
+error: Unable to talk to LXD: Get http://unix.socket/1.0: dial unix /var/lib/lxd/unix.socket: connect: connection refused
+
+# Ошибка
+Connection refused is LXD running?</description>
+    </item>
+    <item rdf:about="https://zipofar.ru/doku.php?id=mange_vm_in_kvm&amp;rev=1503498490&amp;do=diff">
+        <dc:format>text/html</dc:format>
+        <dc:date>2017-08-23T17:28:10+03:00</dc:date>
+        <title>mange_vm_in_kvm</title>
+        <link>https://zipofar.ru/doku.php?id=mange_vm_in_kvm&amp;rev=1503498490&amp;do=diff</link>
+        <description>Mange VM in KVM
+
+Clone VM
+
+
+virt-clone -o name-vm1 --name name-vm2-clone --file /dev/ubuntu-vg/vm3
+
+
+Delete VM
+
+
+virsh destroy name-vm
+virsh undefine name-vm
+
+
+Add VM
+
+
+virsh define /etc/libvirt/qemu/name-vm.xml
+
+
+Show All VM
+
+
+virsh list --all
+
+
+Add disk to VM</description>
+    </item>
+    <item rdf:about="https://zipofar.ru/doku.php?id=master-slave_replication_mysql_mariadb&amp;rev=1509094858&amp;do=diff">
+        <dc:format>text/html</dc:format>
+        <dc:date>2017-10-27T12:00:58+03:00</dc:date>
+        <title>master-slave_replication_mysql_mariadb</title>
+        <link>https://zipofar.ru/doku.php?id=master-slave_replication_mysql_mariadb&amp;rev=1509094858&amp;do=diff</link>
+        <description>Master-Slave репликация MySQL (MariaDB)
+
+В общих чертах про репликацию mysql читай здесь
+
+Про мультимастер решение и вообще полезно  ЧИТАТЬ
+
+Пошаговая настройка Slave (MariaDB)
+
+Буду использовать MariaDB 10.0.29</description>
+    </item>
+    <item rdf:about="https://zipofar.ru/doku.php?id=master-slave_step_by_step&amp;rev=1509105590&amp;do=diff">
+        <dc:format>text/html</dc:format>
+        <dc:date>2017-10-27T14:59:50+03:00</dc:date>
+        <title>master-slave_step_by_step</title>
+        <link>https://zipofar.ru/doku.php?id=master-slave_step_by_step&amp;rev=1509105590&amp;do=diff</link>
+        <description>Настройка Master-Slave репликации по шагам и переключение Slave to Master и обратно
+
+Конфиг мастера
+
+
+[mysqld]
+bind-address = 10.0.0.1
+
+[mariadb]
+log-bin
+server_id=1
+log-basename=srv1
+binlog_format=ROW
+binlog-do-db=db1
+binlog-ignore-db=mysql
+binlog-ignore-db=information_schema
+binlog-ignore-db=performance_schema</description>
+    </item>
+    <item rdf:about="https://zipofar.ru/doku.php?id=multy_root&amp;rev=1509634066&amp;do=diff">
+        <dc:format>text/html</dc:format>
+        <dc:date>2017-11-02T17:47:46+03:00</dc:date>
+        <title>multy_root</title>
+        <link>https://zipofar.ru/doku.php?id=multy_root&amp;rev=1509634066&amp;do=diff</link>
+        <description>Root директива (multy root)
+
+Задаёт корневой каталог для запросов. 
+
+Корень сайта лучше задавать в директиве server.
+
+
+server {
+    listen 80;
+    server_name test1.loc;
+    index index.html;
+    
+    root /var/www/test1.loc;
+}</description>
+    </item>
+    <item rdf:about="https://zipofar.ru/doku.php?id=nat&amp;rev=1512736938&amp;do=diff">
+        <dc:format>text/html</dc:format>
+        <dc:date>2017-12-08T15:42:18+03:00</dc:date>
+        <title>nat</title>
+        <link>https://zipofar.ru/doku.php?id=nat&amp;rev=1512736938&amp;do=diff</link>
+        <description>NAT
+
+
+
+iptables -t nat -A POSTROUTING -o ppp0 -j MASQUERADE
+
+iptables -t nat -A PREROUTING -p tcp --dport 8001 -j DNAT --to-destination 192.168.1.200:8080
+
+## Change source addresses to 1.2.3.4.
+# iptables -t nat -A POSTROUTING -o eth0 -j SNAT --to 1.2.3.4
+
+## Change source addresses to 1.2.3.4, 1.2.3.5 or 1.2.3.6
+# iptables -t nat -A POSTROUTING -o eth0 -j SNAT --to 1.2.3.4-1.2.3.6
+
+## Change source addresses to 1.2.3.4, ports 1-1023
+# iptables -t nat -A POSTROUTING -p tcp -o eth0 -j SNAT --to …</description>
+    </item>
+    <item rdf:about="https://zipofar.ru/doku.php?id=nginx&amp;rev=1510059359&amp;do=diff">
+        <dc:format>text/html</dc:format>
+        <dc:date>2017-11-07T15:55:59+03:00</dc:date>
+        <title>nginx</title>
+        <link>https://zipofar.ru/doku.php?id=nginx&amp;rev=1510059359&amp;do=diff</link>
+        <description>NGINX
+
+	*  Root директива (multy root)
+	*  Try_files директива
+	*  Config for PHP</description>
+    </item>
+    <item rdf:about="https://zipofar.ru/doku.php?id=openvpn&amp;rev=1504247859&amp;do=diff">
+        <dc:format>text/html</dc:format>
+        <dc:date>2017-09-01T09:37:39+03:00</dc:date>
+        <title>openvpn</title>
+        <link>https://zipofar.ru/doku.php?id=openvpn&amp;rev=1504247859&amp;do=diff</link>
+        <description>OpenVPN + Ubuntu 16.04
+
+	*  Install OpenVPN on Ubuntu 16.04
+	*  Windows 2008 R2 OpenVPN server</description>
+    </item>
+    <item rdf:about="https://zipofar.ru/doku.php?id=postfix_%D0%BE%D0%B3%D1%80%D0%B0%D0%BD%D0%B8%D1%87%D0%B8%D1%82%D1%8C_%D1%87%D0%B8%D1%81%D0%BB%D0%BE_%D0%B8%D1%81%D1%85%D0%BE%D0%B4%D1%8F%D1%89%D0%B8%D1%85_%D1%81%D0%BE%D0%B5%D0%B4%D0%B8%D0%BD%D0%B5%D0%BD%D0%B8%D0%B9&amp;rev=1500022281&amp;do=diff">
+        <dc:format>text/html</dc:format>
+        <dc:date>2017-07-14T11:51:21+03:00</dc:date>
+        <title>postfix_ограничить_число_исходящих_соединений</title>
+        <link>https://zipofar.ru/doku.php?id=postfix_%D0%BE%D0%B3%D1%80%D0%B0%D0%BD%D0%B8%D1%87%D0%B8%D1%82%D1%8C_%D1%87%D0%B8%D1%81%D0%BB%D0%BE_%D0%B8%D1%81%D1%85%D0%BE%D0%B4%D1%8F%D1%89%D0%B8%D1%85_%D1%81%D0%BE%D0%B5%D0%B4%D0%B8%D0%BD%D0%B5%D0%BD%D0%B8%D0%B9&amp;rev=1500022281&amp;do=diff</link>
+        <description>Postfix ограничить число исходящих соединений
+
+При использовании Postfix в качестве relay, все исходящие письма отправляются через почтовик провайдера, который в свою очередь ограничивает число паралельных входящих соединений.</description>
+    </item>
+    <item rdf:about="https://zipofar.ru/doku.php?id=postfix_dovecot_mysql&amp;rev=1496245807&amp;do=diff">
+        <dc:format>text/html</dc:format>
+        <dc:date>2017-05-31T18:50:07+03:00</dc:date>
+        <title>postfix_dovecot_mysql</title>
+        <link>https://zipofar.ru/doku.php?id=postfix_dovecot_mysql&amp;rev=1496245807&amp;do=diff</link>
+        <description>Настройка Postfix virtual mailbox + MySQL + Dovecot
+
+
+
+virtual_alias_domains - домены для которых сервер является местом конечного назначения. Используется данный параметр именно, что в качестве алиаса для домена у которого существуют почтовые ящики. Т.е. письма приходят на адрес admin@book.com и перенаправляются на адрес admin@magazin.com у которого существуют ящики.…</description>
+    </item>
+    <item rdf:about="https://zipofar.ru/doku.php?id=postfix_dovecot_virtual_users_and_passwd&amp;rev=1500474370&amp;do=diff">
+        <dc:format>text/html</dc:format>
+        <dc:date>2017-07-19T17:26:10+03:00</dc:date>
+        <title>postfix_dovecot_virtual_users_and_passwd</title>
+        <link>https://zipofar.ru/doku.php?id=postfix_dovecot_virtual_users_and_passwd&amp;rev=1500474370&amp;do=diff</link>
+        <description>Postfix с использованием виртуальных пользователей и Dovecot в качестве LDA и текстовой базой данных.
+
+Сначала настроим postfix.
+
+Здесь представлен только фрагмент  конфига.</description>
+    </item>
+    <item rdf:about="https://zipofar.ru/doku.php?id=postgres_master_slave&amp;rev=1511193737&amp;do=diff">
+        <dc:format>text/html</dc:format>
+        <dc:date>2017-11-20T19:02:17+03:00</dc:date>
+        <title>postgres_master_slave</title>
+        <link>https://zipofar.ru/doku.php?id=postgres_master_slave&amp;rev=1511193737&amp;do=diff</link>
+        <description>Master-Slave Postgres потоковая репликация
+
+И на мастере и на слейве нужно делать одинаковые настройки. Т.к. мастер-слейв репликация для того и нужна, чтобы в какой-то момент при падении мастера, таковым сделать слейв.</description>
+    </item>
+    <item rdf:about="https://zipofar.ru/doku.php?id=redmine&amp;rev=1510513597&amp;do=diff">
+        <dc:format>text/html</dc:format>
+        <dc:date>2017-11-12T22:06:37+03:00</dc:date>
+        <title>redmine</title>
+        <link>https://zipofar.ru/doku.php?id=redmine&amp;rev=1510513597&amp;do=diff</link>
+        <description>*  Application.css</description>
+    </item>
+    <item rdf:about="https://zipofar.ru/doku.php?id=reverse_proxy_for_owa&amp;rev=1493380568&amp;do=diff">
+        <dc:format>text/html</dc:format>
+        <dc:date>2017-04-28T14:56:08+03:00</dc:date>
+        <title>reverse_proxy_for_owa</title>
+        <link>https://zipofar.ru/doku.php?id=reverse_proxy_for_owa&amp;rev=1493380568&amp;do=diff</link>
+        <description>Reverse proxy для доступа к Outlook Web App (OWA) из интернета
+
+Жил был почтовый сервер Exchange 2013 во внутренней сети, и все бы ничего, но захотелось получить доступ к почте из сети интернет. Т.к. тупо пробрасывать порт на серевер как-то не по фэншую, а выносить его в DMZ тем более не хотелось, было решено использовать обратный прокси.…</description>
+    </item>
+    <item rdf:about="https://zipofar.ru/doku.php?id=samba&amp;rev=1506091590&amp;do=diff">
+        <dc:format>text/html</dc:format>
+        <dc:date>2017-09-22T17:46:30+03:00</dc:date>
+        <title>samba</title>
+        <link>https://zipofar.ru/doku.php?id=samba&amp;rev=1506091590&amp;do=diff</link>
+        <description>Samba
+
+	*  Samba доступ к папке по паролю
+	*  Ubuntu 16 + Samba в домене AD</description>
+    </item>
+    <item rdf:about="https://zipofar.ru/doku.php?id=samba_%D0%B4%D0%BE%D1%81%D1%82%D1%83%D0%BF_%D0%BA_%D0%BF%D0%B0%D0%BF%D0%BA%D0%B5_%D0%BF%D0%BE_%D0%BF%D0%B0%D1%80%D0%BE%D0%BB%D1%8E&amp;rev=1506091507&amp;do=diff">
+        <dc:format>text/html</dc:format>
+        <dc:date>2017-09-22T17:45:07+03:00</dc:date>
+        <title>samba_доступ_к_папке_по_паролю</title>
+        <link>https://zipofar.ru/doku.php?id=samba_%D0%B4%D0%BE%D1%81%D1%82%D1%83%D0%BF_%D0%BA_%D0%BF%D0%B0%D0%BF%D0%BA%D0%B5_%D0%BF%D0%BE_%D0%BF%D0%B0%D1%80%D0%BE%D0%BB%D1%8E&amp;rev=1506091507&amp;do=diff</link>
+        <description>Samba доступ к папке по паролю
+
+У Samba есть свой собственный репозиторий с пользователями и паролями. Это может быть файл passdb.tdb.
+
+Чтобы сделать доступ к папке по паролю, нужно создать системного пользователя, а затем добавить его в Samba.</description>
+    </item>
+    <item rdf:about="https://zipofar.ru/doku.php?id=setting_locale_failed&amp;rev=1507900459&amp;do=diff">
+        <dc:format>text/html</dc:format>
+        <dc:date>2017-10-13T16:14:19+03:00</dc:date>
+        <title>setting_locale_failed</title>
+        <link>https://zipofar.ru/doku.php?id=setting_locale_failed&amp;rev=1507900459&amp;do=diff</link>
+        <description>Setting locale failed. Please check that your locale settings
+
+Ошибка выглядит так
+
+
+perl: warning: Setting locale failed.
+perl: warning: Please check that your locale settings:
+	LANGUAGE = (unset),
+	LC_ALL = (unset),
+	LC_CTYPE = &quot;UTF-8&quot;,
+	LANG = &quot;en_US.UTF-8&quot;
+    are supported and installed on your system.
+perl: warning: Falling back to the standard locale (&quot;C&quot;).
+locale: Cannot set LC_CTYPE to default locale: No such file or directory
+locale: Cannot set LC_ALL to default locale: No such file or…</description>
+    </item>
+    <item rdf:about="https://zipofar.ru/doku.php?id=show_iptables_rules&amp;rev=1508758854&amp;do=diff">
+        <dc:format>text/html</dc:format>
+        <dc:date>2017-10-23T14:40:54+03:00</dc:date>
+        <title>show_iptables_rules</title>
+        <link>https://zipofar.ru/doku.php?id=show_iptables_rules&amp;rev=1508758854&amp;do=diff</link>
+        <description>Show IPTables Rules
+
+
+iptables -L -n -v --line-numbers</description>
+    </item>
+    <item rdf:about="https://zipofar.ru/doku.php?id=ssh&amp;rev=1508313203&amp;do=diff">
+        <dc:format>text/html</dc:format>
+        <dc:date>2017-10-18T10:53:23+03:00</dc:date>
+        <title>ssh</title>
+        <link>https://zipofar.ru/doku.php?id=ssh&amp;rev=1508313203&amp;do=diff</link>
+        <description>SSH
+
+Магия SSH
+Памятка SSH</description>
+    </item>
+    <item rdf:about="https://zipofar.ru/doku.php?id=start&amp;rev=1513664792&amp;do=diff">
+        <dc:format>text/html</dc:format>
+        <dc:date>2017-12-19T09:26:32+03:00</dc:date>
+        <title>start</title>
+        <link>https://zipofar.ru/doku.php?id=start&amp;rev=1513664792&amp;do=diff</link>
+        <description>Почта (Exchange, Postfix, Dovecot)
+
+	*  Reverse proxy (обратный прокси) для доступа к Outlook Web App (OWA) из интернета
+	*  Настройка Ubuntu 16 + Postfix + Dovecot 2 IMAP POP3
+	*  Настройка SMTP аутэнтификации в Postfix с помощью Dovecot
+	*  Postfix + Dovecot + MySQL
+	*  Postfix ограничить число исходящих соединений
+	*  Telnet 993 port
+	*  Postfix + Dovecot virtual users and passwd
+
+Linux
+
+	*   cron спамит auth.log (pam_unix(cron:session): session opened for user root by (uid=0))
+	*   настройка…</description>
+    </item>
+    <item rdf:about="https://zipofar.ru/doku.php?id=systemd&amp;rev=1510667994&amp;do=diff">
+        <dc:format>text/html</dc:format>
+        <dc:date>2017-11-14T16:59:54+03:00</dc:date>
+        <title>systemd</title>
+        <link>https://zipofar.ru/doku.php?id=systemd&amp;rev=1510667994&amp;do=diff</link>
+        <description>How To Configure a Linux Service to Start Automatically After a Crash or Reboot – Part 1: Practical Examples</description>
+    </item>
+    <item rdf:about="https://zipofar.ru/doku.php?id=telnet_993_port&amp;rev=1500471018&amp;do=diff">
+        <dc:format>text/html</dc:format>
+        <dc:date>2017-07-19T16:30:18+03:00</dc:date>
+        <title>telnet_993_port</title>
+        <link>https://zipofar.ru/doku.php?id=telnet_993_port&amp;rev=1500471018&amp;do=diff</link>
+        <description>openssl s_client -connect imap.gmail.com:993 -crlf</description>
+    </item>
+    <item rdf:about="https://zipofar.ru/doku.php?id=thin_provision_lvm&amp;rev=1504861954&amp;do=diff">
+        <dc:format>text/html</dc:format>
+        <dc:date>2017-09-08T12:12:34+03:00</dc:date>
+        <title>thin_provision_lvm</title>
+        <link>https://zipofar.ru/doku.php?id=thin_provision_lvm&amp;rev=1504861954&amp;do=diff</link>
+        <description>Thin Provision LVM
+
+Создание Thin Provision logical volumes
+
+Создаем группу Volume Group
+
+
+vgcreate vg001 /dev/sdb
+
+
+Создаем пул
+
+
+lvcreate -l 100%FREE -T vg001/pool
+
+
+Создаем раздел Logical Volume
+
+
+lvcreate -V 1G -n vm1 vg001/pool
+
+# А можно создать раздел больше, чем физический раздел
+lvcreate -V 10G -n vm1 vg001/pool</description>
+    </item>
+    <item rdf:about="https://zipofar.ru/doku.php?id=try_files&amp;rev=1510046944&amp;do=diff">
+        <dc:format>text/html</dc:format>
+        <dc:date>2017-11-07T12:29:04+03:00</dc:date>
+        <title>try_files</title>
+        <link>https://zipofar.ru/doku.php?id=try_files&amp;rev=1510046944&amp;do=diff</link>
+        <description>Try_files директива
+
+Директива try_files проверяет существует ли файл или директория согласно uri. Если существует, то открывает ее. Если не существует, то пытается сделать редирект. Если и редирект не отработал, то возвращает код статуса.</description>
+    </item>
+    <item rdf:about="https://zipofar.ru/doku.php?id=ubuntu_16_samba_%D0%B2_%D0%B4%D0%BE%D0%BC%D0%B5%D0%BD%D0%B5_ad&amp;rev=1506347244&amp;do=diff">
+        <dc:format>text/html</dc:format>
+        <dc:date>2017-09-25T16:47:24+03:00</dc:date>
+        <title>ubuntu_16_samba_в_домене_ad</title>
+        <link>https://zipofar.ru/doku.php?id=ubuntu_16_samba_%D0%B2_%D0%B4%D0%BE%D0%BC%D0%B5%D0%BD%D0%B5_ad&amp;rev=1506347244&amp;do=diff</link>
+        <description>Ubuntu 16 + Samba в домене AD
+
+Установим время с помощью стандартной утилиты timedatectl
+
+
+timedatectl set-timezone Europe/Moscow
+
+# В качестве сервера времени будем использовать контроллер домена
+nano /etc/systemd/timesyncd.conf
+    [Time]
+        NTP=dc1.domain.com
+        
+# Проверим время
+timedatectl status</description>
+    </item>
+    <item rdf:about="https://zipofar.ru/doku.php?id=windows_2008_r2_openvpn_server&amp;rev=1504250920&amp;do=diff">
+        <dc:format>text/html</dc:format>
+        <dc:date>2017-09-01T10:28:40+03:00</dc:date>
+        <title>windows_2008_r2_openvpn_server</title>
+        <link>https://zipofar.ru/doku.php?id=windows_2008_r2_openvpn_server&amp;rev=1504250920&amp;do=diff</link>
+        <description>Windows 2008 R2 OpenVPN server
+
+Нюансы при создании openvpn сервера на windows 2008
+
+1. Определение путей в конфигурационном файле
+
+
+ca &quot;C:\\Program Files\\OpenVPN\\config\\ca.crt&quot;
+
+
+2. Файлы в каталоге ccd должны быть без расширения</description>
+    </item>
+    <item rdf:about="https://zipofar.ru/doku.php?id=zabbix&amp;rev=1508313478&amp;do=diff">
+        <dc:format>text/html</dc:format>
+        <dc:date>2017-10-18T10:57:58+03:00</dc:date>
+        <title>zabbix</title>
+        <link>https://zipofar.ru/doku.php?id=zabbix&amp;rev=1508313478&amp;do=diff</link>
+        <description>Zabbix
+
+	*  Авторегистрация хостов
+	*  Настройка Template MySQL
+	*  Настройка Template Ping
+	*  Настройка LLD Item prototypes
+	*  Настройка автозапуска zabbix
+	*  Настройка SNMP с применением mib</description>
+    </item>
+    <item rdf:about="https://zipofar.ru/doku.php?id=zabbix_autostart_setup&amp;rev=1508237123&amp;do=diff">
+        <dc:format>text/html</dc:format>
+        <dc:date>2017-10-17T13:45:23+03:00</dc:date>
+        <title>zabbix_autostart_setup</title>
+        <link>https://zipofar.ru/doku.php?id=zabbix_autostart_setup&amp;rev=1508237123&amp;do=diff</link>
+        <description>Настройка автозапуска zabbix на Ubuntu 16
+
+
+systemctl enable zabbix-server
+systemctl enable zabbix-agent</description>
+    </item>
+    <item rdf:about="https://zipofar.ru/doku.php?id=zabbix_lld_setup&amp;rev=1508234506&amp;do=diff">
+        <dc:format>text/html</dc:format>
+        <dc:date>2017-10-17T13:01:46+03:00</dc:date>
+        <title>zabbix_lld_setup</title>
+        <link>https://zipofar.ru/doku.php?id=zabbix_lld_setup&amp;rev=1508234506&amp;do=diff</link>
+        <description>Zabbix настройка LLD Item prototypes
+
+LLD – это в общем и целом штука для автоматического добавления item-ов для хоста на основе каких-либо параметров.</description>
+    </item>
+    <item rdf:about="https://zipofar.ru/doku.php?id=zabbix_snmp_mib_mikrotik&amp;rev=1508315456&amp;do=diff">
+        <dc:format>text/html</dc:format>
+        <dc:date>2017-10-18T11:30:56+03:00</dc:date>
+        <title>zabbix_snmp_mib_mikrotik</title>
+        <link>https://zipofar.ru/doku.php?id=zabbix_snmp_mib_mikrotik&amp;rev=1508315456&amp;do=diff</link>
+        <description>Настройка SNMP с применением MIB
+
+Если взять вот этот шаблон для мониторинга Mikrotik по SNMP, то в нем используются MIB вместо цифровых OID. Чтобы заработали MIB нужно установить</description>
+    </item>
+    <item rdf:about="https://zipofar.ru/doku.php?id=zabbix_template_mysql_setup&amp;rev=1507628823&amp;do=diff">
+        <dc:format>text/html</dc:format>
+        <dc:date>2017-10-10T12:47:03+03:00</dc:date>
+        <title>zabbix_template_mysql_setup</title>
+        <link>https://zipofar.ru/doku.php?id=zabbix_template_mysql_setup&amp;rev=1507628823&amp;do=diff</link>
+        <description>Настройка Template MySQL
+
+Добавляем пользователя MySQL. USAGE - значит без прав.
+
+
+GRANT USAGE ON *.* TO 'zabbix'@'localhost' IDENTIFIED BY 'superpassword';
+FLUSH PRIVILEGES;
+
+
+В /etc/zabbix/zabbix_agent.d должен быть файл userparameter_mysql.conf</description>
+    </item>
+    <item rdf:about="https://zipofar.ru/doku.php?id=zabbix_template_ping_setup&amp;rev=1507641032&amp;do=diff">
+        <dc:format>text/html</dc:format>
+        <dc:date>2017-10-10T16:10:32+03:00</dc:date>
+        <title>zabbix_template_ping_setup</title>
+        <link>https://zipofar.ru/doku.php?id=zabbix_template_ping_setup&amp;rev=1507641032&amp;do=diff</link>
+        <description>Настройка Template Ping
+
+При начальной настройке ping-а обычно возникает ошибка “failed address family for hostname not supported”.
+
+Проверяем /etc/zabbix/zabbix_server.conf и правим так, чтобы FPingLocation имел правильный путь.</description>
+    </item>
+    <item rdf:about="https://zipofar.ru/doku.php?id=zfs&amp;rev=1502867155&amp;do=diff">
+        <dc:format>text/html</dc:format>
+        <dc:date>2017-08-16T10:05:55+03:00</dc:date>
+        <title>zfs</title>
+        <link>https://zipofar.ru/doku.php?id=zfs&amp;rev=1502867155&amp;do=diff</link>
+        <description>ZFS
+
+ZFS на русском
+
+ZFS on English
+
+Oracle Solaris ZFS Administration Guide</description>
+    </item>
+</rdf:RDF>

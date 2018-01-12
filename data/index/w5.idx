@@ -281,3 +281,8 @@ whose
 begin
 round
 robin
+hostn
+rhost
+munin
+graph
+label

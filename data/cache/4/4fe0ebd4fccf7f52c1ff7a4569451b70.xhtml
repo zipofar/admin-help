@@ -1,0 +1,37 @@
+
+<h1 class="sectionedit1" id="setting_locale_failed_please_check_that_your_locale_settings">Setting locale failed. Please check that your locale settings</h1>
+<div class="level1">
+
+<p>
+Ошибка выглядит так
+</p>
+<pre class="code">perl: warning: Setting locale failed.
+perl: warning: Please check that your locale settings:
+	LANGUAGE = (unset),
+	LC_ALL = (unset),
+	LC_CTYPE = &quot;UTF-8&quot;,
+	LANG = &quot;en_US.UTF-8&quot;
+    are supported and installed on your system.
+perl: warning: Falling back to the standard locale (&quot;C&quot;).
+locale: Cannot set LC_CTYPE to default locale: No such file or directory
+locale: Cannot set LC_ALL to default locale: No such file or directory</pre>
+
+<p>
+Правим файл /etc/default/locale
+</p>
+<pre class="code">LANGUAGE=en_US.UTF-8
+LC_ALL=en_US.UTF-8
+LANG=en_US.UTF-8
+LC_TYPE=en_US.UTF-8</pre>
+
+<p>
+Обновляем локали
+</p>
+<pre class="code">locale-gen en_US.UTF-8
+dpkg-reconfigure locales</pre>
+
+<p>
+Перезагружаем
+</p>
+
+</div>

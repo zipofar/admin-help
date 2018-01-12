@@ -1,0 +1,136 @@
+
+<h1 class="sectionedit1" id="zabbix_настройка_lld_item_prototypes">Zabbix настройка LLD Item prototypes</h1>
+<div class="level1">
+
+<p>
+LLD – это в общем и целом штука для автоматического добавления item-ов для хоста на основе каких-либо параметров. 
+</p>
+
+<p>
+На пример у нас есть сервер баз данных, на котором находится какое-то количество разных БД. И допустим мы хотим снимать метрики для каждой БД в отдельности. Пускай это будет количество таблиц. Т.е. мы хотим для хоста сервера баз данных иметь по одному item-у для каждой БД, который будет показывать количество таблиц в конкретной БД.
+</p>
+
+<p>
+Суть в чем. Скрипт на сервере БД будет генерировать специальный json ответ для zabbix сервера, где значениями ключей будут являться названия баз данных.
+</p>
+
+<p>
+Далее эти значения будут передаваться через item prototypes в пользовательский скрипт, который опять таки находится на сервере БД и согласно этим данным будет получать количество таблиц для конкретной БД.
+Т.е. при добавлении баз данных, в zabbix –е будут автоматически добавляться item-ы. Аналогично и при удалении баз данных, item-ы будут автоматически удаляться.
+</p>
+
+<p>
+Считаем, что у нас уже создан хост в Zabbix и Zabbix-agent работает на сервере БД.
+</p>
+
+<p>
+1. Создадим шаблон (Template) в веб интерфейсе Zabbix. Template name = Tables LLD. Groups на ваше усмотрение. Сохраняем.
+<a href="/lib/exe/detail.php?id=zabbix_lld_setup&amp;media=zabbix_lld_1.jpg" class="media" title="zabbix_lld_1.jpg"><img src="/lib/exe/fetch.php?w=400&amp;tok=2d2389&amp;media=zabbix_lld_1.jpg" class="mediacenter" alt="" width="400" /></a>
+</p>
+
+<p>
+2. Открываем наш шаблон и идем в пункт Discovery rules. Создаем discovery rule. Name = Name db, Type = Zabbix agent, в поле «Key» указываем название UserParameter, пусть будет Key = pl.db.
+<a href="/lib/exe/detail.php?id=zabbix_lld_setup&amp;media=zabbix_lld_2.jpg" class="media" title="zabbix_lld_2.jpg"><img src="/lib/exe/fetch.php?w=400&amp;tok=5c6756&amp;media=zabbix_lld_2.jpg" class="mediacenter" alt="" width="400" /></a>
+</p>
+
+<p>
+3. Теперь нам нужен скрипт, который будет возвращать имена баз данных в json формате. Данный скрипт будет запускаться zabbix agent-ом.
+</p>
+
+<p>
+JSON выглядит примерно так:
+</p>
+<pre class="code">{“data”:[
+	{“{#DBNAME}”:”db1”},
+	{“{#DBNAME}”:”db2”},
+        {“{#DBNAME}”:”db3”}
+]}</pre>
+
+<p>
+Параметр “DBNAME” – это ключ, который используется для отображения названия БД. Данный параметр ОБЯЗАТЕЛЬНО делается заглавными буквами или цифрами. Запятой после последнего элемента не должно быть, иначе будет не валидный json. Также вывод скрипта должен быть в одну строку, без переносов, пробелов и табуляций.
+</p>
+
+<p>
+4. Далее создаем Item Prototypes. 
+Name = DB {#DBNAME}, Type = Zabbix agent, Key=pl.tables[{#DBANEM}].
+<a href="/lib/exe/detail.php?id=zabbix_lld_setup&amp;media=zabbix_lld_3.jpg" class="media" title="zabbix_lld_3.jpg"><img src="/lib/exe/fetch.php?w=400&amp;tok=420325&amp;media=zabbix_lld_3.jpg" class="mediacenter" alt="" width="400" /></a>
+Как видно, вот здесь мы и используем ключи. Вместо них в имя item-а подставиться название БД, а в поле «Key» - имя БД будет передаваться как аргумент для следующего скрипта.
+</p>
+
+<p>
+5. Настраиваем UserParameters в файле /etc/zabbix/zabbix_agentd.conf
+</p>
+<pre class="code">UserParameter=pl.db,/etc/zabbix/db.sh
+UserParameter=pl.tables[*],/etc/zabbix/tables.sh $1</pre>
+
+<p>
+Скрипт db.sh
+</p>
+<pre class="code">#!/bin/bash
+
+# GET DB Names to array
+i=0
+for p in `echo &quot;show databases;&quot; | mysql -uzabbix -pzabbix | awk &#039;NR&gt;1&#039;`
+do
+        arr[$i]=$p
+        i=$(($i + 1))
+done
+
+arr_size=${#arr[*]}
+last_index=$(($arr_size - 1))
+
+# Format to JSON
+echo -en &quot;{\&quot;data\&quot;:[&quot;
+
+i=0
+for p in ${arr[*]}
+do
+        echo -en &quot;{\&quot;{#DBNAME}\&quot;:\&quot;$p\&quot;}&quot;
+        if [ $i -lt $last_index ]
+        then
+                echo -en &quot;,&quot;
+        fi
+        i=$(($i + 1))
+done
+
+echo -en &quot;]}&quot;</pre>
+
+<p>
+Скрипт tables.sh
+</p>
+<pre class="code">#!/bin/bash
+
+echo &quot;select count(*) from information_schema.tables where table_schema = &#039;$1&#039;;&quot; | mysql -uzabbix -pzabbix | awk &#039;NR==2&#039;</pre>
+
+<p>
+6. Назначаем наш шаблон для хоста сервера баз данных.
+</p>
+
+<p>
+Теперь можно зайти в веб интерфейса zabbix и посмотреть работает наш json или нет. Для этого идем по пути Configuration→Hosts→наш хост→Discovery Rules. В поле Status не должно быть красного квадратика, если есть, то наводим на него мышкой и смотрим текст ошибки.
+<a href="/lib/exe/detail.php?id=zabbix_lld_setup&amp;media=zabbix_lld_4.jpg" class="media" title="zabbix_lld_4.jpg"><img src="/lib/exe/fetch.php?w=400&amp;tok=879489&amp;media=zabbix_lld_4.jpg" class="mediacenter" alt="" width="400" /></a>
+</p>
+
+<p>
+Вот так примерно выглядят item-ы 
+<a href="/lib/exe/detail.php?id=zabbix_lld_setup&amp;media=zabbix_lld_5.jpg" class="media" title="zabbix_lld_5.jpg"><img src="/lib/exe/fetch.php?w=400&amp;tok=a3dc52&amp;media=zabbix_lld_5.jpg" class="mediacenter" alt="" width="400" /></a>
+</p>
+
+<p>
+7. Для отладки можно использовать Log файл агента zabbix на стороне сервера баз данных.
+</p>
+
+<p>
+В /etc/zabbix/zabbix_agent.conf
+</p>
+<pre class="code">DebugLevel=5</pre>
+
+<p>
+Не забываем перезапустить агента (/etc/init.d/zabbix-agent restart)
+</p>
+
+<p>
+И можно смотреть логи /var/log/zabbix-agnet/zabbix_agent.log
+</p>
+
+</div>

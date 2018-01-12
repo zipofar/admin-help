@@ -1,0 +1,43 @@
+
+<h1 class="sectionedit1" id="с_ubuntu">1С + Ubuntu</h1>
+<div class="level1">
+
+<p>
+Для установки 1с сервера на ubuntu, нужно как миниму 2 файла
+</p>
+<pre class="code">1c-enterprise83-common_8.3.10-2375_amd64.deb
+1c-enterprise83-server_8.3.10-2375_amd64.deb
+
+# Третий файл нужен для возможности публикации 1с как веб сервис
+# т.е. для доступа через Apache
+
+1c-enterprise83-ws_8.3.10-2375_amd64.deb</pre>
+
+<p>
+Заливаем их на сервер и устанавливаем с помощью dpkg -i
+</p>
+
+</div>
+<!-- EDIT1 SECTION "1С + Ubuntu" [1-543] -->
+<h2 class="sectionedit2" id="публикация_как_веб_сервиса">Публикация как веб сервиса</h2>
+<div class="level2">
+
+<p>
+Версия 8.3.10-2375 уже работает с Apache 2.4
+</p>
+<pre class="code"># Apache 2.4
+/opt/1C/v8.3/x86_64/webinst -apache24 -wsdir test -dir /var/www/test -connstr &quot;Srvr=localhost;Ref=test;&quot; -confPath /etc/apache2/apache2.conf
+
+# Apache 2.2
+/opt/1C/v8.3/x86_64/webinst -apache22 -wsdir test -dir /var/www/test -connstr &quot;Srvr=localhost;Ref=test;&quot; -confPath /etc/apache2/apache2.conf
+
+# -apache22 | -apache24 -&gt; версия апача
+# -wsdir test -&gt; значит набирать в адресной строке надо http://servername.loc/test
+# -dir /var/www/test -&gt; значить default.vrd запишется в этот каталог
+# -connstr &quot;Srvr=localhost;Ref=test;&quot;:
+#    localhost -&gt; ip адрес вашего сервера (лучше адрес интерфейса с которого будет подключение)
+#    Ref=test -&gt; название БД в postgres
+  </pre>
+
+</div>
+<!-- EDIT2 SECTION "Публикация как веб сервиса" [544-] -->

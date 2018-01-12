@@ -1,0 +1,25 @@
+
+<h1 class="sectionedit1" id="postfix_ограничить_число_исходящих_соединений">Postfix ограничить число исходящих соединений</h1>
+<div class="level1">
+
+<p>
+При использовании Postfix в качестве relay, все исходящие письма отправляются через почтовик провайдера, который в свою очередь ограничивает число паралельных входящих соединений.
+</p>
+
+<p>
+Чтобы ограничить количество паралельных исходящих соединений, делаем следующее:
+</p>
+<pre class="code"># /etc/postfix/master.cf
+
+smtp      unix  -       -       n       -       1       smtp
+relay     unix  -       -       n       -       1       smtp</pre>
+
+<p>
+Также добавим строчек в main.cf
+</p>
+<pre class="code"># /etc/postfix/main.cf
+
+relay_destination_concurrency_limit = 1
+smtp_destination_concurrency_limit = 1</pre>
+
+</div>

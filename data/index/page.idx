@@ -69,3 +69,9 @@ systemd
 postgres_master_slave
 balancing_traffic_failover
 lvs_begin_direct_routing
+telegram_ssh_notification_success_login
+bash
+cat_eof_heredoc
+munin
+create_custom_munin_plugin
+setup_munin_nginx_ubuntu

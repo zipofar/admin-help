@@ -1,0 +1,56 @@
+
+<h1 class="sectionedit1" id="уведомления_в_telegram_при_успешном_входе_по_ssh_ubuntu_1604">Уведомления в Telegram при успешном входе по SSH (Ubuntu 16.04)</h1>
+<div class="level1">
+
+<p>
+Параноидальная часть меня хочет больше контроля над тем, что происходит с сервером. Поэтому я решил сделать, чтобы при удачной попытке входа на сервер по SSH мне в Telegram приходили уведомления.
+</p>
+
+<p>
+Для этого я воспользовался следующими штуками:
+</p>
+<ul>
+<li class="level1"><div class="li"> PAM для запуска bash скрипта, отправляющего уведомление при удачной попытке входа по ssh;</div>
+</li>
+<li class="level1"><div class="li"> Сторонним <a href="http://crierbot.appspot.com" class="urlextern" title="http://crierbot.appspot.com" rel="nofollow">Telegram ботом</a> (crierbot) для получения уведомлений;</div>
+</li>
+</ul>
+
+</div>
+<!-- EDIT1 SECTION "Уведомления в Telegram при успешном входе по SSH (Ubuntu 16.04)" [1-840] -->
+<h2 class="sectionedit2" id="настроим_pam">Настроим PAM</h2>
+<div class="level2">
+<pre class="code">#/etc/pam.d/sshd
+# Добавляем в конец строку
+
+session   optional      pam_exec.so /etc/pam.d/sshd_telegram_notify.sh</pre>
+
+<p>
+session — т.к. наша строка находится в конце, а правила в pam работают по цепочке. Это означает, что отправка уведомления сработает уже после того как пользователь успешно залогинился. Директива Session охватывает группу задач, выполняющихся до предоставления сервисов, доступных пользователю и после завершения.
+</p>
+
+<p>
+optional — директива, которая говорит о том, что результат выполнения нашего скрипта никак не повлияет на вход пользователя.
+</p>
+
+<p>
+pam_exec.so — модуль обеспечивающий запуск скрипта.
+</p>
+
+<p>
+/etc/pam.d/sshd_telegram_notify.sh — абсолютный путь до нашего скрипта. Не забываем сделать файл исполняемым chmod +x /etc/pam.d/sshd_telegram_notify.sh
+</p>
+
+</div>
+<!-- EDIT2 SECTION "Настроим PAM" [841-2115] -->
+<h2 class="sectionedit3" id="bash_скрипт">BASH скрипт</h2>
+<div class="level2">
+<pre class="code">#!/bin/bash
+
+HOSTN=`hostname`
+
+curl &quot;http://crierbot.appspot.com/vxCEgUbcYBd5lnR9oZzah64KmOr3jPVX/send?message=Host:$HOSTN%20Type:$PAM_TYPE%20&quot;`
+`&quot;Service:$PAM_SERVICE%20User:$PAM_USER%20RHost:$PAM_RHOST&quot;</pre>
+
+</div>
+<!-- EDIT3 SECTION "BASH скрипт" [2116-] -->

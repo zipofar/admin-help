@@ -10,7 +10,7 @@
 
 Ммм… почему нельзя обойтись без KEEPALIVED и просто использовать IPVSADM? Можно конечно, но воспринимайте KEEPALIVED как удобный инструмент для настройки балансера. Также с помощью него можно легко настроить еще и запасной (standby) балансировщик, с использованием технологии VRRP.
 
-Ну хорошо. Давай начнем с IPVSADM, а там посмотрим. Для начала нужно ознакомиться с возможностями LVS [[https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/5/html/virtual_server_administration/ch-lvs-overview-vsa| здесь]] или [[http://www.linuxvirtualserver.org/how.html|здесь]].
+Ну хорошо. Давай начнем с IPVSADM, а там посмотрим. Для начала нужно ознакомиться с возможностями LVS [[https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/5/html/virtual_server_administration/ch-lvs-overview-vsa| здесь]] или [[http://www.linuxvirtualserver.org/how.html|здесь]] или [[http://www.ultramonkey.org/papers/lvs_tutorial/html/|здесь]].
 
 Из прочитанного становится ясно, что есть Direct Routing и NAT, ну и IP Tunneling. Начнем с Direct Routing и забудем пока об отказоустойчивости балансировщика.
 

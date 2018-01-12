@@ -1,0 +1,55 @@
+
+<h1 class="sectionedit1" id="обязательно_настроить_directoryindex">Обязательно настроить DirectoryIndex</h1>
+<div class="level1">
+
+<p>
+Т.к. при использовании mod_rewrite будут перебираться все расширения по дефолту (cgi, html,pl…).
+</p>
+
+<p>
+Т.е. если ссылка заканчивается на слэшь, что является признаком директории, dir_mod подставит аля index.cgi и т.д. до тех пор пока не перебирет все расширения в поисках существующего индексного файла в папке.
+</p>
+
+<p>
+Допустим вот такая ссылка <a href="http://test.com/folder1/" class="urlextern" title="http://test.com/folder1/" rel="nofollow">http://test.com/folder1/</a>
+</p>
+
+<p>
+Dir_mod будет подставлять
+</p>
+<pre class="code">http://test.com/folder1/index.cgi
+http://test.com/folder1/index.pl
+http://test.com/folder1/index.html</pre>
+
+<p>
+И теперь можно представить как это все будет выглядить в случае mod_rewrite и в случае классического перенаправления в единую точка входа веб приложения
+</p>
+<pre class="code">RewriteRule ^index\.php$ - [L]
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule . /index.php [L]</pre>
+
+<p>
+mod_rewrite сделает много циклов, т.к. dir_mod будет каждый раз переопределять url.
+</p>
+
+<p>
+И чтобы избежать данного процесса, нужно указать конкретные индексные файлы, использующиеся в приложении
+</p>
+<pre class="code"># Допустим ограничим только поиском Index.html в директориях
+&lt;VirtualHost *:80&gt;
+    ServerName test.com
+    DocumentRoot /var/www/test
+    
+    &lt;Directory /var/www/test&gt;
+        DirectoryIndex index.html
+        
+        RewriteEngine On
+        RewriteRule ^index\.php$ - [L]
+        RewriteCond %{REQUEST_FILENAME} !-f
+        RewriteCond %{REQUEST_FILENAME} !-d
+        RewriteRule . /index.php [L]
+    &lt;/Directory&gt;
+&lt;/VirtualHost&gt;</pre>
+
+</div>

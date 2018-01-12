@@ -1,0 +1,120 @@
+
+<h1 class="sectionedit1" id="настройка_smtp_аутэнтификации_в_postfix_с_помощью_dovecot">Настройка SMTP аутэнтификации в Postfix с помощью Dovecot</h1>
+<div class="level1">
+
+<p>
+Основную часть настройки авторизации Dovecot-а смотреть <a href="/doku.php?id=%D0%BD%D0%B0%D1%81%D1%82%D1%80%D0%BE%D0%B9%D0%BA%D0%B0_ubuntu_16_postfix_dovecot_2_imap_pop3" class="wikilink1" title="настройка_ubuntu_16_postfix_dovecot_2_imap_pop3">здесь</a>.
+</p>
+
+<p>
+Зачем это вообще надо, т.е. зачем нужна SMTP аутентификация?
+</p>
+
+<p>
+Нужно это для того чтобы, дать возможность нашим клиентам использовать наш сервер для отправки почты во внешний мир. Если не делать аутентификацию клиентов, то достаточно быстро наш почтовый сервер превратиться в открытый шлюз (Open relay), и абсолютно любой человек на земле сможет воспользоваться нашим сервером для пересылки своих сообщений на другие сервера в интернете. Ну короче станем мы злостными рассыльщиками спама.
+</p>
+
+<p>
+Что значит воспользоваться аутентификацией Dovecot (Dovecot SASL)?
+</p>
+
+<p>
+Это значит, что при подключении клиента по SMTP к нашему серверу, сервер через сокет передаст логин и пароль модулю Dovecota (ответственному за аутентификацию). Тот в свою очередь сопоставит переданные данные с имеющимися на сервере и в случае совпадения вернет грубо говоря true. “Мол все окей, логин и пароль совпадают с теми, что есть в базе данных.”
+</p>
+
+<p>
+Итак, пароль это конечно замечательно, но хотелось бы осуществлять его передачу не в открытом виде, а зашифрованном. Для этого лучше всего подойдет способ подключения клиента к серверу с помощью шифрованного соединения. Для этого в Postfix нужно включить TLS шифрование и создать сертификаты.
+</p>
+
+<p>
+Начнем с донастройки Dovecot-а. А именно разместим сокет Dovecot-а в специальном каталоге Postfix-а
+</p>
+<pre class="code">conf.d/10-master.conf:
+     service auth {
+       ...
+       unix_listener /var/spool/postfix/private/auth {
+         mode = 0660
+         # Удостовреться, что Postfix работает под ниже описанными пользователем и группой
+         user = postfix
+         group = postfix        
+       }
+       ...
+     }
+ 
+conf.d/10-auth.conf
+     auth_mechanisms = plain login</pre>
+
+<p>
+Далее переходим к конфигу Postfix /etc/postfix/main.cf
+</p>
+
+<p>
+В Postfix как и в Dovecot существует 3 барьера безопасности для подключения к серверу:
+</p>
+<ol>
+<li class="level1"><div class="li"> С использованием логина и пароля - PLAIN</div>
+</li>
+<li class="level1"><div class="li"> С использованием логина и зашифрованного пароля</div>
+</li>
+<li class="level1"><div class="li"> С использованием первого или второго метода + шифрование самого соединения (STARTTLS, SSL/TLS)</div>
+</li>
+</ol>
+
+<p>
+Для начала включим простую (PLAIN) авторизацию.
+</p>
+<pre class="code"># /etc/postfix/main.cf
+
+smtpd_sasl_type = dovecot
+smtpd_sasl_path = private/auth
+smtpd_sasl_auth_enable = yes
+broken_sasl_auth_clients = yes
+smtpd_sasl_security_options = noanonymous
+</pre>
+
+<p>
+Теперь включаем TLS
+</p>
+<pre class="code">
+smtpd_use_tls = yes
+smtpd_tls_key_file = /etc/ssl/private/server.key
+smtpd_tls_cert_file = /etc/ssl/certs/server.crt
+smtpd_sasl_tls_security_options = noanonymous
+smtpd_tls_auth_only = yes
+
+# Параметр smtpd_sasl_security_options можно поменять на  [noanonymous, noplaintext], т.е.
+# smtpd_sasl_security_options = noanonymous, noplaintext - этот параметр не позволит установить соединение в случае передачи пароля в открытом виде и без установки шифрованного соединения TLS.
+# В свою очередь [smtpd_sasl_tls_security_options] позволяет передавать пароль в открытом виде, но только при установленном TLS соединении.
+</pre>
+
+<p>
+Серты создаем с помощью команды
+</p>
+<pre class="code">sudo openssl req -x509 -nodes -days 36500 -newkey rsa:2048 -keyout /etc/ssl/private/server.key -out /etc/ssl/certs/server.crt</pre>
+
+<p>
+Ну и самое главное для чего все это делалось. Т.е. объявить, что пересылка писем на внешние сервера возможна только после аутентификации.
+</p>
+<pre class="code">mynetworks = host
+smtpd_relay_restrictions = permit_mynetworks, permit_sasl_authenticated, reject_unauth_destination</pre>
+
+<p>
+И еще немного сахарку. Может захотеться, чтобы клиенты желающие отправлять почту через наш сервер подключались только и сразу с помощью шифрованного соединения. Для этого предусмотрен порт 465. Включить его можно следующим способом.
+</p>
+<pre class="code"># /etc/postfix/master.cf
+smtps inet n - n - - smtpd 
+    -o smtpd_tls_wrappermode=yes 
+    -o smtpd_sasl_auth_enable=yes</pre>
+
+<p>
+Так же по фэншую можно включить 587 порт, т.к. многие почтовые клиенты используют его по умолчанию.
+</p>
+<pre class="code">
+# /etc/postfix/master.cf
+
+submission inet n       -       n       -       -       smtpd
+  -o smtpd_tls_security_level=encrypt
+  -o smtpd_sasl_auth_enable=yes
+</pre>
+
+</div>
